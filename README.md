@@ -2,10 +2,21 @@
 
 自動化每日股市分析日報系統，涵蓋 TSMC（台積電，2330.TW / TSM NYSE）完整投資分析。
 
+## GitHub Pages 線上閱覽
+
+**https://tomwu229622.github.io/tsmc-daily-report/**
+
+- 上方下拉選單選擇日期，下方即時載入該日報告
+- 前 / 後一日導覽按鈕 + 鍵盤 `←` `→` 快速切換
+- 最新 10 日快速選取 Pill
+- 「全螢幕開啟」可在新分頁瀏覽完整報告
+
 ## 檔案說明
 
 | 檔案 | 說明 |
 |------|------|
+| `index.html` | GitHub Pages 入口頁（日期選擇器） |
+| `manifest.json` | 報告清單（自動維護） |
 | `generate_tsmc_html_report.py` | HTML 日報產生器（每日執行） |
 | `TSMC_日報_YYYY-MM-DD.html` | 每日 HTML 報告（含日期） |
 | `TSMC_股市分析報告.xlsx` | Excel 分析報告（含每日更新記錄） |
