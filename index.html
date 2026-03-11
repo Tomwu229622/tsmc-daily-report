@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSMC 台積電 每日股市分析報告</title>
+<style>
+:root {
+  --navy: #0D1B2A;
+  --blue: #1565C0;
+  --mid:  #1976D2;
+  --light:#BBDEFB;
+  --bg:   #F0F4F8;
+  --card: #FFFFFF;
+  --muted:#546E7A;
+  --border:#E0E8F0;
+  --green:#4CAF50;
+  --red:  #F44336;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOP HEADER ── */
+.top-bar {
+  background: var(--navy);
+  color: #fff;
+  height: 52px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,.35);
+  z-index: 200;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-logo {
+  width: 34px; height: 34px;
+  background: var(--blue);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 12px; letter-spacing: -0.5px;
+  color: #fff; flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,.2);
+}
+
+.brand-title { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
+.brand-sub   { font-size: 10px; color: #90CAF9; margin-top: 1px; }
+
+.header-meta {
+  font-size: 11px;
+  color: #90CAF9;
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* ── DATE CONTROL BAR ── */
+.date-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 7px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.date-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+
+.nav-btn {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--navy);
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-btn:hover:not(:disabled) { background: var(--light); border-color: var(--mid); color: var(--mid); }
+.nav-btn:disabled { opacity: .3; cursor: not-allowed; }
+
+.date-select {
+  background: #fff;
+  border: 1.5px solid var(--mid);
+  color: var(--navy);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 185px;
+  height: 28px;
+}
+.date-select:focus { outline: none; box-shadow: 0 0 0 2.5px rgba(25,118,210,.18); }
+
+.latest-badge {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+  border-radius: 10px;
+  padding: 2px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+.open-btn {
+  margin-left: auto;
+  background: var(--mid);
+  color: #fff;
+  border: none;
+  padding: 5px 13px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background .15s;
+  white-space: nowrap;
+  height: 28px;
+}
+.open-btn:hover { background: var(--blue); }
+
+/* ── QUICK DATE PILLS ── */
+.pills-bar {
+  background: #F7FBFF;
+  border-bottom: 1px solid var(--border);
+  padding: 5px 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.pills-label {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  margin-right: 3px;
+  white-space: nowrap;
+}
+
+.pill {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  transition: all .15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.pill:hover { border-color: var(--mid); color: var(--mid); background: #E3F2FD; }
+.pill.active { background: var(--mid); color: #fff; border-color: var(--mid); }
+
+/* ── IFRAME AREA ── */
+.frame-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+#report-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── LOADING OVERLAY ── */
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  gap: 14px;
+  z-index: 50;
+  transition: opacity .25s;
+}
+.loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 38px; height: 38px;
+  border: 4px solid var(--border);
+  border-top: 4px solid var(--mid);
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text { font-size: 13px; color: var(--muted); }
+.loading-sub   { font-size: 11px; color: #aaa; }
+
+/* ── ERROR STATE ── */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  color: var(--red);
+}
+.error-icon { font-size: 44px; }
+.error-title { font-size: 16px; font-weight: 700; }
+.error-sub   { font-size: 12px; color: var(--muted); text-align: center; max-width: 380px; line-height: 1.6; }
+
+/* ── STATUS BAR ── */
+.status-bar {
+  background: var(--navy);
+  color: #90CAF9;
+  font-size: 10px;
+  padding: 3px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 16px;
+}
+.status-bar a { color: #90CAF9; text-decoration: none; }
+.status-bar a:hover { color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .top-bar    { padding: 0 12px; height: 48px; }
+  .brand-title { font-size: 13px; }
+  .brand-sub   { display: none; }
+  .date-bar    { padding: 6px 12px; }
+  .pills-bar   { padding: 5px 12px; }
+  .status-bar  { padding: 3px 12px; }
+  .date-select { min-width: 140px; }
+  .header-meta { display: none; }
+  .date-label  { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP HEADER ── -->
+<div class="top-bar">
+  <div class="brand">
+    <div class="brand-logo">TSM</div>
+    <div>
+      <div class="brand-title">TSMC 台積電 每日股市分析報告</div>
+      <div class="brand-sub">Taiwan Semiconductor Manufacturing Company — Daily Research Report</div>
+    </div>
+  </div>
+  <div class="header-meta" id="header-meta">載入中...</div>
+</div>
+
+<!-- ── DATE CONTROL BAR ── -->
+<div class="date-bar">
+  <span class="date-label">選擇日期</span>
+  <button class="nav-btn" id="btn-older" title="前一份（較舊）" onclick="navigate('older')" disabled>&#9664;</button>
+  <select class="date-select" id="date-select" onchange="loadReport(this.value)">
+    <option>— 載入中 —</option>
+  </select>
+  <button class="nav-btn" id="btn-newer" title="後一份（較新）" onclick="navigate('newer')" disabled>&#9654;</button>
+  <span class="latest-badge" id="latest-badge" style="display:none">最新</span>
+  <a class="open-btn" id="open-btn" href="#" target="_blank" rel="noopener">
+    &#11025;&nbsp;全螢幕開啟
+  </a>
+</div>
+
+<!-- ── QUICK DATE PILLS ── -->
+<div class="pills-bar" id="pills-bar">
+  <span class="pills-label">快速選取</span>
+  <span style="font-size:11px;color:#aaa">載入中...</span>
+</div>
+
+<!-- ── IFRAME + LOADING OVERLAY ── -->
+<div class="frame-wrap">
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">載入報告中...</div>
+    <div class="loading-sub" id="loading-sub"></div>
+  </div>
+  <iframe id="report-frame" src="about:blank" onload="onFrameLoad()" sandbox="allow-same-origin allow-scripts"></iframe>
+</div>
+
+<!-- ── STATUS BAR ── -->
+<div class="status-bar">
+  <span>TSMC 台積電每日分析 &#8212; 本報告由自動化腳本產生，不構成投資建議</span>
+  <span id="status-right">—</span>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   State
+═══════════════════════════════════════════════ */
+let reports  = [];   // sorted newest-first
+let curIdx   = 0;    // index into reports[]
+let frameReady = false;
+
+/* ═══════════════════════════════════════════════
+   Boot
+═══════════════════════════════════════════════ */
+async function init() {
+  try {
+    const url = './manifest.json?t=' + Date.now();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    reports = data.reports || [];
+    if (reports.length === 0) throw new Error('manifest.json 中沒有報告');
+
+    // Header meta
+    document.getElementById('header-meta').innerHTML =
+      '共 ' + reports.length + ' 份報告&nbsp;&nbsp;|&nbsp;&nbsp;最新：' + data.latest;
+
+    // Build dropdown
+    const sel = document.getElementById('date-select');
+    sel.innerHTML = '';
+    reports.forEach((r, i) => {
+      const opt = document.createElement('option');
+      opt.value = r.date;
+      opt.textContent = r.label + (i === 0 ? '　★ 最新' : '');
+      sel.appendChild(opt);
+    });
+
+    // Build pills (≤10 most recent)
+    buildPills(reports.slice(0, 10));
+
+    // Load latest
+    loadReport(reports[0].date);
+
+  } catch (err) {
+    showError(err.message);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Pills
+═══════════════════════════════════════════════ */
+function buildPills(list) {
+  const bar = document.getElementById('pills-bar');
+  bar.innerHTML = '<span class="pills-label">快速選取</span>';
+  list.forEach((r, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'pill' + (i === 0 ? ' active' : '');
+    btn.textContent = r.date;
+    btn.dataset.date = r.date;
+    btn.onclick = () => {
+      document.getElementById('date-select').value = r.date;
+      loadReport(r.date);
+    };
+    bar.appendChild(btn);
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   Load report
+═══════════════════════════════════════════════ */
+function loadReport(dateStr) {
+  if (!dateStr || !reports.length) return;
+
+  const idx = reports.findIndex(r => r.date === dateStr);
+  if (idx === -1) return;
+  curIdx = idx;
+
+  const r = reports[idx];
+
+  // Show loading
+  frameReady = false;
+  const loadEl = document.getElementById('loading');
+  loadEl.classList.remove('hidden');
+  document.getElementById('loading-sub').textContent = r.label + '　' + r.filename;
+
+  // Load iframe
+  document.getElementById('report-frame').src = r.filename;
+
+  // Sync controls
+  document.getElementById('date-select').value = dateStr;
+  document.getElementById('open-btn').href = r.filename;
+
+  // Sync pills
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.date === dateStr);
+  });
+
+  // Latest badge
+  document.getElementById('latest-badge').style.display = (idx === 0) ? 'inline' : 'none';
+
+  // Nav buttons
+  document.getElementById('btn-older').disabled = (idx >= reports.length - 1);
+  document.getElementById('btn-newer').disabled = (idx <= 0);
+
+  // Status bar
+  document.getElementById('status-right').textContent = r.label + '　|　' + r.filename;
+}
+
+/* ═══════════════════════════════════════════════
+   Prev / Next
+═══════════════════════════════════════════════ */
+function navigate(dir) {
+  // reports[0] = newest, reports[last] = oldest
+  // 'newer' → lower index;  'older' → higher index
+  const newIdx = (dir === 'older') ? curIdx + 1 : curIdx - 1;
+  if (newIdx >= 0 && newIdx < reports.length) {
+    loadReport(reports[newIdx].date);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Iframe loaded
+═══════════════════════════════════════════════ */
+function onFrameLoad() {
+  // Ignore the initial about:blank load
+  const src = document.getElementById('report-frame').src;
+  if (!src || src === 'about:blank' || src.endsWith('about:blank')) return;
+  frameReady = true;
+  document.getElementById('loading').classList.add('hidden');
+}
+
+/* ═══════════════════════════════════════════════
+   Error state
+═══════════════════════════════════════════════ */
+function showError(msg) {
+  const loadEl = document.getElementById('loading');
+  loadEl.innerHTML =
+    '<div class="error-state">' +
+    '<div class="error-icon">&#9888;</div>' +
+    '<div class="error-title">無法載入報告清單</div>' +
+    '<div class="error-sub">' + escHtml(msg) + '<br><br>' +
+    '請確認 <code>manifest.json</code> 已存在於相同目錄，<br>' +
+    '並已將所有檔案部署至 GitHub Pages。</div>' +
+    '</div>';
+  document.getElementById('header-meta').textContent = '載入失敗';
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ═══════════════════════════════════════════════
+   Keyboard navigation (← →)
+═══════════════════════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  navigate('older');
+  if (e.key === 'ArrowRight') navigate('newer');
+});
+
+/* ── Boot ── */
+init();
+</script>
+</body>
+</html>
