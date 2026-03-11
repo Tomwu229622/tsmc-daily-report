@@ -181,6 +181,56 @@ footer strong{color:#90A4AE}
   body{background:#fff}
   .kpi,.news-card,.stock-box,.inst-card,.risk-card{box-shadow:none;border:1px solid #ddd}
 }
+
+/* ── VALUATION ── */
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:12px}
+.val-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.val-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.val-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.val-sub{font-size:11px;color:var(--muted)}
+.pct-bar-wrap{background:#E0E8F0;border-radius:6px;height:10px;overflow:hidden;margin:6px 0 3px}
+.pct-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--mid))}
+
+/* ── CASHFLOW ── */
+.cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.cf-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.cf-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cf-val{font-size:15px;font-weight:700;color:var(--navy);margin:3px 0 1px}
+.cf-chg{font-size:11px;font-weight:600}
+
+/* ── RELATIVE STRENGTH ── */
+.rel-row{display:grid;grid-template-columns:130px repeat(4,1fr);gap:0;margin-bottom:2px;align-items:center}
+.rel-hdr{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:4px 0}
+.rel-lbl{font-size:12px;font-weight:600;color:var(--navy);padding:4px 0}
+.rel-val{font-size:12px;font-weight:700;text-align:center;padding:4px 0}
+.adr-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;border-radius:10px;
+  padding:14px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.adr-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.adr-val{font-size:18px;font-weight:700;margin-top:4px}
+
+/* ── COWOS ── */
+.cowos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:12px}
+.cowos-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center;border-top:3px solid var(--blue)}
+.cowos-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cowos-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.cowos-sub{font-size:11px;color:var(--muted)}
+.cowos-cust-bar{display:flex;height:24px;border-radius:8px;overflow:hidden;margin:10px 0 6px}
+
+/* ── EPS REVISION ── */
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.rev-box{background:var(--card);border-radius:9px;padding:14px;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.rev-period{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.rev-consensus{font-size:28px;font-weight:700;color:var(--navy)}
+.rev-range{font-size:11px;color:var(--muted);margin-top:3px}
+.rev-trend-up{display:inline-block;background:#E8F5E9;color:#2E7D32;
+  border-radius:10px;padding:2px 9px;font-size:11px;font-weight:700}
+.trigger-list{display:flex;flex-direction:column;gap:5px}
+.trigger-item{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#444;line-height:1.5}
+.trigger-badge{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;
+  padding:2px 6px;color:#fff;margin-top:2px}
 </style>
 </head>
 <body>
@@ -200,6 +250,12 @@ footer strong{color:#90A4AE}
   <a href="#fab">稼動率</a>
   <a href="#risk">風險</a>
   <a href="#calendar">行事曆</a>
+  <a href="#valuation">估值位階</a>
+  <a href="#cashflow">現金流</a>
+  <a href="#relative">相對強弱</a>
+  <a href="#cowos">CoWoS</a>
+  <a href="#fx">匯率敏感</a>
+  <a href="#revision">EPS修正</a>
 </nav>
 
 <!-- HEADER -->
@@ -829,6 +885,336 @@ footer strong{color:#90A4AE}
   </div>
   <p style="font-size:10.5px;color:var(--muted);margin-top:8px">
     Source: <a href="https://investor.tsmc.com/english/financial-calendar" style="color:var(--blue)">TSMC Investor Relations — Financial Calendar</a></p>
+</div>
+
+<!-- ═══ 14. 估值歷史位階 ═══ -->
+<div class="sec" id="valuation">
+  <div class="sec-title">📐 估值歷史位階（Valuation Percentile）</div>
+  <div class="alert">⚠ P/E 歷史百分位為估算（Bloomberg/Refinitiv 基準），請每季更新基準值</div>
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="val-lbl">P/E 目前</div>
+      <div class="val-val">28.9x</div>
+      <div class="val-sub">5Y 均 18.5x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:74%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>74%</strong>（高 37.8x / 低 9.8x）</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/E 10年位階</div>
+      <div class="val-val">80%</div>
+      <div class="val-sub">10Y 均 16.2x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:80%"></div></div>
+      <div class="val-sub">10Y 歷史百分位</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/B 目前</div>
+      <div class="val-val">9.2x</div>
+      <div class="val-sub">5Y 均 5.8x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:78%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>78%</strong></div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">EV/EBITDA（估）</div>
+      <div class="val-val">17.8x</div>
+      <div class="val-sub">半導體業均約 12–16x</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">PEG Ratio</div>
+      <div class="val-val" style="color:var(--green)">0.88</div>
+      <div class="val-sub">&lt;1 = 相對成長便宜</div>
+    </div>
+  </div>
+  <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);font-size:12.5px;color:#444;line-height:1.75">
+    <strong>估值解讀：</strong>目前 P/E 28.9x 處於 5 年 <strong>74%</strong> 分位 / 10 年 <strong>80%</strong> 分位高位，
+    反映市場對 AI 超級週期的溢價預期。PEG 0.88 顯示相對成長速度仍屬合理；EV/EBITDA 17.8x 高於業均，
+    但考量 TSMC 壟斷性市占與訂單能見度，溢價具基本面支撐。若 AI 資本支出鬆動，P/E 均值回歸至 18.5x
+    意味台股下修至約 NT$1,200，為主要下行風險情境。
+  </div>
+</div>
+
+<!-- ═══ 15. 現金流品質 ═══ -->
+<div class="sec" id="cashflow">
+  <div class="sec-title">💵 現金流品質分析（Quality of Earnings）</div>
+  <div class="alert">⚠ FCF 來自 KPI 區塊；DOI / AR 為業界估算，建議至 TSMC 季報核實</div>
+  <div class="cf-grid">
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 合併營收</div>
+      <div class="cf-val">NT$3.8兆 ($122B)</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 毛利率（估）</div>
+      <div class="cf-val" style="color:var(--green)">56.1%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：62.3%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 營業利益率（估）</div>
+      <div class="cf-val" style="color:var(--green)">47.7%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：54.0%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 CapEx（估）</div>
+      <div class="cf-val">$34.5B USD（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">佔收入 28.3%（估）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 自由現金流</div>
+      <div class="cf-val" style="color:var(--green)">NT$1兆+（FY25 KPI）</div>
+      <div class="cf-chg" style="color:var(--muted)">FCF 殖利率 ~2.0%（NT$49.27T）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">存貨天數 DOI（估）</div>
+      <div class="cf-val">82 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -9 天（去化）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">應收帳款天數 AR（估）</div>
+      <div class="cf-val">43 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -4 天（改善）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">庫存趨勢</div>
+      <div class="cf-val" style="font-size:13px;color:var(--green)">去化中（連續 3 季下降）</div>
+      <div class="cf-chg" style="color:var(--muted)">下游需求復甦訊號</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 16. 相對強弱 / ADR 折溢價 ═══ -->
+<div class="sec" id="relative">
+  <div class="sec-title">📊 相對強弱 &amp; ADR 折溢價（Relative Strength）</div>
+  <div class="alert">⚠ ADR 理論值 = 5 × 台股收盤 ÷ 匯率（不含交易摩擦與流動性溢價）。TAIEX/多期間數據為估算</div>
+  <div style="background:var(--card);border-radius:9px;padding:14px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);overflow-x:auto;margin-bottom:12px">
+    <div class="rel-row" style="border-bottom:2px solid var(--border);padding-bottom:6px;margin-bottom:6px">
+      <div class="rel-hdr">標的</div>
+      <div class="rel-hdr" style="text-align:center">今日</div>
+      <div class="rel-hdr" style="text-align:center">5 日</div>
+      <div class="rel-hdr" style="text-align:center">1 月</div>
+      <div class="rel-hdr" style="text-align:center">YTD</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">TSMC 台股 2330</div>
+      <div class="rel-val" style="color:#4CAF50">+1.86%</div>
+      <div class="rel-val" style="color:#4CAF50">+3.2%</div>
+      <div class="rel-val" style="color:#F44336">-4.2%</div>
+      <div class="rel-val" style="color:#F44336">-5.1%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TAIEX 加權指數</div>
+      <div class="rel-val" style="color:#4CAF50">+0.52%</div>
+      <div class="rel-val" style="color:#4CAF50">+1.1%</div>
+      <div class="rel-val" style="color:#F44336">-1.8%</div>
+      <div class="rel-val" style="color:#F44336">-2.3%</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">SOX 半導體指數</div>
+      <div class="rel-val" style="color:#F44336">-0.60%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val" style="color:#F44336">-12.3%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TSM NYSE ADR</div>
+      <div class="rel-val" style="color:#F44336">-2.22%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+    </div>
+  </div>
+  <div class="adr-box">
+    <div>
+      <div class="adr-lbl">ADR 市價（NYSE）</div>
+      <div class="adr-val">US$349.49</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">比例 5:1（1 ADR = 5 股）</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 理論平價（估）</div>
+      <div class="adr-val">US$302.27</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">5 × NT$1,915 ÷ 31.68</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 溢價</div>
+      <div class="adr-val" style="color:#FDD835">+15.6%</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">Beta(60d): 1.56</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 17. CoWoS 先進封裝產能 ═══ -->
+<div class="sec" id="cowos">
+  <div class="sec-title">🔧 CoWoS 先進封裝產能追蹤</div>
+  <div class="alert">⚠ 數據來源：TrendForce 2026-Q1 預估；wspm = 晶圓片/月（均為估算）</div>
+  <div class="cowos-grid">
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-S 月產能</div>
+      <div class="cowos-val">~15,000</div>
+      <div class="cowos-sub">wspm（主力 AI GPU）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-L 月產能</div>
+      <div class="cowos-val">~5,000</div>
+      <div class="cowos-sub">wspm（大尺寸 HPC）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-R 月產能</div>
+      <div class="cowos-val">~2,000</div>
+      <div class="cowos-sub">wspm（RDL 次世代）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">2025 年合計</div>
+      <div class="cowos-val">~22,000</div>
+      <div class="cowos-sub">wspm</div>
+    </div>
+    <div class="cowos-card" style="border-top-color:var(--green)">
+      <div class="cowos-lbl">2026 年目標</div>
+      <div class="cowos-val" style="color:var(--green)">~35,000</div>
+      <div class="cowos-sub">wspm / YoY +59%</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">稼動率</div>
+      <div class="cowos-val" style="color:var(--green)">>95%</div>
+      <div class="cowos-sub">訂單積壓 4 季</div>
+    </div>
+  </div>
+  <div class="sub-title">CoWoS 客戶分配佔比（估）</div>
+  <div class="cowos-cust-bar">
+    <div style="flex:65;background:#76B900" title="NVIDIA ~65% — GB200/GB300 NVL72"></div><div style="flex:18;background:#ED1C24" title="AMD ~18% — MI350/MI450"></div><div style="flex:12;background:#CC0000" title="Broadcom ~12% — Custom XPU"></div><div style="flex:5;background:#90CAF9" title="Others ~5% — 各種 AI ASIC"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>CoWoS 佔比（估）</th><th>主要產品</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76B900">NVIDIA</strong></td><td><strong>~65%</strong></td><td>GB200/GB300 NVL72</td></tr><tr><td><strong style="color:#ED1C24">AMD</strong></td><td><strong>~18%</strong></td><td>MI350/MI450</td></tr><tr><td><strong style="color:#CC0000">Broadcom</strong></td><td><strong>~12%</strong></td><td>Custom XPU</td></tr><tr><td><strong style="color:#90CAF9">Others</strong></td><td><strong>~5%</strong></td><td>各種 AI ASIC</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;background:#FFF3E0;border-left:3px solid var(--orange);
+    border-radius:6px;padding:8px 12px;font-size:11.5px;color:#795548;line-height:1.65">
+    <strong>瓶頸說明：</strong>ABF 基板與 HBM 供應限制（非 TSMC 封裝本身）<br>
+    <strong>ASP 說明：</strong>CoWoS 封裝 ASP 約為 HPC 裸晶圓的 2–3 倍，毛利率高於公司均值
+  </div>
+</div>
+
+<!-- ═══ 18. 匯率敏感度 ═══ -->
+<div class="sec" id="fx">
+  <div class="sec-title">💱 匯率敏感度分析（FX Sensitivity）</div>
+  <div class="alert">⚠ TSMC 官方法說：新台幣每升值 1%，毛利率約下降 40bps（FY2025 法說會指引）</div>
+  <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">今日 USD/NTD 匯率</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">31.68</div>
+      <div style="font-size:11px;color:var(--muted)">台幣越小 = 台幣越強</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">毛利率影響 / 每 1% 升值</div>
+      <div style="font-size:24px;font-weight:700;color:var(--red);margin:3px 0">-40 bps</div>
+      <div style="font-size:11px;color:var(--muted)">TSMC 官方法說會指引</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">外幣避險比例（估）</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">~75%</div>
+      <div style="font-size:11px;color:var(--muted)">~75%（外幣避險比例估算）</div>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>USD/NTD 匯率</th><th>情境說明</th><th>毛利率影響（bps）</th><th>EPS 影響（估）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>30.0</strong></td>
+        <td>NTD +5.6%（強升）</td>
+        <td style="color:var(--red)">約 -224 bps</td>
+        <td style="color:var(--red)">約 -7.8%</td>
+      </tr><tr>
+        <td><strong>31.0</strong></td>
+        <td>NTD +2.2%（小升）</td>
+        <td style="color:var(--red)">約 -88 bps</td>
+        <td style="color:var(--red)">約 -3.1%</td>
+      </tr><tr style="background:#FFF8E1;font-weight:700">
+        <td><strong>31.68</strong></td>
+        <td>基準（今日）</td>
+        <td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td>
+      </tr><tr>
+        <td><strong>32.5</strong></td>
+        <td>NTD -2.6%（小貶）</td>
+        <td style="color:var(--green)">約 +104 bps</td>
+        <td style="color:var(--green)">約 +3.6%</td>
+      </tr><tr>
+        <td><strong>34.0</strong></td>
+        <td>NTD -7.3%（大貶）</td>
+        <td style="color:var(--green)">約 +292 bps</td>
+        <td style="color:var(--green)">約 +10.2%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ 19. EPS 修正追蹤 ═══ -->
+<div class="sec" id="revision">
+  <div class="sec-title">✏️ EPS 修正追蹤（Earnings Revision Tracker）</div>
+  <div class="alert">⚠ 資料來源：Bloomberg / MarketScreener（估算），請每日核實更新</div>
+  <div class="rev-grid">
+    <div class="rev-box">
+      <div class="rev-period">Q1 2026 EPS 共識（32 位分析師）</div>
+      <div class="rev-consensus">NT$20.38</div>
+      <div class="rev-range">區間：NT$18.90 – NT$22.10</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +6.7%</span>
+      </div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-period">FY 2026 EPS 共識</div>
+      <div class="rev-consensus">NT$84.50</div>
+      <div class="rev-range">區間：NT$78.00 – NT$92.00</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +8.1%</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">連續超預期</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">8</div>
+      <div style="font-size:11px;color:var(--muted)">季（100% 超預期）</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">平均超預期幅度</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">+5.8%</div>
+      <div style="font-size:11px;color:var(--muted)">近 8 季均值</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">下次財報</div>
+      <div style="font-size:18px;font-weight:700;color:var(--blue);margin:4px 0">2026-04-16</div>
+      <div style="font-size:11px;color:var(--muted)">Q1 2026 法說會</div>
+    </div>
+  </div>
+  <div class="sub-title">修正催化因子</div>
+  <div class="trigger-list">
+    <div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>2月月營收年增22.2%，催化法人上修EPS預估</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>N3/N2 ASP調升，毛利率改善趨勢明確</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>全球AI晶片出口管制擴大，訂單能見度風險</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--orange)">中性</span>
+      <span>台幣升值壓力，毛利率中性至下修風險</span>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+    border-radius:10px;padding:14px 18px;font-size:12.5px;line-height:1.75">
+    <strong style="color:#FDD835">分析師觀點：</strong>目前 Q1 EPS 共識 NT$20.38，2 月營收年增 22.2% 後，預計法人將在 4/16 財報前陸續上修。EPS 有望挑戰 NT$21–22，此為股價突破 NT$2,025 歷史高點的核心動能。
+  </div>
 </div>
 
 <!-- FOOTER -->
