@@ -1,9 +1,10 @@
 """
 TSMC 台積電每日股市分析日報產生器 v2.0
 執行：python generate_tsmc_html_report.py
-輸出：TSMC_日報_YYYY-MM-DD.html
+輸出：TSMC_日報_YYYY-MM-DD.html + manifest.json (GitHub Pages)
 """
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
+import json, os
 
 TODAY = date.today().isoformat()
 
@@ -868,7 +869,37 @@ footer strong{{color:#90A4AE}}
 </body>
 </html>"""
 
-out = fr"C:\Users\K748\OneDrive - 財團法人中華民國對外貿易發展協會\FET\Stock分析\TSMC_日報_{TODAY}.html"
+BASE_DIR = r"C:\Users\K748\OneDrive - 財團法人中華民國對外貿易發展協會\FET\Stock分析"
+out = os.path.join(BASE_DIR, f"TSMC_日報_{TODAY}.html")
 with open(out, "w", encoding="utf-8") as f:
     f.write(HTML)
 print(f"Done: {out}")
+
+# ── Update manifest.json for GitHub Pages ─────────────────────────────
+manifest_path = os.path.join(BASE_DIR, "manifest.json")
+try:
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+    else:
+        manifest = {"reports": [], "latest": "", "updated": ""}
+
+    filename = f"TSMC_日報_{TODAY}.html"
+    if not any(r["date"] == TODAY for r in manifest["reports"]):
+        dt = datetime.strptime(TODAY, "%Y-%m-%d")
+        manifest["reports"].append({
+            "date": TODAY,
+            "filename": filename,
+            "label": f"{dt.year}年{dt.month:02d}月{dt.day:02d}日"
+        })
+
+    # Keep sorted newest-first
+    manifest["reports"].sort(key=lambda x: x["date"], reverse=True)
+    manifest["latest"]  = manifest["reports"][0]["date"]
+    manifest["updated"] = TODAY
+
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    print(f"Manifest updated ({len(manifest['reports'])} reports): {manifest_path}")
+except Exception as e:
+    print(f"Warning: Could not update manifest.json: {e}")
