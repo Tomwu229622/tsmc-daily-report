@@ -42,6 +42,26 @@ STOCK = {
     "data_note":      "台股數據：2026-03-12 收盤（估）  |  NYSE 數據：2026-03-12 盤中（3PM EST）  |  前2月累計營收年增29.9%（NT$7,189億）",
 }
 
+# 今日重點摘要（每日更新 — 白話文，供非專業讀者快速掌握）
+SUMMARY = {
+    # 整體信號：強烈看多 / 看多 / 中性偏多 / 中性 / 中性偏空 / 看空 / 強烈看空
+    "sentiment":  "中性偏多",
+    # 一句話標題
+    "headline":   "台股逆勢反彈 +2.37%，NYSE ADR 受地緣風險壓抑，短期台美市場出現分歧",
+    # 3–5 條白話重點（不用術語，每條約 30 字內）
+    "bullets": [
+        "台股 2330 收 NT$1,895（+2.37%）：NVIDIA 超越 Apple 成台積電最大客戶、N2 良率達 70-80% 雙利多激勵",
+        "NYSE TSM 跌 -2.22% 至 $349.49：美伊戰爭風險升溫，科技股普遍走弱",
+        "三大法人合計買超 5,470 張，外資連日買超，中長期立場偏多",
+        "Q1 財報（4/16）倒計時 35 天，EPS 共識 NT$20.38，近 8 季全部超預期",
+        "本週關注：3/17 除息（NT$6/股）、台幣匯率走勢（目前 31.68）、美伊情勢後續",
+    ],
+    # 一句結論
+    "bottom_line": "AI 需求動能仍強，短線地緣政治雜音視為逢低機會，中長線趨勢偏多，法人目標均價 NT$2,290（潛在漲幅 +20.8%）。",
+    # 重大警示（選填，空白則不顯示）
+    "risk_alert":  "",
+}
+
 # 三大法人買賣超（張）— 最新一日
 INSTITUTIONAL = {
     "date":     "2026-03-12",
@@ -350,6 +370,15 @@ NEWS = [
 # ═══════════════════════════════════════════════════════════════════
 # 輔助函式
 # ═══════════════════════════════════════════════════════════════════
+def sentiment_color(s):
+    if "強烈看多" in s: return "#1B5E20"
+    if "中性偏多" in s: return "#388E3C"
+    if "看多"    in s: return "#2E7D32"
+    if "中性偏空" in s: return "#BF360C"
+    if "強烈看空" in s: return "#B71C1C"
+    if "看空"    in s: return "#C62828"
+    return "#546E7A"   # 中性
+
 def pct_color(s):
     s = s.strip()
     return "#4CAF50" if s.startswith("+") else ("#F44336" if s.startswith("-") else "#888")
@@ -396,6 +425,9 @@ f_net = INSTITUTIONAL["foreign"]
 t_net = INSTITUTIONAL["trust"]
 d_net = INSTITUTIONAL["dealer"]
 total_net = f_net + t_net + d_net
+sc        = sentiment_color(SUMMARY["sentiment"])
+s_bullets = "".join(f"<li>{b}</li>" for b in SUMMARY["bullets"])
+s_risk    = f'<div class="s-risk">&#9888; {SUMMARY["risk_alert"]}</div>' if SUMMARY.get("risk_alert") else ""
 
 HTML = f"""<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -630,12 +662,37 @@ footer strong{{color:#90A4AE}}
 .trigger-item{{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#444;line-height:1.5}}
 .trigger-badge{{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;
   padding:2px 6px;color:#fff;margin-top:2px}}
+
+/* ── SUMMARY CARD ── */
+.summary-card{{background:#fff;border-radius:10px;padding:18px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.09);border-left:5px solid #888;
+  display:flex;gap:18px;align-items:flex-start}}
+.summary-left{{flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  gap:6px;min-width:76px;padding-top:2px}}
+.s-badge{{color:#fff;font-size:12px;font-weight:700;border-radius:7px;
+  padding:5px 10px;text-align:center;line-height:1.4;white-space:nowrap}}
+.s-label{{font-size:9px;color:var(--muted);font-weight:600;text-transform:uppercase;
+  letter-spacing:.3px}}
+.summary-right{{flex:1;min-width:0}}
+.s-headline{{font-size:14px;font-weight:700;color:var(--navy);line-height:1.45;
+  margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--border)}}
+.s-bullets{{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:11px}}
+.s-bullets li{{font-size:12.5px;color:#333;line-height:1.6;padding-left:16px;position:relative}}
+.s-bullets li::before{{content:"▸";position:absolute;left:0;top:2px;font-size:10px;color:var(--mid)}}
+.s-bottom{{background:var(--bg);border-radius:6px;padding:9px 13px;
+  font-size:12.5px;color:var(--navy);line-height:1.55;font-style:italic}}
+.s-risk{{background:#FFF3E0;border-left:3px solid #FF6F00;border-radius:4px;
+  padding:6px 10px;font-size:11.5px;color:#BF360C;font-weight:600;margin-top:8px}}
+@media(max-width:600px){{
+  .summary-card{{flex-direction:column;gap:10px}}
+  .summary-left{{flex-direction:row;min-width:unset}}}}
 </style>
 </head>
 <body>
 
 <!-- TOC -->
 <nav class="toc">
+  <a href="#summary">&#128203; 今日摘要</a>
   <a href="#price">股價</a>
   <a href="#kpi">財務KPI</a>
   <a href="#inst">法人買賣超</a>
@@ -669,6 +726,23 @@ footer strong{{color:#90A4AE}}
   </div>
 </div>
 <div class="data-note">⚠ {STOCK["data_note"]}</div>
+
+<!-- ═══ 0. 今日重點摘要 ═══ -->
+<div class="sec" id="summary">
+  <div class="sec-title">&#128203; 今日重點摘要</div>
+  <div class="summary-card" style="border-left-color:{sc}">
+    <div class="summary-left">
+      <div class="s-badge" style="background:{sc}">{SUMMARY["sentiment"]}</div>
+      <div class="s-label">今日信號</div>
+    </div>
+    <div class="summary-right">
+      <div class="s-headline">{SUMMARY["headline"]}</div>
+      <ul class="s-bullets">{s_bullets}</ul>
+      <div class="s-bottom">&#128161; {SUMMARY["bottom_line"]}</div>
+      {s_risk}
+    </div>
+  </div>
+</div>
 
 <!-- ═══ 1. 股價快照 ═══ -->
 <div class="sec" id="price">
