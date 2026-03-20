@@ -1458,3 +1458,4 @@ try:
     print(f"Manifest updated ({len(manifest['reports'])} reports): {manifest_path}")
 except Exception as e:
     print(f"Warning: Could not update manifest.json: {e}")
+    
