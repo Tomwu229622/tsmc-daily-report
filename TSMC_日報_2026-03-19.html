@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TSMC 台積電日報 — 2026-03-19</title>
+<style>
+:root{
+  --navy:#0D1B2A; --blue:#1565C0; --mid:#1976D2; --light:#BBDEFB;
+  --green:#4CAF50; --red:#F44336; --orange:#FF9800; --purple:#7B1FA2;
+  --bg:#F0F4F8; --card:#FFFFFF; --text:#1A1A2E; --muted:#546E7A;
+  --border:#E0E8F0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+
+/* NAV TOC */
+.toc{background:var(--navy);padding:8px 40px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.toc a{color:#90CAF9;font-size:11px;text-decoration:none;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.toc a:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6e 100%);color:#fff;padding:24px 40px 18px}
+.hdr h1{font-size:24px;font-weight:700;letter-spacing:.5px}
+.hdr-sub{font-size:12px;color:#90CAF9;margin-top:3px}
+.hdr-meta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.hdr-meta span{background:rgba(255,255,255,.12);border-radius:6px;padding:3px 10px;font-size:11px}
+.data-note{background:#FFF3E0;border-left:3px solid #FF9800;padding:6px 40px;font-size:11px;color:#E65100}
+
+/* SECTIONS */
+.sec{padding:16px 40px}
+.sec-title{font-size:14px;font-weight:700;color:var(--blue);border-left:4px solid var(--blue);
+  padding-left:10px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.3px}
+.sub-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin:12px 0 8px}
+
+/* STOCK PANEL */
+.stock-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stock-box{background:var(--card);border-radius:10px;padding:16px 18px;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);border-left:5px solid var(--mid)}
+.stock-exch{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:600}
+.stock-row{display:flex;align-items:baseline;gap:10px;margin:5px 0}
+.price{font-size:30px;font-weight:700;color:var(--navy)}
+.chg{font-size:15px;font-weight:600}
+.stock-detail{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;margin-top:10px}
+.sd{font-size:11.5px;color:var(--muted)}.sd span{color:var(--navy);font-weight:600}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.kpi{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-top:3px solid var(--blue)}
+.kpi-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.kpi-val{font-size:20px;font-weight:700;margin:3px 0 2px;color:var(--navy)}
+.kpi-chg{font-size:11.5px;font-weight:600}
+.kpi-note{font-size:10px;color:var(--muted)}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.news-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-bottom:3px solid var(--border)}
+.news-hdr{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.tag{color:#fff;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600}
+.impact{border:1.5px solid;border-radius:10px;padding:1px 7px;font-size:10.5px;font-weight:600}
+.news-title{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.45}
+.news-body{font-size:12px;color:#444;line-height:1.65;margin-bottom:7px}
+.news-src{font-size:10.5px;color:var(--muted)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--card);
+  border-radius:9px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+th{background:var(--mid);color:#fff;padding:8px 11px;font-size:11.5px;text-align:left;font-weight:600}
+td{padding:8px 11px;font-size:12px;border-bottom:1px solid #F0F4F8}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#F7FBFF}
+.badge{display:inline-block;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600;color:#fff}
+
+/* INSTITUTIONAL */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.inst-name{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.inst-val{font-size:22px;font-weight:700;margin:5px 0 3px}
+.inst-note{font-size:10.5px;color:var(--muted)}
+
+/* SPARK BARS */
+.spark-wrap{display:flex;gap:4px;align-items:flex-end;height:50px;margin-top:8px}
+.spark-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.spark-val{font-size:8.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+
+/* TECHNICAL */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.tech-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.tech-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.tech-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+.tech-sig{font-size:11px;font-weight:600;border-radius:10px;padding:2px 8px;display:inline-block}
+.ma-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ma-box{background:var(--card);border-radius:8px;padding:8px 10px;text-align:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.ma-lbl{font-size:10px;color:var(--muted)}
+.ma-val{font-size:14px;font-weight:700;margin-top:2px}
+
+/* DERIVATIVES */
+.deriv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px}
+.deriv-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.deriv-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.deriv-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+
+/* ECOSYSTEM */
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.eco-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.eco-type{font-size:10px;color:#fff;border-radius:4px;padding:1px 6px;font-weight:600}
+.eco-name{font-weight:700;font-size:13px;margin:5px 0 2px}
+.eco-price{font-size:16px;font-weight:700;color:var(--navy)}
+.eco-note{font-size:10.5px;color:var(--muted)}
+
+/* ANALYST */
+.analyst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.analyst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--blue)}
+.analyst-firm{font-size:12px;font-weight:700;color:var(--navy)}
+.analyst-tp{font-size:18px;font-weight:700;color:var(--blue);margin:5px 0 3px}
+.analyst-note{font-size:11.5px;color:#555}
+.consensus-bar{display:flex;border-radius:8px;overflow:hidden;height:22px;margin:10px 0 4px}
+
+/* EARNINGS COUNTDOWN */
+.countdown-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+  border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.countdown-days{font-size:56px;font-weight:700;line-height:1;color:#FDD835}
+.countdown-label{font-size:12px;color:#90CAF9;text-transform:uppercase}
+.countdown-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px}
+.cg-item{background:rgba(255,255,255,.1);border-radius:8px;padding:8px 12px}
+.cg-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.cg-val{font-size:14px;font-weight:700;margin-top:3px}
+
+/* FAB UTILIZATION */
+.fab-grid{display:flex;flex-direction:column;gap:8px}
+.fab-row{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:90px 80px 140px 1fr;gap:10px;align-items:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.fab-node{font-size:13px;font-weight:700;color:var(--navy)}
+.util-bar{height:10px;border-radius:5px;background:#E0E0E0;overflow:hidden;margin-top:3px}
+.util-fill{height:100%;border-radius:5px}
+
+/* CALENDAR */
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.cal-date{font-size:13px;font-weight:700;color:#fff;border-radius:6px;
+  padding:4px 8px;text-align:center}
+.cal-title{font-size:13px;font-weight:600;color:var(--navy)}
+.cal-desc{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* RISK */
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.risk-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.06);border-left:4px solid}
+.risk-lv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.risk-name{font-size:13px;font-weight:700;margin:4px 0}
+.risk-desc{font-size:12px;color:#555;line-height:1.55}
+
+/* FOOTER */
+footer{background:var(--navy);color:#607D8B;text-align:center;padding:14px 40px;font-size:10.5px;margin-top:12px}
+footer strong{color:#90A4AE}
+
+/* ALERT BOX */
+.alert{background:#FFF8E1;border-left:4px solid #FFC107;border-radius:6px;
+  padding:8px 12px;font-size:11.5px;color:#795548;margin-bottom:10px}
+
+@media(max-width:700px){
+  .sec,.hdr{padding:12px 14px}
+  .toc{padding:6px 14px}
+  .stock-grid,.inst-grid{grid-template-columns:1fr}
+  .fab-row{grid-template-columns:1fr 1fr}
+  .cal-item{grid-template-columns:1fr}
+}
+@media print{
+  .toc{display:none}
+  body{background:#fff}
+  .kpi,.news-card,.stock-box,.inst-card,.risk-card{box-shadow:none;border:1px solid #ddd}
+}
+
+/* VALUATION */
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:12px}
+.val-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.val-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.val-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.val-sub{font-size:11px;color:var(--muted)}
+.pct-bar-wrap{background:#E0E8F0;border-radius:6px;height:10px;overflow:hidden;margin:6px 0 3px}
+.pct-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--mid))}
+
+/* CASHFLOW */
+.cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.cf-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.cf-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cf-val{font-size:15px;font-weight:700;color:var(--navy);margin:3px 0 1px}
+.cf-chg{font-size:11px;font-weight:600}
+
+/* RELATIVE STRENGTH */
+.rel-row{display:grid;grid-template-columns:130px repeat(4,1fr);gap:0;margin-bottom:2px;align-items:center}
+.rel-hdr{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:4px 0}
+.rel-lbl{font-size:12px;font-weight:600;color:var(--navy);padding:4px 0}
+.rel-val{font-size:12px;font-weight:700;text-align:center;padding:4px 0}
+.adr-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;border-radius:10px;
+  padding:14px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.adr-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.adr-val{font-size:18px;font-weight:700;margin-top:4px}
+
+/* COWOS */
+.cowos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:12px}
+.cowos-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center;border-top:3px solid var(--blue)}
+.cowos-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cowos-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.cowos-sub{font-size:11px;color:var(--muted)}
+.cowos-cust-bar{display:flex;height:24px;border-radius:8px;overflow:hidden;margin:10px 0 6px}
+
+/* EPS REVISION */
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.rev-box{background:var(--card);border-radius:9px;padding:14px;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.rev-period{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.rev-consensus{font-size:28px;font-weight:700;color:var(--navy)}
+.rev-range{font-size:11px;color:var(--muted);margin-top:3px}
+.rev-trend-up{display:inline-block;background:#E8F5E9;color:#2E7D32;
+  border-radius:10px;padding:2px 9px;font-size:11px;font-weight:700}
+.trigger-list{display:flex;flex-direction:column;gap:5px}
+.trigger-item{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#444;line-height:1.5}
+.trigger-badge{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;
+  padding:2px 6px;color:#fff;margin-top:2px}
+
+/* SUMMARY CARD */
+.summary-card{background:#fff;border-radius:10px;padding:18px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.09);border-left:5px solid #888;
+  display:flex;gap:18px;align-items:flex-start}
+.summary-left{flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  gap:6px;min-width:76px;padding-top:2px}
+.s-badge{color:#fff;font-size:12px;font-weight:700;border-radius:7px;
+  padding:5px 10px;text-align:center;line-height:1.4;white-space:nowrap}
+.s-label{font-size:9px;color:var(--muted);font-weight:600;text-transform:uppercase;
+  letter-spacing:.3px}
+.summary-right{flex:1;min-width:0}
+.s-headline{font-size:14px;font-weight:700;color:var(--navy);line-height:1.45;
+  margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.s-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:11px}
+.s-bullets li{font-size:12.5px;color:#333;line-height:1.6;padding-left:16px;position:relative}
+.s-bullets li::before{content:"\25B8";position:absolute;left:0;top:2px;font-size:10px;color:var(--mid)}
+.s-bottom{background:var(--bg);border-radius:6px;padding:9px 13px;
+  font-size:12.5px;color:var(--navy);line-height:1.55;font-style:italic}
+.s-risk{background:#FFF3E0;border-left:3px solid #FF6F00;border-radius:4px;
+  padding:6px 10px;font-size:11.5px;color:#BF360C;font-weight:600;margin-top:8px}
+@media(max-width:600px){
+  .summary-card{flex-direction:column;gap:10px}
+  .summary-left{flex-direction:row;min-width:unset}}
+</style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#summary">&#128203; 今日摘要</a>
+  <a href="#price">股價</a>
+  <a href="#kpi">財務KPI</a>
+  <a href="#inst">法人買賣超</a>
+  <a href="#tech">技術分析</a>
+  <a href="#deriv">期貨選擇權</a>
+  <a href="#news">國際新聞</a>
+  <a href="#customer">客戶動態</a>
+  <a href="#ecosystem">產業生態系</a>
+  <a href="#analyst">法人評級</a>
+  <a href="#earnings">財報倒計時</a>
+  <a href="#fab">稼動率</a>
+  <a href="#risk">風險</a>
+  <a href="#calendar">行事曆</a>
+  <a href="#valuation">估值位階</a>
+  <a href="#cashflow">現金流</a>
+  <a href="#relative">相對強弱</a>
+  <a href="#cowos">CoWoS</a>
+  <a href="#fx">匯率敏感</a>
+  <a href="#revision">EPS修正</a>
+</nav>
+
+<!-- HEADER -->
+<div class="hdr">
+  <h1>TSMC 台積電 (2330 / TSM) 每日股市分析日報</h1>
+  <div class="hdr-sub">Taiwan Semiconductor Manufacturing Company — Daily Market Intelligence Report</div>
+  <div class="hdr-meta">
+    <span>報告日期：2026-03-19</span>
+    <span>股票代碼：2330.TW / TSM (NYSE)</span>
+    <span>下次財報：2026-04-16 (28 天後)</span>
+    <span>⚠ 本報告僅供參考，不構成投資建議</span>
+  </div>
+</div>
+<div class="data-note">⚠ 台股數據：2026-03-18 收盤（已確認）  |  NYSE 數據：2026-03-18 收盤（EST）  |  前2月累計營收年增29.9%（NT$7,189億）</div>
+
+<!-- 0. 今日重點摘要 -->
+<div class="sec" id="summary">
+  <div class="sec-title">&#128203; 今日重點摘要</div>
+  <div class="summary-card" style="border-left-color:#388E3C">
+    <div class="summary-left">
+      <div class="s-badge" style="background:#388E3C">中性偏多</div>
+      <div class="s-label">今日信號</div>
+    </div>
+    <div class="summary-right">
+      <div class="s-headline">台股 2330 3/18 逆勢收紅 +1.87% 至 NT$1,905，抵抗 NYSE TSM 大跌展現資金承接韌性</div>
+      <ul class="s-bullets"><li>台股 2330（3/18 確認）：收 NT$1,905（+35，+1.87%），成交量 23,015 張；NYSE TSM 跌 -5.03% 後台股逆勢收紅，顯示本地資金強勁承接</li><li>NVIDIA 超越 Apple 成台積電最大客戶：2026 年 NVIDIA 貢獻 TSMC 營收估 $330 億（~22%）；Apple 降至 $270 億（~18%）</li><li>TSMC 2nm N2P 試量產 3 月啟動，Apple 率先導入：A20 iPhone 晶片採 2nm，良率爬升中；NVIDIA A16 首個長線大客戶確立</li><li>TSMC 全球晶圓代工市佔達 72%，Samsung 僅 7%：AI GPU、ASIC 需求推動純晶圓代工市場 Q4 2025 年增 20%</li><li>全球半導體市場 2026 年料首破 $1 兆美元（年增 30.7%），AI 晶片貢獻 50% 總營收；4/16 Q1 財報為催化劑</li></ul>
+      <div class="s-bottom">&#128161; 台股 2330 在 NYSE TSM 重挫 -5.03% 後逆勢收紅 +1.87% 至 NT$1,905，展現強勁基本面支撐。NVIDIA 超越 Apple 成最大客戶、2nm N2P 試量產啟動、CoWoS 訂單積壓 4 季，中長線基本面穩健。法人共識目標 NT$2,290（+20.2% 上行空間），4/16 Q1 財報為下一重要催化劑。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1. 股價快照 -->
+<div class="sec" id="price">
+  <div class="sec-title">📈 今日股價快照</div>
+  <div class="stock-grid">
+    <div class="stock-box">
+      <div class="stock-exch">台灣證交所 TWSE：2330</div>
+      <div class="stock-row">
+        <div class="price">NT$1,905</div>
+        <div class="chg" style="color:#4CAF50">+35 (+1.87%)</div>
+      </div>
+      <div class="stock-detail">
+        <div class="sd">開盤 <span>NT$1,900</span></div>
+        <div class="sd">最高 <span>NT$1,910</span></div>
+        <div class="sd">最低 <span>NT$1,890</span></div>
+        <div class="sd">成交量 <span>23,015 張</span></div>
+        <div class="sd">52W 高 <span>NT$2,025</span></div>
+        <div class="sd">52W 低 <span>NT$780</span></div>
+        <div class="sd">市值 <span>NT$49.4 兆</span></div>
+        <div class="sd">P/E <span>~28.8x</span></div>
+        <div class="sd">P/B <span>~9.14x</span></div>
+        <div class="sd">殖利率 <span>~1.21%</span></div>
+        <div class="sd">除息日 <span>2026-03-17（已除息）</span></div>
+        <div class="sd">股利 <span>US$0.968/ADR（2026-03-17 已除息）</span></div>
+      </div>
+    </div>
+    <div class="stock-box">
+      <div class="stock-exch">紐約證交所 NYSE：TSM（ADR）</div>
+      <div class="stock-row">
+        <div class="price">US$336.71</div>
+        <div class="chg" style="color:#F44336">-17.85 (-5.03%)</div>
+      </div>
+      <div class="stock-detail">
+        <div class="sd">P/E (USD) <span>~23.8x</span></div>
+        <div class="sd">P/B <span>~8.62x</span></div>
+        <div class="sd">52W 高 <span>US$390.21</span></div>
+        <div class="sd">52W 低 <span>US$134.25</span></div>
+        <div class="sd">Beta <span>1.56</span></div>
+        <div class="sd">下次財報 <span>2026-04-16</span></div>
+        <div class="sd">共識評級 <span style="color:var(--green)">強烈買入</span></div>
+        <div class="sd">均值目標 <span>US$410</span></div>
+        <div class="sd">上漲空間 <span style="color:var(--green)">+20.2%</span></div>
+        <div class="sd">分析師數 <span>31 位全買入</span></div>
+        <div class="sd">最高目標 <span>NT$2,770</span></div>
+        <div class="sd">最低目標 <span>NT$1,740</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 財務 KPI -->
+<div class="sec" id="kpi">
+  <div class="sec-title">💰 財務重點 KPI（Q4 2025 / FY 2025）</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-lbl">Q4 EPS</div><div class="kpi-val">NT$19.50</div><div class="kpi-chg" style="color:var(--green)">+34.9% YoY</div><div class="kpi-note">超預估 7.23%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 毛利率</div><div class="kpi-val">62.3%</div><div class="kpi-chg" style="color:var(--green)">+9.3pp YoY</div><div class="kpi-note">Q3: 57.8%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 營業利益率</div><div class="kpi-val">54.0%</div><div class="kpi-chg" style="color:var(--green)">+7.3pp YoY</div><div class="kpi-note">Q3: 50.6%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 ROE</div><div class="kpi-val">38.8%</div><div class="kpi-chg" style="color:var(--green)">+9.8pp YoY</div><div class="kpi-note">FY25: 35.4%</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 EPS</div><div class="kpi-val">NT$66.25</div><div class="kpi-chg" style="color:var(--green)">+46.4% YoY</div><div class="kpi-note">FY24: NT$45.25</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 營收</div><div class="kpi-val">$122B</div><div class="kpi-chg" style="color:var(--green)">+35.9% YoY</div><div class="kpi-note">TWD 3.8 兆</div></div>
+    <div class="kpi"><div class="kpi-lbl">先進製程佔比</div><div class="kpi-val">77%</div><div class="kpi-chg" style="color:var(--green)">≤7nm</div><div class="kpi-note">N3+N5+N7</div></div>
+    <div class="kpi"><div class="kpi-lbl">AI 加速器佔比</div><div class="kpi-val">~20%</div><div class="kpi-chg" style="color:var(--green)">60% CAGR 預測</div><div class="kpi-note">至 2029 年</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q1 2026 指引</div><div class="kpi-val">$35.2B</div><div class="kpi-chg" style="color:var(--green)">+38% YoY</div><div class="kpi-note">$34.6–35.8B</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 CapEx</div><div class="kpi-val">$52–56B</div><div class="kpi-chg" style="color:var(--orange)">+37–47%</div><div class="kpi-note">70–80% 先進製程</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 股利（預估）</div><div class="kpi-val">≥NT$23</div><div class="kpi-chg" style="color:var(--green)">+27.8%+ YoY</div><div class="kpi-note">FY25: NT$18</div></div>
+    <div class="kpi"><div class="kpi-lbl">自由現金流</div><div class="kpi-val">NT$1兆</div><div class="kpi-chg" style="color:var(--green)">+15.2% YoY</div><div class="kpi-note">FY 2025</div></div>
+  </div>
+</div>
+
+<!-- 3. 法人買賣超 -->
+<div class="sec" id="inst">
+  <div class="sec-title">🏦 三大法人買賣超（2026-03-18）</div>
+  <div class="inst-grid">
+    <div class="inst-card">
+      <div class="inst-name">外資及陸資</div>
+      <div class="inst-val" style="color:#4CAF50">+2,800 張</div>
+      <div class="inst-note">買超 | 持股：75.8%</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+4,800</div></div><div class="spark-bar"><div style="height:67%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-3,200</div></div><div class="spark-bar"><div style="height:31%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+1,500</div></div><div class="spark-bar"><div style="height:79%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-3,800</div></div><div class="spark-bar"><div style="height:58%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+2,800</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">投信</div>
+      <div class="inst-val" style="color:#4CAF50">+350 張</div>
+      <div class="inst-note">買超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+920</div></div><div class="spark-bar"><div style="height:49%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+450</div></div><div class="spark-bar"><div style="height:41%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+380</div></div><div class="spark-bar"><div style="height:35%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+320</div></div><div class="spark-bar"><div style="height:38%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#4CAF50">+350</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">自營商</div>
+      <div class="inst-val" style="color:#F44336">-120 張</div>
+      <div class="inst-note">賣超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:37%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-250</div></div><div class="spark-bar"><div style="height:100%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-680</div></div><div class="spark-bar"><div style="height:22%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-150</div></div><div class="spark-bar"><div style="height:41%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-280</div></div><div class="spark-bar"><div style="height:18%;background:#F44336;width:100%;border-radius:2px 2px 0 0"></div><div class="spark-val" style="color:#F44336">-120</div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:10px;background:var(--card);border-radius:9px;padding:12px 14px;box-shadow:0 1px 5px rgba(0,0,0,.07);display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div><div style="font-size:11px;color:var(--muted)">三大法人合計</div><div style="font-size:18px;font-weight:700;color:#4CAF50">+3,030 張</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資持股比例</div><div style="font-size:18px;font-weight:700">75.8%</div><div style="font-size:10px;color:var(--muted)">(約 196.5 億股)</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資近 5 日趨勢</div><div style="font-size:13px;font-weight:600;color:var(--red)">持續賣超</div><div style="font-size:10px;color:var(--muted)">從高點獲利了結中</div></div>
+  </div>
+</div>
+
+<!-- 4. 技術分析 -->
+<div class="sec" id="tech">
+  <div class="sec-title">📉 技術分析指標</div>
+  <div class="alert">⚠️ 技術指標數值為估算，請以看盤軟體即時數據為準</div>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-lbl">RSI (14)</div><div class="tech-val">56.3</div><span class="tech-sig" style="background:#FF9800;color:#fff">中性偏強</span></div>
+    <div class="tech-card"><div class="tech-lbl">MACD</div><div class="tech-val" style="color:#4CAF50">2.8</div><span class="tech-sig" style="background:#4CAF50;color:#fff">黃金交叉訊號浮現</span></div>
+    <div class="tech-card"><div class="tech-lbl">KDJ (9,3,3)</div><div class="tech-val">K:62</div><span class="tech-sig" style="background:#FF9800;color:#fff">黃金交叉確立</span><div style="font-size:10px;color:var(--muted);margin-top:2px">D:56 / J:69</div></div>
+    <div class="tech-card"><div class="tech-lbl">布林帶（20,2）</div><div class="tech-val" style="font-size:14px">NT$1,905</div><div style="font-size:10.5px;color:var(--muted)">上：2,040　中：1,926</div><div style="font-size:10.5px;color:var(--muted)">下：1,812</div><span class="tech-sig" style="background:#FF9800;color:#fff;margin-top:4px">布林收窄整理</span></div>
+    <div class="tech-card"><div class="tech-lbl">成交量</div><div class="tech-val">23,015</div><div style="font-size:10.5px;color:var(--muted)">5日均量：26,800 張</div><span class="tech-sig" style="background:#607D8B;color:#fff;margin-top:4px">量縮整理</span></div>
+    <div class="tech-card"><div class="tech-lbl">整體趨勢</div><div class="tech-val" style="font-size:13px">台股 2330 於 3/18 逆勢收紅 +1.87%，突破 1,900 整數關卡</div><div style="font-size:10.5px;color:var(--muted)">支撐：1,870–1,890</div><div style="font-size:10.5px;color:var(--muted)">壓力：1,930–1,950</div></div>
+  </div>
+  <div class="sub-title">均線系統</div>
+  <div class="ma-grid">
+    <div class="ma-box"><div class="ma-lbl">MA5</div><div class="ma-val" style="color:#4CAF50">1,892</div></div>
+    <div class="ma-box"><div class="ma-lbl">MA20</div><div class="ma-val" style="color:#F44336">1,926</div></div>
+    <div class="ma-box"><div class="ma-lbl">MA60</div><div class="ma-val" style="color:#4CAF50">1,840</div></div>
+    <div class="ma-box"><div class="ma-lbl">MA120</div><div class="ma-val" style="color:#4CAF50">1,728</div></div>
+  </div>
+</div>
+
+<!-- 5. 期貨選擇權 -->
+<div class="sec" id="deriv">
+  <div class="sec-title">📊 台積電期貨 &amp; 選擇權動態</div>
+  <div class="alert">⚠️ 衍生品數據需每日至台灣期交所(taifex.com.tw)更新</div>
+  <div class="deriv-grid">
+    <div class="deriv-card"><div class="deriv-lbl">期貨近月收盤</div><div class="deriv-val">NT$1,908</div><div style="font-size:10.5px;color:var(--muted)">基差 +3 點</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">未平倉量（口）</div><div class="deriv-val">68,500</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put/Call Ratio</div><div class="deriv-val" style="color:var(--red)">1.09</div><div style="font-size:10.5px;color:var(--red)">偏空</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Call 未平倉</div><div class="deriv-val" style="color:var(--green)">38,500</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put 未平倉</div><div class="deriv-val" style="color:var(--red)">42,000</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">最大痛苦點</div><div class="deriv-val">1,900</div></div>
+  </div>
+  <table>
+    <thead><tr><th>行使價</th><th>Call OI / Put OI</th><th>市場含意</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1,850</strong></td><td>Call 4,200 / Put 8,200</td><td><span class="badge" style="background:#4CAF50">強支撐</span></td></tr>
+      <tr><td><strong>1,900</strong></td><td>Call 11,200 / Put 8,800</td><td><span class="badge" style="background:#F44336">最大痛苦點</span></td></tr>
+      <tr><td><strong>1,930</strong></td><td>Call 9,800 / Put 5,200</td><td><span class="badge" style="background:#F44336">重要壓力</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6. 國際重要新聞 -->
+<div class="sec" id="news">
+  <div class="sec-title">📰 國際重要新聞分析</div>
+  <div class="news-grid">
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#2196F3">客戶動態</span><span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div><div class="news-title">NVIDIA 超越 Apple 成台積電最大客戶，2026 年貢獻營收估 $330 億</div><div class="news-body">NVIDIA CEO Jensen Huang 確認，NVIDIA 已正式超越 Apple 成為 TSMC 最大單一客戶。2026 年貢獻 TSMC 約 $330 億（~22% 總營收），Apple 退居第二（$270 億，~18%）。NVIDIA GTC 2026 同期發表 Feynman 架構 AI 晶片，確認採 TSMC A16（1.6nm）製程，預計 2028 年量產。</div><div class="news-src">來源：CNBC / Creative Strategies 2026-03-18</div></div>
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#9C27B0">產品發布</span><span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div><div class="news-title">TSMC 2nm N2P 試量產 3 月啟動，Apple 率先量產；AMD Venice 同步跟進</div><div class="news-body">TSMC 增強版 2nm 製程（N2P）試量產已於 2026 年 3 月正式啟動，Apple 成為首批量產客戶，用於 A20 晶片（iPhone 18 系列）及 M6 系列處理器。AMD 亦將 EPYC「Venice」伺服器 CPU 導入 N2，目標 2026 下半年量產。N2P 相較 N3E 可降低 20-25% 功耗、提升 10-15% 效能。</div><div class="news-src">來源：Design-Reuse / TweakTown 2026-03-18</div></div>
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span><span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div><div class="news-title">台積電全球晶圓代工市佔達 72%，AI GPU/ASIC 訂單推動 Q4 2025 年增 20%</div><div class="news-body">Counterpoint Research 報告顯示，TSMC 在純晶圓代工市場市佔率達 72%，Samsung Foundry 僅 7%，差距創歷史新高。純晶圓代工市場 Q4 2025 年增 20%，全年增長 26%，主要由 AI GPU（NVIDIA GB300 系列）、雲端業者自研 ASIC 及 HPC 處理器驅動。N3/N5 製程合計貢獻超過 55% 的晶圓收入。</div><div class="news-src">來源：Benzinga / Counterpoint Research 2026-03-18</div></div>
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span><span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div><div class="news-title">全球半導體市場 2026 年首破 $1 兆美元，AI 晶片貢獻 50% 總營收</div><div class="news-body">Omida 預測 2026 年全球半導體市場規模將首次突破 $1 兆美元（年增 30.7%），AI 晶片雖僅占出貨量 0.2%，卻貢獻約 50% 總營收。Goldman Sachs 預估 TSMC 2026/2027 年收分別年增 30%/28%，Q1 2026 毛利率指引 63-65% 維持高位。</div><div class="news-src">來源：Omida / Goldman Sachs 2026-03-18</div></div>
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span><span class="impact" style="border-color:#FF9800;color:#FF9800">中性</span></div><div class="news-title">記憶體晶片短缺延伸至 2027 年，NAND 價格 Q1 2026 預估漲 38%</div><div class="news-body">半導體缺芯危機將持續至 2026-2027 年，絕大多數 HBM 產能流向 AI 資料中心。NAND 價格 Q1 2026 預估進一步上漲 38%。此趨勢對 TSMC 直接影響中性，但有助鞏固 AI 算力晶片優先於記憶體的產能分配邏輯。</div><div class="news-src">來源：CNBC / TrendForce 2026-03-18</div></div>
+    <div class="news-card"><div class="news-hdr"><span class="tag" style="background:#607D8B">公司治理</span><span class="impact" style="border-color:#FF9800;color:#FF9800">中性</span></div><div class="news-title">TSMC 2026 AGM 議案提交窗口開放（3/31–4/7）；4/16 Q1 財報倒計時 28 天</div><div class="news-body">TSMC 已通知 ADS 持有人，2026 年股東常會議案提交窗口為 3/31–4/7。Q1 2026 財報排於 4/16，共識 EPS NT$20.38，前 2 月累計營收年增 29.9%。31 位分析師 0 位賣出，平均目標 NT$2,290（較現價 +20.2%）。</div><div class="news-src">來源：TipRanks / StockTitan 2026-03-17</div></div>
+  </div>
+</div>
+
+<!-- 7. 主要客戶動態 -->
+<div class="sec" id="customer">
+  <div class="sec-title">🏢 主要客戶 2026 預估營收佔比</div>
+  <div style="display:flex;height:30px;border-radius:8px;overflow:hidden;margin-bottom:12px">
+    <div style="width:21%;background:#76b900"></div><div style="width:17%;background:#999999"></div>
+    <div style="width:13%;background:#CC0000"></div><div style="width:9%;background:#00AAFF"></div>
+    <div style="width:8%;background:#ED1C24"></div><div style="width:7%;background:#3253DC"></div>
+    <div style="width:7%;background:#0071C5"></div><div style="width:18%;background:#AAAAAA"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>預估佔比</th><th>預估營收</th><th>主要晶片</th><th>趨勢</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76b900">NVIDIA</strong></td><td><strong>~21%</strong></td><td>~$33B</td><td>H100/H200、Vera Rubin (N3)</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#999">Apple</strong></td><td>~17%</td><td>~$27B</td><td>A18 Pro / M5 / C1 Modem</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#CC0000">Broadcom</strong></td><td>~13%</td><td>—</td><td>ASIC/AI 加速器、網路晶片</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#00AAFF">MediaTek</strong></td><td>~9%</td><td>—</td><td>Dimensity 9400</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#ED1C24">AMD</strong></td><td>~8%</td><td>—</td><td>MI300X AI GPU / Zen5 CPU</td><td><span class="badge" style="background:#4CAF50">成長</span></td></tr>
+      <tr><td><strong style="color:#3253DC">Qualcomm</strong></td><td>~7%</td><td>—</td><td>Snapdragon Elite</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+      <tr><td><strong style="color:#0071C5">Intel</strong></td><td>~7%</td><td>—</td><td>Arrow Lake / Panther Lake</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8. 產業生態系 -->
+<div class="sec" id="ecosystem">
+  <div class="sec-title">⛓️ 供應鏈 &amp; 客戶股價連動（估算）</div>
+  <table>
+    <thead><tr><th>類別</th><th>代碼</th><th>名稱</th><th>股價（估）</th><th>漲跌幅</th><th>與 TSMC 關係</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge" style="background:#2196F3">設備</span></td><td><strong>ASML</strong></td><td>艾司摩爾</td><td>681.20</td><td style="color:#4CAF50;font-weight:600">+1.3%</td><td style="font-size:11px">EUV 設備龍頭</td></tr>
+      <tr><td><span class="badge" style="background:#2196F3">設備</span></td><td><strong>AMAT</strong></td><td>應用材料</td><td>170.20</td><td style="color:#4CAF50;font-weight:600">+1.4%</td><td style="font-size:11px">CVD/PVD 設備</td></tr>
+      <tr><td><span class="badge" style="background:#9C27B0">記憶</span></td><td><strong>MU</strong></td><td>美光</td><td>100.00</td><td style="color:#4CAF50;font-weight:600">+1.7%</td><td style="font-size:11px">HBM / DDR5</td></tr>
+      <tr><td><span class="badge" style="background:#1565C0">客戶</span></td><td><strong>NVDA</strong></td><td>輝達</td><td>855.20</td><td style="color:#4CAF50;font-weight:600">+1.7%</td><td style="font-size:11px">#1 客戶 22%（GTC 2026）</td></tr>
+      <tr><td><span class="badge" style="background:#1565C0">客戶</span></td><td><strong>AAPL</strong></td><td>蘋果</td><td>227.50</td><td style="color:#4CAF50;font-weight:600">+0.7%</td><td style="font-size:11px">#2 客戶 17%（2nm 量產中）</td></tr>
+      <tr><td><span class="badge" style="background:#1565C0">客戶</span></td><td><strong>AVGO</strong></td><td>博通</td><td>196.30</td><td style="color:#4CAF50;font-weight:600">+1.5%</td><td style="font-size:11px">#3 客戶 13%</td></tr>
+      <tr><td><span class="badge" style="background:#1565C0">客戶</span></td><td><strong>AMD</strong></td><td>超微</td><td>160.80</td><td style="color:#4CAF50;font-weight:600">+2.3%</td><td style="font-size:11px">#4 客戶 8%</td></tr>
+      <tr><td><span class="badge" style="background:#607D8B">競爭</span></td><td><strong>INTC</strong></td><td>英特爾</td><td>21.20</td><td style="color:#4CAF50;font-weight:600">+1.9%</td><td style="font-size:11px">Intel Foundry</td></tr>
+      <tr><td><span class="badge" style="background:#607D8B">競爭</span></td><td><strong>005930.KS</strong></td><td>三星電子</td><td>54,200 KRW</td><td style="color:#4CAF50;font-weight:600">+1.9%</td><td style="font-size:11px">Samsung Foundry</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 9. 法人評級 -->
+<div class="sec" id="analyst">
+  <div class="sec-title">🎯 法人評級彙整</div>
+  <div style="background:var(--card);border-radius:10px;padding:16px;margin-bottom:14px;box-shadow:0 1px 5px rgba(0,0,0,.08)">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+      <div style="text-align:center"><div style="font-size:11px;color:var(--muted)">共識評級</div><div style="font-size:22px;font-weight:700;color:var(--green)">強烈買入</div><div style="font-size:11px;color:var(--muted)">31 位分析師</div></div>
+      <div style="text-align:center"><div style="font-size:11px;color:var(--muted)">平均目標價（TWD）</div><div style="font-size:22px;font-weight:700;color:var(--blue)">NT$2,290</div><div style="font-size:11px;color:var(--green)">上漲空間 +20.2%</div></div>
+      <div style="text-align:center"><div style="font-size:11px;color:var(--muted)">評級分布</div><div class="consensus-bar"><div style="width:100%;background:var(--green)"></div></div><div style="font-size:10.5px;color:var(--muted)">買入 31 / 持有 0 / 賣出 0</div></div>
+    </div>
+  </div>
+  <div class="analyst-grid">
+    <div class="analyst-card"><div class="analyst-firm">Goldman Sachs</div><div class="analyst-tp">NT$2,330</div><div style="font-size:11px;margin-bottom:5px"><span class="badge" style="background:var(--green)">強烈買入</span></div><div class="analyst-note">AI 需求驅動 30% YoY 增長</div></div>
+    <div class="analyst-card"><div class="analyst-firm">JPMorgan</div><div class="analyst-tp">NT$2,100</div><div style="font-size:11px;margin-bottom:5px"><span class="badge" style="background:var(--green)">增持</span></div><div class="analyst-note">N3/N2 需求強勁，毛利率改善</div></div>
+    <div class="analyst-card"><div class="analyst-firm">Susquehanna</div><div class="analyst-tp">US$400</div><div style="font-size:11px;margin-bottom:5px"><span class="badge" style="background:var(--green)">正面</span></div><div class="analyst-note">AI 基礎設施資本支出持續</div></div>
+    <div class="analyst-card"><div class="analyst-firm">Morgan Stanley</div><div class="analyst-tp">NT$2,290</div><div style="font-size:11px;margin-bottom:5px"><span class="badge" style="background:var(--green)">增持</span></div><div class="analyst-note">市場共識平均目標</div></div>
+  </div>
+</div>
+
+<!-- 10. 財報倒計時 -->
+<div class="sec" id="earnings">
+  <div class="sec-title">⏳ 財報倒計時 — Q1 2026</div>
+  <div class="countdown-box">
+    <div><div class="countdown-days">28</div><div class="countdown-label">天後發布</div></div>
+    <div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px">Q1 2026 財報預計：2026-04-16</div>
+      <div class="countdown-grid">
+        <div class="cg-item"><div class="cg-lbl">營收指引（中位）</div><div class="cg-val">$35.2B</div></div>
+        <div class="cg-item"><div class="cg-lbl">毛利率指引</div><div class="cg-val">63–65%</div></div>
+        <div class="cg-item"><div class="cg-lbl">共識 EPS 預估</div><div class="cg-val">NT$20.38</div></div>
+        <div class="cg-item"><div class="cg-lbl">近 8 季超預期率</div><div class="cg-val" style="color:#FDD835">100%</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 11. 晶圓廠稼動率 -->
+<div class="sec" id="fab">
+  <div class="sec-title">🏭 晶圓廠製程稼動率（業界分析師估算）</div>
+  <div class="alert">⚠ 稼動率為業界分析師估算值，TSMC 不公開分製程稼動率數據</div>
+  <div class="fab-grid">
+    <div class="fab-row"><div class="fab-node">N2 (2nm)</div><div><span class="badge" style="background:#607D8B">Taiwan</span></div><div><div style="font-size:13px;font-weight:700;color:#4CAF50">90–95%</div><div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div></div><div style="font-size:11.5px;color:#555">HVM 啟動，良率爬升中</div></div>
+    <div class="fab-row"><div class="fab-node">N3/N3P</div><div><span class="badge" style="background:#607D8B">Taiwan</span></div><div><div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div><div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div></div><div style="font-size:11.5px;color:#555">滿載，NVIDIA/Apple 全包</div></div>
+    <div class="fab-row"><div class="fab-node">N5/N4</div><div><span class="badge" style="background:#607D8B">Taiwan</span></div><div><div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div><div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div></div><div style="font-size:11.5px;color:#555">主力製程，AI GPU + 手機 SoC</div></div>
+    <div class="fab-row"><div class="fab-node">N12</div><div><span class="badge" style="background:#607D8B">Japan</span></div><div><div style="font-size:13px;font-weight:700;color:#4CAF50">~90%</div><div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div></div><div style="font-size:11.5px;color:#555">熊本廠 Phase 1 量產中</div></div>
+  </div>
+</div>
+
+<!-- 12. 風險 -->
+<div class="sec" id="risk">
+  <div class="sec-title">⚠️ 風險評估矩陣 × 地緣政治</div>
+  <div class="risk-grid">
+    <div class="risk-card" style="border-color:#F44336"><div class="risk-lv" style="color:#F44336">●●● 高風險</div><div class="risk-name">出口管制</div><div class="risk-desc">AI 晶片對中出口政策持續演變，H200/H20 停產顯示政策不確定性仍高</div></div>
+    <div class="risk-card" style="border-color:#F44336"><div class="risk-lv" style="color:#F44336">●●● 高風險</div><div class="risk-name">地緣政治</div><div class="risk-desc">台海緊張局勢影響生產連續性，「矽盾」效果受關稅政策弱化</div></div>
+    <div class="risk-card" style="border-color:#FF9800"><div class="risk-lv" style="color:#FF9800">●●○ 中風險</div><div class="risk-name">關稅衝擊</div><div class="risk-desc">25% 晶片進口關稅拉高客戶成本，消費性需求可能降溫</div></div>
+    <div class="risk-card" style="border-color:#FF9800"><div class="risk-lv" style="color:#FF9800">●●○ 中風險</div><div class="risk-name">毛利率稀釋</div><div class="risk-desc">海外廠（AZ/JP）製程複製成本高，預估壓縮 1–2pp 毛利率</div></div>
+    <div class="risk-card" style="border-color:#4CAF50"><div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div><div class="risk-name">技術良率</div><div class="risk-desc">N2 HVM 良率爬升符合預期，N2P/A16 按期程進行</div></div>
+    <div class="risk-card" style="border-color:#4CAF50"><div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div><div class="risk-name">競爭威脅</div><div class="risk-desc">Samsung 良率不穩、Intel 轉型需 2–3 年，TSMC 技術護城河穩固</div></div>
+  </div>
+</div>
+
+<!-- 13. IR 行事曆 -->
+<div class="sec" id="calendar">
+  <div class="sec-title">📅 法說會 / IR 行事曆</div>
+  <div class="cal-list">
+    <div class="cal-item"><div class="cal-date" style="background:#9E9E9E">2026-03-17</div><div><div class="cal-title">✅ 除息完成</div><div class="cal-desc">2026 Q1 現金股利 NT$6.00/股（US$0.968/ADR）已於 3/17 除息</div></div></div>
+    <div class="cal-item"><div class="cal-date" style="background:#E91E63">2026-03-31</div><div><div class="cal-title">AGM 提案截止</div><div class="cal-desc">股東會提案提交期間：3/31–4/7（ADS 持有人）</div></div></div>
+    <div class="cal-item"><div class="cal-date" style="background:#F44336">2026-04-16</div><div><div class="cal-title">Q1 2026 財報</div><div class="cal-desc">預計法說會 15:00 TST；Q1 EPS 共識 NT$20.38</div></div></div>
+    <div class="cal-item"><div class="cal-date" style="background:#FF9800">2026-07</div><div><div class="cal-title">Q2 2026 財報</div><div class="cal-desc">預計 7 月第三週（估）</div></div></div>
+  </div>
+</div>
+
+<!-- 14. 估值歷史位階 -->
+<div class="sec" id="valuation">
+  <div class="sec-title">📐 估值歷史位階</div>
+  <div class="val-grid">
+    <div class="val-card"><div class="val-lbl">P/E 目前</div><div class="val-val">28.8x</div><div class="val-sub">5Y 均 18.5x</div><div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:73%"></div></div><div class="val-sub">5Y 百分位 <strong>73%</strong></div></div>
+    <div class="val-card"><div class="val-lbl">P/B 目前</div><div class="val-val">9.14x</div><div class="val-sub">5Y 均 5.8x</div><div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:78%"></div></div><div class="val-sub">5Y 百分位 <strong>78%</strong></div></div>
+    <div class="val-card"><div class="val-lbl">PEG Ratio</div><div class="val-val" style="color:var(--green)">0.88</div><div class="val-sub">&lt;1 = 相對成長便宜</div></div>
+    <div class="val-card"><div class="val-lbl">EV/EBITDA</div><div class="val-val">17.8x</div><div class="val-sub">業均約 12–16x</div></div>
+  </div>
+</div>
+
+<!-- 15. 現金流 -->
+<div class="sec" id="cashflow">
+  <div class="sec-title">💵 現金流品質分析</div>
+  <div class="cf-grid">
+    <div class="cf-card"><div class="cf-lbl">FY25 合併營收</div><div class="cf-val">NT$3.8兆 ($122B)</div></div>
+    <div class="cf-card"><div class="cf-lbl">FY25 毛利率（估）</div><div class="cf-val" style="color:var(--green)">56.1%</div><div class="cf-chg" style="color:var(--muted)">Q4 2025：62.3%</div></div>
+    <div class="cf-card"><div class="cf-lbl">FY25 CapEx（估）</div><div class="cf-val">$34.5B USD</div></div>
+    <div class="cf-card"><div class="cf-lbl">FY25 自由現金流</div><div class="cf-val" style="color:var(--green)">NT$1兆+</div></div>
+    <div class="cf-card"><div class="cf-lbl">存貨天數 DOI</div><div class="cf-val">82 天</div><div class="cf-chg" style="color:var(--green)">YoY -9 天</div></div>
+    <div class="cf-card"><div class="cf-lbl">應收帳款天數 AR</div><div class="cf-val">43 天</div><div class="cf-chg" style="color:var(--green)">YoY -4 天</div></div>
+  </div>
+</div>
+
+<!-- 16. 相對強弱 -->
+<div class="sec" id="relative">
+  <div class="sec-title">📊 相對強弱 &amp; ADR 折溢價</div>
+  <div style="background:var(--card);border-radius:9px;padding:14px 16px;box-shadow:0 1px 5px rgba(0,0,0,.07);overflow-x:auto;margin-bottom:12px">
+    <div class="rel-row" style="border-bottom:2px solid var(--border);padding-bottom:6px;margin-bottom:6px">
+      <div class="rel-hdr">標的</div><div class="rel-hdr" style="text-align:center">今日</div><div class="rel-hdr" style="text-align:center">5 日</div><div class="rel-hdr" style="text-align:center">1 月</div><div class="rel-hdr" style="text-align:center">YTD</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px"><div class="rel-lbl">TSMC 台股 2330</div><div class="rel-val" style="color:#4CAF50">+1.87%</div><div class="rel-val" style="color:#F44336">-1.3%</div><div class="rel-val" style="color:#F44336">-5.5%</div><div class="rel-val" style="color:#F44336">-5.8%</div></div>
+    <div class="rel-row"><div class="rel-lbl">TSM NYSE ADR</div><div class="rel-val" style="color:#F44336">-5.03%</div><div class="rel-val">—</div><div class="rel-val">—</div><div class="rel-val">—</div></div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px"><div class="rel-lbl">SOX 半導體指數</div><div class="rel-val" style="color:#F44336">-4.80%</div><div class="rel-val">—</div><div class="rel-val">—</div><div class="rel-val" style="color:#F44336">-17.8%</div></div>
+  </div>
+  <div class="adr-box">
+    <div><div class="adr-lbl">ADR 市價（NYSE）</div><div class="adr-val">US$336.71</div></div>
+    <div><div class="adr-lbl">ADR 理論平價（估）</div><div class="adr-val">US$301.27</div><div style="font-size:10px;color:#90CAF9">5 × NT$1,905 ÷ 31.62</div></div>
+    <div><div class="adr-lbl">ADR 溢價</div><div class="adr-val" style="color:#FDD835">+11.8%</div></div>
+  </div>
+</div>
+
+<!-- 17. CoWoS -->
+<div class="sec" id="cowos">
+  <div class="sec-title">🔧 CoWoS 先進封裝產能追蹤</div>
+  <div class="cowos-grid">
+    <div class="cowos-card"><div class="cowos-lbl">CoWoS-S 月產能</div><div class="cowos-val">~15,000</div><div class="cowos-sub">wspm</div></div>
+    <div class="cowos-card"><div class="cowos-lbl">CoWoS-L 月產能</div><div class="cowos-val">~5,000</div><div class="cowos-sub">wspm</div></div>
+    <div class="cowos-card" style="border-top-color:var(--green)"><div class="cowos-lbl">2026 年目標</div><div class="cowos-val" style="color:var(--green)">~35,000</div><div class="cowos-sub">wspm / YoY +59%</div></div>
+    <div class="cowos-card"><div class="cowos-lbl">稼動率</div><div class="cowos-val" style="color:var(--green)">&gt;95%</div><div class="cowos-sub">訂單積壓 4 季</div></div>
+  </div>
+  <div class="cowos-cust-bar"><div style="flex:65;background:#76B900"></div><div style="flex:18;background:#ED1C24"></div><div style="flex:12;background:#CC0000"></div><div style="flex:5;background:#90CAF9"></div></div>
+  <table>
+    <thead><tr><th>客戶</th><th>CoWoS 佔比（估）</th><th>主要產品</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76B900">NVIDIA</strong></td><td>~65%</td><td>GB200/GB300 NVL72</td></tr>
+      <tr><td><strong style="color:#ED1C24">AMD</strong></td><td>~18%</td><td>MI350/MI450</td></tr>
+      <tr><td><strong style="color:#CC0000">Broadcom</strong></td><td>~12%</td><td>Custom XPU</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 18. 匯率敏感度 -->
+<div class="sec" id="fx">
+  <div class="sec-title">💱 匯率敏感度分析</div>
+  <div class="alert">⚠ TSMC 官方法說：新台幣每升值 1%，毛利率約下降 40bps</div>
+  <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px"><div style="font-size:10px;color:var(--muted);text-transform:uppercase">今日 USD/NTD 匯率</div><div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">31.68</div></div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px"><div style="font-size:10px;color:var(--muted);text-transform:uppercase">毛利率影響 / 每 1% 升值</div><div style="font-size:24px;font-weight:700;color:var(--red);margin:3px 0">-40 bps</div></div>
+  </div>
+  <table>
+    <thead><tr><th>USD/NTD</th><th>情境</th><th>毛利率影響</th><th>EPS 影響（估）</th></tr></thead>
+    <tbody>
+      <tr><td>30.0</td><td>NTD +5.6% 強升</td><td style="color:var(--red)">約 -224 bps</td><td style="color:var(--red)">約 -7.8%</td></tr>
+      <tr style="background:#FFF8E1;font-weight:700"><td>31.68</td><td>基準（今日）</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td></tr>
+      <tr><td>32.5</td><td>NTD -2.6% 小貶</td><td style="color:var(--green)">約 +104 bps</td><td style="color:var(--green)">約 +3.6%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 19. EPS 修正 -->
+<div class="sec" id="revision">
+  <div class="sec-title">✏️ EPS 修正追蹤</div>
+  <div class="rev-grid">
+    <div class="rev-box"><div class="rev-period">Q1 2026 EPS 共識</div><div class="rev-consensus">NT$20.38</div><div class="rev-range">區間：NT$18.90 – NT$22.10</div><div style="margin-top:8px;display:flex;align-items:center;gap:8px"><span class="rev-trend-up">上修</span><span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +6.7%</span></div></div>
+    <div class="rev-box"><div class="rev-period">FY 2026 EPS 共識</div><div class="rev-consensus">NT$84.50</div><div class="rev-range">區間：NT$78.00 – NT$92.00</div><div style="margin-top:8px;display:flex;align-items:center;gap:8px"><span class="rev-trend-up">上修</span><span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +8.1%</span></div></div>
+  </div>
+  <div style="margin-top:12px;background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;border-radius:10px;padding:14px 18px;font-size:12.5px;line-height:1.75">
+    <strong style="color:#FDD835">分析師觀點：</strong>Q1 EPS 共識 NT$20.38，前 2 月累計營收年增 29.9%（略低於市場預估 33%，部分造成 3/18 NYSE TSM 跌 -5.03%）。GTC 2026 NVIDIA Feynman 採 TSMC A16 長線利多不變，4/16 Q1 財報為下一重要催化劑。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  TSMC 台積電日報 — 2026-03-19<br>
+  資料來源：Yahoo Finance、CNBC、Morgan Stanley、Goldman Sachs、JPMorgan、TSMC IR、TrendForce、玩股網、TWSE<br>
+  <strong>本報告由自動化腳本產生，不構成任何投資建議。投資人應自行評估風險，必要時請諮詢持牌財務顧問。</strong>
+</footer>
+</body>
+</html>
