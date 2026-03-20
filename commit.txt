@@ -1,0 +1,24 @@
+這是 Windows 環境問題，不需要 bash。直接在 **命令提示字元（cmd）** 執行：
+
+```cmd
+git add generate_tsmc_html_report.py "TSMC_日報_2026-03-19.html" manifest.json
+git commit -m "daily: 2026-03-19 日報"
+git push origin master
+```
+
+或用 **PowerShell**：
+```powershell
+git add generate_tsmc_html_report.py "TSMC_日報_2026-03-12.html" manifest.json
+git commit -m "daily: 2026-03-12 日報"
+git push origin master
+```
+
+---
+
+**未來每日自動取得日期（PowerShell）：**
+```powershell
+$TODAY = python -c "from datetime import date; print(date.today().isoformat())"
+git add generate_tsmc_html_report.py "TSMC_日報_$TODAY.html" manifest.json
+git commit -m "daily: $TODAY 日報"
+git push origin master
+```
