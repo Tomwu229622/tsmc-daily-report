@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "tsmc-html-gen",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["generate_tsmc_html_report.py"],
+      "port": 8899
+    }
+  ]
+}
