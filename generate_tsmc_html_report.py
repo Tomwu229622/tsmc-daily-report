@@ -335,40 +335,40 @@ EPS_REVISION = {
 
 NEWS = [
     {
-        "tag": "除息公告", "tag_color": "#9C27B0",
-        "title": "TSMC 今日（4/9）Q2 除息：US$0.968/ADR，台股 NT$1.50/股",
-        "body": "台積電 2026 年第二季現金股利今日（4/9）正式除息，ADR 每股配發 US$0.968，台股每股配發 NT$1.50。全年現金股利預計 US$2.65/ADR（NT$4.30×4+附加配息），殖利率約 0.81%（以 TSM $340 計算）。除息後股價可望於短期內完成填息，配合 4/10 月營收與 4/16 Q1 財報，基本面支撐強。",
-        "source": "TSMC IR / Yahoo Finance 2026-04-09", "impact": "正面",
-    },
-    {
-        "tag": "法規政策", "tag_color": "#FF9800",
-        "title": "美政府擬給予 TSMC 關稅豁免，亞利桑那 $1,650 億投資換取免關稅",
-        "body": "據 Tom's Hardware / WccfTech 報導，美國政府計畫給予 TSMC 半導體關稅豁免，條件是 TSMC 履行其 $1,650 億美元亞利桑那廠投資承諾（含 3 座晶圓廠與 R&D 設施）。美台已達成初步貿易框架，台灣廠商享 15% 關稅率換取 $2,500 億美元在美投資。若豁免落地，TSMC 將相較國內競爭者（Intel 等）具備顯著競爭優勢，為中期重大利多。",
-        "source": "Tom's Hardware / WccfTech 2026-04-08", "impact": "正面",
-    },
-    {
         "tag": "產業趨勢", "tag_color": "#4CAF50",
-        "title": "TSMC 明日 4/10 公布 3 月月營收，共識年增 ~30%，Q1 財報倒計時 7 天",
-        "body": "TSMC 將於 2026 年 4 月 10 日（週五）盤後公布 3 月合併營收。前 2 月累計 NT$7,189 億（年增 30%），市場共識預估 3 月維持 ~30% 年增率。Q1 財報（4/16）EPS 共識 NT$20.38，毛利率指引 63–65%。TSMC 近 8 季連續超預期，100% 超越率建立高度市場信心。",
-        "source": "Motley Fool / TSMC IR 2026-04-09", "impact": "正面",
+        "title": "⭐ TSMC Q1 2026 營收 NT$1.134 兆（+35.1%），創季度新高並超越共識",
+        "body": "台積電 4/10 公布 Q1 2026 合併營收 NT$1.134 兆（$35.6B USD，+35.1% YoY），超越 Bloomberg 共識預期 NT$1.12 兆。3 月單月月營收 NT$415.2B（+45.2% YoY，+30.7% MoM），為本季最強月，顯示 AI 晶片需求未受伊朗戰事影響。SOX 半導體指數 4/10 當日同步創歷史新高（8,926 點）。Q1 EPS 共識 NT$20.38 恐上調，4/16 完整財報（毛利率指引 63–65%）為最近重大催化劑。",
+        "source": "CNBC / Bloomberg / Investorideas 2026-04-10", "impact": "正面",
+    },
+    {
+        "tag": "產品發布", "tag_color": "#9C27B0",
+        "title": "TSMC 2nm 晶片需求超過總產能，訂單積壓創歷史新高",
+        "body": "TSMC 確認次世代 2nm 製程（N2）預訂量已超過其 2026-2027 年總計劃產能，需求由 AI 資料中心擴建與 AI 原生旗艦手機雙重驅動。首批 N2 客戶包括 Apple（A20 晶片，M6 系列）、NVIDIA（Blackwell Ultra 後繼）、AMD（EPYC Venice）與 MediaTek。此前所未有的超訂情形強化 TSMC 定價主導權，外界預估 2nm ASP 較 3nm 提升 15–20%，支撐毛利率繼續向上。",
+        "source": "Newspress India / Design-Reuse 2026-04-10", "impact": "正面",
     },
     {
         "tag": "客戶動態", "tag_color": "#2196F3",
-        "title": "NVIDIA 超越 Apple 成 TSMC 最大客戶，先進製程訂單鎖定至 2028",
-        "body": "NVIDIA 已超越 Apple 成台積電最大單一客戶，2026 年預計貢獻約 $330 億 USD（22%），Apple 退居第二（17%）。TSMC 2nm 製程已被 NVIDIA、Apple、AMD、Qualcomm 全面預訂至 2028 年，供應吃緊帶來顯著定價權，sub-3nm 製程報價提漲 3–10%。Apple 更鎖定超過 50% 的 2nm 早期產能用於 A20 晶片。",
-        "source": "CNBC / Benzinga / Dataconomy 2026-04-09", "impact": "正面",
+        "title": "NVIDIA 正式超越 Apple 成 TSMC 最大客戶，貢獻 22%（$330 億 USD）",
+        "body": "NVIDIA CEO Jensen Huang 親口確認，NVIDIA 已取代 Apple 成台積電最大單一客戶，2026 年預計貢獻 ~$330 億美元（22% 佔比），Apple 退居第二（$270 億，17%）。TSMC 的 N3/N3P/N2 製程幾乎已被 NVIDIA GB200/GB300 系列 AI GPU 訂單鎖定至 2028 年；NVIDIA 亦率先確定為 A16 製程首發客戶（2027），確立 TSMC 在 AI 算力供應鏈的核心地位。",
+        "source": "CNBC / Jensen Huang Podcast / TweakTown 2026-04-10", "impact": "正面",
+    },
+    {
+        "tag": "法規政策", "tag_color": "#FF9800",
+        "title": "美政府擬給予 TSMC 關稅豁免，亞利桑那 $1,650 億投資換取免關稅優待",
+        "body": "美國政府計畫給予 TSMC 半導體關稅豁免，條件是 TSMC 履行 $1,650 億美元亞利桑那廠投資承諾（含 3 座晶圓廠與 R&D 設施）。美台已達成初步貿易框架，台灣廠商享 15% 關稅率換取在美投資承諾。若豁免落地，TSMC 在美業務相較 Intel 等本土競爭者具顯著成本優勢，為中期重大政策利多；不確定性仍存（需國會批准）。",
+        "source": "Tom's Hardware / WccfTech 2026-04-08", "impact": "正面",
     },
     {
         "tag": "地緣政治", "tag_color": "#607D8B",
-        "title": "ASML 對中國服務出口管制升級，半導體設備生態系重組加速",
-        "body": "美國政府提出新一輪出口管制，針對 ASML 對中國的設備售後服務，進一步收緊中國先進製程發展路徑。此舉雖短期衝擊 ASML 股價，但長期有利於 TSMC 鞏固技術護城河。中國 AI 晶片廠商 CXMT/SMIC 年增 130% 的自給路線仍受限設備層，TSMC 的先進製程壟斷地位難以被取代，地緣政治風險持續但競爭優勢同步強化。",
-        "source": "CNBC 2026-04-07", "impact": "中性",
+        "title": "AI 先進封裝成新瓶頸：CoWoS 產能爬坡 80% CAGR，但基板仍是限制",
+        "body": "CNBC 報導，即使 TSMC 晶圓在美生產，AI 晶片仍需返台進行 CoWoS 先進封裝（Chip on Wafer on Substrate）。TSMC CoWoS 產能以 80% CAGR 提升（2026 目標 ~35,000 wspm），但 ABF 基板供應緊張持續限制產能天花板。NVIDIA 包攬逾 65% 的 CoWoS 產能，使其他 AI 晶片客戶面臨等待佇列壓力。供應鏈地緣政治集中風險未解，台美封裝協議為長期戰略選項。",
+        "source": "CNBC 2026-04-08", "impact": "中性",
     },
     {
         "tag": "產業趨勢", "tag_color": "#4CAF50",
-        "title": "半導體進入「超大周期」，2026 年全球銷售額預估達 $9,750 億",
-        "body": "Deloitte / Tom's Hardware 報告指出，AI 基礎建設投資驅動全球半導體進入「超大周期（Giga-Cycle）」，2026 年銷售額預估 $9,750 億（年增 26%）。高價值 AI 晶片雖佔出貨量不到 0.2%，卻貢獻近一半營收。台積電作為先進製程唯一大規模供應商，在此周期中享有最大受益，市場對 TSMC 31 位分析師目標均為買入，平均目標價 NT$2,290（+24.5%）。",
-        "source": "Tom's Hardware / Deloitte 2026-04-09", "impact": "正面",
+        "title": "全球半導體 2026 年營收逾 $1.3 兆，AI 晶片佔 30% 創史高",
+        "body": "Deloitte 最新預測，2026 年全球半導體行業總收入將突破 $1.3 兆美元，較 2025 年增長逾 26%，是二十年來最快增速。AI 晶片估佔行業總收入 30%（~$500B），超算型 ASIC 佈局快速侵蝕 GPU 市場，雲端廠商 AI 基建資本支出 2026 年成長 50%+。台積電作為先進製程唯一大規模供應商，在此超大周期中受益最深，31 位分析師無一賣出，共識目標 NT$2,290（+17.4%）。",
+        "source": "Deloitte / IANS Live 2026-04-10", "impact": "正面",
     },
 ]
 
