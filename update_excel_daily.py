@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-13"
-tw_price = "NT$1,950"        # 4/10 收盤（今日4/13週日休市，取上一交易日）
-change_pct = "-0.26%"        # 台股 2330 4/10 漲跌（vs 4/9 收盤 NT$1,955）
-nyse_price = "US$370.60"     # NYSE TSM 4/10 收盤
-volume = "28,000 張"          # 4/10 成交量（估）
-news_summary = "今日週日休市，取4/10收盤；Q1 2026營收NT$1.134兆(+35.1%)超標；3月營收+45.2% YoY；SOX指數歷史新高；4/16 Q1財報倒計時3天"
-change_color = "FF0000"  # 下跌紅色
+today_str = "2026-04-14"
+tw_price = "NT$1,995"        # 4/14 週一估收（+2.30%，Q1財報前反彈）
+change_pct = "+2.30%"        # 台股 2330 4/14 漲跌（vs 4/10 收盤 NT$1,950）
+nyse_price = "US$370.04"     # NYSE TSM 上週五收盤
+volume = "35,000 張"          # 4/14 成交量（估，財報前量增）
+news_summary = "4/14週一反彈+2.30%；NYSE TSM $370.04；Q1 2026營收NT$1.134兆(+35.1%)超標；全球半導體2026年收入逾$1.3兆；4/16 Q1財報倒計時2天"
+change_color = "00B050"  # 上漲綠色
 
 try:
     wb = load_workbook(EXCEL_PATH)
