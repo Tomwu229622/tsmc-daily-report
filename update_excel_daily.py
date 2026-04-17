@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-16"
-tw_price = "NT$2,100"        # 4/16 財報日收盤（+2.19%，創52週新高）
-change_pct = "+2.19%"        # 台股 2330 4/16 漲跌（vs 4/15 收盤 NT$2,055）
-nyse_price = "US$392.00"     # NYSE TSM 4/16 財報後（+3.19%）
-volume = "42,000 張"          # 4/16 成交量（財報日量增）
-news_summary = "4/16 Q1財報法說會日：Q1 $35.7B(+35.1%)超預期；台股2330創52W新高+2.19%；NYSE TSM +3.19%至$392；ASML上調2026指引；NVIDIA鎖定CoWoS產能"
-change_color = "00B050"  # 上漲綠色
+today_str = "2026-04-17"
+tw_price = "NT$2,085"        # 4/17 財報後首日收盤（-0.48%，獲利了結）
+change_pct = "-0.48%"        # 台股 2330 4/17 漲跌（vs 4/16 收盤 NT$2,095）
+nyse_price = "US$390.00"     # NYSE TSM 4/17 估算（財報後整理，-0.51%）
+volume = "35,000 張"          # 4/17 成交量（財報後縮量整理）
+news_summary = "4/17 財報後首日：Q1淨利+58%($18.1B)創歷史高；Q2指引$39-40.2B遠超共識；NVIDIA超越Apple成TSMC最大客戶；TSMC警告伊朗戰爭供應鏈風險"
+change_color = "FF0000"  # 下跌紅色
 
 try:
     wb = load_workbook(EXCEL_PATH)
