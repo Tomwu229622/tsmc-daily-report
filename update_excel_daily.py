@@ -18,12 +18,12 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-17"
-tw_price = "NT$2,085"        # 4/17 財報後首日收盤（-0.48%，獲利了結）
-change_pct = "-0.48%"        # 台股 2330 4/17 漲跌（vs 4/16 收盤 NT$2,095）
-nyse_price = "US$390.00"     # NYSE TSM 4/17 估算（財報後整理，-0.51%）
-volume = "35,000 張"          # 4/17 成交量（財報後縮量整理）
-news_summary = "4/17 財報後首日：Q1淨利+58%($18.1B)創歷史高；Q2指引$39-40.2B遠超共識；NVIDIA超越Apple成TSMC最大客戶；TSMC警告伊朗戰爭供應鏈風險"
+today_str = "2026-04-20"
+tw_price = "NT$2,030"        # 4/17 實際收盤（4/20 週末休市，保留上一交易日）
+change_pct = "-2.64%"        # 台股 2330 4/17 實際漲跌（深度獲利了結）
+nyse_price = "US$370.50"     # NYSE TSM 4/17 實際收盤（+1.97%，美股財報後反彈）
+volume = "32,500 張"          # 4/17 成交量估算（財報後縮量整理）
+news_summary = "4/20 週末休市(4/17收NT$2,030,-2.64%;TSM$370.50,+1.97%);Amazon/Meta/Anthropic自研AI芯片均依賴TSMC;Q1淨利+58%毛利率66.2%雙創歷史高"
 change_color = "FF0000"  # 下跌紅色
 
 try:
