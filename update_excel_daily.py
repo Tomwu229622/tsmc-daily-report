@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-20"
-tw_price = "NT$2,030"        # 4/17 實際收盤（4/20 週末休市，保留上一交易日）
-change_pct = "-2.64%"        # 台股 2330 4/17 實際漲跌（深度獲利了結）
-nyse_price = "US$370.50"     # NYSE TSM 4/17 實際收盤（+1.97%，美股財報後反彈）
-volume = "32,500 張"          # 4/17 成交量估算（財報後縮量整理）
-news_summary = "4/20 週末休市(4/17收NT$2,030,-2.64%;TSM$370.50,+1.97%);Amazon/Meta/Anthropic自研AI芯片均依賴TSMC;Q1淨利+58%毛利率66.2%雙創歷史高"
-change_color = "FF0000"  # 下跌紅色
+today_str = "2026-04-21"
+tw_price = "NT$2,055"        # 4/21 盤中強彈（vs 4/18 收 NT$2,025，財報後獲利了結消化完成）
+change_pct = "+1.48%"        # 台股 2330 4/21 盤中漲幅
+nyse_price = "US$370.50"     # NYSE TSM 最後已知收盤 4/17（美市 Good Friday 4/18 休市，4/21 盤後更新）
+volume = "~15,000 張"         # 4/21 估算全日（盤中截至上午約 10,339 千股）
+news_summary = "4/21台股強彈NT$2,055(+1.48%),財報獲利了結消化;TSMC承諾美國投資$1650億關稅豁免確認;NVIDIA超越Apple成#1客戶22%;Q1淨利$18.2B+58.3%毛利率66.2%歷史新高"
+change_color = "00B050"  # 上漲綠色
 
 try:
     wb = load_workbook(EXCEL_PATH)
