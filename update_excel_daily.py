@@ -18,12 +18,12 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-23"
-tw_price = "NT$2,060"        # 4/23 盤中（+10 vs 4/22 NT$2,050；跟進 ADR 4/22 大漲）
-change_pct = "+0.49%"        # 台股 2330 4/23 盤中漲跌幅
-nyse_price = "US$387.72"     # NYSE TSM 4/22 實際收盤（+5.30%，Barclays 升評催化）
-volume = "~18,500 張"         # 4/23 盤中成交量估算
-news_summary = "Barclays升評TSM至增持目標$470;NYSE TSM 4/22爆量大漲+5.30%收$387.72;TSMC Arizona先進封裝廠(CoWoS)2029啟用確認;台股2330 4/23盤中NT$2,060(+0.49%)跟進ADR漲勢;加權指數觸37,887新高"
+today_str = "2026-04-24"
+tw_price = "NT$2,080"        # 4/23 收盤（+30 vs 4/22 NT$2,050，+1.46%；跟進 ADR 大漲）
+change_pct = "+1.46%"        # 台股 2330 4/23 收盤漲跌幅
+nyse_price = "US$387.53"     # NYSE TSM 4/23 收盤（-0.05% 技術整理）
+volume = "~22,500 張"        # 4/23 成交量估算
+news_summary = "台股2330 4/23收NT$2,080(+1.46%)跟進ADR大漲;NYSE TSM 4/23 $387.53(-0.05%)技術整理;TSMC宣布暫不採用ASML高NA EUV(€350M/台過貴)→A13/N2U設計協同突破,ASML股價-2.6%;Siemens擴大與TSMC AI晶片設計合作;2028先進封裝將整合10大晶片+20 HBM;NVIDIA確認#1客戶22%,黃仁勳稱AI晶片瓶頸為2-3年問題"
 change_color = "00B050"  # 上漲綠色
 
 try:
