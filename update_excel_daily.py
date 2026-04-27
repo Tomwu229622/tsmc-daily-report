@@ -18,12 +18,12 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-24"
-tw_price = "NT$2,080"        # 4/23 收盤（+30 vs 4/22 NT$2,050，+1.46%；跟進 ADR 大漲）
-change_pct = "+1.46%"        # 台股 2330 4/23 收盤漲跌幅
-nyse_price = "US$387.53"     # NYSE TSM 4/23 收盤（-0.05% 技術整理）
-volume = "~22,500 張"        # 4/23 成交量估算
-news_summary = "台股2330 4/23收NT$2,080(+1.46%)跟進ADR大漲;NYSE TSM 4/23 $387.53(-0.05%)技術整理;TSMC宣布暫不採用ASML高NA EUV(€350M/台過貴)→A13/N2U設計協同突破,ASML股價-2.6%;Siemens擴大與TSMC AI晶片設計合作;2028先進封裝將整合10大晶片+20 HBM;NVIDIA確認#1客戶22%,黃仁勳稱AI晶片瓶頸為2-3年問題"
+today_str = "2026-04-27"
+tw_price = "NT$2,185"        # 4/24 收盤（+105 vs 4/23 NT$2,080，+5.05%；爆量飆漲創歷史新高）
+change_pct = "+5.05%"        # 台股 2330 4/24 收盤漲跌幅
+nyse_price = "US$402.46"     # NYSE TSM 4/24 收盤（+5.17% 首次站上 $400 創歷史新高）
+volume = "44,962 張"         # 4/24 成交量實際（量能翻倍）
+news_summary = "台股2330 4/24爆量飆漲收NT$2,185(+5.05%,+105)創歷史新高,量能44,962張較前日翻倍,市值NT$56.6兆(+2.7兆);NYSE TSM 4/24 $402.46(+5.17%)首次站上$400創歷史新高;SOX寫30年新高(+4.32%)連18日漲創紀錄;三大法人合計買超9,729張(外資+8,306,投信+1,168,自營+256);TSMC A13/A12/N2U三大新製程確認2029量產,A16延至2027;Arizona先進封裝廠2029啟用;NVIDIA #1客戶22%確認"
 change_color = "00B050"  # 上漲綠色
 
 try:
