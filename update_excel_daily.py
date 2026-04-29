@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-28"
-tw_price = "NT$2,265"        # 4/27 收盤（+80 vs 4/24 NT$2,185，+3.66%；盤中觸 NT$2,330 史上最大漲點）
-change_pct = "+3.66%"        # 台股 2330 4/27 收盤漲跌幅
-nyse_price = "US$422.10"     # NYSE TSM 4/27 收盤（+4.88% 續創史高；4/28 盤前 -2.44%）
-volume = "62,800 張"         # 4/27 成交量（量能再放大 +40%）
-news_summary = "台股2330 4/27收NT$2,265(+3.66%,+80)續創史高,盤中觸NT$2,330與股號神奇巧合、單日漲點+145史上最大;市值盤中破NT$60兆(收盤NT$58.7兆);加權指數站上40,194破4萬;NYSE TSM 4/27 $422.10(+4.88%)續創史高;籌碼背離:外資反手賣超TSMC 1.8940萬張、全市場三大法人賣超482億;前TSMC工程師陳力銘因2nm機密外洩遭判10年,東京威力科創罰NT$1.5億;4/28盤前TSM -2.44%獲利了結;極端超買警示RSI 76.8/KDJ J 98.5"
-change_color = "00B050"  # 上漲綠色
+today_str = "2026-04-29"
+tw_price = "NT$2,215"        # 4/28 收盤（-50 vs 4/27 NT$2,265，-2.21%；OpenAI 不達標引爆 AI 晶片股拋售）
+change_pct = "-2.21%"        # 台股 2330 4/28 收盤漲跌幅
+nyse_price = "US$392.34"     # NYSE TSM 4/28 收盤（-3.12%；跌破 $400 關卡）
+volume = "46,932 張"         # 4/28 成交量（量縮 25% vs 4/27 6.28 萬張）
+news_summary = "台股2330 4/28收NT$2,215(-2.21%,-50)自史高拉回;NYSE TSM 4/28 $392.34(-3.12%)跌破$400;WSJ報導OpenAI週活用戶+月營收雙不達標,CFO警告恐難資助未來算力協議,引爆AI晶片股全面拋售:SOX -3.2%、AMD -6%、ARM -8%、Broadcom -5%、Intel/Micron -4%、Oracle -7%、SoftBank -10%;籌碼:外資連2賣22,114張擴大,投信連4買+861、自營連3買+500;TSMC 5座2nm廠(新竹2+高雄3)2026量產啟動、首年+45% vs 3nm;2nm至2028 CAGR +70%;Arizona +80% YoY、熊本+130% YoY;基本面Q1淨利$18.2B/毛利率66.2%雙創史高不變"
+change_color = "FF0000"  # 下跌紅色
 
 try:
     wb = load_workbook(EXCEL_PATH)
