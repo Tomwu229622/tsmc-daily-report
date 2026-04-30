@@ -18,12 +18,12 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-04-29"
-tw_price = "NT$2,215"        # 4/28 收盤（-50 vs 4/27 NT$2,265，-2.21%；OpenAI 不達標引爆 AI 晶片股拋售）
-change_pct = "-2.21%"        # 台股 2330 4/28 收盤漲跌幅
-nyse_price = "US$392.34"     # NYSE TSM 4/28 收盤（-3.12%；跌破 $400 關卡）
-volume = "46,932 張"         # 4/28 成交量（量縮 25% vs 4/27 6.28 萬張）
-news_summary = "台股2330 4/28收NT$2,215(-2.21%,-50)自史高拉回;NYSE TSM 4/28 $392.34(-3.12%)跌破$400;WSJ報導OpenAI週活用戶+月營收雙不達標,CFO警告恐難資助未來算力協議,引爆AI晶片股全面拋售:SOX -3.2%、AMD -6%、ARM -8%、Broadcom -5%、Intel/Micron -4%、Oracle -7%、SoftBank -10%;籌碼:外資連2賣22,114張擴大,投信連4買+861、自營連3買+500;TSMC 5座2nm廠(新竹2+高雄3)2026量產啟動、首年+45% vs 3nm;2nm至2028 CAGR +70%;Arizona +80% YoY、熊本+130% YoY;基本面Q1淨利$18.2B/毛利率66.2%雙創史高不變"
+today_str = "2026-04-30"
+tw_price = "NT$2,180"        # 4/29 收盤（-35 vs 4/28 NT$2,215，-1.58%；連 3 日修正、跌破心理 NT$2,200）
+change_pct = "-1.58%"        # 台股 2330 4/29 收盤漲跌幅
+nyse_price = "US$393.79"     # NYSE TSM 4/29 收盤（+0.37%；ADR 隔夜微反彈、未站回 $400）
+volume = "42,860 張"         # 4/29 成交量（續縮量約 9% vs 4/28 46,932 張）
+news_summary = "台股2330 4/29收NT$2,180(-1.58%,-35)連3日修正、跌破5MA NT$2,250+心理NT$2,200,距4/27史高NT$2,265累計-3.75%;NYSE TSM 4/29 $393.79(+0.37%)ADR微反彈但未站回$400;台美短線分歧、ADR領先止跌訊號;籌碼:外資連3賣估-8,500張(自-22,114大幅收斂)、投信連5買+650、自營連4買+320,合計賣超7,530張;TSMC 4/29揭露全數出脫Arm持股1.11M股@$207.65共$231M(財務性投資非戰略);NVDA +0.79%、AMD +1.21%、AVGO +1.14%、SOX收平,AI賣壓緩解;5座2nm廠2026量產啟動、首年+45% vs 3nm;基本面Q1淨利$18.2B/毛利率66.2%雙創史高不變"
 change_color = "FF0000"  # 下跌紅色
 
 try:
