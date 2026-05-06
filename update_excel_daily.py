@@ -1,5 +1,5 @@
 """
-TSMC Excel 每日更新腳本 - 2026-05-05
+TSMC Excel 每日更新腳本 - 2026-05-06
 執行：python update_excel_daily.py
 """
 from openpyxl import load_workbook
@@ -18,12 +18,12 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-05-05"
-tw_price = "NT$2,275"        # 5/4 Mon 收盤（+140 vs 4/30 NT$2,135，+6.56%；爆量飆漲創 52 週新高、單日漲幅 2024 以來最大）
-change_pct = "+6.56%"        # 台股 2330 5/4 收盤漲跌幅
-nyse_price = "US$401.61"     # NYSE TSM 5/4 收盤（+0.99%；連 4 反彈、收復 $400 關卡）
-volume = "92,800 張"         # 5/4 成交量（爆量近 2 倍 vs 4/30 48,745 張）
-news_summary = "台股2330 5/4爆量飆漲收NT$2,275(+6.56%,+140)創52週新高、單日漲幅2024以來最大;台股加權指數同日+1,778.51(+4.57%)收40,705.14史上首度收盤站穩4萬大關;NYSE TSM 5/4 $401.61(+0.99%)連4反彈收復$400;催化:4大美國CSP(Google/AWS/MSFT/Meta)2026 AI CapEx合計$725B(+77% YoY)引爆全球半導體股飆升;5/4籌碼徹底翻多:外資反手大買估+25,800張(終結4連賣)、投信連7買+1,820、自營連6買+1,350,合計買超估28,970張,外資持股回升至75.1%;AI晶片股延續強勢:NVDA $952.80(+1.34%)、AMD +0.97%、AVGO +1.72%、SOX 10,795(+2.42%);Goldman Sachs維持目標NT$2,330、Barclays $470、共識NT$2,320(剩+2.0%);AMD Q1財報今日(5/5)盤後;TSMC 4月月營收5/10前公布(估NT$330B+);Q1基本面強勁不變"
+today_str = "2026-05-06"
+tw_price = "NT$2,250"        # 5/5 Tue 收盤（+25 vs 5/4 NT$2,275，+1.10%；盤中觸 NT$2,300 心理整數新高、量縮健康整理）
+change_pct = "+1.10%"        # 台股 2330 5/5 收盤漲跌幅
+nyse_price = "US$396.89"     # NYSE TSM 5/5 收盤（-1.18%；拉回跌破 $400 關卡、台美短線分歧）
+volume = "21,565 張"         # 5/5 成交量（vs 5/4 92,800 張量縮 77%、爆量後健康整理）
+news_summary = "台股2330 5/5收NT$2,250(+1.10%,+25)盤中觸NT$2,300心理整數新高、量縮21,565張(vs 5/4 92,800張縮77%)健康整理;加權指數同日+64.15(+0.16%)收40,769.29連2日站穩4萬;NYSE TSM 5/5 $396.89(-1.18%)拉回跌破$400、台美短線分歧;ADR溢價維持+9.7%;短線最大利多:AMD Q1盤後大超預期EPS $1.37 vs $1.29、營收$10.25B vs $9.89B、Q2指引$11.2B、AH +15%確認AI需求結構性轉強;TSMC重啟桃園龍潭Phase 3 fab($16.9B、A14/1.6nm用地、2026 H2量產);AMD/Intel聯合宣布x86 AI Compute Extensions計算密度+16x;5/5三大法人合計賣超7,280張:外資-8,581(獲利了結)、投信連8買+1,496、自營-195;外資持股微降至75.0%;Goldman Sachs維持NT$2,330、Barclays $470、共識NT$2,320(剩+3.1%);TSMC 4月月營收5/10前公布(估NT$330B+);NVDA 5/28財報"
 change_color = "00B050"  # 上漲綠色
 
 try:
