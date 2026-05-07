@@ -1,5 +1,5 @@
 """
-TSMC Excel 每日更新腳本 - 2026-05-06
+TSMC Excel 每日更新腳本 - 2026-05-07
 執行：python update_excel_daily.py
 """
 from openpyxl import load_workbook
@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-05-06"
-tw_price = "NT$2,250"        # 5/5 Tue 收盤（+25 vs 5/4 NT$2,275，+1.10%；盤中觸 NT$2,300 心理整數新高、量縮健康整理）
-change_pct = "+1.10%"        # 台股 2330 5/5 收盤漲跌幅
-nyse_price = "US$396.89"     # NYSE TSM 5/5 收盤（-1.18%；拉回跌破 $400 關卡、台美短線分歧）
-volume = "21,565 張"         # 5/5 成交量（vs 5/4 92,800 張量縮 77%、爆量後健康整理）
-news_summary = "台股2330 5/5收NT$2,250(+1.10%,+25)盤中觸NT$2,300心理整數新高、量縮21,565張(vs 5/4 92,800張縮77%)健康整理;加權指數同日+64.15(+0.16%)收40,769.29連2日站穩4萬;NYSE TSM 5/5 $396.89(-1.18%)拉回跌破$400、台美短線分歧;ADR溢價維持+9.7%;短線最大利多:AMD Q1盤後大超預期EPS $1.37 vs $1.29、營收$10.25B vs $9.89B、Q2指引$11.2B、AH +15%確認AI需求結構性轉強;TSMC重啟桃園龍潭Phase 3 fab($16.9B、A14/1.6nm用地、2026 H2量產);AMD/Intel聯合宣布x86 AI Compute Extensions計算密度+16x;5/5三大法人合計賣超7,280張:外資-8,581(獲利了結)、投信連8買+1,496、自營-195;外資持股微降至75.0%;Goldman Sachs維持NT$2,330、Barclays $470、共識NT$2,320(剩+3.1%);TSMC 4月月營收5/10前公布(估NT$330B+);NVDA 5/28財報"
-change_color = "00B050"  # 上漲綠色
+today_str = "2026-05-07"
+tw_price = "NT$2,250"        # 5/6 Wed 收盤（持平 vs 5/5 NT$2,250，0.00%；TWii 大漲下台股 TSMC 持平、待 5/7 跟進 NYSE +5.55%）
+change_pct = "0.00%"         # 台股 2330 5/6 收盤漲跌幅（持平）
+nyse_price = "US$416.30"     # NYSE TSM 5/6 收盤（+5.55%；創 52 週新高 $417.68 盤中、AMD Q1 + AI CapEx $725B 引爆）
+volume = "28,400 張"         # 5/6 成交量（量能略放大、盤中觸 NT$2,275）
+news_summary = "台股2330 5/6收NT$2,250(0.00%持平)盤中觸NT$2,275、量28,400張;TWii 5/6+369.56(+0.91%)爆量1.4491兆收41,138.85創歷史新高連3日創高;NYSE TSM 5/6大漲+5.55%收$416.30(+19.41 vs 5/5 $396.89)盤中觸52週新高$417.68;ADR溢價自+9.7%擴至+15.1%、台美分歧達極端、預期5/7台股強勢補漲;驅動:AMD 5/6飆漲+25%反映Q1大超預期(EPS $1.37 vs $1.29、營收$10.25B、Q2指引$11.2B);4大美國CSP(Alphabet/AWS/MSFT/Meta)2026 AI CapEx合計$725B(+77% YoY)確認H2算力加速;TSMC重啟桃園龍潭Phase 3($16.9B、A14/1.6nm用地、2026 H2量產);SOX 5/6+5.41%收11,250.45;NVDA 5/6+6.30%收$208.50、AMD+24.93%收$230.50、AVGO+5.89%、ASML+4.88%;5/6全市場外資爆量大買+751.05億、投信+17.8億、自營-96.11億合計+672.85億;外資TSMC部位估強化買進、持股估升至75.1%;Goldman Sachs NT$2,330、Barclays $470對應NT$2,450、共識NT$2,320(剩+3.1%);TSMC 4月月營收5/10前公布(估NT$330B+)、距今3天;NVDA 5/28 Q1 FY27財報距21天"
+change_color = "808080"      # 持平灰色（0.00%）
 
 try:
     wb = load_workbook(EXCEL_PATH)
