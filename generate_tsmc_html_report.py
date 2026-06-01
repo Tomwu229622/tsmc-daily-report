@@ -378,7 +378,7 @@ NEWS = [
     {
         "tag": "產業趨勢", "tag_color": "#4CAF50",
         "title": "🚀 COMPUTEX 2026 6/1 開幕；黃仁勳 GTC Taipei keynote 揭 N1X 筆電晶片 + Vera Rubin AI 平台",
-        "body": "今日（6/1 Mon）COMPUTEX 2026 正式開幕（6/1-5 於台北南港展館），NVIDIA CEO 黃仁勳於台灣時間 11:00 在 Taipei Music Center 發表 GTC Taipei 主題演講：（1）正式揭曉 N1X ARM 筆電晶片、為 NVIDIA 首款 PC 平台、預期主導 AI PC 市場；（2）發表 Vera Rubin AI 計算平台（六晶片系統）：訓練效能 vs Blackwell +3.5x、推理 +5x、推理成本降至 1/7、預計 2026 H2 出貨；（3）黃仁勳暗示「還有一個新產品尚未公開」、市場預期可能揭曉新晶片或合作；（4）COMPUTEX 2026 整體聚焦 AI 基礎建設、機器人、實體 AI 與全球供應鏈合作；（5）黃仁勳同期會晤 TSMC CEO 魏哲家與廣達董事長、強化 Rubin 量產合作；（6）TSMC 為 Vera Rubin 獨家代工、CoWoS-L 全包；（7）Intel CEO Lip-Bu Tan 6/2 keynote 接力。市場視 COMPUTEX 2026 為 TSMC AI 算力訂單再確認 + 中長線估值重估催化。",
+        "body": "今日（6/1 Mon）COMPUTEX 2026 正式開幕（6/1-5 於台北南港展館、主題「AI Together」），NVIDIA CEO 黃仁勳於台灣時間 11:00 在 Taipei Music Center 發表 GTC Taipei 主題演講：（1）正式揭曉 N1X ARM 筆電晶片、為 NVIDIA 首款 PC 平台 SoC——20 核 ARM CPU + 整合 Blackwell 架構 GPU（6,144 CUDA 核心、效能等同 RTX 5070）、支援 128GB LPDDR5X、180-200 AI TOPS、預期主導 AI PC 市場；（2）發表 Vera Rubin AI 計算平台（VR200 機櫃、六晶片系統）：訓練效能 vs Blackwell +3.5x、推理 +5x、推理成本降至 1/7、預計 2026 H2 量產出貨；（3）黃仁勳暗示「還有一個新產品尚未公開」、市場預期可能揭曉新晶片或合作；（4）COMPUTEX 2026 整體聚焦 AI 基礎建設、機器人、實體 AI 與全球供應鏈合作、AMD/Intel/Qualcomm 同台參與；（5）黃仁勳同期會晤 TSMC CEO 魏哲家與廣達董事長、強化 Rubin 量產合作；（6）TSMC 為 Vera Rubin 獨家代工、採第三代 3nm + CoWoS-L 全包、首度支援 8 層 HBM4；（7）Intel CEO Lip-Bu Tan 6/2 keynote 接力。市場視 COMPUTEX 2026 為 TSMC AI 算力訂單再確認 + 中長線估值重估催化。",
         "source": "NVIDIA / TechTimes / CryptoBriefing / TradingKey 2026-06-01", "impact": "正面",
     },
     {
