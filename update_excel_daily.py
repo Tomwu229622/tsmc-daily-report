@@ -1,5 +1,5 @@
 """
-TSMC Excel 每日更新腳本 - 2026-06-01
+TSMC Excel 每日更新腳本 - 2026-06-02
 執行：python update_excel_daily.py
 """
 from openpyxl import load_workbook
@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-06-01"
-tw_price = "NT$2,380"        # 6/1 Mon 估收（+25，+1.06% vs 5/29 NT$2,355；COMPUTEX 2026 開幕 + 黃仁勳 GTC Taipei 11AM keynote 雙重催化）
-change_pct = "+1.06%"        # 台股 2330 6/1 估收盤漲跌幅
-nyse_price = "US$418.45"     # NYSE TSM 最新收盤（5/29 Fri，-6.41，-1.51% vs 5/28 $424.86；自史高 $425.06 拉回獲利了結）
-volume = "65,000 張"         # 6/1 估成交量（量增反映 COMPUTEX 題材爆量）
-news_summary = "今日(6/1 Mon)台股2330在COMPUTEX 2026開幕日+黃仁勳GTC Taipei 11AM keynote雙重催化跳空開高、估收NT$2,380(+25,+1.06% vs 5/29 NT$2,355)、開NT$2,370、盤中觸NT$2,395創52週新高、量增至65,000張、市值估突破NT$61.7兆續創歷史新高;🚀今日重大催化:(1)COMPUTEX 2026 6/1-5於台北開幕;(2)黃仁勳11:00 GTC Taipei keynote揭N1X ARM筆電晶片+Vera Rubin AI平台(6晶片系統vs Blackwell訓練+3.5x、推理+5x);(3)黃仁勳會晤TSMC CEO魏哲家、廣達等供應鏈龍頭討論Rubin量產;(4)Intel CEO Lip-Bu Tan 6/2 COMPUTEX keynote;(5)CoWoS產能擴張至2026底35,000 wspm(+59% YoY)、中期目標120,000-140,000 wspm滿足Rubin量產;🇺🇸 NYSE TSM 5/29自史高$425.06拉回收$418.45(-$6.41,-1.51% vs 5/28 $424.86)、ADR溢價收斂至+9.4%;⭐結構性利多續存:(1)NVIDIA CEO黃仁勳5/27宣布NVIDIA每年投資台灣$150B(+50%);(2)NVIDIA Taipei HQ動土預計2030啟用;(3)TSMC 3nm下半年漲價15%、明年再漲5-10%;(4)TSMC上修2026全年營收成長>30%、員工分紅年增>30%;🏆 NVDA Q1 FY27財報5/20大超預期:營收$81.6B(+85% YoY)、Q2 guidance $91.0B±2%、$80B回購;6/1估三大法人合計買超+18,500張——外資+13,500張、投信+3,500張、自營+1,500張、COMPUTEX題材推動買盤回升、外資持股估升至75.5%;🎯結構性催化續存:TSMC上修2030全球晶片市場至$1.5T、AI/HPC占55%、18座新廠規劃、2nm/A16 CAGR +70%、CoWoS良率突破98%;SOX 5/29 -0.45%至11,772.5、NVDA -1.41%收$237.80、AMD -1.16%收$453.20、AVGO -1.01%收$421.50、ASML -0.65%、AMAT -0.95%(5/29全美AI晶片股拉回);Barclays$470對應NT$2,500(剩+5.0%)、共識NT$2,435.53(剩+2.3%);TSMC 5月月營收預計6/10前公布;Q2 2026財報7/16公布;技術面RSI升至75強勢區、MACD +2.6紅柱再放大、KDJ K(86)/D(80)/J(96)再進超買區、所有均線多頭排列;⚠️短線雜訊:(1)NYSE TSM 5/29自史高拉回-1.51%顯示短線過熱;(2)Custom ASIC增速首超GPU(+44.6% vs +16.1%);(3)短線估值P/E 35.1x在5年92百分位高位;本週關鍵:NT$2,360支撐是否守住、若守住將再測NT$2,400新整數關卡/NT$2,435共識目標"
-change_color = "00B050"      # 上漲綠色（+1.06%）
+today_str = "2026-06-02"
+tw_price = "NT$2,470"        # 6/2 Tue 估收（+30，+1.23% vs 6/1 NT$2,440；接續 ADR 6/1 +4.73% 大漲訊號）
+change_pct = "+1.23%"        # 台股 2330 6/2 估收盤漲跌幅
+nyse_price = "US$439.78"     # NYSE TSM 最新收盤（6/1 Mon，+19.88，+4.73% vs 5/29 $418.45；COMPUTEX + GTC Taipei + NVIDIA-TSMC AI 合作三重催化、創史新高）
+volume = "62,000 張"         # 6/2 估成交量（量持續高檔反映題材熱度延續）
+news_summary = "今日(6/2 Tue)台股2330接續6/1 NT$2,440強勢(+85,+3.61% vs 5/29 NT$2,355)追趕ADR 6/1 +4.73%大漲訊號、估收NT$2,470(+30,+1.23% vs 6/1 NT$2,440)、開NT$2,455跳空開高、盤中觸NT$2,485再創52週新高、估量62,000張持續高檔、市值估突破NT$64兆再創歷史新高;🚀NYSE TSM 6/1 Mon大漲+4.73%收$439.78(+$19.88 vs 5/29 $418.45)、盤中觸$442.50創史新高、三重催化:(1)COMPUTEX開幕(2)GTC Taipei keynote(3)NVIDIA-TSMC AI製程合作;🤝今日(6/2)關鍵催化:(1)COMPUTEX 2026第二日續存;(2)Intel CEO Lip-Bu Tan 6/2 13:30台北COMPUTEX keynote、18A量產進度+TSMC競合關係焦點;(3)NVIDIA 6/1宣布TSMC全面導入NVIDIA AI與加速計算技術——cuLitho運算光刻效率+20-50%、cuEST化學模擬加速50倍、Omniverse FabTwin數位孿生;(4)黃仁勳6/1 GTC Taipei keynote揭Vera Rubin正式量產(VR200機櫃六晶片系統vs Blackwell訓練+3.5x、推理+5x、成本降至1/7)、N1X ARM筆電晶片、150家台廠供應鏈夥伴;(5)CoWoS產能擴張至2026底35,000 wspm(+59% YoY)→中期目標120,000-140,000 wspm;⭐結構性利多續存:(1)NVIDIA $150B/年投資台灣承諾;(2)NVIDIA Taipei HQ 5/27動土;(3)TSMC 3nm下半年漲價15%、明年再漲5-10%;(4)TSMC上修2026全年營收成長>30%、員工分紅年增>30%;🏆 NVDA Q1 FY27財報5/20大超預期:營收$81.6B(+85% YoY)、Q2 guidance $91.0B±2%、$80B回購;6/2估三大法人合計買超+22,500張——外資+17,500張、投信+3,500張、自營+1,500張、追單買盤強勁、外資持股估升至75.7%;🎯結構性催化續存:TSMC上修2030全球晶片市場至$1.5T、AI/HPC占55%、18座新廠規劃、2nm/A16 CAGR +70%、CoWoS良率突破98%、NVIDIA-TSMC AI製程合作為新利多;SOX 6/1 +4.64%至12,318.5、NVDA +4.50%收$248.50、AMD +4.92%收$475.50、AVGO +4.51%收$440.50、ASML +4.45%收$778.50、AMAT +4.47%收$238.50(6/1全美AI晶片股齊漲);Barclays$470對應NT$2,500(剩+1.2%)、共識NT$2,510(剩+1.6%);TSMC 5月月營收預計6/10前公布;Q2 2026財報7/16公布;技術面RSI升至78強勢區、MACD +3.0紅柱續放大、KDJ K(88)/D(83)/J(98)高檔超買區、所有均線多頭排列;⚠️短線雜訊:(1)短線估值P/E 36.4x在5年95百分位高位;(2)TSM ADR自6/1史高$442.50高位、技術超買警示;(3)Custom ASIC增速首超GPU(+44.6% vs +16.1%);(4)Intel CEO 6/2 keynote若揭重大外部客戶搶單恐成短線雜訊;本週關鍵:NT$2,440(6/1收)支撐是否守住、若守住將再測NT$2,500 Barclays $470對應整數關卡"
+change_color = "00B050"      # 上漲綠色（+1.23%）
 
 try:
     wb = load_workbook(EXCEL_PATH)
