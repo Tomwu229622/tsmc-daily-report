@@ -377,6 +377,18 @@ EPS_REVISION = {
 NEWS = [
     {
         "tag": "客戶動態", "tag_color": "#2196F3",
+        "title": "📊 Broadcom (AVGO) 6/3 盤後公布財報；TSMC 第 3 大客戶（13%）、Custom XPU + AI 營收續爆發",
+        "body": "TSMC 第 3 大客戶 Broadcom (AVGO) 將於 6/3 美股盤後公布最新季度財報、為今日半導體族群關鍵催化：（1）前一季（FY Q1 2026）營收年增 29% 至史高 $19.3B、半導體解決方案部門 +52% 至 $12.5B、AI 相關營收倍增 +106% 至 $8.4B——市場高度關注本季 AI / Custom XPU 動能能否延續；（2）Broadcom Custom ASIC（XPU）由 TSMC 3nm + CoWoS 代工、為 Google TPU、Meta MTIA 等超大規模客戶設計；（3）TrendForce 估 2026 Custom ASIC 增速首度超越 GPU（+44.6% vs +16.1%）、利於 Broadcom 訂單成長；（4）AVGO 財報若超預期將直接驗證 TSMC 先進製程 + CoWoS 封裝需求結構性多頭；（5）AVGO 6/3 盤前估 $448.20（+1.75%）、TSMC CoWoS 產能 Broadcom 占約 12%；（6）財報結果將於台股 6/4 開盤反映。",
+        "source": "CNBC / Motley Fool / SEC EDGAR 2026-06-03", "impact": "正面",
+    },
+    {
+        "tag": "產業趨勢", "tag_color": "#4CAF50",
+        "title": "🚀 SIA/Deloitte 報告：AI 資料中心晶片年營收 2028 上看 $1.2 兆、4 年成長近 10 倍；晶片占 AI 機櫃價值 95%",
+        "body": "美國半導體產業協會（SIA）與 Deloitte 6/1 聯合發布重磅報告，直接利多 TSMC 長線結構：（1）部署於 AI 資料中心的晶片年營收 2028 可望突破 $1.2 兆、為 2024 的近 10 倍；（2）晶片占領先 AI 伺服器機櫃內容價值逾 95%、占建置與營運 AI 基礎建設總資本支出逾 50%；（3）報告涵蓋邏輯（GPU/ASIC）、HBM 記憶體、先進封裝（CoWoS）全堆疊——TSMC 在邏輯製造 + CoWoS 封裝雙居龍頭、為最大受惠者；（4）呼應 TSMC 5/14 上修 2030 全球半導體市場至 $1.5T、AI/HPC 占 55%；（5）Hyperscaler 2026 AI CapEx 達 $725B（+77% YoY）；（6）SOX 6/2 +4%、6/3 續創新高反映此結構性題材；（7）此報告為 TSMC 18 座新廠規劃 + $52-56B CapEx 提供需求面背書。",
+        "source": "Semiconductor Industry Association / Deloitte 2026-06-01", "impact": "正面",
+    },
+    {
+        "tag": "客戶動態", "tag_color": "#2196F3",
         "title": "🤝 NVIDIA-TSMC 6/1 宣布 AI 製程合作：cuLitho 光刻 +20-50%、cuEST 化學模擬 +50 倍、Omniverse FabTwin 數位孿生",
         "body": "NVIDIA 6/1 於 COMPUTEX 期間正式宣布與 TSMC 達成 AI 製程合作里程碑：（1）TSMC 全面導入 NVIDIA 加速計算與 AI 技術至半導體設計與製造流程；（2）採用 NVIDIA cuLitho 運算光刻平台、相較傳統 CPU-based 光刻運算效率提升 20-50%（成本效益或循環時間）；（3）採用 NVIDIA cuEST 化學模擬平台、半導體材料設計化學模擬加速 50 倍；（4）導入 NVIDIA Omniverse FabTwin 數位孿生環境、虛擬測試 fab 配置與生產情境、實體部署前先模擬驗證；（5）NVIDIA CUDA-X 全面進入 TSMC fab、為 TSMC 史上首次大規模 GPU 加速應用；（6）合作雙向：NVIDIA 為 TSMC 最大客戶（22% / $33B）、TSMC 為 NVIDIA Blackwell/Vera Rubin 獨家代工；（7）TSMC 透過 cuLitho 削減 EUV 光刻成本最高 50%、為 3nm/2nm 漲價空間提供額外動能；（8）此合作確認 TSMC 在 AI 製造端的領先地位、為長線多頭結構性利多。",
         "source": "NVIDIA Newsroom / Stocktitan / Wccftech 2026-06-01", "impact": "正面",
