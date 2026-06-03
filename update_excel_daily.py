@@ -1,5 +1,5 @@
 """
-TSMC Excel 每日更新腳本 - 2026-06-02
+TSMC Excel 每日更新腳本 - 2026-06-03
 執行：python update_excel_daily.py
 """
 from openpyxl import load_workbook
@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-06-02"
-tw_price = "NT$2,405"        # 6/2 Tue 估收（估算，+50，+2.12% vs 6/1 NT$2,355；台股尚未收盤、追趕 ADR 6/1 +4.73%）
-change_pct = "+2.12%"        # 台股 2330 6/2 估收盤漲跌幅（估算）
-nyse_price = "US$439.78"     # NYSE TSM 最新收盤（6/1 Mon，+4.73% vs 5/29 $418.45；COMPUTEX + GTC Taipei + NVIDIA-TSMC AI 合作三重催化、市值 $2.28T 創史新高）
-volume = "52,000 張"         # 6/2 估成交量（估算）
-news_summary = "⚠️6/1 Mon台股2330盤中衝天價NT$2,415(市值62.62兆)但終場收平盤NT$2,355(0.00% vs 5/29)、未跟進大盤——高檔獲利了結+資金輪動至聯發科(+5.68%收NT$4,555)等其他AI股;台股加權指數6/1大漲+604.97(+1.35%)收45,337.91創歷史新高、首度站穩45,000;今日(6/2 Tue)台股尚未收盤、本報告以估算值呈現:估收NT$2,405(+50,+2.12% vs 6/1)、估盤中回測6/1天價NT$2,415、估量52,000張;🚀NYSE TSM 6/1 Mon大漲+4.73%收$439.78(vs 5/29 $418.45)、盤中觸$443.18、市值$2.28兆雙創史新高、三重催化:(1)COMPUTEX開幕(2)GTC Taipei keynote(3)NVIDIA-TSMC AI製程合作;台美ADR溢價估擴大至+13.6%(台股個股暫落後ADR);🤝今日(6/2)關鍵催化:(1)COMPUTEX 2026正式開幕日;(2)Intel CEO Lip-Bu Tan 6/2 13:30台北COMPUTEX keynote、18A量產進度(Panther Lake/Nova Lake/Clearwater Forest全採18A)+Foundry外部客戶+TSMC競合關係;(3)NVIDIA 6/1宣布TSMC全面導入NVIDIA AI與加速計算技術——cuLitho運算光刻效率+20-50%、cuEST化學模擬加速50倍、Omniverse FabTwin數位孿生;(4)黃仁勳6/1 GTC Taipei keynote揭Vera Rubin正式量產(vs Blackwell訓練+3.5x、推理+5x、成本降至1/7)、N1X ARM筆電晶片、150家台廠供應鏈夥伴;⭐結構性利多續存:(1)NVIDIA $150B/年投資台灣承諾;(2)NVIDIA Taipei HQ 5/27動土;(3)TSMC 3nm下半年漲價15%、明年再漲5-10%;(4)TSMC上修2026全年營收成長>30%、員工分紅年增>30%;🏆 NVDA Q1 FY27財報5/20大超預期:營收$81.6B(+85% YoY)、Q2 guidance $91.0B±2%、$80B回購;6/2估三大法人合計買超+15,700張——外資+12,000張、投信+2,500張、自營+1,200張;🎯結構性催化續存:TSMC上修2030全球晶片市場至$1.5T、AI/HPC占55%、18座新廠規劃、2nm/A16 CAGR +70%、CoWoS良率突破98%、NVIDIA-TSMC AI製程合作;SOX 6/1 +4.64%至12,318.5、NVDA +4.50%、AMD +4.92%、AVGO +4.51%、ASML +4.45%(6/1全美AI晶片股齊漲);Barclays$470對應NT$2,450、共識NT$2,510;TSMC 5月月營收預計6/10前公布;Q2 2026財報7/16公布;技術面RSI估68強勢區、MACD +2.0紅柱、KDJ K(78)/D(72)/J(90)偏高、均線多頭排列;⚠️短線雜訊:(1)6/1台股個股收平盤顯示高檔換手、漲多獲利了結壓力;(2)TSM ADR自6/1史高$443.18高位、技術超買警示;(3)短線估值P/E~35.4x在5年高位;(4)Intel CEO 6/2 keynote若揭重大外部客戶搶單恐成短線雜訊;本週關鍵:回測6/1天價NT$2,415突破將挑戰NT$2,440/NT$2,450(Barclays $470對應)、下方支撐NT$2,355(6/1收)"
-change_color = "00B050"      # 上漲綠色（+2.12%）
+today_str = "2026-06-03"
+tw_price = "NT$2,420"        # 6/3 Wed 估收（估算，+40，+1.68% vs 6/2 NT$2,380；台股反彈跟進 NYSE 6/3 +2.54%）
+change_pct = "+1.68%"        # 台股 2330 6/3 估收盤漲跌幅（估算）
+nyse_price = "US$446.69"     # NYSE TSM 最新收盤（6/3 Wed，+2.54% vs 6/2 $435.63；Intel CEO 確認長期夥伴 + NVIDIA-TSMC AI 製程合作 + Vera Rubin 量產利多、創史新高）
+volume = "48,000 張"         # 6/3 估成交量（估算、量縮整理）
+news_summary = "✅6/2 Tue台股2330實際收NT$2,380(+25,+1.06% vs 6/1 NT$2,355)、跟進NYSE TSM 6/1 +4.73%大漲訊號、量縮整理;台股加權指數續站穩45,000+;NYSE TSM 6/2 Tue收$435.63(-0.94% vs 6/1 $439.78)、盤中觸52週新高$449.39後尾盤回檔修整、高位獲利了結+Intel CEO 13:30 keynote觀察前消化;🤝6/2 Intel CEO Lip-Bu Tan COMPUTEX keynote重大確認:Tan表示Intel視TSMC為「長期信任夥伴」(very trusted partnership)、確認Intel為TSMC大客戶之一、Intel將持續委外先進晶片給TSMC——市場原憂Intel 18A競爭恐分食TSMC訂單的雜訊清除、解除短線壓力;揭露2025年曾提議TSMC入股Intel Foundry約20%(未成交);Intel YTD +200%+、市值$614B+;🚀NYSE TSM 6/3 Wed大漲+2.54%收$446.69創史新高(vs 6/2 $435.63)、+$11.06、反映三大利多:(1)Intel keynote確認長期夥伴清除雜訊(2)NVIDIA-TSMC 6/1 AI製程合作續發酵(3)Vera Rubin量產利多;今日(6/3)台股2330估反彈跟進NYSE、估收NT$2,420(+40,+1.68% vs 6/2 NT$2,380)、估盤中觸NT$2,430創新高、估量48,000張;台美ADR溢價估維持+14.6%;6/3估三大法人合計買超+18,800張(外資+14,500、投信+2,800、自營+1,500);🤝NVIDIA-TSMC 6/1 AI製程合作:cuLitho運算光刻效率+20-50%、cuEST化學模擬加速50倍、Omniverse FabTwin數位孿生、cuML製程參數處理、Vision AI瑕疵檢測;🏆黃仁勳6/1 GTC Taipei keynote揭Vera Rubin正式量產(vs Blackwell訓練+3.5x、推理+5x、成本降至1/7)、150家台廠供應鏈夥伴;⭐結構性利多續存:(1)Intel CEO確認TSMC「長期信任夥伴」(2)NVIDIA $150B/年投資台灣承諾(3)NVIDIA Taipei HQ 5/27動土(4)TSMC 3nm下半年漲價15%、明年再漲5-10%(5)TSMC上修2026全年營收成長>30%、員工分紅年增>30%;🏆NVDA Q1 FY27財報5/20大超預期:營收$81.6B(+85% YoY)、Q2 guidance $91.0B、$80B回購;🎯結構性催化續存:TSMC上修2030全球晶片市場至$1.5T、AI/HPC占55%、18座新廠規劃、2nm/A16 CAGR +70%、CoWoS良率突破98%、NVIDIA-TSMC AI製程合作、Intel確認長期夥伴;SOX 6/3 +1.36%至12,485.2創新高、NVDA +1.89%、AMD +1.75%、AVGO +1.75%、ASML +2.15%、AMAT +2.22%、MU +2.94%、INTC +6.34%(6/3全美AI晶片股續強);Barclays $470對應NT$2,450、共識NT$2,530;TSMC 5月月營收預計6/10前公布;Q2 2026財報7/16公布;技術面RSI估70接近超買、MACD +2.2紅柱、KDJ K(82)/D(75)/J(96)高檔、均線多頭排列;⚠️短線雜訊:(1)短線估值P/E~37.0x已升至5年95%+高位、需財報數據持續驗證(2)TSM ADR自6/2史高$449.39高位、技術超買警示(3)TSMC對前主管Wei-Jen Lo訴訟(2nm商業機密、轉投Intel)持續中(4)Apple傳部分晶片轉Intel 18A的5/13雜訊未完全消化;本週關鍵:突破NT$2,430將挑戰NT$2,450(Barclays $470對應)、下方支撐NT$2,380(6/2收)/NT$2,355(6/1收)"
+change_color = "00B050"      # 上漲綠色（+1.68%）
 
 try:
     wb = load_workbook(EXCEL_PATH)
