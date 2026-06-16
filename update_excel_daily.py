@@ -18,13 +18,13 @@ def style_cell(cell, bg="FFFFFF", align="center", bold=False, color="000000"):
     cell.alignment = Alignment(horizontal=align, vertical="center")
     cell.border = make_border()
 
-today_str = "2026-06-15"
-tw_price = "NT$2,310"          # 6/15 Mon 報告日；採 6/12 Fri 實際收盤 NT$2,310（6/15 台股盤中、官方收盤待確認）
-change_pct = "盤中待確認"        # 6/15 盤中待確認（最新確認為 6/12 收 +2.67%）
-nyse_price = "US$423.93"       # NYSE TSM 6/12 Fri 收盤（週末休市、為最新確認數據）
-volume = "—"                   # 6/15 盤中待確認
-news_summary = "報告日2026-06-15(Mon)；NYSE週末休市、最新確認為6/12收$423.93(+0.68%)連2紅；台股2330最新確認6/12收NT$2,310(+2.67%)、6/15盤中官方收盤待確認。✅TSMC反彈延續、台美雙市6/12連2日收紅、加權指數+1,019.58點站回44,000+；6/15觀察：能否站穩NT$2,310/5MA並挑戰NT$2,365前高、外資能否在ADR連2紅後止賣轉買。💡重大技術進展：分析師郭明錤6/10揭露TSMC CoPoS(Chip-on-Panel-on-Structure)玻璃基板封裝規劃2028 H2量產、以310×310mm玻璃載板、支援超光罩9.5倍超大封裝、成本與良率優於CoWoS、NVIDIA Feynman次世代AI晶片潛在首批採用、解決CoWoS尺寸瓶頸。💰TSMC CFO確認先進製程H2漲價(3nm漲~15%、sub-5nm漲5-10%)；CEO魏哲家重申全球晶片供應數年內持續落後AI需求、Q2月產能160K-175K片仍供不應求。⚠️競爭雜訊：Google向Intel Foundry下單逾300萬顆自研TPU(2028交付)、Samsung推進HPB封裝對標CoPoS、Intel 6/8大漲逾11%。台美ADR溢價(以6/12 ADR$423.93+6/12台股NT$2,310計)+13.97%。⭐中長線基底未變：5月營收NT$4,169.75億+30.1%創單月新高、1-5月累計NT$1.96兆、2nm量產70-80%良率領先全球、4大美國CSP 2026 AI CapEx合計$725B(+77% YoY)、PwC報告TSMC市值躍居全球第9。基本面：Q1 2026淨利NT$572.5B(+58.3% YoY)、毛利率66.2%雙創史高、2025全年EPS NT$66.25。32位分析師全數看多、平均目標NT$2,530(上行+9.52%)。⚠️估值警示TSM P/E ~35.1x仍在5年高位、關鍵守住NT$2,250。下一里程碑：6月營收7月上旬、Q2法說會7/16。"
-change_color = "808080"        # 灰色（6/15 盤中待確認）
+today_str = "2026-06-16"
+tw_price = "NT$2,375"          # 6/16 Tue 收盤（+65，+2.81% vs 6/12 NT$2,310；跟進 NYSE 6/15 +4.12% 飆漲；官方收盤以 TWSE 為準）
+change_pct = "+2.81%"          # 6/16 漲跌幅（跟進 NYSE 6/15 大漲）
+nyse_price = "US$441.40"       # NYSE TSM 6/15 Mon 收盤（+4.12%、為最新確認數據；6/16 美股盤後待確認）
+volume = "55,000"             # 6/16 成交量（張，估、放量）
+news_summary = "報告日2026-06-16(Tue)；NYSE TSM 6/15收$441.40(+4.12%、+$17.47)飆漲逼近52週/史高$450.16、市值$1.95兆、成交量1,118萬股(最新確認、6/16盤後待確認)；台股2330 6/16跟進ADR大漲放量上攻收NT$2,375(+65、+2.81% vs 6/12 NT$2,310)、市值回升NT$61.6兆、半導體類股全面強攻(NVDA+2.79%、SOX+3.20%)。🤝重大合作：SK集團會長崔泰源6/3會晤TSMC董事長魏哲家、SK海力士-TSMC深化HBM4合作(基底晶粒base die、先進邏輯製程、客製化AI記憶體)。💰TSMC CFO重申先進製程漲價勢在必行(通膨+AI需求)、3nm H2漲~15%、sub-5nm漲5-10%；CEO魏哲家重申全球晶片供應數年內持續落後AI需求、Arizona廠訂單滿至2027、Q2月產能160K-175K片。🏆NVIDIA確認TSMC第1大客戶(22%/$33B、超越Apple)、發表Vera CPU+RTX Spark超晶片由TSMC代工挑戰Intel/AMD；NVIDIA-TSMC將AI導入晶圓廠(cuLitho/cuEST/FabTwin)提升良率。💡CoPoS玻璃封裝2028 H2量產、支援超光罩9.5倍超大封裝、NVIDIA Feynman潛在首批採用。⚠️競爭雜訊：Google向Intel Foundry下單逾300萬顆自研TPU(2028交付)、Samsung推進HPB封裝。台美ADR溢價(以6/15 ADR$441.40+6/16台股NT$2,375計)+15.41%。⭐中長線基底未變：5月營收NT$4,169.75億+30.1%創單月新高、2nm量產70-80%良率領先全球、4大美國CSP 2026 AI CapEx合計$725B、PwC報告TSMC市值躍居全球第9。基本面：Q1 2026淨利NT$572.5B(+58.3% YoY)、毛利率66.2%雙創史高、2025全年EPS NT$66.25。32位分析師全數看多、平均目標NT$2,530(上行+6.53%)。⚠️估值警示TSM P/E 32.7x、台股P/E~35x、逼近史高留意獲利了結；上方壓力NT$2,400/NT$2,440史高、下方支撐NT$2,310/NT$2,250。下一里程碑：6月營收7月上旬、Q2法說會7/16。"
+change_color = "00B050"        # 綠色（6/16 上漲）
 
 try:
     wb = load_workbook(EXCEL_PATH)
