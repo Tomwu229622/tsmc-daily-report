@@ -1,0 +1,334 @@
+{
+  "report_date": "2026-07-29",
+  "data_asof": {
+    "tw_market": "2026-07-28 (週二收盤)",
+    "us_market": "2026-07-28 (週二, 美東時間收盤)"
+  },
+  "tsmc_2330_twse": {
+    "date": "2026-07-28",
+    "source": "https://www.twse.com.tw/exchangeReport/STOCK_DAY",
+    "open": 2270.0,
+    "high": 2305.0,
+    "low": 2270.0,
+    "close": 2280.0,
+    "change": -70.0,
+    "change_pct": -2.98,
+    "volume_lots": 45333.0,
+    "turnover_billion_twd": 1036.24,
+    "transactions": 463044,
+    "prev_close_0727": 2350.0
+  },
+  "institutional_2330": {
+    "date": "2026-07-28",
+    "source": "https://www.twse.com.tw/rwd/zh/fund/T86 (selectType=ALLBUT0999)",
+    "foreign_net_shares": -14659332.0,
+    "foreign_net_lots": -14659.0,
+    "trust_net_shares": 284295.0,
+    "trust_net_lots": 284.0,
+    "dealer_net_shares": 5123396.0,
+    "dealer_net_lots": 5123.0,
+    "total_net_shares": -9251641.0,
+    "total_net_lots": -9252.0,
+    "note": "負值=賣超, 正值=買超; lots=張(股數/1000)"
+  },
+  "institutional_market_wide": {
+    "date": "2026-07-28",
+    "source": "https://www.twse.com.tw/rwd/zh/fund/BFI82U (market-wide, all listed stocks, NTD)",
+    "dealer_net_yi_twd": -317.3,
+    "trust_net_yi_twd": 16.1,
+    "foreign_net_yi_twd": -874.8,
+    "total_net_yi_twd": -1176.0,
+    "note": "單位: 億元台幣(1億=1e8元, 非billion); 負值=賣超"
+  },
+  "valuation_2330": {
+    "date": "2026-07-28",
+    "source": "https://www.twse.com.tw/exchangeReport/BWIBBU_d",
+    "close": 2280.0,
+    "dividend_yield_pct": 0.96,
+    "dividend_year_roc": 114,
+    "pe_ratio": 30.65,
+    "pb_ratio": 10.04,
+    "financial_report_period": "115/1"
+  },
+  "taiex": {
+    "date": "2026-07-28",
+    "source": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX (type=IND) — 官方發行量加權股價指數",
+    "close": 41603.36,
+    "change_points": -2030.83,
+    "change_pct": -4.65,
+    "symbol_note": "官方 TWSE 加權指數，Yahoo ^TWII meta.regularMarketPrice=41603.36 交叉驗證一致"
+  },
+  "technical_indicators_2330": {
+    "MA5": 2357.0,
+    "MA10": 2371.5,
+    "MA20": 2409.0,
+    "MA60": 2347.17,
+    "RSI14": 40.84,
+    "MACD": {
+      "DIF": -9.31,
+      "DEA": 7.64,
+      "HIST": -33.91
+    },
+    "KDJ": {
+      "K": 29.08,
+      "D": 38.85,
+      "J": 9.54
+    },
+    "Bollinger20_2": {
+      "upper": 2528.94,
+      "mid": 2409.0,
+      "lower": 2289.06
+    },
+    "as_of": "2026-07-28",
+    "note": "以 TWSE 官方 2330 日收盤序列(2026-01~07)計算"
+  },
+  "adr_premium": {
+    "tsm_close_usd": 392.30999755859375,
+    "twd_usd_rate": 32.301998138427734,
+    "tsmc_2330_close_twd": 2280.0,
+    "implied_twd_price": 2534.48,
+    "premium_pct": 11.16,
+    "formula": "((TSM收盤 x TWD匯率 / 5) - 2330收盤) / 2330收盤"
+  },
+  "ecosystem_stocks": {
+    "TSM": {
+      "name": "TSM (台積電ADR)",
+      "date": "2026-07-28",
+      "close": 392.30999755859375,
+      "prev_close_0727": 399.0899963378906,
+      "pct_change_vs_0727": -1.7,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "^SOX": {
+      "name": "SOX 費半指數",
+      "date": "2026-07-28",
+      "close": 11035.6826171875,
+      "prev_close_0727": 11554.8798828125,
+      "pct_change_vs_0727": -4.49,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "TWD=X": {
+      "name": "USD/TWD 匯率",
+      "date": "2026-07-28",
+      "close": 32.301998138427734,
+      "prev_close_0727": 32.32229995727539,
+      "pct_change_vs_0727": -0.06,
+      "currency": "TWD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "^VIX": {
+      "name": "VIX 恐慌指數",
+      "date": "2026-07-28",
+      "close": 18.209999084472656,
+      "prev_close_0727": 18.670000076293945,
+      "pct_change_vs_0727": -2.46,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "CL=F": {
+      "name": "WTI原油期貨",
+      "date": "2026-07-28",
+      "close": 82.55000305175781,
+      "prev_close_0727": 82.61000061035156,
+      "pct_change_vs_0727": -0.07,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "^TNX": {
+      "name": "美國10年期公債殖利率",
+      "date": "2026-07-28",
+      "close": 4.604000091552734,
+      "prev_close_0727": 4.640999794006348,
+      "pct_change_vs_0727": -0.8,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "NVDA": {
+      "name": "輝達",
+      "date": "2026-07-28",
+      "close": 197.00999450683594,
+      "prev_close_0727": 196.50999450683594,
+      "pct_change_vs_0727": 0.25,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "AAPL": {
+      "name": "蘋果",
+      "date": "2026-07-28",
+      "close": 340.0799865722656,
+      "prev_close_0727": 336.9100036621094,
+      "pct_change_vs_0727": 0.94,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "AMD": {
+      "name": "超微",
+      "date": "2026-07-28",
+      "close": 454.6199951171875,
+      "prev_close_0727": 494.95001220703125,
+      "pct_change_vs_0727": -8.15,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "AVGO": {
+      "name": "博通",
+      "date": "2026-07-28",
+      "close": 380.9100036621094,
+      "prev_close_0727": 383.2200012207031,
+      "pct_change_vs_0727": -0.6,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "QCOM": {
+      "name": "高通",
+      "date": "2026-07-28",
+      "close": 162.8800048828125,
+      "prev_close_0727": 170.0399932861328,
+      "pct_change_vs_0727": -4.21,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "ARM": {
+      "name": "Arm Holdings",
+      "date": "2026-07-28",
+      "close": 244.74000549316406,
+      "prev_close_0727": 266.3299865722656,
+      "pct_change_vs_0727": -8.11,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "ASML": {
+      "name": "艾司摩爾",
+      "date": "2026-07-28",
+      "close": 1582.949951171875,
+      "prev_close_0727": 1655.260009765625,
+      "pct_change_vs_0727": -4.37,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "MU": {
+      "name": "美光",
+      "date": "2026-07-28",
+      "close": 820.530029296875,
+      "prev_close_0727": 900.2000122070312,
+      "pct_change_vs_0727": -8.85,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "AMAT": {
+      "name": "應用材料",
+      "date": "2026-07-28",
+      "close": 476.4599914550781,
+      "prev_close_0727": 516.8900146484375,
+      "pct_change_vs_0727": -7.82,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "KLAC": {
+      "name": "科磊",
+      "date": "2026-07-28",
+      "close": 190.8000030517578,
+      "prev_close_0727": 203.36000061035156,
+      "pct_change_vs_0727": -6.18,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "INTC": {
+      "name": "英特爾",
+      "date": "2026-07-28",
+      "close": 86.30000305175781,
+      "prev_close_0727": 91.66999816894531,
+      "pct_change_vs_0727": -5.86,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "2454.TW": {
+      "name": "聯發科",
+      "date": "2026-07-28",
+      "close": 3315.0,
+      "prev_close_0727": 3680.0,
+      "pct_change_vs_0727": -9.92,
+      "currency": "TWD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "3711.TW": {
+      "name": "日月光",
+      "date": "2026-07-28",
+      "close": 554.0,
+      "prev_close_0727": 608.0,
+      "pct_change_vs_0727": -8.88,
+      "currency": "TWD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "2303.TW": {
+      "name": "聯電",
+      "date": "2026-07-28",
+      "close": 113.5,
+      "prev_close_0727": 126.0,
+      "pct_change_vs_0727": -9.92,
+      "currency": "TWD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "000660.KS": {
+      "name": "SK海力士",
+      "date": "2026-07-28",
+      "close": 1550000.0,
+      "prev_close_0727": 1816000.0,
+      "pct_change_vs_0727": -14.65,
+      "currency": "KRW",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)",
+      "intraday_0729": 1551000.0,
+      "intraday_0729_note": "盤中價 (今日07/29交易中，非收盤定案值)"
+    },
+    "005930.KS": {
+      "name": "三星電子",
+      "date": "2026-07-28",
+      "close": 220000.0,
+      "prev_close_0727": 254000.0,
+      "pct_change_vs_0727": -13.39,
+      "currency": "KRW",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)",
+      "intraday_0729": 228000.0,
+      "intraday_0729_note": "盤中價 (今日07/29交易中，非收盤定案值)"
+    },
+    "LRCX": {
+      "name": "科林研發",
+      "date": "2026-07-28",
+      "close": 269.6099853515625,
+      "prev_close_0727": 291.6099853515625,
+      "pct_change_vs_0727": -7.54,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "2344.TW": {
+      "name": "華邦電",
+      "date": "2026-07-28",
+      "close": 144.0,
+      "prev_close_0727": 160.0,
+      "pct_change_vs_0727": -10.0,
+      "currency": "TWD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "AMKR": {
+      "name": "Amkor",
+      "date": "2026-07-28",
+      "close": 45.689998626708984,
+      "prev_close_0727": 60.709999084472656,
+      "pct_change_vs_0727": -24.74,
+      "currency": "USD",
+      "source": "Yahoo Finance chart API (query1.finance.yahoo.com/v8/finance/chart)"
+    },
+    "^TWII": {
+      "name": "台股加權指數",
+      "date": "2026-07-28",
+      "close": 41603.36,
+      "prev_close_0727": 43634.19,
+      "pct_change_vs_0727": -4.65,
+      "currency": "TWD",
+      "source": "TWSE 官方 MI_INDEX (Yahoo daily chart API 7/28當日尚缺此bar，改用TWSE官方值，兩者meta.regularMarketPrice一致)"
+    }
+  },
+  "unavailable": []
+}
