@@ -364,7 +364,7 @@ RELATIVE = {
     "taiex_1m":       +0.62,   # （43,386.41 vs 7/31 43,119.75、TWSE FMTQIK 官方；8/3 為 8 月首個交易日）
     "tsmc_tw_ytd":    +49.5,   # YTD 累計（NT$2,370 vs 1/2 官方收 NT$1,585、TWSE STOCK_DAY）
     "taiex_ytd":      +47.8,   # （43,386.41 vs 1/2 官方收 29,349.81、FMTQIK）
-    "sox_ytd":        +55.2,   # SOX YTD（11,430.35 vs 1/2 收 7,367.47、Yahoo）
+    "sox_ytd":        +55.1,   # SOX YTD（11,430.35 vs 1/2 收 7,367.47、Yahoo；55.146% 四捨五入）
     "beta_60d":        1.38,   # 60 日滾動 Beta vs TAIEX
     # ADR 折溢價（以 8/3 NYSE 收盤 & 8/3 TW 官方收盤計算）
     "adr_price":     406.11,   # TSM NYSE 8/3 收盤（+0.46%、Yahoo Finance API）
