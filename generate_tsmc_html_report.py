@@ -336,19 +336,19 @@ MACRO = [
 
 # 估值歷史位階 (Valuation Context)
 VALUATION = {
-    "pe_current":   32.47,  # TWSE 官方 BWIBBU（8/12 收 NT$2,415；口徑為最新年度 EPS、與 TTM 估算不同）
+    "pe_current":   27.76,  # TWSE 官方 BWIBBU（8/14 收 NT$2,395）——⚠️ 自 8/13 的 32.74x 驟降並非股價因素（當日股價僅 -1.64%），而是 TWSE 將「財報年/季」基準自 115/1（Q1）切換為 115/2（Q2）、Q2 獲利納入使 EPS 分母跳升所致；屬分母更新而非評價重估
     "pe_5y_avg":    18.5,   # 5 年均 P/E（估算）
     "pe_5y_high":   37.8,   # 5 年高點（2021 AI 泡沫）
     "pe_5y_low":     9.8,   # 5 年低點（2022 下行周期）
     "pe_5y_pct":      94,   # 目前在 5 年區間的百分位（%、創高後高位）
     "pe_10y_avg":   16.2,   # 10 年均 P/E（估算）
     "pe_10y_pct":     94,   # 目前在 10 年區間的百分位（%）
-    "pb_current":  10.63,   # TWSE 官方 BWIBBU（8/12、以 115Q1 財報淨值計；先前 ~18x 為估算、以官方為準）
+    "pb_current":   9.66,   # TWSE 官方 BWIBBU（8/14、⚠️ 已改以 115Q2 財報淨值計；自 8/13 的 10.72x 下降主因每股淨值更新而非股價因素）
     "pb_5y_avg":     5.8,
     "pb_5y_pct":      95,
     "ev_ebitda":    21.0,   # EV/EBITDA（估算）
     "peg":          1.12,   # PEG = P/E ÷ 5 年 EPS CAGR ~33%
-    "note": "P/E 歷史百分位為估算（Bloomberg/Refinitiv 基準）、基於 7/21 官方收 NT$2,410：台股 P/E ~27.6x（TTM、近四季 EPS ~87.4、含 Q2 EPS NT$27.25）、P/B ~18.1x（每股淨值 ~133.4）；NYSE TSM 7/21 收 $424.61、USD P/E 約 31.1x（估）；7/17 崩跌後估值大幅消化、Q2 EPS +77.4% 使 TTM 分母大增——PEG 以 5 年 EPS CAGR ~33% 計約 0.8；💰 漲價題材強化定價權（日經：2027 全面漲價 5-10%、HPC 追加訂單再 +10-15%）+ CoWoS 訂滿至 2027；中長線基底未變：全年上修 >40% + CapEx $60-64B + NVIDIA #1 客戶/A16 首發 + 2nm 量產爬坡",
+    "note": "⚠️⚠️ 本區塊數據於 2026-08-14 出現重大口徑變更，閱讀時務必留意：TWSE 官方 BWIBBU 的「財報年/季」基準已自 115/1（Q1）切換為 115/2（Q2），使 P/E 自 8/13 的 32.74x 降至 27.76x、P/B 自 10.72x 降至 9.66x——⭐ 此變動來自 Q2 獲利與淨值納入分母，並非股價下跌造成的評價修正（8/14 股價僅 -1.64%），切勿誤讀為「股票突然變便宜」。⚠️ 又：下方 5 年／10 年百分位（P/E 94%、P/B 95%）係在切換前的 115/1 EPS 基準下校準，本次尚未依 115/2 新基準重算，因此會高估目前的實際位階，僅供方向性參考、不應據以判斷絕對估值高低；待累積數期新基準資料後再行校正。以下為既有敘述（基準日 7/21）：P/E 歷史百分位為估算（Bloomberg/Refinitiv 基準）、基於 7/21 官方收 NT$2,410：台股 P/E ~27.6x（TTM、近四季 EPS ~87.4、含 Q2 EPS NT$27.25）、P/B ~18.1x（每股淨值 ~133.4）；NYSE TSM 7/21 收 $424.61、USD P/E 約 31.1x（估）；7/17 崩跌後估值大幅消化、Q2 EPS +77.4% 使 TTM 分母大增——PEG 以 5 年 EPS CAGR ~33% 計約 0.8；💰 漲價題材強化定價權（日經：2027 全面漲價 5-10%、HPC 追加訂單再 +10-15%）+ CoWoS 訂滿至 2027；中長線基底未變：全年上修 >40% + CapEx $60-64B + NVIDIA #1 客戶/A16 首發 + 2nm 量產爬坡",
 }
 
 # 現金流品質 (Quality of Earnings)
@@ -1292,8 +1292,9 @@ footer strong{{color:#90A4AE}}
   </div>
   <div style="background:var(--card);border-radius:9px;padding:12px 16px;
     box-shadow:0 1px 5px rgba(0,0,0,.07);font-size:12.5px;color:#444;line-height:1.75">
-    <strong>估值解讀：</strong>目前 P/E {VALUATION["pe_current"]}x 處於 5 年 <strong>{VALUATION["pe_5y_pct"]}%</strong> 分位 / 10 年 <strong>{VALUATION["pe_10y_pct"]}%</strong> 分位高位，
-    反映市場對 AI 超級週期的溢價預期。PEG {VALUATION["peg"]} 顯示相對成長速度仍屬合理；EV/EBITDA {VALUATION["ev_ebitda"]}x 高於業均，
+    <strong>估值解讀：</strong>目前 P/E {VALUATION["pe_current"]}x（TWSE 官方 BWIBBU 8/14、⚠️ 已改採 115Q2 財報基準，較 8/13 的 32.74x 下降係分母更新而非評價修正）。
+    ⚠️ 下列百分位係在切換前的 115Q1 基準下校準、尚未依新基準重算，會高估實際位階，僅供方向性參考：5 年 <strong>{VALUATION["pe_5y_pct"]}%</strong> 分位 / 10 年 <strong>{VALUATION["pe_10y_pct"]}%</strong> 分位，
+    方向上仍反映市場對 AI 超級週期的溢價預期。PEG {VALUATION["peg"]} 顯示相對成長速度仍屬合理；EV/EBITDA {VALUATION["ev_ebitda"]}x 高於業均，
     但考量 TSMC 壟斷性市占與訂單能見度，溢價具基本面支撐。若 AI 資本支出鬆動，P/E 均值回歸至 {VALUATION["pe_5y_avg"]}x
     意味台股下修至約 NT$1,200，為主要下行風險情境。
   </div>
