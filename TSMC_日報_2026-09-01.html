@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TSMC 台積電日報 — 2026-09-01</title>
+<style>
+:root{
+  --navy:#0D1B2A; --blue:#1565C0; --mid:#1976D2; --light:#BBDEFB;
+  --green:#4CAF50; --red:#F44336; --orange:#FF9800; --purple:#7B1FA2;
+  --bg:#F0F4F8; --card:#FFFFFF; --text:#1A1A2E; --muted:#546E7A;
+  --border:#E0E8F0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+
+/* NAV TOC */
+.toc{background:var(--navy);padding:8px 40px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.toc a{color:#90CAF9;font-size:11px;text-decoration:none;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.toc a:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6e 100%);color:#fff;padding:24px 40px 18px}
+.hdr h1{font-size:24px;font-weight:700;letter-spacing:.5px}
+.hdr-sub{font-size:12px;color:#90CAF9;margin-top:3px}
+.hdr-meta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.hdr-meta span{background:rgba(255,255,255,.12);border-radius:6px;padding:3px 10px;font-size:11px}
+.data-note{background:#FFF3E0;border-left:3px solid #FF9800;padding:6px 40px;font-size:11px;color:#E65100}
+
+/* SECTIONS */
+.sec{padding:16px 40px}
+.sec-title{font-size:14px;font-weight:700;color:var(--blue);border-left:4px solid var(--blue);
+  padding-left:10px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.3px}
+.sub-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin:12px 0 8px}
+
+/* STOCK PANEL */
+.stock-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stock-box{background:var(--card);border-radius:10px;padding:16px 18px;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);border-left:5px solid var(--mid)}
+.stock-exch{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:600}
+.stock-row{display:flex;align-items:baseline;gap:10px;margin:5px 0}
+.price{font-size:30px;font-weight:700;color:var(--navy)}
+.chg{font-size:15px;font-weight:600}
+.stock-detail{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;margin-top:10px}
+.sd{font-size:11.5px;color:var(--muted)}.sd span{color:var(--navy);font-weight:600}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.kpi{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-top:3px solid var(--blue)}
+.kpi-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.kpi-val{font-size:20px;font-weight:700;margin:3px 0 2px;color:var(--navy)}
+.kpi-chg{font-size:11.5px;font-weight:600}
+.kpi-note{font-size:10px;color:var(--muted)}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.news-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-bottom:3px solid var(--border)}
+.news-hdr{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.tag{color:#fff;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600}
+.impact{border:1.5px solid;border-radius:10px;padding:1px 7px;font-size:10.5px;font-weight:600}
+.news-title{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.45}
+.news-body{font-size:12px;color:#444;line-height:1.65;margin-bottom:7px}
+.news-src{font-size:10.5px;color:var(--muted)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--card);
+  border-radius:9px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+th{background:var(--mid);color:#fff;padding:8px 11px;font-size:11.5px;text-align:left;font-weight:600}
+td{padding:8px 11px;font-size:12px;border-bottom:1px solid #F0F4F8}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#F7FBFF}
+.badge{display:inline-block;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600;color:#fff}
+
+/* INSTITUTIONAL */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.inst-name{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.inst-val{font-size:22px;font-weight:700;margin:5px 0 3px}
+.inst-note{font-size:10.5px;color:var(--muted)}
+
+/* SPARK BARS */
+.spark-wrap{display:flex;gap:4px;align-items:flex-end;height:50px;margin-top:8px}
+.spark-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.spark-val{font-size:8.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+
+/* TECHNICAL */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.tech-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.tech-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.tech-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+.tech-sig{font-size:11px;font-weight:600;border-radius:10px;padding:2px 8px;display:inline-block}
+.ma-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ma-box{background:var(--card);border-radius:8px;padding:8px 10px;text-align:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.ma-lbl{font-size:10px;color:var(--muted)}
+.ma-val{font-size:14px;font-weight:700;margin-top:2px}
+
+/* DERIVATIVES */
+.deriv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px}
+.deriv-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.deriv-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.deriv-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+
+/* ECOSYSTEM */
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.eco-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.eco-type{font-size:10px;color:#fff;border-radius:4px;padding:1px 6px;font-weight:600}
+.eco-name{font-weight:700;font-size:13px;margin:5px 0 2px}
+.eco-price{font-size:16px;font-weight:700;color:var(--navy)}
+.eco-note{font-size:10.5px;color:var(--muted)}
+
+/* ANALYST */
+.analyst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.analyst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--blue)}
+.analyst-firm{font-size:12px;font-weight:700;color:var(--navy)}
+.analyst-tp{font-size:18px;font-weight:700;color:var(--blue);margin:5px 0 3px}
+.analyst-note{font-size:11.5px;color:#555}
+.consensus-bar{display:flex;border-radius:8px;overflow:hidden;height:22px;margin:10px 0 4px}
+
+/* EARNINGS COUNTDOWN */
+.countdown-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+  border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.countdown-days{font-size:56px;font-weight:700;line-height:1;color:#FDD835}
+.countdown-label{font-size:12px;color:#90CAF9;text-transform:uppercase}
+.countdown-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px}
+.cg-item{background:rgba(255,255,255,.1);border-radius:8px;padding:8px 12px}
+.cg-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.cg-val{font-size:14px;font-weight:700;margin-top:3px}
+
+/* FAB UTILIZATION */
+.fab-grid{display:flex;flex-direction:column;gap:8px}
+.fab-row{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:90px 80px 140px 1fr;gap:10px;align-items:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.fab-node{font-size:13px;font-weight:700;color:var(--navy)}
+.util-bar{height:10px;border-radius:5px;background:#E0E0E0;overflow:hidden;margin-top:3px}
+.util-fill{height:100%;border-radius:5px}
+
+/* CALENDAR */
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.cal-date{font-size:13px;font-weight:700;color:#fff;border-radius:6px;
+  padding:4px 8px;text-align:center}
+.cal-title{font-size:13px;font-weight:600;color:var(--navy)}
+.cal-desc{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* RISK */
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.risk-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.06);border-left:4px solid}
+.risk-lv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.risk-name{font-size:13px;font-weight:700;margin:4px 0}
+.risk-desc{font-size:12px;color:#555;line-height:1.55}
+
+/* FOOTER */
+footer{background:var(--navy);color:#607D8B;text-align:center;padding:14px 40px;font-size:10.5px;margin-top:12px}
+footer strong{color:#90A4AE}
+
+/* ALERT BOX */
+.alert{background:#FFF8E1;border-left:4px solid #FFC107;border-radius:6px;
+  padding:8px 12px;font-size:11.5px;color:#795548;margin-bottom:10px}
+
+@media(max-width:700px){
+  .sec,.hdr{padding:12px 14px}
+  .toc{padding:6px 14px}
+  .stock-grid,.inst-grid{grid-template-columns:1fr}
+  .fab-row{grid-template-columns:1fr 1fr}
+  .cal-item{grid-template-columns:1fr}
+}
+@media print{
+  .toc{display:none}
+  body{background:#fff}
+  .kpi,.news-card,.stock-box,.inst-card,.risk-card{box-shadow:none;border:1px solid #ddd}
+}
+
+/* ── VALUATION ── */
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:12px}
+.val-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.val-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.val-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.val-sub{font-size:11px;color:var(--muted)}
+.pct-bar-wrap{background:#E0E8F0;border-radius:6px;height:10px;overflow:hidden;margin:6px 0 3px}
+.pct-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--mid))}
+
+/* ── CASHFLOW ── */
+.cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.cf-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.cf-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cf-val{font-size:15px;font-weight:700;color:var(--navy);margin:3px 0 1px}
+.cf-chg{font-size:11px;font-weight:600}
+
+/* ── RELATIVE STRENGTH ── */
+.rel-row{display:grid;grid-template-columns:130px repeat(4,1fr);gap:0;margin-bottom:2px;align-items:center}
+.rel-hdr{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:4px 0}
+.rel-lbl{font-size:12px;font-weight:600;color:var(--navy);padding:4px 0}
+.rel-val{font-size:12px;font-weight:700;text-align:center;padding:4px 0}
+.adr-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;border-radius:10px;
+  padding:14px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.adr-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.adr-val{font-size:18px;font-weight:700;margin-top:4px}
+
+/* ── COWOS ── */
+.cowos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:12px}
+.cowos-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center;border-top:3px solid var(--blue)}
+.cowos-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cowos-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.cowos-sub{font-size:11px;color:var(--muted)}
+.cowos-cust-bar{display:flex;height:24px;border-radius:8px;overflow:hidden;margin:10px 0 6px}
+
+/* ── EPS REVISION ── */
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.rev-box{background:var(--card);border-radius:9px;padding:14px;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.rev-period{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.rev-consensus{font-size:28px;font-weight:700;color:var(--navy)}
+.rev-range{font-size:11px;color:var(--muted);margin-top:3px}
+.rev-trend-up{display:inline-block;background:#E8F5E9;color:#2E7D32;
+  border-radius:10px;padding:2px 9px;font-size:11px;font-weight:700}
+.trigger-list{display:flex;flex-direction:column;gap:5px}
+.trigger-item{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#444;line-height:1.5}
+.trigger-badge{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;
+  padding:2px 6px;color:#fff;margin-top:2px}
+
+/* ── SUMMARY CARD ── */
+.summary-card{background:#fff;border-radius:10px;padding:18px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.09);border-left:5px solid #888;
+  display:flex;gap:18px;align-items:flex-start}
+.summary-left{flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  gap:6px;min-width:76px;padding-top:2px}
+.s-badge{color:#fff;font-size:12px;font-weight:700;border-radius:7px;
+  padding:5px 10px;text-align:center;line-height:1.4;white-space:nowrap}
+.s-label{font-size:9px;color:var(--muted);font-weight:600;text-transform:uppercase;
+  letter-spacing:.3px}
+.summary-right{flex:1;min-width:0}
+.s-headline{font-size:14px;font-weight:700;color:var(--navy);line-height:1.45;
+  margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.s-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:11px}
+.s-bullets li{font-size:12.5px;color:#333;line-height:1.6;padding-left:16px;position:relative}
+.s-bullets li::before{content:"▸";position:absolute;left:0;top:2px;font-size:10px;color:var(--mid)}
+.s-bottom{background:var(--bg);border-radius:6px;padding:9px 13px;
+  font-size:12.5px;color:var(--navy);line-height:1.55;font-style:italic}
+.s-risk{background:#FFF3E0;border-left:3px solid #FF6F00;border-radius:4px;
+  padding:6px 10px;font-size:11.5px;color:#BF360C;font-weight:600;margin-top:8px}
+@media(max-width:600px){
+  .summary-card{flex-direction:column;gap:10px}
+  .summary-left{flex-direction:row;min-width:unset}}
+</style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#summary">&#128203; 今日摘要</a>
+  <a href="#price">股價</a>
+  <a href="#kpi">財務KPI</a>
+  <a href="#inst">法人買賣超</a>
+  <a href="#tech">技術分析</a>
+  <a href="#deriv">期貨選擇權</a>
+  <a href="#news">國際新聞</a>
+  <a href="#customer">客戶動態</a>
+  <a href="#ecosystem">產業生態系</a>
+  <a href="#analyst">法人評級</a>
+  <a href="#earnings">財報倒計時</a>
+  <a href="#fab">稼動率</a>
+  <a href="#risk">風險</a>
+  <a href="#calendar">行事曆</a>
+  <a href="#valuation">估值位階</a>
+  <a href="#cashflow">現金流</a>
+  <a href="#relative">相對強弱</a>
+  <a href="#cowos">CoWoS</a>
+  <a href="#fx">匯率敏感</a>
+  <a href="#revision">EPS修正</a>
+</nav>
+
+<!-- HEADER -->
+<div class="hdr">
+  <h1>TSMC 台積電 (2330 / TSM) 每日股市分析日報</h1>
+  <div class="hdr-sub">Taiwan Semiconductor Manufacturing Company — Daily Market Intelligence Report</div>
+  <div class="hdr-meta">
+    <span>報告日期：2026-09-01</span>
+    <span>股票代碼：2330.TW / TSM (NYSE)</span>
+    <span>下次財報：2026-10-15 (44 天後)</span>
+    <span>⚠ 本報告僅供參考，不構成投資建議</span>
+  </div>
+</div>
+<div class="data-note">⚠ ⭐ 報告日 2026-09-01 Tue（台北時間上午 9 時產製）。台股數據為 8/31 Mon 官方確認收盤（TWSE STOCK_DAY／T86／BWIBBU）；ADR 與美股為 8/31 Mon 美股正規盤收盤（Yahoo 官方，TSM 另經 stockanalysis.com 交叉確認 $415.32 ✓）。⭐⭐ 本報最重要的結構聲明——8/31 是一個「兩股力量同時作用」的交易日，任何單看價量的判讀都會失真，請務必先理解此點：（1）外溢力量：美股 8/28 費半 -3.47%、ADR -2.29%，台股 8/28 收盤未反映，8/31 開盤跳空低開 25 點即為補跌；（2）機械力量：8/31 收盤為 MSCI 季度調整生效日，台積電於 MSCI 台灣指數權重調降 0.79 個百分點至 56.61%（本次台股成分股中調降幅度最大者），被動資金於收盤集中調節，造成成交量暴增 118.2% 至 32,793 張、外資賣超 4,554 張（終結連 3 買）、全市場成交額衝上 1.289 兆（來源：MSCI 季度調整公告，經濟日報／聯合新聞網 2026-08-13 報導）。⚠️ 因此本日的「量」與「外資賣超」兩項數字均不得作為市場意願的證據，本報在各區塊已逐一標註；⭐ 可作為證據的是價格結構本身：收盤 2,405 ＝當日最高、盤中低 2,375 為本波第四度守住、補跌幅度 -0.62% 小於夜盤隱含的 -0.86% 與費半的 -3.47%。⭐ 前一份日報（2026-08-31 版）所訂三項檢核的結果已於 tw_change_pct、tw_volume 與 SUMMARY 逐條回覆。⚠️ 時序提醒：本報付印時台股 9/1 已開盤（09:00），本報所有台股數字均為 8/31 收盤值、不含 9/1 盤中；期貨夜盤（CDF 202609、日期標記 2026/09/01 的盤後列）收 2,395（-7），已先行指向 9/1 開盤小低。</div>
+
+<!-- ═══ 0. 今日重點摘要 ═══ -->
+<div class="sec" id="summary">
+  <div class="sec-title">&#128203; 今日重點摘要</div>
+  <div class="summary-card" style="border-left-color:#546E7A">
+    <div class="summary-left">
+      <div class="s-badge" style="background:#546E7A">中性</div>
+      <div class="s-label">今日信號</div>
+    </div>
+    <div class="summary-right">
+      <div class="s-headline">⭐ 台股 8/31 補跌收斂、收在當日最高：2330 收 NT$2,405（-15、-0.62%），盤中一度下探 2,375（-1.86%）後尾盤全數收復、收盤價＝當日最高價，補跌幅度小於期貨夜盤隱含的 -0.86% 與費半的 -3.47%，時間差風險大致消化。⚠️⚠️ 但本日所有價量數字都必須先扣除一個機械因素才能解讀：8/31 收盤為 MSCI 季度調整生效日，台積電權重調降 0.79 個百分點至 56.61%，被動資金於尾盤集中調節，造成量能暴增 118.2% 至 32,793 張、外資賣超 4,554 張終結連 3 買——這兩項本報一律不作市場意願解讀。⭐ 美股 8/31 半導體已止跌回升（費半 +0.57%、NVDA +1.48%、美光 +2.77%、高通 +3.83%），ADR 僅 -0.53%，台美時間差收斂完成</div>
+      <ul class="s-bullets"><li>⭐⭐ 前一份日報所訂第一順位檢核的結果為「盤中破、收盤守其一」，本報逐條回覆不含糊：前報明訂「檢核價位設在 5MA 2,404（恰與夜盤期貨低點重合）與連 2 日守住的 2,410」，並訂出「若今日開低後能守住 2,404-2,410 區間並收紅或平盤，代表台股具備獨立於美股的承接力」。⚠️ 8/31 實際：盤中最低 2,375，同時跌破 2,404 與 2,410 達 29 點與 35 點，亦一度失守 10MA 2,394 與 20MA 2,389 的密集帶——前報所訂「若跌破 2,404 並失守 10MA 與 20MA 密集帶，則 8/25-8/28 整段修復失效」的負面條件，在盤中確實成立過。⭐ 惟收盤 2,405 重新站回 2,404（差 1 點）、10MA 2,394 與 20MA 2,391 之上，未能站回 2,410（差 5 點），且收在當日最高。⭐ 本報判定：以收盤價為準，修復結構未破、但防守僅低空掠過；以盤中價為準，前報的負面情境確曾實現。兩者並列，不擇一呈現</li><li>⚠️⚠️ 本日最須先講清楚的干擾項——MSCI 季度調整於 8/31 收盤生效，這是量能與籌碼兩項數字同時異常的共同成因：台積電於 MSCI 台灣指數權重調降 0.79 個百分點至 56.61%，為本次台股成分股中調降幅度最大者；同時新增南亞科、華邦電、群聯、台燿、南電、景碩六檔，刪除六檔（來源：MSCI 季度調整公告，經濟日報／聯合新聞網）。⚠️ 直接後果：2330 成交量 32,793 張較 8/28 暴增 118.2%、成交筆數 106,512 筆、單日成交額 785.64 億；全市場成交額衝上 NT$1.289 兆；外資賣超 4,554 張終結連 3 日買超。⭐ 對照組可佐證此為機械效應而非台積電個別因素：同為 MSCI 新增成分股的華邦電（2344）當日量能自 153,444 張暴增至 398,679 張（+159.8%），股價卻仍收紅 +0.55%。⭐⭐ 本報的紀律：本日的量能與外資買賣超一律不得作為買賣意願的證據，真正的檢核延到 9/1——量能是否回落至 2 萬張以下、外資是否回到買方</li><li>⭐ 台美時間差本日收斂完成，且收斂方式優於前報的三種情境設想：前報指出 ADR 溢價自 +12.41% 壓縮至 +8.97%（-3.44pp）為補跌壓力的量化來源，並設想「由 ADR 回升或台股補跌其中之一來收斂」。⚠️ 8/31 實際是台股補跌 -0.62%、ADR 續跌 -0.53%，兩者幅度接近，溢價因此不縮反微升至 +9.49%（另有台幣貶值 0.38% 拉低平價的貢獻）。⭐⭐ 更關鍵的是美股半導體本身已止跌：費半 8/31 收 11,535.05（+0.57%），NVDA +1.48% 收 $220.78、美光 +2.77% 收 $958.73、高通 +3.83% 收 $170.48（本日追蹤清單最大漲幅、市場歸因於 8/31 發表 Horizon Ultra AI PC 與 Adobe 採用 HUMAIN 基礎設施）——8/28 的 -3.47% 未出現續跌，補跌壓力的上游來源已消失</li><li>⚠️ 技術指標本日全面轉弱，且是四項同步、無一例外，這是本報認為比價格更值得留意的一點：MACD 紅柱自 +7.34 收縮至 +5.68（-22.6%），終結連 4 日擴張（DIF 自 +10.16 微降至 +10.04、DEA 自 +6.49 續升至 +7.20，兩線正乖離自 3.67 收斂至 2.84，為 8/25 以來首見收斂）；RSI(14) 自 54.23 降至 52.26、RSI(6) 自 60.27 大幅降至 52.79（-7.48 點，短天期回落幅度為長天期的 3.8 倍）；⭐ KDJ 則屬正面消化——J 值自 84.52 回落至 75.43，正式退出 80 超買區，K 68.42→66.83、D 60.37→62.52，K-D 正乖離自 8.05 收斂至 4.31。⭐ 本報判讀：四項同步轉弱但無一項翻空（RSI 仍在 50 之上、MACD 仍為紅柱且雙線在零軸上、KDJ 仍金叉），屬高檔鈍化後的健康消化而非趨勢反轉；⚠️ 惟收盤 2,405 已低於新的 5MA 2,410，為 8/25 以來首次收盤失守 5 日線</li><li>⭐ 期貨與選擇權端出現兩項方向不一致的訊號，本報並列不擇一：（1）⚠️ 台積電個股期貨（CDF 202609）8/31 日盤收 2,402（-27）、對現貨 2,405 轉為逆價差 -3（8/28 為正價差 +9），未平倉 24,999 口續減；今晨夜盤（TAIFEX 日期標記 2026/09/01 的盤後列）收 2,395（-7、高 2,408／低 2,390），續指向 9/1 開盤小低。（2）⭐ 台指選擇權未平倉 P/C 比自 1.01 降至 0.96（賣權 61,681 口／買權 64,172 口、TAIFEX 官方 96.12%），為本報追蹤區間內首次跌破 1.00，買權未平倉首度超越賣權。⚠️⚠️ 口徑警語必須放在解讀之前：8/28（週五）為選擇權結算日、未平倉已全面重置，8/31 為重建首日，其比率只能看絕對水位（100% 為多空分界），不得與 8/28 的 1.01 作變化幅度的比較——本報僅陳述「絕對水位落在 100% 之下」這一事實，不從中推導情緒轉多</li><li>⚠️ 匯率本日反轉、方向對毛利率偏正面：新台幣 8/31 收 31.70（Yahoo TWD=X 逐時序列 16:00 台北收盤時點、實際讀數 31.695），自 8/28 的 31.58 貶值約 0.38%，終結連續 3 個交易日的升值。⭐ 依 TSMC 官方口徑（每升值 1% 約影響毛利率 -40bps）估算，相對 8/13 的 32.12 累計升值幅度自 1.68% 收斂至 1.31%，對應毛利率影響自約 -67bps 縮小至約 -52bps，單日回補約 15bps。⚠️ 保留：單日 0.38% 的波動不足以改變趨勢判斷，且 9/1 今晨 09:00 讀數已回到 31.62（盤中、隨時變動），升值方向可能再度恢復——本欄僅記錄 8/31 收盤時點的事實</li></ul>
+      <div class="s-bottom">&#128161; ⭐ 一句話總結：8/31 是「補跌收斂、結構未破，但所有量能與籌碼數字都被 MSCI 調整污染」的一日——收盤 2,405（-0.62%）為當日最高價、盤中低 2,375 為本波第四度守住、補跌幅度小於夜盤隱含的 -0.86% 與費半的 -3.47%，時間差風險大致消化；⚠️⚠️ 但成交量暴增 118.2% 至 32,793 張與外資賣超 4,554 張兩項，成因是 MSCI 台灣指數權重調降 0.79pp 的被動調節，本報一律不作意願解讀，真正的檢核延到 9/1 的量能是否回到常態。⚠️ 四項技術指標同步轉弱（MACD 紅柱終結連 4 擴張、RSI(6) 大跌 7.48 點、收盤失守新 5MA 2,410），但無一翻空；⭐ 上游壓力已解除——美股半導體 8/31 止跌回升（費半 +0.57%、NVDA +1.48%、美光 +2.77%、高通 +3.83%），ADR 僅 -0.53%。⭐⭐ 9/1 的第一順位檢核：量能能否回落至 2 萬張以下、且股價站回 5MA 2,410 之上</div>
+      <div class="s-risk">&#9888; ⚠️ 三項須優先追蹤的風險（依 8/31 結果重新排定，時間差補跌已自第一順位移除）：（1）⚠️⚠️ 本日第一順位改為「MSCI 調整後的籌碼真空」——8/31 的 32,793 張與外資 -4,554 張為機械性調節，其後續影響在於被動資金已完成減碼、短期內不會再有同向的自然買盤回補：⭐ 檢核方式為 9/1 的量能與外資方向，若量能回落至 2 萬張以下且外資回到買方，確認為一次性事件、可放行；⚠️ 若 9/1 量能仍在 3 萬張以上或外資續賣超逾 3,000 張，則須改判為真實籌碼易主，並重新評估 8/25 以來整段修復的有效性。（2）⚠️ 第二順位為「失守 5MA 後的均線密集帶測試」——收盤 2,405 已低於 5MA 2,410，而 10MA 2,394 與 20MA 2,391 相距僅 3 點、60MA 2,384 亦僅在其下 7 點，三線壓縮於 2,384-2,394 的 10 點區間內：⭐ 此密集帶為本波最厚的一道支撐，8/31 盤中低 2,375 曾跌破後迅速收復；⚠️⚠️ 若 9/1 收盤跌破 2,384（60MA 季線），則三線同時失守、8/25-8/28 的修復正式失效，下一道防線直落布林下軌 2,338 與 120MA 2,235。（3）⚠️ 第三順位為「評價位階仍高、且未因回檔而下移」——P/E 27.88x 仍約當 5 年 87 百分位、P/B 9.70x 約 91 百分位（均在 115/2 財報基準下、與 8/14 之前不可比），本波自 8/24 低點以來的反彈使位階不降反升；⚠️ 在缺乏新的獲利上修催化下，評價本身即構成上檔阻力，這也是 2,425-2,445 區間連續多日未能收盤站上的基本面成因</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 1. 股價快照 ═══ -->
+<div class="sec" id="price">
+  <div class="sec-title">📈 今日股價快照</div>
+  <div class="stock-grid">
+    <div class="stock-box">
+      <div class="stock-exch">台灣證交所 TWSE：2330</div>
+      <div class="stock-row">
+        <div class="price">NT$2,405</div>
+        <div class="chg" style="color:#F44336">-15 (-0.62%)</div>
+      </div>
+      <div class="stock-detail">
+        <div class="sd">開盤 <span>NT$2,395</span></div>
+        <div class="sd">最高 <span>NT$2,405</span></div>
+        <div class="sd">最低 <span>NT$2,375</span></div>
+        <div class="sd">成交量 <span>32,793 張</span></div>
+        <div class="sd">52W 高 <span>NT$2,535</span></div>
+        <div class="sd">52W 低 <span>NT$1,065</span></div>
+        <div class="sd">市值 <span>NT$62.4 兆</span></div>
+        <div class="sd">P/E <span>27.88x</span></div>
+        <div class="sd">P/B <span>9.70x</span></div>
+        <div class="sd">殖利率 <span>0.91%</span></div>
+        <div class="sd">除息日 <span>2026-12-10（Q2 股利除息日、8/11 董事會核准；基準日 12/16）</span></div>
+        <div class="sd">股利 <span>2026 全年股利 NT$24/股（+33% YoY）；Q2 季配息 NT$7.0/股（8/11 董事會核准、12/10 除息、2027-01-07 發放、首推外資美元領息選項）</span></div>
+      </div>
+    </div>
+    <div class="stock-box">
+      <div class="stock-exch">紐約證交所 NYSE：TSM（ADR）</div>
+      <div class="stock-row">
+        <div class="price">US$415.32</div>
+        <div class="chg" style="color:#F44336">-2.20 (-0.53%)</div>
+      </div>
+      <div class="stock-detail">
+        <div class="sd">P/E (USD) <span>~29.5x</span></div>
+        <div class="sd">P/B <span>~17.6x</span></div>
+        <div class="sd">52W 高 <span>US$479.00</span></div>
+        <div class="sd">52W 低 <span>US$223.70</span></div>
+        <div class="sd">Beta <span>1.18</span></div>
+        <div class="sd">下次財報 <span>2026-10 中旬（Q3 2026 法說會、日期待公布）</span></div>
+        <div class="sd">共識評級 <span style="color:var(--green)">強烈買入</span></div>
+        <div class="sd">均值目標 <span>US$490.34</span></div>
+        <div class="sd">上漲空間 <span style="color:var(--green)">+18.07%</span></div>
+        <div class="sd">分析師數 <span>32 位全買入</span></div>
+        <div class="sd">最高目標 <span>NT$3,800</span></div>
+        <div class="sd">最低目標 <span>NT$2,100</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 2. 財務 KPI ═══ -->
+<div class="sec" id="kpi">
+  <div class="sec-title">💰 財務重點 KPI（Q4 2025 / FY 2025）</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-lbl">Q4 EPS</div><div class="kpi-val">NT$19.50</div><div class="kpi-chg" style="color:var(--green)">+34.9% YoY</div><div class="kpi-note">超預估 7.23%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 毛利率</div><div class="kpi-val">62.3%</div><div class="kpi-chg" style="color:var(--green)">+9.3pp YoY</div><div class="kpi-note">Q3: 57.8%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 營業利益率</div><div class="kpi-val">54.0%</div><div class="kpi-chg" style="color:var(--green)">+7.3pp YoY</div><div class="kpi-note">Q3: 50.6%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 ROE</div><div class="kpi-val">38.8%</div><div class="kpi-chg" style="color:var(--green)">+9.8pp YoY</div><div class="kpi-note">FY25: 35.4%</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 EPS</div><div class="kpi-val">NT$66.25</div><div class="kpi-chg" style="color:var(--green)">+46.4% YoY</div><div class="kpi-note">FY24: NT$45.25</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 營收</div><div class="kpi-val">$122B</div><div class="kpi-chg" style="color:var(--green)">+35.9% YoY</div><div class="kpi-note">TWD 3.8 兆</div></div>
+    <div class="kpi"><div class="kpi-lbl">先進製程佔比</div><div class="kpi-val">77%</div><div class="kpi-chg" style="color:var(--green)">≤7nm</div><div class="kpi-note">N3+N5+N7</div></div>
+    <div class="kpi"><div class="kpi-lbl">AI 加速器佔比</div><div class="kpi-val">~20%</div><div class="kpi-chg" style="color:var(--green)">60% CAGR 預測</div><div class="kpi-note">至 2029 年</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q1 2026 指引</div><div class="kpi-val">$35.2B</div><div class="kpi-chg" style="color:var(--green)">+38% YoY</div><div class="kpi-note">$34.6–35.8B</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 CapEx</div><div class="kpi-val">$52–56B</div><div class="kpi-chg" style="color:var(--orange)">+37–47%</div><div class="kpi-note">70–80% 先進製程</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 股利（預估）</div><div class="kpi-val">≥NT$23</div><div class="kpi-chg" style="color:var(--green)">+27.8%+ YoY</div><div class="kpi-note">FY25: NT$18</div></div>
+    <div class="kpi"><div class="kpi-lbl">自由現金流</div><div class="kpi-val">NT$1兆</div><div class="kpi-chg" style="color:var(--green)">+15.2% YoY</div><div class="kpi-note">FY 2025</div></div>
+  </div>
+</div>
+
+<!-- ═══ 3. 法人買賣超 ═══ -->
+<div class="sec" id="inst">
+  <div class="sec-title">🏦 三大法人買賣超（2026-08-31）</div>
+  <div class="inst-grid">
+    <div class="inst-card">
+      <div class="inst-name">外資及陸資</div>
+      <div class="inst-val" style="color:#F44336">-4,554 張</div>
+      <div class="inst-note">賣超 | 持股：~74.1%</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:22%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-1,151"></div><div class="spark-val" style="color:#F44336">-1,151</div></div><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+5,204"></div><div class="spark-val" style="color:#4CAF50">+5,204</div></div><div class="spark-bar"><div style="height:86%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+4,501"></div><div class="spark-val" style="color:#4CAF50">+4,501</div></div><div class="spark-bar"><div style="height:58%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+3,032"></div><div class="spark-val" style="color:#4CAF50">+3,032</div></div><div class="spark-bar"><div style="height:88%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-4,554"></div><div class="spark-val" style="color:#F44336">-4,554</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">投信</div>
+      <div class="inst-val" style="color:#F44336">-961 張</div>
+      <div class="inst-note">賣超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:37%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+658"></div><div class="spark-val" style="color:#4CAF50">+658</div></div><div class="spark-bar"><div style="height:30%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-521"></div><div class="spark-val" style="color:#F44336">-521</div></div><div class="spark-bar"><div style="height:18%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-317"></div><div class="spark-val" style="color:#F44336">-317</div></div><div class="spark-bar"><div style="height:100%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-1,765"></div><div class="spark-val" style="color:#F44336">-1,765</div></div><div class="spark-bar"><div style="height:54%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-961"></div><div class="spark-val" style="color:#F44336">-961</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">自營商</div>
+      <div class="inst-val" style="color:#F44336">-179 張</div>
+      <div class="inst-note">賣超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+476"></div><div class="spark-val" style="color:#4CAF50">+476</div></div><div class="spark-bar"><div style="height:47%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+226"></div><div class="spark-val" style="color:#4CAF50">+226</div></div><div class="spark-bar"><div style="height:33%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+158"></div><div class="spark-val" style="color:#4CAF50">+158</div></div><div class="spark-bar"><div style="height:5%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-23"></div><div class="spark-val" style="color:#F44336">-23</div></div><div class="spark-bar"><div style="height:38%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-179"></div><div class="spark-val" style="color:#F44336">-179</div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:10px;background:var(--card);border-radius:9px;padding:12px 14px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div><div style="font-size:11px;color:var(--muted)">三大法人合計</div>
+      <div style="font-size:18px;font-weight:700;color:#F44336">-5,694 張</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資持股比例</div>
+      <div style="font-size:18px;font-weight:700">~74.1%</div>
+      <div style="font-size:10px;color:var(--muted)">(約 192 億股（估）)</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資近 5 日趨勢</div>
+      <div style="font-size:13px;font-weight:600;color:#4CAF50">淨買超</div>
+      <div style="font-size:10px;color:var(--muted)">5 日合計 +7,032 張（買 3 日／賣 2 日）</div></div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">
+    Source: 玩股網 / Goodinfo / TWSE 三大法人日報 | 每日至
+    <a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" style="color:var(--blue)">TWSE</a> 更新</p>
+</div>
+
+<!-- ═══ 4. 技術分析 ═══ -->
+<div class="sec" id="tech">
+  <div class="sec-title">📉 技術分析指標</div>
+  <div class="alert">均線與 RSI/MACD/KDJ/布林均依 TWSE 官方收盤價序列（2026-01-02~2026-08-31 共 159 個交易日）計算，請以看盤軟體為準；⭐ 口徑驗證（每日必做、本日已執行並通過）：以同一序列回算 8/28 各指標得 RSI(14) 54.23、RSI(6) 60.27、DIF +10.16／DEA +6.49／柱狀圖 +7.34、K 68.42／D 60.37／J 84.52、5MA 2,404／10MA 2,394／20MA 2,389／60MA 2,384／120MA 2,230、布林 2,442／2,389／2,336、5 日均量 16,064 張，與 8/31 已發布日報所載數值逐項完全相同，確認序列與口徑未漂移。⭐ 滾動窗口查核（每日必做）：20 日窗口本日滾出 8/03 的 2,370、滾入 8/31 的 2,405，兩者均非極端值，布林寬度 105.9→105.2（-0.7%）、中軌 2,389.2→2,391.0（+1.8 點）之變動屬正常推移，非窗口機械效果。EMA 以序列第一個值為種子；MACD 柱狀圖 = 2×(DIF−DEA)；RSI(14) 用 Wilder 平滑；KDJ 為 9 日 RSV 搭配 1/3 平滑。⚠️ 5 日均量 20,008 張本日受 MSCI 調整量能污染（8/31 單日 32,793 張），該均值在 9/4 之前不宜作為量能檢核基準</div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-lbl">RSI (14)</div>
+      <div class="tech-val">52.26</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff">⚠️ RSI(14) 52.26 回落，且短天期回落遠快於長天期（TWSE 官方收盤序列計算、2026-01-02~2026-08-31 共 159 個交易日）——自 8/28 的 54.23 降 1.97 點，仍站在 50 中軸之上 2.26 點，距超買區（70）尚有 17.74 點緩衝。⚠️⚠️ 真正的訊號在 RSI(6)：自 60.27 大幅回落至 52.79（-7.48 點），回落幅度為 RSI(14) 的 3.8 倍，並自 60 之上直接跌回 50 出頭——短天期動能的流失明顯快於中期，這是 8/25 起本波反彈中首次出現的分歧。⭐ 惟兩者均未跌破 50，中期多方結構未破；⭐ 位階健康度反而改善：8/28 時 RSI(6) 60.27 已進入偏熱區間，本日回落屬過熱消化，為後續上攻預留空間。⚠️ 檢核點：9/1 若 RSI(6) 跌破 50 且 RSI(14) 同步失守，須判定為動能轉折而非消化</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">MACD</div>
+      <div class="tech-val" style="color:#4CAF50">5.68</div>
+      <span class="tech-sig" style="background:#4CAF50;color:#fff">⚠️ 紅柱連續 4 日擴張的紀錄於本日終結，是四項指標中變化最明確者（DIF +10.04／DEA +7.20／柱狀圖 +5.68，官方收盤序列計算）——柱狀圖自 +7.34 收縮至 +5.68（-1.66、-22.6%），為 8/25 以來首次收縮；DIF 自 +10.16 微降至 +10.04（-0.12，為 8/24 以來首次下降），DEA 則自 +6.49 續升至 +7.20（+0.71），兩線正乖離自 3.67 收斂至 2.84（-22.6%）。⭐ 三項未壞須並列：（1）柱狀圖仍為正值且絕對水位 +5.68 高於 8/26 的 +5.57，本波紅柱結構未破；（2）DIF 與 DEA 雙線均穩居零軸之上（分別高出 10.04 與 7.20），多頭排列完整；（3）DIF 的下降幅度僅 0.12，屬持平而非轉折。⚠️ 判讀：本日屬「DEA 追趕 DIF」造成的機械性收斂，而非 DIF 轉跌造成的動能反轉——DEA 為 DIF 的 9 日 EMA，在 DIF 連續走高後必然加速追趕。⚠️⚠️ 檢核點：若 9/1 DIF 續降且跌破 DEA，即為死叉、須改判；本報以 DIF 是否守住 +9.0 為第一觀察值</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">KDJ (9,3,3)</div>
+      <div class="tech-val">K:67</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff">⭐ 前一份日報所預警的超買情境於本日獲得健康消化，這是四項指標中唯一可作正面解讀者（K 66.83／D 62.52／J 75.43，官方收盤序列計算）——⚠️ 誠實對照：8/31 日報寫明「J 值已達 84.52 進入超買區，短線缺乏向上緩衝，須追蹤其是否自超買區回落並形成高檔背離」。⭐ 本日實際結果：J 值自 84.52 回落至 75.43（-9.09 點），正式退出 80 的超買門檻，且是在股價僅下跌 -0.62% 的情況下完成——超買的解除並未付出等比例的價格代價，屬理想的消化方式。⭐ 未形成高檔背離：J 值下降的同時股價亦下跌，兩者同向，不構成背離訊號。⭐ 金叉結構維持：K 66.83 仍高於 D 62.52，K-D 正乖離 4.31（8/28 為 8.05），自 8/25 成立的黃金交叉尚未被破壞。⚠️ 保留：K 值自 68.42 降至 66.83、D 值反自 60.37 升至 62.52，兩線距離持續收斂，若 9/1 K 續降則死叉風險在 2-3 個交易日內成立</span>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">D:63 / J:75</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">布林帶（20,2）</div>
+      <div class="tech-val" style="font-size:14px">NT$2,405</div>
+      <div style="font-size:10.5px;color:var(--muted)">上：2,444　中：2,391</div>
+      <div style="font-size:10.5px;color:var(--muted)">下：2,338</div>
+      <span class="tech-sig" style="background:#4CAF50;color:#fff;margin-top:4px">中軌之上</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">成交量</div>
+      <div class="tech-val">32,793</div>
+      <div style="font-size:10.5px;color:var(--muted)">5日均量：20,008 張</div>
+      <span class="tech-sig" style="background:#F44336;color:#fff;margin-top:4px">明顯放量 (+64% vs 均量)</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">整體趨勢</div>
+      <div class="tech-val" style="font-size:15px">⚠️⚠️ 均線結構出現本波第一道實質裂痕，但裂痕僅一條、且是最短的那一條——2330 8/31 官方收 NT$2,405（-15、-0.62%、開 2,395／高 2,405／低 2,375）。⭐⭐ 首要事實：收盤價 2,405 已低於 5MA 2,410（差 5 點），為 8/25 以來首次收盤失守 5 日線；⭐ 惟其餘四條均線全數守住且仍呈多頭排列（10MA 2,394／20MA 2,391＝布林中軌／60MA 季線 2,384／120MA 年線 2,235），收盤價高於 10MA 達 11 點。⭐⭐ 型態面則明顯偏正：開 2,395、低 2,375、高 2,405 ＝收 2,405，形成無上影線的長下影紅K，且是本波第四次「收在當日最高」（前三次為 8/20、8/21、8/25），三次之後隔日均收紅；⚠️ 惟本次的型態意義須打折——8/31 尾盤同時是 MSCI 季度調整的集中撮合時點，「收在最高」有多少來自被動買盤、有多少來自市場承接，本報無法分離。⭐ 支撐測試的品質良好：盤中低 2,375 一舉跌破 10MA 與 20MA 的密集帶，但當日即完全收復，且 2,375 這個價位為 8/20 收盤、8/24 收盤、8/26 開盤兼最低價所在，為本波第四度守住。⚠️ 量能無法解讀：32,793 張較 8/28 暴增 118.2%、為 5 日均量 20,008 張的 164%，成因是 MSCI 被動調節而非買賣意願（同為 MSCI 新增成分股的華邦電量能亦增 159.8%），本報不將其計入量價分析。⚠️⚠️ 布林通道須注意的是位置而非寬度：寬度 105.2 點較 8/28 的 105.9 點幾乎持平（-0.7%），本報已查核滾動窗口更替（滾出 8/03 的 2,370、滾入 8/31 的 2,405，兩者皆非極端值），確認本日無窗口機械效果；收盤 2,405 位於中軌 2,391 之上 14 點、上軌 2,444 之下 39 點，處於通道中上緣，位置健康</div>
+      <div style="font-size:10.5px;color:var(--muted)">支撐：2,404 / 2,394 / 2,391 / 2,384 / 2,375 / 2,338 / 2,235 (前報檢核價、10MA、20MA＝布林中軌、60MA 季線、本波四度守住之低點、布林下軌、120MA 年線;⭐⭐ 本報將 9/1 第一檢核價位設在 10MA 2,394 與 20MA 2,391——兩者相距僅 3 點、與 60MA 2,384 共同壓縮於 2,384-2,394 的 10 點區間，構成本波最厚的一道密集支撐;⚠️⚠️ 8/31 盤中低 2,375 曾一次跌破整個密集帶再全數收復，代表該帶的承接力仍在，但也代表它已被實測過一次、再測時的強度會遞減;⚠️ 若 9/1 收盤跌破 60MA 2,384，三線同時失守，8/25-8/28 的整段修復正式失效)</div>
+      <div style="font-size:10.5px;color:var(--muted)">壓力：2,410 / 2,425 / 2,435 / 2,444 / 2,445 / 2,470 / 2,510 / 2,535 (新 5MA、連 4 日未收盤站上之檢核價、8/14 收盤、布林上軌、8/28 盤中高、7/16 收盤、2026 年收盤高（6/23）、52 週高;⭐ 9/1 的第一道關卡為新 5MA 2,410——它同時是 8/27、8/28 兩度守住的低點，由支撐翻轉為壓力;⚠️⚠️ 2,425 已連續 4 個交易日未能收盤站上（8/26 高 2,425、8/27 高 2,435、8/28 高 2,445、8/31 高僅 2,405 已無力觸及），且本日連測試都未發生，反壓的有效性再獲一次驗證)</div>
+    </div>
+  </div>
+  <div class="sub-title">均線系統</div>
+  <div class="ma-grid">
+    <div class="ma-box"><div class="ma-lbl">MA5</div><div class="ma-val" style="color:#F44336">2,410</div></div><div class="ma-box"><div class="ma-lbl">MA10</div><div class="ma-val" style="color:#4CAF50">2,394</div></div><div class="ma-box"><div class="ma-lbl">MA20</div><div class="ma-val" style="color:#4CAF50">2,391</div></div><div class="ma-box"><div class="ma-lbl">MA60</div><div class="ma-val" style="color:#4CAF50">2,384</div></div><div class="ma-box"><div class="ma-lbl">MA120</div><div class="ma-val" style="color:#4CAF50">2,235</div></div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">現價 NT$2,405，已跌破 MA5(2,410)，仍站上 MA10(2,394)、MA20(2,391)、MA60(2,384)、MA120(2,235)（當前長期支撐帶）。</p>
+</div>
+
+<!-- ═══ 5. 期貨選擇權 ═══ -->
+<div class="sec" id="deriv">
+  <div class="sec-title">📊 台積電期貨 & 選擇權動態</div>
+  <div class="alert">⭐ 期貨與 Put/Call 未平倉總量均為 TAIFEX 官方（2026-08-31、來源 futDataDown／pcRatioDown）。⚠️⚠️ 資料誠實聲明（沿用本報既有的呈現方式）：上表「主要行使價」一欄的買賣權分布為本報依價位性質所做的定性估算，非官方逐履約價未平倉數據——台積電個股並無公開的逐履約價序列，故該欄不可讀作官方統計；同理「最大痛點 2,400」亦為本報估算值。表頭卡片的 Call/Put 未平倉總量與 P/C 比則確實是 TAIFEX 台指選擇權官方數據，兩者不可混稱。⚠️ 期貨端本日三項同步轉弱，方向與現貨的「收在最高」相反，本報並列不擇一：（1）CDF 202609 日盤收 2,402（-27、-1.11%），跌幅大於現貨的 -0.62%；（2）對現貨由正價差 +9 轉為逆價差 -3，為 8/25 以來首見逆價差，代表期貨參與者對後市的定價低於現貨；（3）未平倉自 25,619 口續減至 24,999 口（-620 口），為連續第 5 個交易日減少，部位持續退場而非新資金進場。⭐ 今晨夜盤（TAIFEX 日期標記 2026/09/01 的盤後列，涵蓋 8/31 15:00 至 9/1 05:00）：CDF 202609 收 2,395（-7、開 2,404／高 2,408／低 2,390），對 8/31 現貨收盤 2,405 折價 10 點，指向 9/1 開盤約 -0.3%；台指期 TX 202609 夜盤收 45,978（+1、幾乎持平），⚠️ 個股期弱於大盤期貨，顯示夜盤的偏弱是台積電個別的、非系統性的</div>
+  <div class="deriv-grid">
+    <div class="deriv-card"><div class="deriv-lbl">期貨近月收盤</div><div class="deriv-val">NT$2,402</div><div style="font-size:10.5px;color:var(--muted)">基差 -3 點（逆價差）</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">未平倉量（口）</div><div class="deriv-val">24999</div><div style="font-size:10.5px;color:var(--muted)">2026-08-31</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put/Call Ratio</div><div class="deriv-val" style="color:#607D8B">0.96</div><div style="font-size:10.5px;color:#607D8B">中性（多空未平倉均衡）</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Call 未平倉</div><div class="deriv-val" style="color:var(--green)">64172</div><div style="font-size:10.5px;color:var(--muted)">全行使價合計</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put 未平倉</div><div class="deriv-val" style="color:var(--red)">61681</div><div style="font-size:10.5px;color:var(--muted)">全行使價合計</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">最大痛苦點</div><div class="deriv-val">2,400</div><div style="font-size:10.5px;color:var(--muted)">市場多空分界（本報估算）</div></div>
+  </div>
+  <div class="sub-title">主要行使價未平倉分布</div>
+  <table>
+    <thead><tr><th>關鍵價位</th><th>OI 分布傾向（本報估算，非官方逐履約價數據）</th><th>市場含意</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2,235</strong></td><td>120MA 年線（估算：買權密集、賣權稀疏）</td><td><span class="badge" style="background:#F44336">最後防線</span></td></tr><tr><td><strong>2,338</strong></td><td>布林下軌（估算：買權密集、賣權稀疏）</td><td><span class="badge" style="background:#F44336">極端下檔</span></td></tr><tr><td><strong>2,384</strong></td><td>60MA 季線（估算：買權偏多）</td><td><span class="badge" style="background:#F44336">密集帶下緣</span></td></tr><tr><td><strong>2,391</strong></td><td>20MA＝布林中軌（估算：買賣權轉趨均衡）</td><td><span class="badge" style="background:#F44336">密集帶核心</span></td></tr><tr><td><strong>2,394</strong></td><td>10MA（估算：買賣權均衡）</td><td><span class="badge" style="background:#F44336">密集帶上緣</span></td></tr><tr><td><strong>2,405</strong></td><td>8/31 收盤（估算：買賣權最為均衡）</td><td><span class="badge" style="background:#F44336">現價</span></td></tr><tr><td><strong>2,410</strong></td><td>5MA＝8/27-8/28 兩度守住之低點（估算：賣權轉密集）</td><td><span class="badge" style="background:#F44336">第一反壓</span></td></tr><tr><td><strong>2,425</strong></td><td>連 4 日未收盤站上之檢核價（估算：賣權密集）</td><td><span class="badge" style="background:#F44336">關鍵反壓</span></td></tr><tr><td><strong>2,444</strong></td><td>布林上軌（估算：賣權極密集、買權稀疏）</td><td><span class="badge" style="background:#F44336">極端上檔</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">
+    Source: 台灣期交所 <a href="https://www.taifex.com.tw" style="color:var(--blue)">taifex.com.tw</a></p>
+</div>
+
+<!-- ═══ 6. 國際重要新聞 ═══ -->
+<div class="sec" id="news">
+  <div class="sec-title">📰 國際重要新聞分析</div>
+  <div class="news-grid"><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span>
+            <span class="impact" style="border-color:#FF9800;color:#FF9800">中性</span></div>
+          <div class="news-title">MSCI 季度調整 8/31 收盤生效，台積電權重調降 0.79pp 至 56.61%</div>
+          <div class="news-body">MSCI 季度調整於 8/31 收盤生效：台股在 MSCI 全球市場指數權重由 3.08% 上調至 3.13%、新興市場指數由 26.60% 上調至 26.85%、亞洲除日本指數由 29.75% 上調至 30.03%，三項全數調升。⚠️ 惟台積電為本次台股成分股中權重調降幅度最大者，由原水準調降 0.79 個百分點至 56.61%；MSCI 台灣指數同時新增南亞科、華邦電、群聯、台燿、南電、景碩六檔，刪除六檔，成分股維持 77 檔。⚠️⚠️ 本報認為這是理解 8/31 台股所有價量數字的前提：台積電當日成交量暴增 118.2% 至 32,793 張、外資賣超 4,554 張終結連 3 買、全市場成交額衝上 NT$1.289 兆，均為被動資金於收盤集中調節所致，非買賣意願的表達。⭐ 對照組可證：新增成分股華邦電同日量能亦暴增 159.8% 至 398,679 張、股價仍收紅 +0.55%。⭐ 真正的檢核延到 9/1——量能能否回落至 2 萬張以下、外資是否回到買方。</div>
+          <div class="news-src">來源：MSCI 季度調整公告；經濟日報／聯合新聞網</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#9C27B0">產品發布</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">台積電揭 CoWoS 中介層 2029 上看 14 倍光罩、CPO 今年進入量產</div>
+          <div class="news-body">台積電研發副總經理徐國晉 8/31 於 ITF Taiwan 2026 技術論壇表示，CoWoS 今年最大系統中介層尺寸已達 5.5 倍光罩並進入量產，2029 年預計突破 14 倍；CPO（共同封裝光學）相關技術今年亦開始量產，商業化落地加速。3DFabric 平台涵蓋 CoWoS（die-to-die 水平連接、2.5D 超大系統擴充）、InFO、SoIC（主動晶片垂直堆疊）與 CPO（電子晶片 EIC 與光子晶片 PIC 整合）四項，發展主軸為 3D 晶片堆疊與系統尺寸擴充兩大方向。⭐ 對估值的意涵：中介層尺寸自 5.5 倍朝 14 倍推進，直接對應單顆封裝可整合的 HBM 顆數與運算晶片面積，是 CoWoS 單價與長期毛利率的結構性支撐。⚠️ 惟同日封測次族群全面收黑（日月光 -5.96%、Amkor -1.21%），市場對先進封裝產能擴充的疑慮與公司的擴充路線圖方向相反，本報並列不擇一。</div>
+          <div class="news-src">來源：壹蘋新聞網／經濟日報（2026-08-31 ITF Taiwan 2026）</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">SEMICON Taiwan 2026 論壇 8/31 開跑，展期 9/2-9/4</div>
+          <div class="news-body">SEMICON Taiwan 2026 國際半導體展的相關論壇自 8/31「國際半導體週」起陸續登場，主展期為 9/2 至 9/4 於台北南港展覽館舉行，規模為逾 1,300 家展商、4,300 個攤位、來自 65 國，預估逾 10 萬名半導體專業人士與會。⭐ 與台積電直接相關者有二：SEMI 已偕同台積電與日月光成立「SEMI 3DIC 先進製造聯盟」（3DICAMA），強化台灣在先進封裝的樞紐地位；台積電的 COUPE（Compact Universal Photonic Engine）矽光子平台亦於 2026 年進入量產。展會設有 AI 技術專區，聚焦 AI 晶片設計、先進製造、ASIC 效能與邊緣 AI。⚠️ 本報提醒：展會期間的技術宣示屬長期敘事，對短線股價的影響有限，但 9/2-9/4 期間供應鏈個股的消息面密度將明顯升高，須留意個別題材的短線波動。</div>
+          <div class="news-src">來源：Focus Taiwan／SEMI／PR Newswire</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#2196F3">客戶動態</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">高通 8/31 大漲 3.83% 領漲，Horizon Ultra AI PC 與 Adobe 導入 HUMAIN</div>
+          <div class="news-body">高通 8/31 收 $170.48（+3.83%），為 TSMC 追蹤清單中當日最大漲幅，並創 2026-07-23 以來最高收盤與 8 月全月最高收盤（已查核 2 年日線序列；距 2 年收盤高點 2026-05-29 的 $251.02 仍有 -32.1%，非歷史新高）。市場歸因於當日兩則 AI 布局消息：高通與 HUMAIN 共同發表 Horizon Ultra AI PC，為 Snapdragon X 平台在企業 AI 運算的產品展示；並揭露 Adobe 將把區域性 AI 工作負載遷移至由高通技術加速的 HUMAIN 基礎設施。⭐ 對 TSMC 的意涵偏正面：高通的手機基頻與 PC 處理器均由 TSMC 代工，其定位自「AI 資料中心曝險低的防禦標的」轉為「邊緣 AI 與 AI PC 成長標的」，對應 TSMC N3/N4 製程在手機以外的新需求來源。⚠️ 本報未取得高通官方新聞稿原文，上述歸因列為市場解讀而非查證事實。</div>
+          <div class="news-src">來源：多家財經媒體整理（Benzinga／24-7 Wall St. 等）</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#4CAF50">產業趨勢</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">費半 8/31 止跌 +0.57%，與美股大盤呈正向背離；8 月月線收紅</div>
+          <div class="news-body">費城半導體指數 8/31 收 11,535.05（+65.39 點、+0.57%），終結 8/28 的 -3.47% 重挫。⚠️ 惟僅收復該日跌幅的 16%，距 52 週收盤高 14,634.72（2026-06-22）仍有 -21.19%，續處 -20% 的技術性熊市之內——需再上漲 1.5%（至 11,707.78）方能脫離。⭐ 結構面的正面訊號在於背離方向：本日費半上漲而美股大盤收黑（S&P 500 -0.33% 收 7,686.14、那斯達克 -0.12% 收 26,370.89、道瓊 -0.7% 收 53,185.90），半導體與大盤呈正向背離，為 8/18 以來首見。⭐ 月度統計提供緩衝：8 月全月 S&P 500 +2.6%、那斯達克 +3.9%，為 5 月以來首見月線收紅，科技類股全月漲逾 6%，NVIDIA 全月約 +10%、美光全月 +16% 以上——本波自 8/17 起的修正發生在一個月線收紅的月份之內。</div>
+          <div class="news-src">來源：Yahoo Finance 官方日線／CNBC</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#F44336">警示</span>
+            <span class="impact" style="border-color:#F44336;color:#F44336">負面</span></div>
+          <div class="news-title">封測族群 8/31 全面收黑：日月光 -5.96%、Amkor -1.21%</div>
+          <div class="news-body">8/31 追蹤清單中唯一全面收黑的次族群為封測：日月光（3711）收 584.0（-37.00 元、-5.96%、開 601.0＝當日最高、低 565.0、量 33,186 張），為台股追蹤清單當日最大跌幅，回吐 8/27、8/28 連 2 日漲幅而有餘，自 8/17 的 615.0 由 +0.98% 反轉為 -5.04%；Amkor 收 $47.30（-1.21%），改寫 8 月最低收盤，自 8/17 累計 -22.84% 為整份清單中本波跌幅最重者。⚠️ 日月光並非本次 MSCI 成分股增刪名單中的個股，其跌幅不能全歸因於指數調節；本報未查得單一明確利空，較合理的推論是連 2 日大漲（累計 +4.9%）後的獲利了結疊加調整日的流動性衝擊。⚠️⚠️ 判讀：兩者同為 CoWoS 外包封測夥伴，同步弱勢反映市場對「先進封裝產能是否過度擴充」的疑慮，與台積電同日公布的 CoWoS 擴充路線圖方向相反，為本報新增追蹤的分歧訊號。</div>
+          <div class="news-src">來源：TWSE 官方／Yahoo Finance 官方日線</div></div></div>
+</div>
+
+<!-- ═══ 7. 主要客戶動態 ═══ -->
+<div class="sec" id="customer">
+  <div class="sec-title">🏢 主要客戶 2026 預估營收佔比</div>
+  <div style="display:flex;height:30px;border-radius:8px;overflow:hidden;margin-bottom:12px">
+    <div style="width:21%;background:#76b900" title="NVIDIA 21%"></div>
+    <div style="width:17%;background:#999999" title="Apple 17%"></div>
+    <div style="width:13%;background:#CC0000" title="Broadcom 13%"></div>
+    <div style="width:9%;background:#00AAFF"  title="MediaTek 9%"></div>
+    <div style="width:8%;background:#ED1C24"  title="AMD 8%"></div>
+    <div style="width:7%;background:#3253DC"  title="Qualcomm 7%"></div>
+    <div style="width:7%;background:#0071C5"  title="Intel 7%"></div>
+    <div style="width:18%;background:#AAAAAA" title="其他 18%"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>預估佔比</th><th>預估營收 (USD)</th><th>主要晶片</th><th>趨勢</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76b900">NVIDIA</strong></td><td><strong>~21%</strong></td><td>~$33B</td><td>H100/H200、Vera Rubin (N3)</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#999">Apple</strong></td><td>~17%</td><td>~$27B</td><td>A18 Pro / M5 / C1 Modem</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#CC0000">Broadcom</strong></td><td>~13%</td><td>—</td><td>ASIC/AI 加速器、網路晶片</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#00AAFF">MediaTek</strong></td><td>~9%</td><td>—</td><td>Dimensity 9400 等旗艦 SoC</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#ED1C24">AMD</strong></td><td>~8%</td><td>—</td><td>MI300X AI GPU / Zen5 CPU</td><td><span class="badge" style="background:#4CAF50">成長</span></td></tr>
+      <tr><td><strong style="color:#3253DC">Qualcomm</strong></td><td>~7%</td><td>—</td><td>Snapdragon Elite 系列</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+      <tr><td><strong style="color:#0071C5">Intel</strong></td><td>~7%</td><td>—</td><td>Arrow Lake / Panther Lake</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">Source: Morgan Stanley / Creative Strategies / CNBC 2026-01</p>
+</div>
+
+<!-- ═══ 8. 產業生態系股價連動 ═══ -->
+<div class="sec" id="ecosystem">
+  <div class="sec-title">⛓️ 供應鏈 & 客戶股價連動（估算）</div>
+  <div class="alert">⚠ 股價數據為估算值，每日請至看盤平台更新。色塊：<span class="badge" style="background:#2196F3">設備</span> <span class="badge" style="background:#9C27B0">記憶體</span> <span class="badge" style="background:#009688">封裝</span> <span class="badge" style="background:#1565C0">客戶</span> <span class="badge" style="background:#607D8B">競爭</span></div>
+  <table>
+    <thead><tr><th>類別</th><th>代碼</th><th>名稱</th><th>股價（估）</th><th>漲跌幅（估）</th><th>與 TSMC 關係</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>ASML</strong></td>
+        <td>艾司摩爾</td>
+        <td>1,696.01</td>
+        <td style="color:#F44336;font-weight:600">-0.01%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 幾乎完全持平：-0.01% 收 $1,696.01（僅跌 $0.15），為本日追蹤清單中波動最小者，自 8/17 的 $1,883.12 累計跌幅維持在 -9.94%。⭐ 判讀：在費半 8/31 回升 +0.57% 的環境下未能跟漲，屬止穩而非反彈；⚠️ 惟連續兩日守住 $1,700 一線附近（8/28 收 $1,696.16、8/31 收 $1,696.01，兩日相差不到 0.01%），下檔支撐的稠密度反而是設備四雄中最明確者。⭐ 對 TSMC 的意涵：ASML 為 2nm 與 A16 製程 EUV 設備的唯一供應商，其股價止穩代表市場對先進製程資本支出的疑慮暫緩，此為 8/17 以來設備股連續修正中的第一個非負面訊號</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>AMAT</strong></td>
+        <td>應用材料</td>
+        <td>458.39</td>
+        <td style="color:#F44336;font-weight:600">-0.71%</td>
+        <td style="font-size:11px;color:#444">⚠️ 8/31 續跌 -0.71% 收 $458.39，連續第 2 個交易日下跌並失守 $460，自 8/17 的 $535.31 累計跌幅自 -13.76% 擴大至 -14.37%。⚠️ 判讀：在費半 +0.57% 的回升日仍收黑，為本日設備四雄中唯一跌幅超過 0.5% 者，相對弱勢達 1.28pp；⚠️⚠️ 這是 AMAT 連續第 2 個交易日在族群中相對最弱（8/28 -4.29% 亦為設備四雄最大跌幅），弱勢具持續性而非單日雜訊。⚠️ 對 TSMC 的意涵：AMAT 為沉積與蝕刻設備主力供應商，其連續弱勢反映的是成熟製程與記憶體客戶的資本支出疑慮，與 TSMC 先進製程需求的關聯度低於 ASML，本報判定為間接風險</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>LRCX</strong></td>
+        <td>科林研發</td>
+        <td>301.49</td>
+        <td style="color:#F44336;font-weight:600">-0.14%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 幾乎持平：-0.14% 收 $301.49，勉力守住 $300 整數關卡（距其僅 1.49 美元），自 8/17 的 $343.84 累計跌幅自 -12.20% 微幅擴大至 -12.32%。⭐ 判讀：相較 8/28 的 -5.24%（當日追蹤清單第三大跌幅），本日跌幅收斂至 1/37，屬明確的止跌；⚠️ 惟同樣未能參與費半 +0.57% 的回升，相對弱勢 0.71pp。⚠️⚠️ 檢核點：$300 為心理與技術雙重關卡，8/31 收盤距其僅 0.5%，若 9/1 跌破則自 8/17 起的累計跌幅將擴大至 -13% 以上，設備族群的修正將進入第三個階段</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>KLAC</strong></td>
+        <td>科磊</td>
+        <td>175.45</td>
+        <td style="color:#F44336;font-weight:600">-0.05%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 幾乎持平：-0.05% 收 $175.45，自 8/17 的 $205.76 累計跌幅自 -14.68% 微幅擴大至 -14.73%，仍為設備四雄中累計跌幅最深者。⭐ 判讀：連續三個交易日在族群中相對最弱的紀錄於本日中止——8/26 至 8/28 期間 KLAC 三度落後費半，本日 -0.05% 雖仍未跟上 +0.57%，但落後幅度自前一日的 1.01pp 收斂至 0.62pp。⚠️ 保留：KLAC 主營製程檢測設備，其累計跌幅最深反映的是客戶端對「產能擴充後的良率驗證需求」的遞延，此為晶圓廠資本支出周期中最後才恢復的一環，止穩不等於轉強</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>2344.TW</strong></td>
+        <td>華邦電 Winbond</td>
+        <td>182.50</td>
+        <td style="color:#4CAF50;font-weight:600">+0.55%</td>
+        <td style="font-size:11px;color:#444">⭐⭐ 8/31 收紅 +0.55% 收 182.5（TWSE 官方、+1.00 元、開 179.5／高 186.0／低 176.0、量 398,679 張），在台股整體下跌之日逆勢收紅，並收復 8/28 的部分跌幅。⚠️⚠️ 但本檔本日最重要的不是漲跌而是量能，且它同時是本報判定「MSCI 效應」的關鍵對照組：成交量 398,679 張較 8/28 的 153,444 張暴增 159.8%，成交筆數 90,130 筆——原因是華邦電為本次 MSCI 台灣指數新增成分股（同批新增者尚有南亞科、群聯、台燿、南電、景碩），被動資金須於 8/31 收盤買進建倉。⭐ 這一點反向證明了台積電當日 32,793 張（+118.2%）與外資賣超 4,554 張同屬機械性調節：新增成分股放量買進、權重調降者放量賣出，兩者於同一日、同一機制下發生。⚠️ 判讀紀律：華邦電本日的漲跌與量能同樣不宜作趨勢解讀，9/1 起的表現才具參考價值</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>000660.KS</strong></td>
+        <td>SK 海力士</td>
+        <td>1,674,000 KRW</td>
+        <td style="color:#4CAF50;font-weight:600">+1.27%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 回升 +1.27% 收 167.4 萬韓元（Yahoo 官方日線），收復 8/28 的 -4.45% 跌幅約四分之一，終結單日重挫。⭐ 判讀：與美光 8/31 的 +2.77% 同向，記憶體族群跨市場同步回升，證明 8/28 的重挫屬單日情緒而非趨勢反轉。⭐ 資料說明：本檔採 8/31 官方日線收盤，未採用 Yahoo meta 的 regularMarketPrice——該欄於本次取數時的時間戳為 9/1 韓股盤中（台北時間上午 9 時韓股已開盤），採用會把 9/1 盤中價誤植為 8/31 收盤。⚠️ 保留：+1.27% 的回升幅度僅為前一日跌幅的 29%，屬技術性反彈而非趨勢修復</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>MU</strong></td>
+        <td>美光</td>
+        <td>958.73</td>
+        <td style="color:#4CAF50;font-weight:600">+2.77%</td>
+        <td style="font-size:11px;color:#444">⭐⭐ 8/31 大漲 +2.77% 收 $958.73，為本日追蹤清單中漲幅第二大者，為 8/22 以來最高收盤；⚠️ 本報明確不稱其為波段新高——8/20 的 $974.33 與 8/21 的 $966.78 均高於本日，且 8/17 修正起點為 $1,011.75、2 年收盤高點為 2026-06-25 的 $1,213.56，本日僅收復修正跌幅的一部分。⭐ 判讀：與 8/28 的相對抗跌（當日僅 -0.27%、費半 -3.47%）合看，美光已連續兩個交易日展現明確的低 Beta 與族群脫鉤——跌時抗跌、漲時領漲，是本波修正中結構最強的一檔。⭐ 基本面支撐明確：市場報導指出美光 2026 年 HBM 產能已全數售罄並鎖定合約價，且現貨 DRAM 價格季增幅度顯著，定價能力為其相對強度的來源（來源：多家財經媒體整理，本報未取得原始合約數據，列為市場共識而非查證事實）。⚠️ 對 TSMC 的意涵：記憶體與晶圓代工的資本支出周期不同步，美光的強勢不直接對應 TSMC 的訂單，但可佐證 AI 資料中心的終端需求未見降溫</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#009688">封裝</span></td>
+        <td><strong>3711.TW</strong></td>
+        <td>日月光</td>
+        <td>584.00</td>
+        <td style="color:#F44336;font-weight:600">-5.96%</td>
+        <td style="font-size:11px;color:#444">⚠️⚠️ 8/31 重挫 -5.96% 收 584.0（TWSE 官方、-37.00 元、開 601.0／高 601.0／低 565.0、量 33,186 張），為本日台股追蹤清單中跌幅最大者，一舉回吐 8/27 與 8/28 連 2 日的全部漲幅（+13.00 與 +16.00 元）而有餘，自 8/17 的 615.0 累計自 +0.98% 反轉為 -5.04%。⚠️ 型態警示：開盤價 601.0 ＝當日最高（全日無上影線）、盤中低 565.0 為近期最深，屬開低走低後尾盤小幅回穩的弱勢型態；⚠️⚠️ 與 8/28 的 +2.64%（當日創本波新高）形成 8.6pp 的兩日擺盪，波動度異常放大。⚠️ 成因判讀：日月光並非本次 MSCI 成分股增刪名單中的個股，故本日跌幅不能全歸因於指數調節；本報未能查得單一明確利空，⭐ 較合理的推論是 8/27-8/28 連 2 日大漲（累計 +4.9%）後的獲利了結，疊加 MSCI 調整日的整體流動性衝擊。⚠️ 對 TSMC 的意涵：日月光為 CoWoS 外包封測的主要夥伴，其大幅回檔與 TSMC 僅 -0.62% 形成 5.3pp 的落差，顯示資金在先進封裝供應鏈內部的分化</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#009688">封裝</span></td>
+        <td><strong>AMKR</strong></td>
+        <td>Amkor</td>
+        <td>47.30</td>
+        <td style="color:#F44336;font-weight:600">-1.21%</td>
+        <td style="font-size:11px;color:#444">⚠️ 8/31 續跌 -1.21% 收 $47.30，連續第 2 個交易日下跌並改寫 8 月最低收盤（前低為 8/24 的 $47.90；⚠️ 已查核 2 年日線序列，上一次收在此價之下為 2026-07-29 的 $42.73，故本日為 8 月低點而非更長期的低點），自 8/17 的 $61.30 累計跌幅自 -21.89% 擴大至 -22.84%，仍為整份追蹤清單中本波跌幅最重者。⚠️ 判讀：在費半 +0.57% 的回升日續跌，相對弱勢 1.78pp，為本日追蹤清單中相對表現第二差者（僅次於日月光）；⚠️⚠️ 與同屬封測的日月光 -5.96% 同向，封測次族群為本日唯一全面收黑的類別，弱勢具族群一致性。⭐ 惟跌幅自前一日的 -7.46% 大幅收斂至 -1.21%，恐慌性拋售已中止。⚠️ 對 TSMC 的意涵：Amkor 與日月光同為 OSAT 外包夥伴，兩者同步弱勢反映市場對「先進封裝產能是否過度擴充」的疑慮，此為 CoWoS 供應鏈中值得持續追蹤的分歧訊號</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>NVDA</strong></td>
+        <td>輝達</td>
+        <td>220.78</td>
+        <td style="color:#4CAF50;font-weight:600">+1.48%</td>
+        <td style="font-size:11px;color:#444">⭐ TSMC #1 客戶；8/31 正規盤上漲 +1.48% 收 $220.78（+$3.23），止住 8/28 的 -4.57% 並收復其約三分之一，自 8/17 的 $224.09 累計跌幅自 -2.92% 收斂至 -1.48%。⭐ 判讀：這是本報前一日所指出「8/28 財報利多當日即被回吐過半」情境的部分修復——8/26 盤後公布的 Q2 FY27 財報（營收 $96.22B、+106% YoY，Q3 財測高於共識約 $3.8B）之基本面事實未變，8/27 大漲 +8.74%、8/28 重挫 -4.57%、8/31 回升 +1.48%，三日淨值仍為 +5.3%，利多並未完全失效。⚠️ 保留：+1.48% 的回升幅度僅為前一日跌幅的 32%，且成交動能已明顯低於 8/27 的財報日，追價意願不足；⚠️ 距 2026-05-14 的歷史收盤高 $235.74 仍有 -6.3% 的距離，本報再次確認 8/27 至今從未創下歷史新高，僅為本波區間高點</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AAPL</strong></td>
+        <td>蘋果</td>
+        <td>316.85</td>
+        <td style="color:#F44336;font-weight:600">-0.89%</td>
+        <td style="font-size:11px;color:#444">⚠️ 8/31 回跌 -0.89% 收 $316.85，終結 8/28 的逆勢收紅（+1.63%）並回吐其過半，自 8/17 的 $305.10 累計漲幅自 +4.78% 收斂至 +3.85%。⭐ 判讀：與 8/28 完全相反的角色互換——8/28 是「費半重挫、蘋果獨自收紅」，8/31 則是「費半回升、蘋果獨自收黑」，蘋果連續兩日與半導體族群呈反向。⭐ 對 TSMC 的意涵偏中性且穩定：蘋果為 TSMC 最大營收客戶（約占 22-25%），其需求由 iPhone 產品周期主導而非 AI 資本支出，本次的反向走勢屬資金在「AI 半導體」與「消費性電子」之間輪動的鏡像，不代表訂單面變化。⚠️ 保留：8/31 為 8 月最後交易日，月底作帳與再平衡因素無法排除，單日方向不宜過度解讀</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AVGO</strong></td>
+        <td>博通</td>
+        <td>370.34</td>
+        <td style="color:#4CAF50;font-weight:600">+0.42%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 小幅上漲 +0.42% 收 $370.34，連續第 2 個交易日跑贏費半以外的多數同業，自 8/17 的 $364.02 累計漲幅自 +1.31% 擴大至 +1.74%，續為本波修正中少數維持正報酬的個股。⚠️ 惟 +0.42% 落後費半 +0.57% 達 0.15pp，為連 2 日相對強勢後的首次微幅落後，差距極小、不具方向性意義。⭐ 對 TSMC 的意涵：博通為 ASIC 與客製化 AI 加速器的主要設計商（Google TPU、Meta MTIA 等），其訂單直接對應 TSMC 的 N3/N5 與 CoWoS 產能；博通在本波修正中的相對穩定，是 TSMC 非 NVIDIA 客戶群需求未見降溫的最佳佐證</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AMD</strong></td>
+        <td>超微</td>
+        <td>470.72</td>
+        <td style="color:#4CAF50;font-weight:600">+1.10%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 反彈 +1.10% 收 $470.72，終結連 2 日下跌並收復 $470 關卡，自 8/17 的 $486.94 累計跌幅自 -4.39% 收斂至 -3.33%。⭐ 判讀：+1.10% 跑贏費半 +0.57% 達 0.53pp，是 AMD 連續兩日「漲時落後、跌時同步」的弱勢型態於本日獲得扭轉的第一個訊號。⚠️ 保留：單日跑贏 0.53pp 不足以確認型態轉換，須連續 2 日以上維持相對強勢才可改判；⭐ 對 TSMC 的意涵：AMD 的 MI 系列 AI 加速器與 EPYC 伺服器處理器均採 TSMC 先進製程，其止跌回升與博通、NVIDIA 同向，客戶端三大 AI 晶片設計商 8/31 同步收紅，為需求面的正面並列證據</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>QCOM</strong></td>
+        <td>高通</td>
+        <td>170.48</td>
+        <td style="color:#4CAF50;font-weight:600">+3.83%</td>
+        <td style="font-size:11px;color:#444">⭐⭐ 8/31 大漲 +3.83% 收 $170.48，為本日追蹤清單中漲幅最大者，為 2026-07-23（收 $171.11）以來最高收盤、亦為 8 月全月最高收盤（已查核 2 年日線序列確認；⚠️ 距 2 年收盤高點 2026-05-29 的 $251.02 仍有 -32.1%，本報不稱其為歷史新高），自 8/17 的 $158.09 累計漲幅自 +3.86% 大幅擴大至 +7.84%，續為本波修正中表現最穩定且累計報酬最高的客戶端個股。⭐ 市場歸因於當日兩則 AI 布局消息：高通 8/31 與 HUMAIN 共同發表 Horizon Ultra AI PC（Snapdragon X 平台的企業 AI 運算展示），並揭露 Adobe 將把區域性 AI 工作負載遷移至由高通技術加速的 HUMAIN 基礎設施（來源：多家財經媒體報導；⚠️ 本報未取得高通官方新聞稿原文，歸因列為市場解讀）。⭐ 對 TSMC 的意涵偏正面：高通的手機基頻與 PC 處理器均由 TSMC 代工，其自「AI 資料中心曝險低」的防禦標的轉為「邊緣 AI 與 AI PC」的成長標的，對應的是 TSMC N3/N4 製程的手機以外新需求來源</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>2454.TW</strong></td>
+        <td>聯發科</td>
+        <td>3,925</td>
+        <td style="color:#F44336;font-weight:600">-1.51%</td>
+        <td style="font-size:11px;color:#444">⚠️ 8/31 回跌 -1.51% 收 3,925（TWSE 官方、-60.00 元、開 3,885／高 3,945／低 3,820、量 7,222 張），回吐 8/28 的 +3.10% 漲幅約半數，並再度與 4,000 整數關卡拉開距離。⚠️ 判讀：-1.51% 落後 2330 的 -0.62% 達 0.89pp，與 8/28 的「領先 2.69pp」完全反轉，兩日擺盪達 3.6pp，波動度為台股追蹤清單中最高。⭐ 惟盤中低 3,820（-4.14%）於尾盤大幅收復至 3,925，與 2330 同樣呈現「盤中深跌、尾盤收復」的型態，兩檔的日內結構一致。⭐ 對 TSMC 的意涵：聯發科為 TSMC 台灣本土最大客戶之一，其與高通同屬手機晶片設計商，8/31 卻與高通 +3.83% 反向，顯示資金對「邊緣 AI 敘事」的定價集中於美股標的，台股同類股尚未獲得同等評價</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">競爭</span></td>
+        <td><strong>INTC</strong></td>
+        <td>英特爾</td>
+        <td>89.51</td>
+        <td style="color:#4CAF50;font-weight:600">+0.04%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 幾乎持平：+0.04% 收 $89.51，止住 8/28 的 -2.85% 但未能收復 $90 整數關卡（距其 0.5%），自 8/17 的 $88.32 累計仍維持 +1.35% 的正報酬。⚠️ 判讀：+0.04% 落後費半 +0.57% 達 0.53pp，為本日相對表現偏弱者；⭐ 惟英特爾為本波修正中少數自 8/17 起仍維持正報酬的個股（另有 QCOM +7.84%、AAPL +3.85%、AVGO +1.74%），結構相對抗跌。⭐ 對 TSMC 的意涵：英特爾晶圓代工（IFS）為 TSMC 的直接競爭者，其股價止穩而未走強，代表市場對 IFS 取得外部大客戶的預期未見升溫，TSMC 的先進製程壟斷地位在本波未受挑戰</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">競爭</span></td>
+        <td><strong>005930.KS</strong></td>
+        <td>三星電子</td>
+        <td>260,000 KRW</td>
+        <td style="color:#4CAF50;font-weight:600">+1.17%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 回升 +1.17% 收 26.0 萬韓元（Yahoo 官方日線），收復 8/28 的 -3.38% 跌幅約三分之一。⭐ 判讀：與 SK 海力士的 +1.27% 同向，韓國半導體雙雄本日同步回升，且回升幅度接近（相差僅 0.10pp），顯示 8/28 的同步重挫確為族群性情緒而非個別公司因素。⭐ 資料說明：本檔採 8/31 官方日線收盤，未採用 Yahoo meta 的 regularMarketPrice——該欄時間戳為 9/1 韓股盤中，採用會誤植。⚠️ 對 TSMC 的意涵：三星同時是記憶體與晶圓代工雙業者，其回升主要由記憶體業務驅動（與 SK 海力士、美光同步），代工業務的競爭態勢未見變化</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">產業</span></td>
+        <td><strong>SOX</strong></td>
+        <td>費城半導體指數</td>
+        <td>11,535.05</td>
+        <td style="color:#4CAF50;font-weight:600">+0.57%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 止跌回升 +0.57% 收 11,535.05（+65.39 點），終結 8/28 的 -3.47% 重挫，⚠️ 惟僅收復該日跌幅的 16%，屬技術性止穩而非反攻。⚠️⚠️ 本報須誠實維持前一日的判定不變：距 52 週收盤高 14,634.72（2026-06-22）的跌幅自 -21.63% 微幅收斂至 -21.19%，仍深陷 -20% 的技術性熊市之內——8/27 曾短暫脫離、8/28 即告失效，本日的回升幅度不足以再次脫離，需再上漲 1.5% 以上（至 11,707.78）才能重回 -20% 之上。⭐ 結構面的正面訊號：本日費半上漲而美股大盤下跌（S&P 500 -0.33%、那斯達克 -0.12%、道瓊 -0.7%，來源 CNBC），半導體與大盤呈正向背離，為 8/18 以來首見；⭐ 月度統計亦提供緩衝——8 月全月 S&P 500 +2.6%、那斯達克 +3.9%，為 5 月以來首見月線收紅，NVIDIA 全月約 +10%、美光全月 +16% 以上（來源 CNBC），本波自 8/17 起的修正發生在一個月線收紅的月份之內</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">處分後</span></td>
+        <td><strong>ARM</strong></td>
+        <td>Arm Holdings</td>
+        <td>241.91</td>
+        <td style="color:#4CAF50;font-weight:600">+1.20%</td>
+        <td style="font-size:11px;color:#444">⭐ 8/31 反彈 +1.20% 收 $241.91，止住 8/28 的 -6.33% 並收復其約五分之一，收復 $240 關卡，自 8/17 的 $243.90 累計跌幅自 -1.99% 收斂至 -0.82%。⭐ 判讀：+1.20% 跑贏費半 +0.57% 達 0.63pp，高評價 IP 授權股在風險偏好回升日的彈性重新顯現。⚠️ 保留：ARM 的兩日擺盪達 7.5pp（-6.33% 後 +1.20%），波動度為本日追蹤清單中最高之一，其股價對利率與風險偏好的敏感度遠高於基本面變化；⭐ 提醒：TSMC 已於 2026 年 4 月全數出脫 ARM 持股（1.11M 股 @ $207.65、共 $231M），本檔列於「處分後」類別僅供追蹤 IP 授權端的風險偏好指標，與 TSMC 目前的損益無直接關聯</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ 9. 法人評級彙整 ═══ -->
+<div class="sec" id="analyst">
+  <div class="sec-title">🎯 法人評級彙整</div>
+  <div style="background:var(--card);border-radius:10px;padding:16px;margin-bottom:14px;
+    box-shadow:0 1px 5px rgba(0,0,0,.08)">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">共識評級</div>
+        <div style="font-size:22px;font-weight:700;color:var(--green)">強烈買入</div>
+        <div style="font-size:11px;color:var(--muted)">32 位分析師</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">平均目標價（TWD）</div>
+        <div style="font-size:22px;font-weight:700;color:var(--blue)">NT$2,560.00</div>
+        <div style="font-size:11px;color:var(--green)">上漲空間 +18.07%</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">評級分布</div>
+        <div class="consensus-bar">
+          <div style="width:100%;background:var(--green)"></div>
+          <div style="width:0%;background:#FF9800"></div>
+        </div>
+        <div style="font-size:10.5px;color:var(--muted)">買入 32 / 持有 0 / 賣出 0</div>
+      </div>
+    </div>
+  </div>
+  <div class="analyst-grid">
+    <div class="analyst-card">
+      <div class="analyst-firm">Citi 花旗</div>
+      <div class="analyst-tp">NT$3,800</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買入</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-06</span>
+      </div>
+      <div class="analyst-note">🚀 7/6 大幅上調目標價自 NT$2,875 至 NT$3,800（+32%、自 7/9 官方收 NT$2,415.5 具 +57.3% 空間）；為 7/16 法說會前最新升評、預期 TSMC 上修 2026 全年營收成長與長期展望、上調 2027-28 資本支出估至 $75-80B；看好 AI GPU/客製 ASIC/雲端 TPU/網通/光互連/CPU 全面需求</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Nomura 野村</div>
+      <div class="analyst-tp">NT$3,425</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買入</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-01</span>
+      </div>
+      <div class="analyst-note">🚀 7/1 大幅上調目標價自 NT$2,820 至 NT$3,425（自 7/9 官方收 NT$2,415.5 具 +41.8% 空間）；指 AI 基礎設施投資循環尚未見頂、估 2027 資料中心新增產能達 ~32GW</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Barclays</div>
+      <div class="analyst-tp">US$650</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">增持</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-17</span>
+      </div>
+      <div class="analyst-note">🚀 Q2 法說會後自 $625 再上調至 $650（維持 Overweight、自 7/20 收 $402.30 具 +61.6% 空間、TipRanks 7/17-20）；AI 需求結構性 + A14/A16 領先、TSMC 為 AI CapEx 循環終極受惠者</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">BofA 美銀</div>
+      <div class="analyst-tp">US$590</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買入</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-14</span>
+      </div>
+      <div class="analyst-note">🚀 7/14 法說會前自 $490 上調至 $590（自 7/15 收 $419.48 具 +40.7% 空間）；看好 AI 晶片需求與晶圓漲價 5-10% 挹注毛利率</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Goldman Sachs</div>
+      <div class="analyst-tp">NT$2,330</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買入</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-01</span>
+      </div>
+      <div class="analyst-note">⚠️ 7/1 將 TSM 移出「APAC Conviction List」（戰術性調整近期上檔預期、非降評）；仍維持買入評等</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">JPMorgan</div>
+      <div class="analyst-tp">NT$2,200</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">增持</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-04-17</span>
+      </div>
+      <div class="analyst-note">N3/N2 需求強勁，毛利率改善，財報後上調</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Susquehanna</div>
+      <div class="analyst-tp">US$600</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">正面</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-07-17</span>
+      </div>
+      <div class="analyst-note">⭐ Q2 法說會後自 $575 上調至 $600（TipRanks 7/17-20）；AI 基礎設施資本支出持續、製程領先</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Bernstein</div>
+      <div class="analyst-tp">US$360</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">優於大盤</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-04</span>
+      </div>
+      <div class="analyst-note">技術領先優勢穩固，財報後上調</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Morgan Stanley</div>
+      <div class="analyst-tp">NT$2,290</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">增持</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-04</span>
+      </div>
+      <div class="analyst-note">市場共識平均目標</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">MarketScreener</div>
+      <div class="analyst-tp">NT$2,320</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">共識買入</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-05-04</span>
+      </div>
+      <div class="analyst-note">31 位分析師、0 位賣出（5/4 NT$2,275 飆漲後上行空間收斂至 +2.0%，需財報數據持續驗證）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 10. 財報倒計時 ═══ -->
+<div class="sec" id="earnings">
+  <div class="sec-title">⏳ 財報倒計時 — Q3 2026（Q2 法說會 7/16 已結束、大超預期；Q3 法說會日期以官方公告為準、暫估 10 月中旬）</div>
+  <div class="countdown-box">
+    <div>
+      <div class="countdown-days">44</div>
+      <div class="countdown-label">天後發布</div>
+    </div>
+    <div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px">Q3 2026（Q2 法說會 7/16 已結束、大超預期；Q3 法說會日期以官方公告為準、暫估 10 月中旬） 財報預計：2026-10-15</div>
+      <div class="countdown-grid">
+        <div class="cg-item"><div class="cg-lbl">營收指引（中位）</div><div class="cg-val">$45.2B</div></div>
+        <div class="cg-item"><div class="cg-lbl">指引範圍</div><div class="cg-val">$44.6B – $45.8B</div></div>
+        <div class="cg-item"><div class="cg-lbl">毛利率指引</div><div class="cg-val">65–67%（Q3 指引；2nm 量產爬坡 H2 稀釋毛利率 3-4pp）</div></div>
+        <div class="cg-item"><div class="cg-lbl">營業利益率指引</div><div class="cg-val">54–56%（Q3 估算，以 Q2 營益率 60.3% 扣除 2nm 爬坡稀釋）</div></div>
+        <div class="cg-item"><div class="cg-lbl">共識 EPS 預估</div><div class="cg-val">Q2 實際 NT$27.25 / US$4.31（超共識 ~$3.94 約 +9.4%；Q3 共識法說會後上修中）</div></div>
+        <div class="cg-item"><div class="cg-lbl">上季超預期幅度</div><div class="cg-val" style="color:#FDD835">+9.4%（Q2 2026 EPS $4.31/ADR vs 共識 ~$3.94）</div></div>
+        <div class="cg-item"><div class="cg-lbl">近 8 季超預期率</div><div class="cg-val" style="color:#FDD835">100%（連續 11 季全部超預期，Q2 2026 再度確認）</div></div>
+        <div class="cg-item"><div class="cg-lbl">YoY 營收成長</div><div class="cg-val" style="color:#FDD835">~38%</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 11. 晶圓廠稼動率 ═══ -->
+<div class="sec" id="fab">
+  <div class="sec-title">🏭 晶圓廠製程稼動率（業界分析師估算）</div>
+  <div class="alert">⚠ 稼動率為業界分析師估算值，TSMC 不公開分製程稼動率數據</div>
+  <div class="fab-grid">
+    <div class="fab-row">
+      <div class="fab-node">N2 (2nm)</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">90–95%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">HVM 啟動，良率爬升中</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N3/N3P</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div>
+        <div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">滿載，NVIDIA/Apple 全包</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N5/N4</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div>
+        <div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">主力製程，AI GPU + 手機 SoC</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N7/N6</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">90–95%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">成熟先進製程，AI 推論需求支撐</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N16–28</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#FF9800">75–85%</div>
+        <div class="util-bar"><div class="util-fill" style="width:75%;background:#FF9800"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">成熟製程，IoT / MCU 需求穩定</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N3</div>
+      <div><span class="badge" style="background:#607D8B">Arizona</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#FF9800">初期爬坡</div>
+        <div class="util-bar"><div class="util-fill" style="width:50%;background:#FF9800"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">Phase 1 全面量產中（2nm Phase 2 建設中）</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N12</div>
+      <div><span class="badge" style="background:#607D8B">Japan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">~90%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">熊本廠 Phase 1 量產中</div>
+    </div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">Source: TrendForce、Digitimes、業界分析師 2026 Q1 估算</p>
+</div>
+
+<!-- ═══ RISK + GEO ═══ -->
+<div class="sec" id="risk">
+  <div class="sec-title">⚠️ 風險評估矩陣 × 地緣政治</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+    <div style="background:var(--card);border-radius:10px;padding:14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--red)">
+      <div style="font-weight:700;color:#B71C1C;margin-bottom:8px">🔴 地緣政治 & 法規風險</div>
+      <ul style="font-size:12px;color:#444;line-height:1.9;padding-left:16px">
+        <li>美中 AI 晶片出口管制：BIS 2026-01-15 改逐案審查，法遵成本上升</li>
+        <li>NVIDIA H200/H20 中國版停產，影響 TSMC 訂單結構</li>
+        <li>中國反制：鎵、鍺出口限制，半導體材料供給受壓</li>
+        <li>關稅 25%：拉高客戶成本，NVIDIA GPU 已漲價 5–15%</li>
+        <li>台海局勢不確定性，「矽盾」效果存疑</li>
+      </ul>
+    </div>
+    <div style="background:var(--card);border-radius:10px;padding:14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--green)">
+      <div style="font-weight:700;color:#1B5E20;margin-bottom:8px">🟢 結構性長期利多</div>
+      <ul style="font-size:12px;color:#444;line-height:1.9;padding-left:16px">
+        <li>全球半導體市場 2026 估達 $975B，成長 26%</li>
+        <li>AI 晶片佔總收入約 50%，2036 市場 $2 兆</li>
+        <li>台日印三國框架：日本資本 × 台灣技術 × 印度人才</li>
+        <li>美台協議 $2,500 億投資，Arizona/Japan 廠分散地緣風險</li>
+        <li>Samsung 良率問題未解、Intel Foundry 轉型中 → TSMC 優勢穩固</li>
+      </ul>
+    </div>
+  </div>
+  <div class="risk-grid">
+    <div class="risk-card" style="border-color:#F44336">
+      <div class="risk-lv" style="color:#F44336">●●● 高風險</div>
+      <div class="risk-name">出口管制</div>
+      <div class="risk-desc">AI 晶片對中出口政策持續演變，H200/H20 停產顯示政策不確定性仍高</div>
+    </div><div class="risk-card" style="border-color:#F44336">
+      <div class="risk-lv" style="color:#F44336">●●● 高風險</div>
+      <div class="risk-name">地緣政治</div>
+      <div class="risk-desc">台海緊張局勢影響生產連續性，「矽盾」效果受關稅政策弱化</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">關稅衝擊</div>
+      <div class="risk-desc">25% 晶片進口關稅拉高客戶成本，消費性需求可能降溫</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">毛利率稀釋</div>
+      <div class="risk-desc">海外廠（AZ/JP）製程複製成本高，預估壓縮 1–2pp 毛利率</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">AI 需求集中</div>
+      <div class="risk-desc">HPC/AI 佔比 58%，若 AI 景氣反轉衝擊明顯；消費性電子仍低迷</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">匯率風險</div>
+      <div class="risk-desc">台幣升值壓縮美元計算的海外收益，每 1% 影響毛利率 0.3–0.4pp</div>
+    </div><div class="risk-card" style="border-color:#4CAF50">
+      <div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div>
+      <div class="risk-name">技術良率</div>
+      <div class="risk-desc">N2 HVM 良率爬升符合預期，N2P/A16 按期程進行</div>
+    </div><div class="risk-card" style="border-color:#4CAF50">
+      <div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div>
+      <div class="risk-name">競爭威脅</div>
+      <div class="risk-desc">Samsung 良率不穩、Intel 轉型需 2–3 年，TSMC 技術護城河穩固</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 12. IR 行事曆 ═══ -->
+<div class="sec" id="calendar">
+  <div class="sec-title">📅 法說會 / IR 行事曆</div>
+  <div class="cal-list">
+    <div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-03-17</div>
+      <div><div class="cal-title">✅ 除息完成</div><div class="cal-desc">2026 Q1 現金股利 NT$1.50/股（US$0.968/ADR）已於 3/17 除息</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-09</div>
+      <div><div class="cal-title">✅ 除息完成</div><div class="cal-desc">2026 Q2 現金股利 NT$1.50/股（US$0.968/ADR）已於 4/9 除息完成</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-10</div>
+      <div><div class="cal-title">✅ 月營收公布</div><div class="cal-desc">TSMC 4/10 公布 3 月合併月營收 NT$415.2B（+45.2% YoY，+30.7% MoM）；Q1 2026 合計 NT$1.134 兆（+35.1%），超越共識預期 NT$1.12 兆</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-14</div>
+      <div><div class="cal-title">✅ 週一反彈</div><div class="cal-desc">台股 2330 收 NT$2,030（+2.56%，vs 4/10 NT$1,950）；NYSE TSM $383.30（+3.15%，強勢反彈）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-15</div>
+      <div><div class="cal-title">✅ 財報前夕創高</div><div class="cal-desc">台股 2330 收 NT$2,055（+1.26%），52 週新高；NYSE TSM $379.89（4/15 收盤）；財報法說會明日（4/16）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-16</div>
+      <div><div class="cal-title">✅ Q1 2026 財報法說會</div><div class="cal-desc">台股 2330 收 NT$2,100（+2.19%），創 52 週新高；NYSE TSM $392.00（+3.19%，財報後）；Q1 淨利 NT$572.5B（$18.1B，+58% YoY）創歷史新高；Q2 指引 $39.0-40.2B（遠超共識 $37.5-39.0B）；全年 >30% 成長確認；CapEx 向 $52-56B 高端靠齊</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-17</div>
+      <div><div class="cal-title">✅ 財報後深度獲利了結</div><div class="cal-desc">台股 2330 實際收 NT$2,030（-2.64%，-55 點），深度獲利了結大於預期；NYSE TSM 實際 $370.50（+1.97%，美股反彈）；台美分歧明顯；毛利率 66.2%（+740bps YoY）創歷史新高確認；NVIDIA #1 客戶 22% 確認</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-20</div>
+      <div><div class="cal-title">✅ 週末休市</div><div class="cal-desc">週末非交易日（Sunday）；週末消息：Amazon Trainium 省數百億美元資本支出、Meta/Anthropic 擴大自研 AI 芯片均依賴 TSMC；TSMC $165B 美國投資承諾確認，關稅豁免框架公布</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-21</div>
+      <div><div class="cal-title">✅ 三大法人淨買超 2,829 張</div><div class="cal-desc">台股 2330 收 NT$2,050（vs 盤中 NT$2,055）；外資實際買超 +2,210 張、投信 +696 張、自營 -77 張，合計淨買超 2,829 張；外資持股比例 74.9%；NYSE TSM 4/21 實際收盤 $366.24（-1.15%，vs 4/17 $370.50）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-22</div>
+      <div><div class="cal-title">✅ 北美技術論壇+ADR 大漲</div><div class="cal-desc">TSMC 2026 North America Technology Symposium 舉辦：A14 製程宣布（2028 量產）、A16 H2 2026 量產確認；台股 2330 收盤 NT$2,050（持平），加權指數收 37,878（+273）；NYSE TSM 爆量大漲 +5.30% 收 $387.72——Barclays 升評增持、目標 $470；TSMC Arizona 先進封裝廠（CoWoS）2029 啟用確認</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-23</div>
+      <div><div class="cal-title">✅ 台股跟進 ADR、ASML 高 NA EUV 遞延</div><div class="cal-desc">台股 2330 4/23 收盤 NT$2,080（+30，+1.46% vs 4/22 NT$2,050），跟進 NYSE 前日 +5.3% 大漲；NYSE TSM 4/23 收 $387.53（-0.05%，技術整理消化）；TSMC 4/22 宣布暫不採用 ASML 最新高 NA EUV 設備（€350M/台過貴）→ A13/N2U 製程路線改以設計協同突破，ASML 股價 4/23 承壓 -2.6%；Siemens 與 TSMC 合作 AI 晶片設計；2028 先進封裝將整合 10 大晶片 +20 HBM</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-24</div>
+      <div><div class="cal-title">✅ 爆量飆漲創歷史新高、台美雙市共振</div><div class="cal-desc">台股 2330 4/24 爆量飆漲收 NT$2,185（+105，+5.05%）創歷史新高；NYSE TSM 4/24 大漲 +5.17% 收 $402.46 首次站上 $400；SOX 收 10,513.66（+4.32%）寫 30 年新高</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-27</div>
+      <div><div class="cal-title">🎯 盤中觸 NT$2,330 與股號神奇巧合、單日漲點 +145 史上最大</div><div class="cal-desc">台股 2330 4/27 收 NT$2,265（+80，+3.66%）續創歷史新高；盤中一度衝至 NT$2,330 與股票代號完美巧合、單日漲點 +145 創台股史上最大紀錄；市值盤中突破 NT$60 兆、收盤 NT$58.7 兆雙創新高；台股加權指數同日 +1,262 點站上 40,194 突破 4 萬大關；NYSE TSM 4/27 收 $404.98 續創史高；4/27 外資反手賣超 TSMC 1.8940 萬張（前三名皆 ETF 調節）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-28</div>
+      <div><div class="cal-title">📉 OpenAI 不達標 WSJ 報導引爆 AI 晶片全面拋售</div><div class="cal-desc">台股 2330 4/28 收 NT$2,215（-50，-2.21%）自史高拉回；NYSE TSM 4/28 收 $392.34（-3.12%）跌破 $400 關卡；WSJ 報導 OpenAI 週活用戶與月營收雙不達標，CFO Sarah Friar 警告恐難資助未來算力協議，引爆 SOX -3.2%、AMD -6%、ARM -8%、Broadcom -5%、Intel/Micron -4%、Oracle -7%、SoftBank -10%；4/28 籌碼：外資連 2 賣超 22,114 張擴大、投信連 4 買 +861、自營連 3 買 +500，三大法人合計賣超 20,752 張；量縮 25% 至 46,932 張屬健康整理</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-29</div>
+      <div><div class="cal-title">✅ 連 3 日修正、ADR 領先止跌微反彈</div><div class="cal-desc">台股 2330 4/29 收 NT$2,180（-35，-1.58%）連 3 日修正、跌破 5MA NT$2,250 與心理 NT$2,200 兩道支撐；NYSE TSM 4/29 微反彈收 $393.79（+0.37%）；外資連 3 賣超估 -8,500 張、投信連 5 買 +650、自營連 4 買 +320；TSMC 4/29 揭露全數出脫 Arm 持股 1.11M 股 @ $207.65 共 $231M</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-04-30</div>
+      <div><div class="cal-title">📉 連 4 日修正、跌破 NT$2,150 第一支撐</div><div class="cal-desc">台股 2330 4/30 收 NT$2,135（-45，-2.06%）連 4 日修正、跌破 NT$2,150 第一支撐，距 4/27 史高累計 -5.74%；NYSE TSM 4/30 估收 $396.06（連 2 反彈）；4/30 籌碼：外資 4 連賣 -21,183 張、投信連 6 買 +596、自營 +115，合計賣超 20,472 張；外資持股降至 74.9%；技術面 RSI 跌破 50 中軸至 46.5、KDJ J 接近超賣 25、MACD 瀕臨死叉</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-01</div>
+      <div><div class="cal-title">🎌 台灣勞動節休市；NYSE TSM 連 3 反彈逼近 $400</div><div class="cal-desc">5/1 Fri 台灣勞動節 TWSE 休市；NYSE TSM 5/1 收 $397.67（+1.61，+0.41%）連 3 日反彈逼近 $400 關卡，自 4/29 $393.79 累計 +0.99%；ADR 對台股溢價自 +13.1% 進一步擴大至 +16.2%；美股 AI 晶片股延續反彈：NVDA $940.20（+0.84%）、AMD +0.60%、AVGO +0.95%、SOX 10,540（+0.28%）連 3 日漲；OpenAI 雜訊基本消化、ADR 領先確認築底訊號</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-04</div>
+      <div><div class="cal-title">✅ 爆量飆漲收 NT$2,275 創 52 週新高、加權指數首破 4 萬大關</div><div class="cal-desc">台股 2330 5/4 Mon 爆量飆漲收 NT$2,275（+140，+6.56%）創 52 週新高、單日漲幅 2024 以來最大；台股加權指數同日 +1,778.51（+4.57%）史上首度收盤站穩 40,705.14 站上 4 萬大關；TSMC 市值大幅回升至約 NT$59 兆；NYSE TSM 5/4 收 $401.61（+0.99%）連 4 反彈收復 $400；催化：4 大美國 CSP（Google/AWS/MSFT/Meta）2026 AI CapEx 合計 $725B（+77% YoY）；5/4 籌碼估外資反手大買 +25,800 張、投信連 7 買 +1,820、自營連 6 買 +1,350、合計買超估 28,970 張</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-05</div>
+      <div><div class="cal-title">✅ 量縮續強收 NT$2,250、盤中觸 NT$2,300 心理整數新高</div><div class="cal-desc">台股 2330 5/5 Tue 收 NT$2,250（持平自 5/4）、盤中觸 NT$2,300 心理整數創 52 週新高；成交量量縮至 21,565 張屬爆量後健康整理；台股加權指數同日 +64.15（+0.16%）收 40,769.29 連 2 日站穩 4 萬；NYSE TSM 5/5 拉回收 $396.89（-1.18%）跌破 $400；AMD Q1 盤後大超預期 AH +15%（EPS $1.37、營收 $10.25B、Q2 指引 $11.2B）；TSMC 重啟桃園龍潭 Phase 3 fab 計畫（$16.9B 投資、A14/1.6nm 用地）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-06</div>
+      <div><div class="cal-title">🚀 TWii 創歷史新高、NYSE TSM +6.36% 創 52 週新高 $419.50</div><div class="cal-desc">台股 2330 5/6 Wed 收 NT$2,250（持平 0.00%）盤中觸 NT$2,275 量能放大；台股加權指數同日 +369.56（+0.91%）爆量 1.4491 兆收 41,138.85 連 3 日創歷史新高；NYSE TSM 5/6 大漲 +6.36% 收 $419.50 盤中觸 52 週新高；AMD 5/6 飆漲 +25% 反映 Q1 大超預期、4 大美國 CSP 2026 AI CapEx $725B（+77% YoY）確認；5/6 全市場外資爆量大買 +751.05 億元、投信 +17.8 億、自營 -96.11 億，三大法人合計 +672.85 億</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-07</div>
+      <div><div class="cal-title">🚀 台股爆量飆漲創史高 NT$2,310、TWii 首破 4 萬 2、市值衝 60.81 兆</div><div class="cal-desc">台股 2330 5/7 Thu 爆量飆漲收 NT$2,310（+60，+2.67%）創歷史新高，盤中觸 NT$2,345（+95，+4.22%）史高、市值收盤 59.9 兆、盤中達 60.81 兆雙創高；台股加權指數同日 +794.93（+1.93%）收 41,933.78、盤中觸 42,156.06 首破 4 萬 2 大關；最後一盤爆 7,112 張賣單仍守住天價；NYSE TSM 5/7 高位整理收 $416.58（-0.70% vs 5/6 $419.50）、開 $418.09 高 $420.00（盤中 52 週新高）；5/7 全市場三大法人合計買超 +583.31 億——外資 +464.12 億、投信 +160.62 億、自營 -41.43 億，TSMC 為外資+投信買超第一名</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-08</div>
+      <div><div class="cal-title">✅ 高檔整理收 NT$2,290、TSMC 4 月月營收公布 NT$410.73B</div><div class="cal-desc">台股 2330 5/8 Fri 受 5/7 爆量飆漲後高檔換手壓力小幅整理，收 NT$2,290（-20，-0.87% vs 5/7 NT$2,310），量縮至約 48,500 張屬健康消化；NYSE TSM 5/8 連 2 日小幅整理收 $414.15（-2.43，-0.58% vs 5/7 $416.58）仍站穩 $410；⭐ 5/8 盤後 TSMC 公布 4 月合併月營收 NT$410.73 億：YoY +17.5%、MoM -1.1%，1–4 月累計 NT$1,544.83 億（+29.9% YoY）略低於市場估 NT$415B+ 但維持高速年增</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-11</div>
+      <div><div class="cal-title">📉 跌破 5MA 收 NT$2,235、AMAT-TSMC $5B EPIC Center 合作宣布</div><div class="cal-desc">台股 2330 5/11 Mon 受 5/8 盤後公布 4 月月營收 NT$410.73B（MoM -1.1%）略低於市場估 NT$415B+ 衝擊 + 連續飆漲後獲利了結賣壓共振，收 NT$2,235（-55，-2.40% vs 5/8 NT$2,290）跌破 5MA + 前壓轉支撐 NT$2,250；NYSE TSM 5/11 同步跟進收 $404.54（-1.69%）仍站穩 $400；⭐ 重大利多：Applied Materials (AMAT) 5/11 宣布與 TSMC 在矽谷 EPIC Center 共建 $5B AI 晶片研發合作中心、為美國史上最大半導體設備 R&D 投資、AMAT 同日大漲 +3.92%；5/11 估三大法人合計賣超 -21,800 張（外資轉賣 -18,500、投信連 10 買終止 -2,500、自營 -800）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-12</div>
+      <div><div class="cal-title">✅ 反彈收 NT$2,255、Arizona $20B 資本注入</div><div class="cal-desc">台股 2330 5/12 Tue 在 5/11 重挫 -2.40% 後出現技術性反彈，收 NT$2,255（+20，+0.89% vs 5/11 NT$2,235），盤中區間 NT$2,210-2,280，量能縮減至約 39,800 張屬健康整理；NYSE TSM 5/12 收 $404.54（-1.73% vs 5/11 $411.68）仍站穩 $400；⭐ TSMC Arizona 子公司董事會 5/12 批准追加 $20B 資本注入、強化美國 Phase 2/3 擴張、為迄今最大單一資本承諾</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-13</div>
+      <div><div class="cal-title">📉 跌破 5MA 收 NT$2,210、Apple 傳轉單英特爾</div><div class="cal-desc">5/13 Wed 台股 2330 收 NT$2,210（-45，-2.00% vs 5/12 NT$2,255）跌破 5MA NT$2,250 + 前支撐 NT$2,235、量放至 50,200 張、市值回落 NT$57.3 兆；下跌主因：⚠️ 市場傳出 Apple 考慮將部分晶片訂單轉至 Intel Foundry 18A 製程、客戶集中度風險升溫（Apple 為 TSMC 第 2 大客戶、佔比 17%）+ 爆量飆漲後獲利了結賣壓共振；5/13 估三大法人合計賣超 -15,500 張（外資 -12,800、投信 -2,000、自營 -700）；技術面 RSI 降至 48 跌破中軸、KDJ K(58)/D(60)/J(54) 死叉訊號浮現、MACD +1.5 紅柱續收斂逼近翻黑</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-14</div>
+      <div><div class="cal-title">✅ 反彈收 NT$2,225（+0.68%）、NVIDIA 確認 TSMC 最大客戶</div><div class="cal-desc">5/14 Thu 台股 2330 估收 NT$2,225（+15，+0.68% vs 5/13 NT$2,210）跟進 NYSE TSM 5/13 +0.63% 反彈訊號、守住 NT$2,200 心理整數雙重支撐、量縮至 38,800 張屬反彈整理、市值回升 NT$57.7 兆；🏆 重大訊息：NVIDIA 確認超越 Apple 為 TSMC 最大客戶——NVIDIA 22% / $33B 對 Apple 17% / $27B、$95B 採購承諾揭露；🎯 TSMC 新竹技術論壇上修 2030 全球半導體市場至 $1.5T（自原 $1T）、AI/HPC 占 55%、9 座新廠 2026 規劃；NYSE TSM 5/14 飆漲 +4.48% 收 $417.72 反映利多</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-15</div>
+      <div><div class="cal-title">✅ 大漲收 NT$2,270（+2.07%）、突破 5MA、ADR 5/14 飆漲跟進</div><div class="cal-desc">5/15 Fri 台股 2330 收 NT$2,270（+45，+2.07% vs 5/14 NT$2,225）跟進 NYSE TSM 5/14 +4.48% 大漲 $417.72 訊號跳空上攻、突破 5MA NT$2,255 與前壓轉支撐 NT$2,235、放量至 58,500 張、市值大幅回升 NT$59.0 兆；NYSE TSM 5/15 高檔回檔收 $404.35（-3.20%）獲利了結 + Cathie Wood ARK 賣超 $40.6M TSM 加重情緒；🎯 5/14 重大催化：TSMC 新竹技術論壇上修 2030 全球半導體市場預估至 $1.5T、AI/HPC 占 55%、9 座新廠規劃、2nm/A16 CAGR +70%；CoWoS 良率突破 98% 北美擴產加速</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-18</div>
+      <div><div class="cal-title">📉 跳空走低收 NT$2,220（-1.99%）、ADR 5/15 -3.20% 跟進回檔</div><div class="cal-desc">5/18 Mon 台股 2330 跟進 NYSE TSM 5/15 -3.20% 回檔訊號跳空走低、估收 NT$2,220（-45，-1.99% vs 5/15 NT$2,265）；NYSE TSM 5/15 回檔 -3.20% 收 $404.35；Cathie Wood ARK 賣超 $40.6M TSM；兩岸地緣政治升溫；5/18 估三大法人合計賣超 -19,500 張</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-20</div>
+      <div><div class="cal-title">🏆 NVDA Q1 FY27 財報大超預期：$81.6B(+85% YoY)、Q2 guidance $91B、$80B 回購</div><div class="cal-desc">NVIDIA 5/20 Wed 盤後公布 Q1 FY27 財報全面大超預期：營收 $81.6B（vs 共識 $78.75B，+85% YoY）、Data Center $75.2B（+92% YoY）、Non-GAAP EPS $1.87（vs 共識 $1.76）、毛利率 75%、Q2 FY27 guidance $91.0B ±2%（自原 $78B 大幅上修）；宣布 $80B 額外股票回購授權 + 季度股息上修 25 倍至 $0.25；NVDA 5/20 盤後 +6%、5/21 大漲確認 AI 算力結構性多頭；TSM ADR 跟漲</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-26</div>
+      <div><div class="cal-title">📈 ADR 站穩 $412.72；半導體市場預估全面上修</div><div class="cal-desc">5/26 Mon NYSE TSM 站穩 $412.72；BofA 上修 2026 晶片市場至 $1.3T；IDC 估 2026 半導體收入突破 $1.29T；Hyperscaler AI CapEx 2026 達 $725B（+77% YoY）；TrendForce 估 Custom ASIC 增速首次超越 GPU（+44.6% vs +16.1%）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-27</div>
+      <div><div class="cal-title">🚀 NVIDIA 黃仁勳宣布每年投資台灣 $150B、Taipei HQ 動土；TSMC 3nm 漲價 15%</div><div class="cal-desc">5/27 Wed NVIDIA CEO 黃仁勳於台北 NVIDIA Taipei 總部動土典禮宣布 NVIDIA 將每年投資台灣 $150B（自原 $100B、+50%）、稱台灣為「AI 革命的震央」；TSMC 同期宣布 3nm 製程下半年漲價 15%、明年再漲 5-10%；TSMC 上修 2026 全年營收成長指引至 >30%；TSMC CEO 確認 2026 員工分紅年增 >30%；台股 2330 5/27 收 NT$2,300（+30，+1.32%）；NYSE TSM 5/27 大漲 +1.89% 收 $420.11、盤中觸 $427.96 創 52 週新高</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-28</div>
+      <div><div class="cal-title">🚀 跳空上漲收 NT$2,320（+0.87%）續創 52 週新高；台北兆元宴黃仁勳會魏哲家、張忠謀</div><div class="cal-desc">5/28 Thu 台股 2330 跟進 NYSE TSM 5/27 +1.89% 大漲訊號跳空開高、開 NT$2,310、盤中觸 NT$2,355、實際收 NT$2,320（+20，+0.87% vs 5/27 NT$2,300）；NYSE TSM 5/28 連 2 日創史高收 $424.86（+0.50% vs 5/27 $422.73）盤中觸 $425.06；ADR 溢價自 +11.7% 擴大至 +13.4%；5/28 三大法人合計大幅買超 +28,500 張；📅 5/28 晚台北兆元宴：黃仁勳會見 TSMC 董事長魏哲家與創辦人張忠謀、強化合作關係</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-05-29</div>
+      <div><div class="cal-title">✅ 自史高回檔收 NT$2,355（+0.43%）；NYSE TSM $418.45（-1.51%）自史高拉回</div><div class="cal-desc">5/29 Fri 台股 2330 跟進 NYSE TSM 5/28 +0.50% 創史高訊號跳空開高，開 NT$2,350、盤中觸 NT$2,360 創 52 週新高隨即出現高位獲利了結深殺至 NT$2,275（盤中振幅 3.7%），尾盤回升實際收 NT$2,355（+5，+0.43% vs 5/28 NT$2,350）、市值估守穩 NT$61.0 兆；NYSE TSM 5/29 拉回收 $418.45（-6.41，-1.51% vs 5/28 $424.86）自史高 $425.06 獲利了結；5/29 估三大法人合計買超 +12,500 張、連 5 日買超但動能明顯收斂；技術面 RSI 72.5、KDJ J 92 出現初步死叉訊號、長上影線警示短線過熱</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-01</div>
+      <div><div class="cal-title">⚠️ 盤中天價 NT$2,415 但收平盤 NT$2,355；指數創高但個股獲利了結；ADR +4.73% 創史新高</div><div class="cal-desc">6/1 Mon 台股 2330 在 COMPUTEX 2026 開幕 + 黃仁勳 GTC Taipei keynote 催化下盤中衝上天價 NT$2,415（市值 62.62 兆），但終場收平盤 NT$2,355（0.00% vs 5/29）——高檔獲利了結 + 資金輪動至聯發科（+5.68% 收 NT$4,555）等其他 AI 股，個股未跟進大盤；台股加權指數同日 +604.97（+1.35%）收 45,337.91 創歷史新高、首度站穩 45,000；NYSE TSM 6/1 大漲 +4.73% 收 $439.78（vs 5/29 $418.45）、盤中觸 $443.18、市值 $2.28T 創史新高；🚀 6/1 重大催化：（1）COMPUTEX 2026 開幕；（2）黃仁勳 GTC Taipei keynote 揭 Vera Rubin 正式量產（vs Blackwell 訓練 +3.5x、推理 +5x、成本降至 1/7）+ N1X ARM 筆電晶片 + 150 家台廠供應鏈夥伴；（3）NVIDIA-TSMC 6/1 宣布 AI 製程合作（cuLitho +20-50%、cuEST 加速 50 倍、Omniverse FabTwin）；（4）黃仁勳會晤 TSMC CEO 魏哲家；台美 ADR 溢價擴大至 +13.6%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-02</div>
+      <div><div class="cal-title">✅ 台股實際收 NT$2,380（+1.06%）跟進 NYSE 6/1 大漲；Intel CEO 6/2 keynote 確認 TSMC「長期信任夥伴」</div><div class="cal-desc">6/2 Tue 台股 2330 實際收 NT$2,380（+25，+1.06% vs 6/1 NT$2,355），跟進 NYSE TSM 6/1 +4.73% 大漲訊號、量縮整理；台股加權指數續站穩 45,000+；NYSE TSM 6/2 Tue 收 $435.63（-0.94% vs 6/1 $439.78），盤中觸 52 週新高 $449.39 後尾盤回檔修正、高位獲利了結 + Intel CEO 13:30 keynote 觀察前消化；🤝 Intel CEO Lip-Bu Tan 6/2 13:30 台北 COMPUTEX keynote 重大確認：Tan 表示 Intel 視 TSMC 為「長期信任夥伴」(very trusted partnership)、確認 Intel 為 TSMC 大客戶之一、Intel 將持續委外先進晶片給 TSMC——市場原憂 Intel 18A 競爭恐分食 TSMC 訂單的雜訊清除；揭露 2025 年曾提議 TSMC 入股 Intel Foundry 約 20%（未成交）；Intel YTD +200%+、市值 $614B+</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-03</div>
+      <div><div class="cal-title">✅ 台股實際收 NT$2,425（+45，+1.89%）創史高；NYSE TSM 6/3 -2.24% 自史高回檔 $436.69</div><div class="cal-desc">6/3 Wed 台股 2330 實際收 NT$2,425（+45，+1.89% vs 6/2 NT$2,380）創歷史新高、跟進 NYSE TSM 6/2 大漲訊號 + Intel CEO 6/2 keynote 確認 TSMC「長期信任夥伴」雜訊清除催化、盤中觸 NT$2,430；6/3 估三大法人合計買超 +23,500 張（外資 +18,500、投信 +3,200、自營 +1,800）；📉 NYSE TSM 6/3 Wed 收 $436.69（-$10.00，-2.24% vs 6/2 史新高 $446.69）自盤中 52w 新高 $449.39 高位獲利了結、技術性回檔修正——多項估值警示：P/E 升至 5 年 95%+ 高位、GF Value 評估 TSM「適度高估」、RSI 進入超買區；6/3 全美 AI 晶片股回檔：NVDA -1.34%、AMD -1.10%、AVGO -0.38%、ASML -1.60%、AMAT -1.52%、MU -1.53%、SOX -1.76%；台美 ADR 溢價自 +14.6% 收斂至 +13.0%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-04</div>
+      <div><div class="cal-title">✅ TSMC 2026 AGM 通過 2025 財報（EPS NT$66.25）；台股 2330 實際收 NT$2,385（-1.65%）自史高高位獲利了結</div><div class="cal-desc">6/4 Thu TSMC 2026 年度股東會於新竹召開、股東通過 2025 年業務報告與財務報表：合併營收 NT$3,809.05B、淨利 NT$1,717.88B、稀釋 EPS NT$66.25；CEO 魏哲家確認 AI 需求將持續超越全球半導體供應、儘管美國擴廠仍難滿足客戶強勁需求、確認 2026 營收成長 >30% 指引、3nm H2 漲價 15% + 2027 再漲 5-10% 計畫不變；台股 2330 6/4 實際收 NT$2,385（-40，-1.65% vs 6/3 NT$2,425）自史高 NT$2,425 高位獲利了結、AGM 利多被技術性回檔吸收；NYSE TSM 6/4 持穩 $436.69（持平 vs 6/3）已消化 6/3 -2.24% 回檔賣壓；6/4 估三大法人合計賣超 -10,500 張</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-06-05</div>
+      <div><div class="cal-title">📊 台股實際收 NT$2,365（-0.84%）相對抗跌；NYSE TSM 暴跌 -6.69% 收 $415.17、SOX -8.71%、$1T+ 半導體市值蒸發</div><div class="cal-desc">6/5 Fri 台股 2330 實際收 NT$2,365（-20，-0.84% vs 6/4 NT$2,385）盤中區間 NT$2,350-2,405、量持穩；加權指數 45,070.94（-1.33%）；NYSE TSM 暴跌 -6.69% 收 $415.17（-$29.75 vs 6/4 $444.92）；SOX -8.71% 收 12,431（單日跌幅 since 2025-04-07 解放日）；NVDA -3.54%、AVGO -13%（6/4-6/5 累計）、MU -8.65%、AMD -6.22%；$1T+ 半導體市值單日蒸發；崩跌觸發：（1）Broadcom 6/3 盤後 Q3 AI 指引 $16B 雖 +200% YoY 但不及分析師估 $17.2B、未上修全年指引、引爆「sell-the-news」拋售；（2）5 月 NFP 大幅優於預期、推升 10Y 美債殖利率突破 4.5%、Fed 升息預期升溫；（3）美對中 AI 晶片出口管制 6/1 起延伸至中企海外子公司</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-06-08</div>
+      <div><div class="cal-title">📉 台股跳空補跌實際收 NT$2,305（-2.54%）；NYSE TSM 6/8 反彈 +2.80% 收 $426.80 領先止跌</div><div class="cal-desc">6/8 Mon 台股 2330 跳空補跌反映 NYSE 6/5 -6.69% 崩跌：實際收 NT$2,305（-60，-2.54% vs 6/5 NT$2,365）、開盤跳空 -135 點 -5.70% 至 NT$2,230、盤中區間 NT$2,230-2,320 量約 52,000 張、市值回落 NT$59.8 兆；✅ 跳空後盤中快速回升 +75 點顯示低接買盤湧現、跌幅 -2.54% 低於 NYSE 6/5 崩跌 -6.69%；NYSE TSM 6/8 反彈 +2.80% 收 $426.80（+$11.63 vs 6/5 $415.17）消化 Broadcom 利空、領先確認止跌訊號；6/8 估三大法人合計賣超 -20,800 張（外資 -18,500、投信 -1,500、自營 -800）；台美 ADR 溢價自 +9.04% 大幅擴大至 +14.99%；技術面 RSI 48 跌破中軸、MACD +0.3 紅柱動能轉弱、KDJ J 急殺至 10 接近超賣</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-09</div>
+      <div><div class="cal-title">✅ 反彈站穩收 NT$2,305（+0.44%）、量縮觀望；PwC 報告 TSMC 市值躍居全球第 9</div><div class="cal-desc">6/9 Tue 台股 2330 反彈站穩實際收 NT$2,305（+10，+0.44% vs 6/8 NT$2,295）跟進 NYSE 6/8 +2.80% 反彈訊號；開盤 NT$2,305 跳空 +10 點、盤中區間 NT$2,295-2,320、量縮至 33,206 張屬月營收公布前觀望、成交金額 NT$765.81 億；台股加權指數 6/9 大漲 +1,201.66 點重返 44K 收 44,704.44 確認 6/5-6/8 賣壓結束；NYSE TSM 6/9 高位整理收 $426.77（-0.01% vs 6/8 $426.80）盤中波動 $405.60-$438.09 但日內收平；6/9 估三大法人合計反手買超 +6,500 張（外資 +5,500、投信 +800、自營 +200）；🏆 6/9 PwC Taiwan 報告：TSMC 市值年增 +101% 至 $1.427 兆、躋身全球第 9 大市值企業（自第 12 名躍升）為全球前 10 大成長最快企業</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-06-10</div>
+      <div><div class="cal-title">⚠️ TSMC 5 月營收創高 NT$4,169.75 億（+30.1% YoY）但利多出盡、台股 -2.17%、ADR 重挫 -4.47%</div><div class="cal-desc">6/10 Wed TSMC 正式公布 5 月合併月營收 NT$4,169.75 億（NT$416.975 億元、US$13.17B）：年增 +30.1%、月增 +1.5%、創史上單月新高（超越 3 月與 4 月前高）；1-5 月累計 NT$1.96 兆、年增 +30%；分析師認為公司 well-positioned 達成 Q2 指引、可望挑戰單季營收新高（超越前高 NT$1.23 兆）；⚠️ 然而股價利多出盡：台股 2330 收 NT$2,255（-50，-2.17% vs 6/9 NT$2,305）放量 42,439 張、市值回落 NT$58.5 兆；NYSE TSM 重挫 -4.47% 收 $408.75（-$19.14）、盤中 $407.70-$426.32——sell-the-news + 半導體類股回檔共振；💰 TSMC CFO 同日暗示先進製程續漲價（3nm H2 漲 15%、sub-5nm 漲 5-10%）；⭐ 中長線基底未變：2nm 量產 70-80% 良率、AGM CEO Wei 確認 AI 需求超供應、NVIDIA $150B/年投資、Intel 確認長期夥伴、PwC 全球市值排名第 9</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-11</div>
+      <div><div class="cal-title">✅ 台股收平 NT$2,250；NYSE TSM 強勢反彈 +3.20% 收 $421.07；外資賣壓大幅收斂、投信自營轉買</div><div class="cal-desc">6/11 Thu 台股 2330 實際收 NT$2,250（持平 vs 6/10）、量縮整理；🏆 NYSE TSM 6/11 強勢反彈 +3.20% 收 $421.07（+$12.32 vs 6/10 $408.75），消化 6/10 -4.48% sell-the-news 賣壓、record-revenue 基本面（5 月營收 NT$4,169.75 億、+30.1% YoY、創單月新高）獲市場重新確認；Taipei Times 確認 record revenue、CEO C.C. Wei 重申「全球半導體供應將數年內持續落後 AI 需求」、Q2 月產能 160K-175K 片；⚠️ 籌碼面（真實數據）：外資 6/11 賣超 -4,904 張（自 6/10 -15,543 大幅收斂）、投信轉買 +600、自營轉買 +340，外資連 3 日賣超但拋售動能趨緩；💰 TSMC CFO 確認 3nm H2 漲 ~15%、sub-5nm 漲 5-10%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-12</div>
+      <div><div class="cal-title">✅ 台股放量收 NT$2,310（+2.67%）跟進 ADR 反彈；NYSE TSM 連 2 紅收 $423.93（+0.68%）；加權指數 +1,019.58 點站回 44,000+</div><div class="cal-desc">6/12 Fri 台股 2330 跟進 NYSE TSM 6/11 +3.20% 反彈訊號放量上攻、實際收 NT$2,310（+60，+2.67% vs 6/11 NT$2,250）、市值回升 NT$59.9 兆；台股加權指數同日大漲 +1,019.58 點站回 44,000 點之上、半導體類股全面反彈；NYSE TSM 6/12 連 2 日收紅收 $423.93（+$2.86，+0.68% vs 6/11 $421.07）消化 6/10 sell-the-news 賣壓；💡 重大技術進展：分析師郭明錤 6/10 揭露 TSMC CoPoS（Chip-on-Panel-on-Structure）玻璃基板封裝規劃 2028 H2 量產、支援超光罩 9.5 倍超大封裝、NVIDIA Feynman 次世代 AI 晶片潛在首批採用、解決 CoWoS 尺寸瓶頸；技術面 RSI 升至 56、KDJ J(80) 低檔金叉延續、MACD 翻正紅柱浮現；下方支撐 NT$2,250 / NT$2,200、上方壓力 NT$2,365 / NT$2,400</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-15</div>
+      <div><div class="cal-title">🚀 NYSE TSM 飆漲 +4.12% 收 $441.40 逼近史高 $450.16；AI 晶片需求動能</div><div class="cal-desc">6/15 Mon NYSE TSM 飆漲 +4.12% 收 $441.40（+$17.47 vs 6/12 $423.93、成交量 1,118 萬股）逼近 52 週/史高 $450.16、市值升至 $1.95 兆；AI 晶片需求動能 + record-revenue 基本面（5 月營收 NT$4,169.75 億 +30.1%）獲市場重新確認；半導體類股全面強攻 NVDA +2.79%、AVGO +1.54%、AMD +1.61%、SOX +3.20%；催化續存：SK 海力士-TSMC HBM4 合作 + CFO 重申漲價勢在必行 + CEO Wei 重申供應數年落後 AI 需求</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-16</div>
+      <div><div class="cal-title">🚀 台股 2330 放量上攻收 NT$2,375（+2.81%）跟進 ADR 飆漲；SK 海力士-TSMC HBM4 合作</div><div class="cal-desc">6/16 Tue 台股 2330 跟進 NYSE TSM 6/15 +4.12% 飆漲訊號放量上攻、收 NT$2,375（+65、+2.81% vs 6/12 NT$2,310）、市值回升 NT$61.6 兆；🤝 重大合作：SK 集團會長崔泰源 6/3 會晤 TSMC 董事長魏哲家、雙方就 HBM4 基底晶粒、先進邏輯製程、客製化 AI 記憶體展開合作；💰 TSMC CFO 重申先進製程漲價勢在必行（通膨+AI 需求）、3nm H2 漲 ~15%、sub-5nm 漲 5-10%；🏆 NVIDIA 確認 TSMC 第 1 大客戶、發表 Vera CPU + RTX Spark 超晶片由 TSMC 代工；技術面 RSI 64、KDJ J(92) 進入高檔留意過熱；上方壓力 NT$2,400 / NT$2,425 / NT$2,440 史高、下方支撐 NT$2,310 / NT$2,250；⚠️ 競爭雜訊：Google 向 Intel Foundry 下單逾 300 萬顆自研 TPU、Samsung 推進 HPB 封裝</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-06-17</div>
+      <div><div class="cal-title">📉 NYSE TSM 6/16 -3.53% 自高回檔 $425.83；台股 2330 6/17 跟進估收 NT$2,315（-2.53%）；TSMC-Amkor 簽 10 年美國封裝長約</div><div class="cal-desc">6/17 Wed NYSE TSM 6/16 Tue 收 $425.83（-$15.57、-3.53% vs 6/15 $441.40、成交量 1,109 萬股、P/E 33.07、市值 $1.97 兆）、逼近 52 週/史高 $450.16 後高位獲利了結、技術性回檔；台股 2330 6/17 跟進 ADR 回檔估收 NT$2,315（-60、-2.53% vs 6/16 NT$2,375）、市值回落 NT$60.0 兆（官方收盤以 TWSE 為準）；🤝 重大合作：TSMC-Amkor 宣布 10 年美國先進封裝長約、Amkor 將就近承接 TSMC Arizona 廠晶圓的封裝測試、強化美國半導體供應鏈在地化、呼應 TSMC $165B 美國投資承諾；📦 CoWoS 封裝瓶頸續為產業關鍵、TSMC 規劃自 2024 底 ~35K wpm 擴至 2026 底 ~130K wpm、5.5 倍光罩封裝良率 >98%；6/17 估三大法人合計賣超（外資估 -9,500 張）；技術面 RSI 自 64 回落至 55、KDJ J 自 92 急回至 50 高檔死叉浮現、MACD 紅柱縮短；下方支撐 NT$2,300 / NT$2,250、上方壓力 NT$2,375（6/16 收）/ NT$2,400 / NT$2,440 史高</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-18</div>
+      <div><div class="cal-title">📈 台美雙市反彈、SpaceX IPO 將 TSMC 擠至全球市值第 7；台股 2330 6/18 估收 NT$2,385（+0.42%）</div><div class="cal-desc">6/18 Thu NYSE TSM 6/17 Wed 收 $432.15（+$6.32、+1.48% vs 6/16 $425.83、成交量 1,096 萬股、P/E 32.79、市值 $1.96 兆）自 6/16 -3.53% 回檔後低接買盤回補、盤中觸 $439.60；台股 2330 6/18 跟進 ADR 反彈估收 NT$2,385（+10、+0.42% vs 6/17 NT$2,375）、市值回升 NT$61.9 兆；🛰️ SpaceX 創紀錄 IPO（估值 $2.519 兆、募資 ~$750 億、+19.6%）市值超越 TSMC（$2.289 兆）、將台積電擠至全球市值第 7（屬外部排名變動、基本面未受影響）；🤝 TSMC-Amkor 簽 10 年美國先進封裝長約（6/16 公告、Peoria AZ $70 億、2028 投產、~2,000 就業、InFO/CoWoS）；🏆 NVIDIA Vera Rubin NVL72 採 TSMC N3+CoWoS-L、首搭 8 層 HBM4；6/18 估三大法人合計買超（外資估 +6,000 張）；⚠️ 6/19 Fri 端午節 TWSE 休市、6/18 為連假前最後交易日；技術面 RSI 自 55 回升至 58、KDJ J 自 50 回升至 70 低檔金叉浮現、MACD 紅柱止縮微張；下方支撐 NT$2,360 / NT$2,310、上方壓力 NT$2,400 / NT$2,425 / NT$2,440 史高</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-19</div>
+      <div><div class="cal-title">🎌 端午節 TWSE 休市</div><div class="cal-desc">6/19 Fri 端午節台股休市；NYSE TSM 照常交易、連假期間美股變數待觀察</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-22</div>
+      <div><div class="cal-title">🚀 台美雙市再創歷史新高</div><div class="cal-desc">6/22 Mon 台股 2330 官方收 NT$2,510（+100、+4.15% vs 6/18 NT$2,410、量 39,134 張、市值 NT$65.1 兆）創歷史新高、受 6/18 NYSE +6.94% 飆漲帶動跳空大漲；NYSE TSM 6/22 收 $467.67（+$5.55、+1.20%）再創收盤紀錄新高、市值約 $2.4 兆；本波飆漲主因：TSMC-Amkor 10 年美國先進封裝長約（6/16 公告）+ 分析師升評 + AI 需求；ADR 溢價收斂至 +15.71%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-06-23</div>
+      <div><div class="cal-title">⚠️ 半導體全面拋售、ADR 暴跌 -6.69% 但台股相對抗跌</div><div class="cal-desc">6/23 Tue 台股 2330 官方收 NT$2,490（-20、-0.80% vs 6/22 NT$2,510、量 34,148 張、市值 NT$64.6 兆）相對抗跌、盤中觸歷史新高 NT$2,535 後拉回收最低；⚠️ NYSE TSM 6/23 暴跌 -6.69% 收 $436.39（-$31.28 vs 6/22 $467.67、市值回落約 $1.97 兆、P/E ~31.3）——半導體類股全面拋售：Micron -11.4%、AMD -6.25%、AVGO -5.02%、設備股跌 4.5-5%；崩跌觸發：Broadcom 指引不如預期引爆 sell-the-news + BoFA 升息報告推升美債殖利率 + 亞股下挫 + AI 過熱疑慮 + 財報前獲利了結，單日逾千億美元半導體市值蒸發；⚠️ TSMC 4-5 月營收 +24% YoY 落後華爾街 ~35% 預期、近期營收恐 miss、6 月營收（7 月上旬）為關鍵；📈 逆勢利多：Susquehanna 將 TSM 目標價自 $500 上調至 $575；台美 ADR 溢價自 +15.71% 大幅收斂至 +8.83%；6/23 估三大法人轉賣超（外資估 -9,000 張）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-06-24</div>
+      <div><div class="cal-title">⭐ 漲價題材引爆 ADR 隔夜大漲</div><div class="cal-desc">6/24 Wed TSMC 通知客戶漲價範圍擴大至 7nm 以下全製程（佔晶圓營收 ~75%）、幅度 5-10%；NYSE TSM 隔夜先跌後因漲價消息盤後跳漲；台股 2330 6/24 官方收 NT$2,390（跟進 6/23 ADR 暴跌補跌後止穩）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-25</div>
+      <div><div class="cal-title">📊 ADR 收 $440.83 +1.02%、台股平盤</div><div class="cal-desc">6/25 Thu NYSE TSM 收 $440.83（+1.02%、+$4.44）、盤後一度 +2.48% 至 $451.76；台股 2330 6/25 官方收 NT$2,390 平盤（0.00%、量 34,271 張、成交值 NT$822.97 億、尾盤賣壓自 2,410 殺回 2,390）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-06-26</div>
+      <div><div class="cal-title">📉 雙市回吐隔夜漲價漲幅</div><div class="cal-desc">6/26 Fri 台股 2330 官方收 NT$2,340（-50、-2.09% vs 6/25 NT$2,390、量放大至 53,800 張、外資賣超 6,104 張）；NYSE TSM 6/26 收 $432.35（-$2.64、-0.61% vs 6/25 $434.99、日內 $419.19–$436.13、市值約 $2.0 兆、P/E ~31.0）——連續回吐 6/24 漲價題材帶動之隔夜漲幅、估值與營收疑慮拉鋸；24/7 Wall St 探討 TSM 年底前能否站上 $500</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-06-29</div>
+      <div><div class="cal-title">🚀 台股反彈、NYSE TSM 大漲 +5.26% 創波段新高</div><div class="cal-desc">6/29 Mon 台股 2330 官方收 NT$2,370（+30、+1.28% vs 6/26 NT$2,340、量縮 38,133 張、成交額 903.37 億、開 2,330/高 2,395）自 6/26 反彈；🚀 NYSE TSM 6/29 大漲 +5.26%（+$22.75）收 $455.10 創波段新高、市值約 $2.1 兆——⭐ TSMC-Winbond 特殊 DRAM（WoW 3D 堆疊）合作降低 HBM 對 Samsung/SK 依賴 + 漲價定價力 + BofA 上調目標三催化</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-06-30</div>
+      <div><div class="cal-title">🚀 台股跳空補漲、台美雙市共振</div><div class="cal-desc">6/30 Tue 台股 2330 盤中跳空大漲至 NT$2,465（+95、+4.01% vs 6/29 NT$2,370、開 2,440/高 2,475/低 2,435、09:12 即時、官方收盤待 TWSE）跟進 NYSE 6/29 隔夜 +5.26% 補漲、突破 5MA/20MA；NYSE TSM 6/30 美股盤待今晚開盤；📊 ADR 溢價自 +19.25% 收斂至 +14.65%（台股補漲）；⭐ 漲價+Winbond 自主供應結構性利多 vs ⚠️ ITC 初判（本週）、6 月營收（7 月上旬）拉鋸；🎯 關鍵觀察：跳空後守穩 NT$2,440 / NT$2,400、挑戰 NT$2,490 / NT$2,535 史高</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-07-01</div>
+      <div><div class="cal-title">🚀 台股連 3 漲、NYSE 夜盤重挫、Nomura 上調目標</div><div class="cal-desc">7/1 Wed 台股 2330 官方收 NT$2,505（+95、+3.94%、量 37,544 張）連 3 漲、下半年開門紅、突破 5MA/20MA；⚠️ NYSE TSM 7/1 夜盤重挫 -6.98% 收 $444.23（自 6/30 史新高 $477.57 獲利了結、估值修正、4-5 月營收落後預期、下游需求疲弱、7/16 財報前觀望）、盤後回升 +$3.35 至約 $447.58；🚀 Nomura 大幅上調 TSM 目標價自 NT$2,820 至 NT$3,425（指 AI 投資循環尚未見頂、2027 資料中心新增產能 ~32GW）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-07-02</div>
+      <div><div class="cal-title">📉 台股補跌兌現、惟相對抗跌守穩 NT$2,450</div><div class="cal-desc">7/2 Thu 台股 2330 官方收 NT$2,465（-40、-1.60%、量約 35,000 張）跟進 NYSE 7/1 夜盤重挫 -6.98% 補跌、終結連 3 漲；⭐ 惟跌幅遠小於美股、守穩 NT$2,450 心理整數支撐、相對抗跌，顯示補跌壓力大致釋放；NYSE 7/1 收 $444.23 為最新確認收盤、7/2 美股盤待今晚；📊 ADR 溢價自 +10.13% 微升至 +11.91%；7/2 估三大法人合計賣超（外資估 -8,000 張）；🎯 中長線基底未變：NVIDIA #1 客戶/A16 首發、Vera Rubin 6 顆晶片全 TSMC 代工、2nm 70-80% 良率、Nomura 目標 NT$3,425</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-03</div>
+      <div><div class="cal-title">⚖️ 台股止穩、NYSE 國慶休市</div><div class="cal-desc">7/3 Fri 台股 2330 官方收 NT$2,445（-20、-0.81% vs 7/2 NT$2,465、量 26,455 張、開 2,415/高 2,465/低 2,415）跌幅較 7/2 收斂、守穩 NT$2,410；NYSE TSM 7/3 因美國國慶（7/4 週六順延）休市，最新確認收盤為 7/2 $434.16（-2.27%、前收 7/1 $444.23、連二跌但跌幅收斂）；🚀 Barclays 上調目標至 $625</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-06</div>
+      <div><div class="cal-title">🚀 NYSE V 型大反彈、台股翻紅</div><div class="cal-desc">7/6 Mon NYSE TSM 假期後重新開盤即大漲 +4.06% 收 $451.79（+$17.63、前收 7/2 $434.16、stockanalysis.com 確認）收復 7/1-7/2 全數跌幅、費半 SOX +3.92%、AI 半導體回神；台股 2330 7/6 官方收 NT$2,460（+15、+0.61%）連二跌後翻紅、盤中高觸 NT$2,500；🤝 NVIDIA-SK 海力士宣布多年期記憶體合作；⭐ 漲價題材 + Barclays $625 / Nomura NT$3,425 續撐</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-07-07</div>
+      <div><div class="cal-title">📉 台股 7/7 官方收 NT$2,440（-0.81%）【7/9 更正】、Citi 上調目標至 NT$3,800</div><div class="cal-desc">7/7 Tue 台股 2330 官方收 NT$2,440（-20、-0.81% vs 7/6 NT$2,460、開 2,480／盤中高 NT$2,500／低 2,440、量 31,401 張、TWSE 官方）——盤初跟進 Citi 升評與 NYSE 7/6 +4.06% 反彈開高觸 2,500、尾盤翻黑收最低；⚠️【7/9 更正】本欄原誤載收 NT$2,490（+1.22%）、外資買超 +12,000 張，經 TWSE 官方核實更正為收 NT$2,440、三大法人合計 +385 張（外資 +83／投信 +539／自營 -237）；🚀 Citi（花旗）7/6 大幅上調 TSMC 台股目標價自 NT$2,875 至 NT$3,800（+32%、維持買入）仍為本日最大利多；NYSE TSM 7/7 收 $432.57（-4.25%）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-08</div>
+      <div><div class="cal-title">✅ 台股 7/8 官方收 NT$2,465（+1.02%）止跌回升、NYSE 同步反彈 +1.02%</div><div class="cal-desc">7/8 Wed 台股 2330 官方收 NT$2,465（+25、+1.02% vs 7/7 NT$2,440、開 2,445／高 2,465／低 2,420、量 25,519 張、TWSE 官方）——收在當日最高、止跌回升、站回 5MA；NYSE TSM 7/8 收 $436.98（+$4.41、+1.02% vs 7/7 $432.57）自 -4.25% 回檔止穩，SOX +2.23% 收 12,574.97、NVDA +3.65% 收 $204.12、AVGO +4.83%，AI 晶片股全面回神；三大法人 7/8 官方：外資 -4,155 張、投信 +730、自營 +468、合計 -2,957 張；ADR 溢價 +13.7%（匯率 32.07）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-07-09</div>
+      <div><div class="cal-title">📉 台股回檔 -2.03%、外資大賣 12,749 張</div><div class="cal-desc">7/9 Thu 台股 2330 官方收 NT$2,415.5（-50、-2.03% vs 7/8 NT$2,465、開 2,450／高 2,460／低 2,415、量 27,057 張、成交額 NT$658.50 億、TWSE）失守 5MA——主因外資賣超 12,749 張、提款約 310 億元、全集中市場連 6 日賣超（7/9 賣 471 億）；投信買超 43 張（連 7 買）、自營買超 90 張、合計賣超 12,615 張；NYSE TSM 7/9 收 $436.96（-$0.02、持平）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#607D8B">2026-07-10</div>
+      <div><div class="cal-title">🌀 颱風「巴威」台股全日休市、6 月營收延至 7/13</div><div class="cal-desc">7/10 Fri 中度颱風「巴威（Bavi）」侵台，台北、新北、桃園、基隆宣布停班停課，證交所宣布台股（含期貨、外匯）全日休市、結算與櫃買同步暫停；TSMC 原訂 7/10 公布之 6 月營收順延至 7/13（下週一）13:30；NYSE TSM 7/10 照常交易收 $434.11（-$2.85、-0.65% vs 7/9 $436.96、日內 $428.10-$439.66）相對抗跌</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-13</div>
+      <div><div class="cal-title">🎯 6 月營收公布大幅達標創高、台股站回 5MA</div><div class="cal-desc">7/13 Mon 台股復市；⭐⭐ TSMC 6 月營收 13:30 公布 NT$4,426.80 億（+67.9% YoY、+6.2% MoM）改寫單月歷史新高——1–6 月（H1）累計 NT$2.40 兆（+35.6% YoY）、Q2 累計約 NT$1.27 兆達成美元指引 $39.0-40.2B、AI/HPC 需求動能獲確認；台股 2330 官方收 NT$2,440（+25、+1.04% vs 7/9 NT$2,415.5、量 34,665 張、額 851.13 億）站回 5MA——盤中一度大漲逾 900 點、尾盤獲利了結翻黑收僅 +25、台積電為撐盤要角；NYSE TSM 7/13 收 $421.58（-$12.53、-2.89% vs 7/10 $434.11）法說會前美股半導體獲利了結；三大法人：外資 -2,045（連 3 賣、3 日 -16,464）、投信 +530、自營 +623、合計 -892；ADR 溢價自 +15.3% 收斂至 +10.8%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-07-14</div>
+      <div><div class="cal-title">📉 法說會前觀望：大盤重挫 642 點、2330 相對抗跌、外資賣超擴大</div><div class="cal-desc">7/14 Tue 台股 2330 官方收 NT$2,420（-20、-0.82% vs 7/13 NT$2,440、開 2,410／高 2,430／低 2,390、量 42,857 張 TWSE 口徑、額 NT$1,033.71 億）——加權指數重挫 -642.57 點（-1.42%）收 44,737.95、2330 相對抗跌惟失守 5MA；三大法人合計賣超 8,005 張：外資 -12,416（連 4 賣、4 日 -31,365）、投信 +1,841、自營 +2,570；NYSE TSM 7/14 收 $420.39（-0.28%）連 3 日小跌、⚡ 同日 SOX +2.54% 大反彈（NVDA +4.06%、MU +4.92%）TSM 落後屬法說會前觀望</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-07-15</div>
+      <div><div class="cal-title">📊 報告日：法說會倒數 1 天、隔夜美股半導體大反彈</div><div class="cal-desc">7/15 Wed 報告日；最新確認收盤：台股 2330 7/14 NT$2,420（-0.82%）、NYSE TSM 7/14 $420.39（-0.28%）；🎯🎯 7/16 週三 14:00 Q2 法說會倒數 1 天——法人估 Q2 營收 ~$40B（+32% YoY）、毛利率挑戰 70%、獲利 +50%+ 連 5 季創高、關注上修全年財測；⚡ 隔夜美股半導體大反彈（SOX +2.54%、NVDA +4.06%、MU +4.92%）+ SK 海力士 7/15 盤中 +11%，今日台股可望跟進；⚠️ 外資連 4 賣（4 日 -31,365 張）觀察能否收斂</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-16</div>
+      <div><div class="cal-title">✅ Q2 2026 財報法說會大超預期</div><div class="cal-desc">7/16 Wed 14:00 公布：Q2 營收 $40.20B（+33.7% YoY）觸指引上緣、EPS $4.31/ADR（+77.4%、連 11 季超預期）、毛利率 67.7% 超上緣；全年上修至「略高於 40%」、CapEx $60-64B、股利 NT$24/股（+33%）；台股 2330 同日收 NT$2,470（+1.23%）法說會前搶跑</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-07-17</div>
+      <div><div class="cal-title">⚠️⚠️ AI 晶片股入熊市：台股史上最大跌點、2330 崩跌 -7.29%</div><div class="cal-desc">7/17 Fri 台股 2330 官方收 NT$2,290（-180、-7.29%、開 2,375／高 2,395／低 2,290、爆量 97,362 張、額 NT$2,290.52 億）收盤即最低；加權指數 -2,953.71 點（-6.47%）收 42,671.27 史上最大跌點；三大法人全市場賣超 2,631.5 億（BFI82U 官方）、外資賣超 2330 44,184 張（連 7 賣）；NYSE TSM 收 $398.37（-2.77%）失守 $400、SOX 自 6/22 高 -20.2% 正式入熊市</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-20</div>
+      <div><div class="cal-title">✅ 崩跌後首日止穩：量縮反彈 +1.31%、三大法人轉買超</div><div class="cal-desc">7/20 Mon 台股 2330 官方收 NT$2,320（+30、+1.31% vs 7/17 NT$2,290、開 2,300／高 2,345／低 2,300、量縮 55,790 張、額 NT$1,298.16 億）——大盤續跌 -221.57 點（-0.52%）收 42,449.70 下逆勢撐盤（貢獻約 244 點）；三大法人對 2330 轉買超 +4,002 張（外資 -1,672 連 8 賣惟收斂 96%、投信 +1,049、自營 +4,626）、全市場三大法人轉買超 21.7 億（BFI82U）；NYSE TSM 7/20 收 $402.30（+0.99%）收復 $400、SOX +0.60% 止跌</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-21</div>
+      <div><div class="cal-title">🚀 史上最大漲點：大盤 +1,783、2330 +3.88%、外資轉買</div><div class="cal-desc">7/21 Tue 台股 2330 官方收 NT$2,410（+90、+3.88%、開 2,350／高 2,410／低 2,345、量 31,606 張、額 NT$754.30 億）收在當日最高、站回 5MA/60MA；加權指數 +1,783.17 點（+4.20%）收 44,232.87 創史上最大單日漲點；外資終結連 8 賣、轉買 +4,976 張，三大法人 +6,163 張；全市場三大法人買超 162.9 億（投信 +171.1 億）；NYSE TSM 收 $424.61（+5.55%）、SOX +5.21% 脫離熊市線；催化：日經報導 TSMC 2027 年全面漲價 5-10%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-07-22</div>
+      <div><div class="cal-title">📊 報告日：站穩 20MA 觀察</div><div class="cal-desc">7/22 Wed 報告日；最新確認收盤：台股 2330 7/21 NT$2,410（+3.88%）、NYSE TSM 7/21 $424.61（+5.55%）；觀察：（1）站穩 20MA 2,419 → 挑戰 2,470（7/16 收前高）；（2）外資轉買延續性（連 2 日以上為趨勢反轉確認）；（3）量能能否自 31,606 張放大；（4）ADR 溢價 +13.9% 下台股補漲空間</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-07-23</div>
+      <div><div class="cal-title">✅ 尾盤拉升收 2,405、量縮整理</div><div class="cal-desc">7/23 Thu 台股 2330 官方收 NT$2,405（+5、+0.21%、開 2,385／高 2,405／低 2,370、量 28,001 張、額 NT$668.34 億）尾盤拉升收在當日最高；大盤 +25.03 點（+0.06%）收 44,850.81 尾盤翻紅連 3 紅；外資對 2330 連 2 賣 -4,614 張、投信 -943 終結連 5 買；全市場三大法人買超 185.2 億（外資 +69.6 億連 2 買、BFI82U）；NYSE TSM 7/23 收 $415.58（-1.34%）、SOX -0.54% 終結連 2 紅、MU +3.20% 記憶體逆勢強；韓股 7/23 大漲後 7/24 早盤重挫</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-07-24</div>
+      <div><div class="cal-title">📉 收 2,383 跌破 5MA、外資賣超擴大</div><div class="cal-desc">7/24 Fri 台股 2330 官方收 NT$2,383（-22、-0.91% vs 7/23 NT$2,405、量 24,810 張）跌破 5MA；外資 -9,637 張連 3 賣擴大；NYSE TSM 7/24 收 $403.41（-2.93%）、SOX -2.46%——AI 高 Beta 回檔</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-07-27</div>
+      <div><div class="cal-title">📊 低開翻紅收平盤、守住 60MA</div><div class="cal-desc">7/27 Mon 台股 2330 官方收 NT$2,350（0、0.00%、開 2,330／高 2,365／低 2,330、量 28,939 張）低開 -20 後盤中翻紅收平盤、守住 60MA 2,345；大盤僅 -0.05%；外資賣超收斂至 -2,662 張、全市場 BFI82U 轉買超 +6.6 億；NYSE TSM 7/27 收 $399.09（-1.07%）失守 $400、SOX -2.23% 自史高 -21.0% 入熊市、NVDA -5.00% 失守 $200</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-07-28</div>
+      <div><div class="cal-title">⚠️⚠️ 韓股熔斷、台股史上第 3 大跌點、2330 失守季線</div><div class="cal-desc">7/28 Tue 韓股 KOSPI 熔斷 -10.8%（三星 -13.39%、SK 海力士 -14.65%）；台股大盤暴跌 -2,030.83 點（-4.65%）收 41,603.36 史上第 3 大跌點；2330 官方收 NT$2,280（-70、-2.98%、開 2,270／高 2,305／低 2,270、量 45,333 張）——相對抗跌惟 60MA 2,347（季線）與布林下軌 2,289 失守；外資賣超 -14,659 張（連 5 賣）、全市場 BFI82U 大賣 -1,176 億、自營 +5,123 連 4 買低接；NYSE TSM 7/28 收 $392.31（-1.70%）、SOX -4.49% 自史高 -24.6%——惟 NVDA/AAPL 翻紅、VIX 反降 18.21</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-08-10</div>
+      <div><div class="cal-title">⭐⭐ 7 月營收創新高＋大盤大漲</div><div class="cal-desc">8/10 Mon 台積電公布 7 月合併營收 NT$4,675.81 億（官方 MOPS 申報 467,580,548 千元、+5.62% MoM、+44.69% YoY）連 3 個月改寫單月新高、遠超投顧估的 4,500 億；累計 1-7 月 NT$2.8721 兆（+37.01% YoY）。台股 2330 官方收 NT$2,380（+10、+0.42%、開 2,390／高 2,410／低 2,380、量 21,498 張、額 NT$513.85 億）；大盤大漲 +702.85 點（+1.59%）收 44,928.76；三大法人小買 +720 張（外資 +119、投信 +153、自營 +448）、全市場 BFI82U +736.1 億；封裝／記憶體族群強攻（日月光 +7.69% 收 630、華邦電 +9.79% 收 179.5）——傳台積電擬購友達中科舊廠擴 CoWoS（未經證實）；⚠️ 美股同日半導體重挫 SOX -2.94%（Intel 加碼籌資 150→200 億美元、NVIDIA 5,000 億「循環融資」疑慮）、NVDA -2.86%、INTC -4.06% 失守 $100；TSM -0.37% 收 $418.47。「台積電條款」同日上路（注意標準價差 100→300 元、處置期 10→5 日）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-08-11</div>
+      <div><div class="cal-title">📊 連 3 紅站上全均線、惟量能今年新低</div><div class="cal-desc">8/11 Tue 台股 2330 官方收 NT$2,395（+15、+0.63%、開 2,390／高 2,405／低 2,375、量 18,248 張、額 NT$436.67 億、50,065 筆）——連 3 日收高、漲幅逐日放大（+5→+10→+15）、站上全部均線；⚠️⚠️ 惟成交量連 4 日萎縮至 18,248 張、僅 5 日均量 25,296 張的 72% 為今年以來最低（價漲量縮背離）；大盤 +191.96 點（+0.43%）收 45,120.72 為 7/16 以來收盤新高（距 6/22 峰值 47,741.51 仍 -5.49%）；⭐ 籌碼大幅翻多：外資大買 +3,498 張（連 2 買、8/5 以來最大）、投信 +382（連 3 買）、自營 -189、合計 +3,691 張；全市場 BFI82U +280.1 億連 2 買；聯發科 +1.52% 收 4,020 站上 4,000。美股同日半導體逆勢反彈 SOX +0.87%（KLAC +4.01% 站上 $200、ASML +3.80% 創新高）、TSM +0.86% 收 $422.06 創本波高；⚠️ 惟三大指數同步收跌（S&P -0.32%、那指 -0.60%）、AAPL 連 2 跌</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFF9C4">2026-08-12</div>
+      <div><div class="cal-title">📅 美國 7 月 CPI 公布（今晚 20:30）</div><div class="cal-desc">本週最大宏觀變數——影響 Fed 降息路徑與 AI 資本支出評價倍數；7 月 PPI 續於 8/13 公布。台指期夜盤（8/11 晚→今晨）收 45,279（+194 點、+0.43%、TAIFEX 官方、盤中震盪 690 點）、台積電個股期貨夜盤收 2,403 正價差 +8；韓股今晨大漲（三星 +3.55%、SK +2.25%、KOSPI +2.06%）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#4CAF50">2026-08-13</div>
+      <div><div class="cal-title">⭐⭐ 突破 2,400 收最高＋MACD DIF 上穿零軸</div><div class="cal-desc">8/12 Wed 台股 2330 官方收 NT$2,415（+20、+0.84%、開 2,405／高 2,415／低 2,390、量 19,448 張、額 NT$467.98 億、63,548 筆）——一舉突破 2,400 整數與 2,405／2,410 壓力帶、收在當日最高，創 7/31 以來收盤新高；⭐⭐ MACD DIF 自 -1.36 上穿零軸至 +2.78（前一日日報標記的中期修復關鍵確認訊號成立）、紅柱 +16.57 連 6 日擴張；大盤 +397.35（+0.88%）收 45,518.07 續創反彈新高。⭐ 美國 7 月 CPI 年增 3.4%／核心 2.5% 均符合預期且低於前值，CME FedWatch 9 月升息機率降至 42%——SOX +2.49% 收 12,399.38、NVDA +3.03% 收 $224.09 創本波反彈新高（⚠️ 註：原記為「創收盤新高」有誤，歷史收盤高點為 5/14 的 $235.74、已於 8/14 日報更正）、TSM +1.68% 收 $429.15 連 3 日創本波新高。✅ 外資連 4 買 +2,627 張、投信連 4 買 +587 張、三大合計 +2,924 張。⭐ 今晨夜盤大漲：台指期收 46,117（+601、正價差 +599）、台積電個股期貨收 2,439（+26、正價差 +24）。⚠️ 保留：量能僅 5 日均量的 89%、KDJ J 99.8 逼近超買</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#4CAF50">2026-08-14</div>
+      <div><div class="cal-title">⭐⭐ 放量突破確認＋外資單日大買 3,972 張</div><div class="cal-desc">8/13 Thu 台股 2330 官方收 NT$2,435（+20、+0.83%、開 2,440／高 2,445／低 2,425、量 26,233 張、額 NT$638.54 億、73,397 筆）——創 7/16（收 2,470）以來近一個月收盤新高、盤中高 2,445 為 7/22 以來最高；⭐⭐ 關鍵在量能終於放大：26,233 張為 5 日均量 21,968 張的 119%（前一日僅 89%）、放大 +34.9%、為 8/6 以來最大量——前一日日報標記的「無量突破」保留正式化解、量價配合成立；連 4 日收高、5MA>10MA>20MA 短期多頭排列成形。⚠️ 惟收盤低於開盤 5 點、留 10 點上影線，2,445 一帶有調節賣壓。⭐⭐ 籌碼連 5 買且大幅加碼：外資 +3,972 張（本波最大單日買超）、投信 +736 張（連 5 買且每日遞增）、自營 +93 由賣轉買、三大合計 +4,801 張；全市場 BFI82U 8/13 +892.5 億、外資 +756.9 億（前一日僅 +110.2 億、放大逾 6 倍）。⭐ 大盤 +503.41 點（+1.11%）收 46,021.48 續創反彈新高、成交額突破 1 兆（1.104 兆）；聯發科 +5.23% 收 4,225 領漲。📊 MACD DIF 續揚至 +7.58 站穩零軸、紅柱 +20.94 連 7 日擴張；⚠️ KDJ J 101.5 突破 100 極端超買。📊 美股動能收斂：TSM +0.31% 收 $430.49、SOX +0.46% 收 12,456.00（漲幅自 +2.49% 大幅收斂）；MU +4.23%、INTC +3.58%、LRCX +3.34% 續強，⚠️ AMAT -2.48% 盤中收黑且財報後盤後再挫約 5%。⚠️ 今晨夜盤正價差大幅收斂：台指期收 46,389（+364、正價差 +368，前一日 +599）、台積電個股期貨收 2,439（+11、正價差僅 +4，前一日 +24）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FF9800">2026-08-17</div>
+      <div><div class="cal-title">⚠️⚠️ 量能創 2026 年最低、收復 2,400</div><div class="cal-desc">8/17 Mon 台股 2330 官方收 NT$2,400（+5、+0.21%、開 2,410／高 2,420／低 2,390、量 13,482 張、額 NT$324.23 億、56,197 筆）——收復 2,400 整數關卡、止住 8/14 長黑，K 線轉為小黑K帶上下影（實體 10 點）；⚠️⚠️ 惟成交量 13,482 張為 2026 年全年 149 個交易日最低量（第二低 8/11 的 18,248 張、本日再低 26.1%），僅及 5 日均量 19,715 張的 68%，收復缺乏量能背書。⭐ 籌碼極端分歧：外資反手大買 +4,442 張（本波單日最大）、投信擴大賣超 -2,058 張（連 2 賣、近期最大）、自營 +142 張、三大合計 +2,526 張（T86）；全市場外資 +454.47 億、投信 -177.77 億（BFI82U）。⭐ 技術面 MACD DEA 自 -0.70 上穿零軸至 +1.20、DIF +8.76，雙線站上零軸完成多頭排列；⚠️ 惟 KD 死叉（K 69.1 下穿 D 75.5、J 56.1）、紅柱連 2 日收縮至 +15.13。大盤收 45,857.27（+46.26、+0.10%、盤中高 46,189.30 一度破 46,000 後回落）。⚠️ 韓股休市（光復節代替公休日）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#607D8B">2026-08-18</div>
+      <div><div class="cal-title">📅 8/19 月結算前哨、台幣升值逆風</div><div class="cal-desc">今日觀察：量能能否回補至 5 日均量 19,715 張之上為第一順位；上檔 5MA 2,408／2,415／2,425（假突破分水嶺）、下檔 2,390／10MA 2,388／60MA 2,374。⚠️ 今晨夜盤呈倒 V：TX 202608 開 46,000、衝高 46,297 後回落收 45,811（-56、量 25,712 口），對現貨轉逆價差 -46；CDF 202608 夜盤收 2,401（-2）對現貨僅 +1。⚠️ 明日 8/19（週三）為 8 月台指期與台指選擇權「月」結算日，結算後未平倉與 P/C 比將重建、不可與結算前直接比較。⚠️ 台幣自 8/13 的 32.12 四日升值 1.00% 至 8/17 的 31.80（今晨 31.78），依法說指引對應毛利率約 -40bps。美股 8/17 SOX +1.64% 收 12,621 但 S&P -0.52%、VIX +6.60%，半導體與大盤背離</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-19</div>
+      <div><div class="cal-title">⚠️⚠️ 費半外溢、均線四線失守、月結算</div><div class="cal-desc">⚠️⚠️ 台股 8/19 跳空開低走低：2330 收 NT$2,350（-30、-1.26%、開 2,340／高 2,355／低 2,335、量 23,619 張、額 553.95 億、TWSE 官方），收盤一舉跌破 5MA 2,392／10MA 2,388／60MA 季線 2,377／20MA 2,360 四條均線，僅剩 120MA 年線 2,203 未破，為 8/4 以來首次收在季線之下；跳空缺口 2,355~2,380 全日未回補。加權指數收 44,719.35（-589.33、-1.30%），開盤 45,071.34 即為全日最高、失守 45,000。⚠️⚠️ 觸發點在美股：8/18（美東）費半 SOX 暴跌 -4.98% 收 11,992.46（成分股無一上漲、記憶體為重災區）、TSM ADR -4.07% 收 $413.41，主因美伊談判停滯、油價走高、通膨疑慮推升美債殖利率（30 年期一度創 19 年新高）。⚠️⚠️ 籌碼全面棄守：外資賣超 2330 達 -7,418 張（本波單日最大、為 8/17 大買 +4,442 張的完全反轉）、投信 -668 張、自營 +719 張、三大合計 -7,367 張（T86）；全市場三大合計賣超 753.59 億（BFI82U）。⚠️ 8/19 為 8 月月結算日：TAIFEX 官方顯示外資台股期貨淨空單 81,501 口（投信淨多單 74,789 口），印證「壓低結算」；TXO 未平倉結清重建（賣權 93,656→31,742 口、買權 89,500→31,036 口）。⚠️ 韓股同步崩跌並觸發 Sidecar 熔斷：KOSPI -5.80% 收 6,471.17、SK 海力士 -9.75%、三星 -7.82%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-20</div>
+      <div><div class="cal-title">⭐⚠️ 止跌反彈收最高、外資翻多買超 734 張</div><div class="cal-desc">8/20 Thu 台股 2330 官方收 NT$2,375（+25、+1.06%、開 2,365／高 2,375／低 2,350、量 16,968 張、額 NT$401.17 億、46,361 筆）——⭐ 終結連 2 跌並收在當日最高，開高 15 點即跳入 8/19 跳空缺口 2,355~2,380 之內、終場回補約 65%；盤中低 2,350 恰為 8/19 收盤、回測前收即止穩，8/19 低點 2,335 全日未再受測試。⭐ 收盤重新站上 20MA 2,358（＝布林中軌），均線失守由「四線」收斂為「三線」（仍在 60MA 季線 2,378／5MA 2,380／10MA 2,390 之下，季線僅差 3 點）。⭐⭐ 籌碼面出現本波最重要反轉：外資由 8/19 的賣超 7,418 張翻為買超 +734 張、投信由 -668 張翻為 +399 張（8/13 以來最大）、自營商 -17 張，三大法人分項加總淨買超 +1,116 張。⭐ 2330 並首度領漲——+1.06% 優於加權指數 +0.48%（收 44,933.74）與費半 +0.53%（收 11,800.02）。⚠️⚠️ 惟兩大隱憂：量能 16,968 張較 8/19 大減 28.2%、成交筆數自 193,704 筆驟減至 46,361 筆（-76.1%），屬「量縮價漲」的賣壓暫歇而非買盤進場；MACD 柱狀圖連 6 日收縮至僅 +1.10、且股價上漲日 DIF 反自 +4.22 降至 +3.52，死叉逼近。⚠️ 外資期貨淨空單續增 922 口至 82,423 口，與現貨買超方向矛盾。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-21</div>
+      <div><div class="cal-title">⭐⭐ 五線全收復、缺口全回補、外資狂買 5,795 張</div><div class="cal-desc">8/21 Fri 台股 2330 官方收 NT$2,410（+35、+1.47%、開 2,375／高 2,410／低 2,365、量 18,922 張、額 NT$452.76 億、59,539 筆）——⭐⭐ 連 2 日收在當日最高價，一舉站上全部五條均線（5MA 2,383／10MA 2,394／20MA 2,361／60MA 季線 2,380／120MA 2,210），均線失守數三日內由「四線」→「三線」→「零線」；⭐ 8/19 跳空缺口 2,355~2,380 完全回補（收盤高於上緣 30 點），2,380 由壓力翻轉為支撐；低點結構逐日上移（2,335→2,350→2,365）。⭐⭐ 籌碼面：外資買超 +5,795 張（為 8/20 的 +734 張的 7.9 倍、追蹤區間最大單日買超）、投信 +292 張、自營商 +457 張，三大法人首見同步買超、分項加總淨買超 +6,544 張；外資期貨淨空單僅續增 171 口至 82,594 口（8/20 為增 922 口、減緩 81%），「現貨買、期貨空」的矛盾快速消解。⭐⭐ 指標面三項同步轉正，其中 MACD 死叉預期落空：柱狀圖自 +1.10 擴張至 +4.40（+300%）、DIF 自 +3.52 回升至 +5.72；RSI(14) 自 49.97 站上 53.38；KDJ 的 J 值自 13.15 暴升至 44.14、K-D 負乖離收斂至 -2.54 點。⭐ 2330 +1.47% 逆勢領漲（加權指數 +0.65% 收 45,224.29、費半 SOX -0.51% 收 11,740.37），5 日區間首度超越大盤；ADR TSM 收 $418.95（+0.71%）、溢價自 +11.47% 收斂至 +10.46%。⚠️ 唯一保留：量能 18,922 張以 0.7%（124 張）之差未達前報所訂的 19,046 張門檻，屬「溫和放量」而非「爆量攻擊」；⚠️ 評價位階未因回檔下移、反因反彈上移至 P/E 27.94x（約 5 年 88 百分位）。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-08-24</div>
+      <div><div class="cal-title">⚠️⚠️ 突破失敗：2,380 驗證未過、全年最低量長黑</div><div class="cal-desc">8/24 Mon 台股 2330 官方收 NT$2,375（-35、-1.45%、開 2,410／高 2,410／低 2,375、量 13,073 張、額 NT$312.35 億、84,694 筆）——⚠️⚠️ 開盤價＝當日最高、收盤價＝當日最低，經 TWSE 官方序列複核為 2026 年 154 個交易日中唯一同時滿足此兩條件的「光頭光腳長黑」（實體 35 點、無上下影線）；⚠️ 前一日日報所訂第一順位檢核（2,380 回測不破）未通過，8/21 的五線突破失敗，5MA 2,378／10MA 2,393／60MA 2,381.5 三線得而復失，⭐ 僅守住 20MA／布林中軌 2,362.5 與 120MA 2,213；8/19 缺口 2,355~2,380 由「全回補」退回「上緣得而復失」。⚠️⚠️ 量 13,073 張改寫 2026 年全年最低（前低 8/17 的 13,482 張）、僅為 5 日均量 18,516 張的 71%，惟成交筆數 84,694 筆較 8/21 增 42.2%，每筆均張腰斬至 0.154 張（散單增、大單縮手）。⚠️ 籌碼：外資 -1,621 張（終結連 2 買、與前日 +5,795 張形成 7,416 張擺盪，惟僅為 8/19 賣超的 22%）、投信 +157 張（連 3 買惟力道再減）、自營 -23 張，三大法人合計 -1,487 張；⭐⭐ 期貨端外資淨空單自 82,594 口「減少」65 口至 82,529 口，為 8/13 以來首見由增轉減。⚠️ 指標：MACD 柱自 +4.40 收縮至 +1.71（-61.1%）、DIF 轉降而 DEA 續升、兩線距離壓縮至 0.85 點，死叉威脅重現；RSI(14) 自 53.38 跌回 49.73；KDJ 黃金交叉落空、K-D 負乖離自 -2.54 擴大至 -4.55。⚠️⚠️ 外部主因：三星 8/21 股東回饋計畫未含庫藏股註銷令市場失望，8/24 崩跌 -8.70%，引爆全球記憶體殺盤（美光 -5.83%、SK 海力士 -3.41%），費半 SOX -2.70% 收 11,423.17、距 52 週高 -22.1% 正式落入熊市；⭐ 惟美股大盤僅小跌（S&P 500 -0.28%、那斯達克 -0.76%）且 AAPL／MSFT／GOOGL／META 均收紅，屬族群性而非系統性賣壓。ADR 8/24 收 $410.12（-2.11%）、溢價收斂至 +9.93%</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#4CAF50">2026-08-25</div>
+      <div><div class="cal-title">⭐⭐ 反轉：先破底再收最高、五線全收復、KDJ 金叉補上</div><div class="cal-desc">8/25 Tue 台股 2330 官方收 NT$2,400（+25、+1.05%、開 2,355／高 2,400／低 2,350、量 13,538 張、額 NT$321.30 億、57,334 筆）——⭐⭐ 開盤跳空低開 20 點、盤中低 2,350 一度失守 20MA（2,362.5）達 12.5 點，尾盤大幅拉升收在全日最高 2,400，形成「收盤價＝最高價」的長紅（實體 45 點、下影線 5 點、無上影線），與 8/24 的光頭光腳長黑完全鏡像反轉；⭐ 一舉收復全部五條均線（5MA 2,382／10MA 2,394／20MA 2,369／60MA 2,382／120MA 2,217）並越過前報所訂的 2,380 驗證位；⭐ 四項技術指標同步翻正：RSI(14) 49.73→52.24 站回 50、RSI(6) 47.36→54.80、MACD 柱狀圖 +1.71→+3.05（擴張 78%）、KDJ 黃金交叉成立（K 49.65 上穿 D 49.53）；⚠️ 兩項瑕疵：量能 13,538 張為 2026 年第 3 低（反轉無量）、外資連 2 日賣超（-1,151 張，2 日合計 -2,772 張）與價格背離；⭐ 投信買超 658 張為近 5 日最大。加權指數同日 +407.14（+0.91%）收 45,169.46、亦收在當日最高，台積電貢獻約 200 點</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-26</div>
+      <div><div class="cal-title">⭐⭐ 修復完成：連 2 日站穩 2,380、量能放大 43.8%、外資反手買 5,204 張</div><div class="cal-desc">8/26 Wed 台股 2330 官方收 NT$2,415（+15、+0.63%、開 2,375／高 2,425／低 2,375、量 19,467 張、額 NT$468.18 億、67,273 筆）——⭐⭐ 前兩份日報所訂「站回 2,380 且連續 2 日站穩」的修復門檻正式達標（8/25 收 2,400、8/26 收 2,415），8/24 的突破失敗判定為已修復、8/21 的多方結構重建。⭐ 型態：開盤價 2,375 ＝當日最低（全日無下影線），連續第 2 日跳空低開（低 25 點）後全程未再破底，實體 40 點、上影線 10 點；三項同步墊高——收盤 2,400→2,415、盤中低 2,350→2,375、盤中高 2,400→2,425（8/21 以來波段新高）。⚠️ 惟收盤未站上 2,425、留 10 點上影線。⭐⭐ 量能解除前報第一號瑕疵：19,467 張較 8/25 放大 43.8%，站上 5 日均量 16,394 張達 18.7%，終結連 3 日低於均量，為 8/19 以來最大量。⭐⭐ 籌碼解除第二號瑕疵：外資由連 2 日賣超（合計 -2,772 張）反手大買 5,204 張，為 8/21 以來最大單日買超；⚠️ 惟投信轉賣超 521 張、自營買超 226 張，三大合計 +4,909 張。⭐ 技術指標連 2 日全面翻正：RSI(14) 53.73、RSI(6) 58.97、MACD 柱 +5.57（連 2 日擴張、DIF +7.59／DEA +4.81、正乖離 2.78）、KDJ K 58.50／D 52.52／J 70.45、K-D +5.98 跨過前報所訂 +3 的實質門檻；⚠️ J 值 70.45 已接近超買區。⭐ 布林通道收斂：寬度 244→191.5 點（-21.5%），波動度顯著下降。⭐ 期貨回到正價差 +9（CDF 日盤 2,424、+25）；⚠️ 未平倉連 2 日減少至 25,923 口。⚠️⚠️ 本日最大保留意見：2330 +0.63% 落後大盤 +1.47% 達 0.84pp，資金輪動至光學元件與矽光子（大立光漲停創 6,290 元史高、聯發科 +5.62%）。⚠️⚠️ 時序聲明：以上均為 8/26 收盤數據，不含 NVIDIA 盤後財報（大幅超預期、TSM ADR 盤後 +1.73% 至 $424.90）的影響。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-27</div>
+      <div><div class="cal-title">⚠️⚠️ 利多出盡：開高 2,430 走低收 2,410 全日最低、前報警訊條件成立</div><div class="cal-desc">8/27 Thu 台股 2330 官方收 NT$2,410（-5、-0.21%、開 2,430／高 2,435／低 2,410、量 19,214 張、額 NT$465.45 億、60,122 筆）——⚠️⚠️ 前一份日報所訂的檢核條件成立且結果為負面：前報明訂「檢核價位為 8/26 盤中高 2,425——若今日跳空越過後又跌回其下，即為『利多出盡、開高走低』的明確警訊」，8/27 開 2,430、高 2,435 均越過該價，收盤 2,410 回落至其下 15 點。⚠️ 型態：收盤價 ＝ 當日最低價（全日無下影線）的「光頭光腳黑K」，與 8/25 收在全日最高的長紅完全鏡像；黑K實體 20 點、上影線 5 點；盤中高 2,435 恰為本報所列第二壓力（8/14 收盤），觸及未收上、反壓確認有效。⚠️⚠️ 第二項警訊亦成立：2330 -0.21% 落後加權指數 +0.31%（收 45,975.22、+142.60），為連 2 日落後且發生在 NVIDIA 直接利多之下，依前報標準須認定為結構性輪動；⚠️ 近 5 日中期相對強度本日翻負（2330 +1.47% vs 大盤 +2.32%），前報「中期結構尚未惡化」的說法失效。⭐ 三項未壞：量能 19,214 張連 2 日站穩 5 日均量 16,843 張之上（+14.1%）、五條均線全數未破（5MA 2,402／10MA 2,391／20MA 2,390／60MA 2,384／120MA 2,226）、外資連 2 日買超 4,501 張（2 日合計 9,705 張）。⚠️ 籌碼兩端背離：外資台指期淨空單不減反增 1,182 口至 84,836 口、CDF 未平倉連 3 日減少至 25,832 口。⚠️ 技術指標首度分歧：RSI(14) 53.73→53.14、RSI(6) 58.97→56.87 轉弱，MACD 柱 +5.57→+6.14 連 3 日擴張但幅度自 +2.52 放緩至 +0.57（-77%），KDJ 的 J 值升至 79.30 距超買線僅 0.70 點。⭐⭐ 台美反應相反：TSM ADR +2.30% 收 $427.30、費半 +2.33% 並脫離技術性熊市（-18.81%），ADR 溢價急升至 +12.41%；⚠️ 惟 TSM 盤後回落至 $425.62（-0.39%），追價力道亦告減弱。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-28</div>
+      <div><div class="cal-title">⭐ 防線守住但未收復：低點 2,410 分毫不差獲承接、收 2,420 收紅</div><div class="cal-desc">8/28 Fri 台股 2330 官方收 NT$2,420（+10、+0.41%、開 2,440／高 2,445／低 2,410、量 15,026 張、額 NT$364.65 億、52,492 筆）——⭐⭐ 前一份日報所訂第一順位檢核「守住 2,410」以最精確的方式通過：全日最低 2,410 與檢核價分毫不差，經承接後反彈 10 點作收；⚠️ 惟完整條件為「守住 2,410 並收復 2,425」，收盤 2,420 差 5 點未達成，判定為部分通過。⚠️ 連續第 2 日「開高不守」：開 2,440／高 2,445 雙創 8/13 以來新高卻均未守住，2,425-2,445 確認為實質賣壓區。⚠️ 量能檢核未過：15,026 張較前日萎縮 21.8%、跌破 5 日均量 16,064 張達 6.5%，屬價漲量縮（8/28 為富台期／摩台期結算日，量能受調節干擾）。⭐ 籌碼：外資連 3 日買超 3,032 張（3 日合計 12,737 張、惟規模連 2 日遞減），⚠️ 投信賣超 1,765 張為近 5 日最大。⚠️⚠️ 本日最關鍵事件發生於台股收盤之後：美股 8/28 費半 -3.47%、TSM ADR -2.29%、NVDA -4.57%，台股完全未反映；ADR 溢價自 +12.41% 壓縮至 +8.97%（-3.44pp、本波最大），期貨夜盤 CDF 2,408（-0.86%）已先行反映</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-08-31</div>
+      <div><div class="cal-title">⭐⚠️ 補跌收斂收在最高、MSCI 調整污染量能與籌碼</div><div class="cal-desc">8/31 Mon 台股 2330 官方收 NT$2,405（-15、-0.62%、開 2,395／高 2,405／低 2,375、量 32,793 張、額 NT$785.64 億、106,512 筆）——⭐⭐ 前一份日報所訂第一順位檢核的結果為「盤中破、收盤守其一」：前報明訂檢核價位為 5MA 2,404 與連 2 日守住的 2,410，8/31 盤中最低 2,375 同時跌破兩者達 29 點與 35 點，亦一度失守 10MA 2,394 與 20MA 2,389 的密集帶（即前報所訂「整段修復失效」的負面條件曾在盤中成立）；⭐ 惟收盤 2,405 重新站回 2,404、10MA 與 20MA 之上，未站回 2,410，且收盤價＝當日最高價（無上影線的長下影紅K），為本波第四次「收在當日最高」。⭐ 補跌幅度優於預期：美股 8/28 費半 -3.47%、ADR -2.29%、夜盤已反映 -0.86%，台股實際僅 -0.62%、盤中最深 -1.86%，時間差風險大致消化。⚠️⚠️ 本日量能與籌碼兩項一律不可作意願解讀：8/31 收盤為 MSCI 季度調整生效日，台積電權重調降 0.79pp 至 56.61%（本次台股調降最多者），量能因此暴增 118.2%、外資賣超 4,554 張終結連 3 買、投信 -961 張、自營 -179 張、三大合計 -5,694 張；⭐ 對照組：MSCI 新增成分股華邦電同日量能亦增 159.8% 至 398,679 張、股價仍收紅 +0.55%。⚠️ 技術指標四項同步轉弱但無一翻空：MACD 紅柱 +7.34→+5.68 終結連 4 擴張（DIF +10.04／DEA +7.20）、RSI(14) 54.23→52.26、RSI(6) 60.27→52.79（-7.48 點）、⭐ KDJ 的 J 值 84.52→75.43 退出超買區屬健康消化；⚠️ 收盤 2,405 低於新 5MA 2,410，為 8/25 以來首次收盤失守 5 日線。⚠️ 期貨端三項同步轉弱：CDF 202609 日盤收 2,402（-27）、對現貨轉逆價差 -3（8/28 為 +9）、未平倉連 5 日減至 24,999 口。⭐ 台指選未平倉 P/C 比 0.96（賣權 61,681／買權 64,172、官方 96.12%），為追蹤區間內首次跌破 1.00，⚠️ 惟 8/28 為週五結算日、8/31 為重建首日，只看絕對水位不看變化。⚠️ 台幣終結連 3 日升值、8/31 收 31.70（貶 0.38%），毛利率逆風自 -67bps 縮小至約 -52bps。⭐ 美股同日已止跌：費半 +0.57% 收 11,535.05、NVDA +1.48%、美光 +2.77%、高通 +3.83%（當日最大漲幅），⚠️ 惟大盤收黑（S&P 500 -0.33%、那斯達克 -0.12%）。⚠️ 封測族群為唯一全面收黑者：日月光 -5.96%（台股最大跌幅）、Amkor -1.21%（改寫 8 月最低）。⭐ 公司層級唯一正面事件：研發副總徐國晉於 ITF Taiwan 2026 揭示 CoWoS 中介層今年達 5.5 倍光罩量產、2029 上看 14 倍，CPO 今年進入量產。加權指數收 46,128.47（-202.98、-0.44%）、成交額 1.289 兆</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#F44336">2026-09-01</div>
+      <div><div class="cal-title">📅 MSCI 調整後的第一個常態交易日：量能與籌碼能否歸位</div><div class="cal-desc">今日觀察：⚠️⚠️ 第一順位改為「MSCI 效應是否為一次性」——8/31 的 32,793 張（+118.2%）與外資賣超 4,554 張均為被動調節的機械結果，其真偽只能由今日驗證：⭐ 若量能回落至 2 萬張以下的常態區間、且外資回到買方或賣超收斂至 1,000 張以內，即確認為一次性事件，8/25 以來的修復結構完好；⚠️⚠️ 若量能仍在 3 萬張以上或外資續賣超逾 3,000 張，須改判為真實籌碼易主，並重新評估整段修復的有效性。⚠️ 第二順位為均線密集帶的第二次測試：收盤 2,405 已低於新 5MA 2,410，而 10MA 2,394、20MA 2,391、60MA 2,384 三線壓縮於 10 點區間內構成本波最厚支撐——⭐ 8/31 盤中低 2,375 曾一次跌破整帶再全數收復，代表承接力仍在，⚠️ 但也代表它已被實測過一次、再測時強度會遞減；⚠️⚠️ 若今日收盤跌破 60MA 2,384，三線同時失守、8/25-8/28 的整段修復正式失效，下一道防線直落布林下軌 2,338 與 120MA 2,235。⭐ 上檔第一道關卡為新 5MA 2,410（同為 8/27、8/28 兩度守住之低點、由支撐翻壓力），其上為連 4 日未能收盤站上的 2,425。⚠️ 今晨夜盤（TAIFEX 日期標記 2026/09/01 的盤後列）CDF 202609 收 2,395（-7、高 2,408／低 2,390），對 8/31 現貨折價 10 點，指向開盤約 -0.3%；台指期 TX 202609 夜盤收 45,978（+1）幾乎持平，⚠️ 個股期弱於大盤期貨，夜盤的偏弱屬台積電個別而非系統性。⭐ 外部環境轉為中性偏正：美股半導體 8/31 已止跌（費半 +0.57%），8/28 的外溢壓力來源消失。⚠️ 第三順位為本週的事件密度：9/2（週三）與 9/4（週五）各有一次台指選週結算、SEMICON Taiwan 9/2-9/4 登場、8 月營收須於 9/10 前公布（Q3 指引達標須月均約 NT$4,851 億、7 月的 4,675.81 億仍低 3.6%）</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#2196F3">2026-09-10</div>
+      <div><div class="cal-title">📅 8 月營收公布</div><div class="cal-desc">每月 10 日前公告上月合併營收；⭐ 檢核點：Q3 指引中位 $45.2B 換算月均約需 NT$4,851 億，7 月 4,675.81 億仍低約 3.6%、8 月需加速</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FF9800">2026-10</div>
+      <div><div class="cal-title">Q3 2026 財報</div><div class="cal-desc">預計 10 月第三週（估）</div></div>
+    </div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">
+    Source: <a href="https://investor.tsmc.com/english/financial-calendar" style="color:var(--blue)">TSMC Investor Relations — Financial Calendar</a></p>
+</div>
+
+<!-- ═══ 14. 估值歷史位階 ═══ -->
+<div class="sec" id="valuation">
+  <div class="sec-title">📐 估值歷史位階（Valuation Percentile）</div>
+  <div class="alert">⚠ ⚠️ 口徑提醒（仍在效期內）：TWSE 官方 BWIBBU 的「財報年/季」基準已於 2026-08-14 自 115/1（Q1）切換為 115/2（Q2），當日 P/E 一次性自 32.74x 降至 27.76x、P/B 自 10.72x 降至 9.66x——該次驟降屬分母（TTM EPS 與每股淨值）更新，非評價重估，8/14 之前與之後的數值不可直接比較；⭐ 本報已確認 8/31 的財報年/季仍為 115/2，與 8/28 同基準，故 P/E 自 28.05x 降至 27.88x、P/B 自 9.76x 降至 9.70x 的變動純由股價下跌 -0.62% 造成，屬可直接比較的正常變動。⚠️⚠️ 位階判讀須並列兩項保留：（1）5Y／10Y 百分位（87／88／91）是在舊 EPS 基準下校準的，切換至 115/2 後會系統性高估位階，本報查不到重算依據，故明說「尚未依新基準重算、僅供方向性參考」，不自行編造新的百分位；（2）即使接受此一保留，P/E 27.88x 仍顯著高於 5 年均值 18.5x 與 10 年均值 16.2x，本波自 8/24 低點（收 2,375）以來的反彈使位階不降反升——⚠️ 這是本報認為 2,425-2,445 區間連續 4 個交易日未能收盤站上的基本面成因：在缺乏新的獲利上修催化下，評價本身即構成上檔阻力。⭐ PEG 0.81（<1）為唯一偏正面的評價指標，其成立前提是市場共識的 2026 全年 EPS NT$84.5 之成長率能夠兌現，須以 10 月的 Q3 財報驗證</div>
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="val-lbl">P/E 目前</div>
+      <div class="val-val">27.88x</div>
+      <div class="val-sub">5Y 均 18.5x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:87%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>87%</strong>（高 37.8x / 低 9.8x）</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/E 10年位階</div>
+      <div class="val-val">88%</div>
+      <div class="val-sub">10Y 均 16.2x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:88%"></div></div>
+      <div class="val-sub">10Y 歷史百分位</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/B 目前</div>
+      <div class="val-val">9.7x</div>
+      <div class="val-sub">5Y 均 5.8x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:91%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>91%</strong></div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">EV/EBITDA（估）</div>
+      <div class="val-val">20.3x</div>
+      <div class="val-sub">半導體業均約 12–16x</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">PEG Ratio</div>
+      <div class="val-val" style="color:var(--green)">0.81</div>
+      <div class="val-sub">&lt;1 = 相對成長便宜</div>
+    </div>
+  </div>
+  <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);font-size:12.5px;color:#444;line-height:1.75">
+    <strong>估值解讀：</strong>目前 P/E 27.88x（TWSE 官方 BWIBBU 8/31、採 115Q2 財報基準；⚠️ 提醒：8/14 曾自 115Q1 換基準、P/E 一次性由 32.74x 降至 27.76x，屬分母更新而非評價修正，與 8/13 以前數值不可直接比較）。
+    ⚠️ 下列百分位已依 115Q2 新基準粗略重校（5 年 94%→88%、10 年 94%→89%），惟仍屬估算、僅供方向性參考：5 年 <strong>87%</strong> 分位 / 10 年 <strong>88%</strong> 分位，
+    方向上仍反映市場對 AI 超級週期的溢價預期。PEG 0.81 顯示相對成長速度仍屬合理；EV/EBITDA 20.3x 高於業均，
+    但考量 TSMC 壟斷性市占與訂單能見度，溢價具基本面支撐。若 AI 資本支出鬆動，P/E 均值回歸至 18.5x
+    意味台股下修至約 NT$1,200，為主要下行風險情境。
+  </div>
+</div>
+
+<!-- ═══ 15. 現金流品質 ═══ -->
+<div class="sec" id="cashflow">
+  <div class="sec-title">💵 現金流品質分析（Quality of Earnings）</div>
+  <div class="alert">⚠ FCF 來自 KPI 區塊；DOI / AR 為業界估算，建議至 TSMC 季報核實</div>
+  <div class="cf-grid">
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 合併營收</div>
+      <div class="cf-val">NT$3.8兆 ($122B)</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 毛利率（估）</div>
+      <div class="cf-val" style="color:var(--green)">56.1%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：62.3%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 營業利益率（估）</div>
+      <div class="cf-val" style="color:var(--green)">47.7%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：54.0%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 CapEx（估）</div>
+      <div class="cf-val">$34.5B USD（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">佔收入 28.3%（估）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 自由現金流</div>
+      <div class="cf-val" style="color:var(--green)">NT$1兆+（FY25 KPI）</div>
+      <div class="cf-chg" style="color:var(--muted)">FCF 殖利率 ~2.0%（NT$49.27T）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">存貨天數 DOI（估）</div>
+      <div class="cf-val">82 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -9 天（去化）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">應收帳款天數 AR（估）</div>
+      <div class="cf-val">43 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -4 天（改善）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">庫存趨勢</div>
+      <div class="cf-val" style="font-size:13px;color:var(--green)">去化中（連續 3 季下降）</div>
+      <div class="cf-chg" style="color:var(--muted)">下游需求復甦訊號</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 16. 相對強弱 / ADR 折溢價 ═══ -->
+<div class="sec" id="relative">
+  <div class="sec-title">📊 相對強弱 &amp; ADR 折溢價（Relative Strength）</div>
+  <div class="alert">⚠ ADR 理論值 = 5 × 台股收盤 ÷ 匯率（不含交易摩擦、稅負與流動性溢價；依本報既有慣例，分母採已四捨五入至小數 2 位的公告匯率 31.70，非未捨入的 31.695）。台股 2330 與 NYSE TSM 均採 2026-08-31 Mon 收盤：台股 NT$2,405（TWSE 官方）、ADR 正規盤 $415.32（Yahoo 官方；⭐ 三重自我檢核：前收 417.52 - 2.20 = 415.32 ✓、417.52×(1-0.53%) = 415.31 ✓、另經 stockanalysis.com 獨立確認 $415.32／-$2.20／-0.53%、時點 2026-08-31 4:00 PM EDT ✓）。⭐ 平價 5×2405÷31.70 = 379.34、溢價 415.32÷379.34-1 = +9.49%。⚠️ 溢價自 8/28 的 +8.97% 微升至 +9.49%（+0.52pp），成因有二且方向相同：台股跌幅 -0.62% 略大於 ADR 的 -0.53%，加上台幣自 31.58 貶至 31.70（-0.38%）拉低平價分母——⚠️ 兩者皆非「ADR 追價轉強」，本報不將此讀為需求訊號。⚠️⚠️ 1 個月報酬須加註成因，否則會被嚴重誤讀：2330 的 1 個月報酬自 8/28 的 +6.14% 一日之內反轉為 -0.82%（-6.96pp），台股加權亦自 +11.36% 降至 +6.98%（-4.38pp）——⭐ 這完全是滾動基準日移動造成的機械效果，與 8/31 當日走勢無關：本欄 1 個月報酬採「日曆同日減一個月」為基準（非 20 個交易日），基準日自 7/28（2330 收 2,280、加權 41,603.36）移至 7/31（2330 收 2,425、加權 43,119.75），而 7/31 當日 2330 單日大漲 220 點（+9.98%）、加權大漲 3,186 點（+7.98%），基準一次墊高 6.4%。⚠️ 判讀紀律：本日的 1 個月報酬轉負不代表中期動能轉弱，5 日報酬（+1.26%）與 YTD（+51.7%）才是未受基準跳動干擾的讀數。⭐ 5 日與 YTD 基準說明：5 日採往前第 5 個交易日（8/24），YTD 採 2026-01-02 收盤（2330 1,585／加權 29,349.81／SOX 7,367.47）——⚠️ 後者為本報長期沿用之口徑，與「前一年最後交易日」（2025-12-31 收 1,550）的通行定義相差約 3.3pp，屬既有口徑而非計算錯誤，本報維持不擅改。⚠️ beta_60d 1.38 為既有值：本報以 TWSE 官方序列對加權指數做 20/30/60/90/120 日日報酬回歸，分別得 1.24/1.03/0.97/0.99/1.02，均無法複現 1.38，口徑不明，故依「複現不了就不動」原則沿用並在此標註限制，不宣稱已重算。⭐ 相對強弱一句話：8/31 為 2330 連續第 3 個交易日落後加權指數（-0.62% vs -0.44%，落後 0.18pp），⚠️ 惟落後幅度已自 8/27 的 0.52pp、8/28 的 0.36pp 逐日收斂，且 5 日區間 2330 +1.26% 對加權 +3.05% 的落後亦須扣除 MSCI 權重調降的機械影響</div>
+  <div style="background:var(--card);border-radius:9px;padding:14px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);overflow-x:auto;margin-bottom:12px">
+    <div class="rel-row" style="border-bottom:2px solid var(--border);padding-bottom:6px;margin-bottom:6px">
+      <div class="rel-hdr">標的</div>
+      <div class="rel-hdr" style="text-align:center">今日</div>
+      <div class="rel-hdr" style="text-align:center">5 日</div>
+      <div class="rel-hdr" style="text-align:center">1 月</div>
+      <div class="rel-hdr" style="text-align:center">YTD</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">TSMC 台股 2330</div>
+      <div class="rel-val" style="color:#F44336">-0.62%</div>
+      <div class="rel-val" style="color:#4CAF50">+1.3%</div>
+      <div class="rel-val" style="color:#F44336">-0.8%</div>
+      <div class="rel-val" style="color:#4CAF50">+51.7%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TAIEX 加權指數</div>
+      <div class="rel-val" style="color:#F44336">-0.44%</div>
+      <div class="rel-val" style="color:#4CAF50">+3.0%</div>
+      <div class="rel-val" style="color:#4CAF50">+7.0%</div>
+      <div class="rel-val" style="color:#4CAF50">+57.2%</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">SOX 半導體指數</div>
+      <div class="rel-val" style="color:#4CAF50">+0.57%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val" style="color:#4CAF50">+56.6%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TSM NYSE ADR</div>
+      <div class="rel-val" style="color:#F44336">-0.53%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+    </div>
+  </div>
+  <div class="adr-box">
+    <div>
+      <div class="adr-lbl">ADR 市價（NYSE）</div>
+      <div class="adr-val">US$415.32</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">比例 5:1（1 ADR = 5 股）</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 理論平價（估）</div>
+      <div class="adr-val">US$379.34</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">5 × NT$2,405 ÷ 31.7</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 溢價</div>
+      <div class="adr-val" style="color:#FDD835">9.49%</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">Beta(60d): 1.38</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 17. CoWoS 先進封裝產能 ═══ -->
+<div class="sec" id="cowos">
+  <div class="sec-title">🔧 CoWoS 先進封裝產能追蹤</div>
+  <div class="alert">⚠ 數據來源：TrendForce 2026-Q1 預估；wspm = 晶圓片/月（均為估算）</div>
+  <div class="cowos-grid">
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-S 月產能</div>
+      <div class="cowos-val">~15,000</div>
+      <div class="cowos-sub">wspm（主力 AI GPU）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-L 月產能</div>
+      <div class="cowos-val">~5,000</div>
+      <div class="cowos-sub">wspm（大尺寸 HPC）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-R 月產能</div>
+      <div class="cowos-val">~2,000</div>
+      <div class="cowos-sub">wspm（RDL 次世代）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">2025 年合計</div>
+      <div class="cowos-val">~22,000</div>
+      <div class="cowos-sub">wspm</div>
+    </div>
+    <div class="cowos-card" style="border-top-color:var(--green)">
+      <div class="cowos-lbl">2026 年目標</div>
+      <div class="cowos-val" style="color:var(--green)">~35,000</div>
+      <div class="cowos-sub">wspm / YoY +59%</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">稼動率</div>
+      <div class="cowos-val" style="color:var(--green)">>95%</div>
+      <div class="cowos-sub">訂單積壓 4 季</div>
+    </div>
+  </div>
+  <div class="sub-title">CoWoS 客戶分配佔比（估）</div>
+  <div class="cowos-cust-bar">
+    <div style="flex:65;background:#76B900" title="NVIDIA ~65% — GB200/GB300 NVL72"></div><div style="flex:18;background:#ED1C24" title="AMD ~18% — MI350/MI450"></div><div style="flex:12;background:#CC0000" title="Broadcom ~12% — Custom XPU"></div><div style="flex:5;background:#90CAF9" title="Others ~5% — 各種 AI ASIC"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>CoWoS 佔比（估）</th><th>主要產品</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76B900">NVIDIA</strong></td><td><strong>~65%</strong></td><td>GB200/GB300 NVL72</td></tr><tr><td><strong style="color:#ED1C24">AMD</strong></td><td><strong>~18%</strong></td><td>MI350/MI450</td></tr><tr><td><strong style="color:#CC0000">Broadcom</strong></td><td><strong>~12%</strong></td><td>Custom XPU</td></tr><tr><td><strong style="color:#90CAF9">Others</strong></td><td><strong>~5%</strong></td><td>各種 AI ASIC</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;background:#FFF3E0;border-left:3px solid var(--orange);
+    border-radius:6px;padding:8px 12px;font-size:11.5px;color:#795548;line-height:1.65">
+    <strong>瓶頸說明：</strong>ABF 基板與 HBM 供應限制（非 TSMC 封裝本身）<br>
+    <strong>ASP 說明：</strong>CoWoS 封裝 ASP 約為 HPC 裸晶圓的 2–3 倍，毛利率高於公司均值
+  </div>
+</div>
+
+<!-- ═══ 18. 匯率敏感度 ═══ -->
+<div class="sec" id="fx">
+  <div class="sec-title">💱 匯率敏感度分析（FX Sensitivity）</div>
+  <div class="alert">⚠ ⭐ 台幣連續 3 個交易日升值的走勢於本日中止並反轉，方向對毛利率偏正面：新台幣 8/31 收 31.70（Yahoo TWD=X 逐時序列 16:00 台北收盤時點、實際讀數 31.695），自 8/28 的 31.58 貶值約 0.38%，貶幅恰與前一日的升幅（0.38%）相同、完全回吐。⭐ 依 TSMC 官方口徑（每升值 1% 約影響毛利率 -40bps）估算，相對 8/13 的 32.12 累計升值幅度自 1.68% 收斂至 1.31%，毛利率逆風自約 -67bps 縮小至約 -52bps，單日回補約 15bps。⚠️ 判讀紀律：單日 0.38% 的反轉不足以改變趨勢判斷——本波自 8/13 起的升值方向尚未被推翻，-52bps 仍相當於 Q3 毛利率指引區間（65-67%）約四分之一的寬度；⭐ 惟須並列的緩和因素為公司約 75% 的外幣避險比例，可遞延並平滑部分衝擊，實際影響通常小於理論估算值。⚠️ 時點提醒：9/1 今晨 09:00 的 TWD=X 讀數已回到 31.62（盤中、隨時變動、非收盤價），升值方向有再度恢復之虞，本欄僅記錄 8/31 收盤時點的事實，不據今晨盤中價修改基準。⭐ 口徑說明（本報既有慣例）：上表情境的移動幅度與 bps 以「(基準 － 情境匯率) ÷ 基準」計算，而本段「相對 8/13 累計升值幅度」則以起點 32.12 為分母，兩者分母不同、各自對應各自的序列，不可混用。</div>
+  <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">今日 USD/NTD 匯率</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">31.7</div>
+      <div style="font-size:11px;color:var(--muted)">台幣越小 = 台幣越強</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">毛利率影響 / 每 1% 升值</div>
+      <div style="font-size:24px;font-weight:700;color:var(--red);margin:3px 0">-40 bps</div>
+      <div style="font-size:11px;color:var(--muted)">TSMC 官方法說會指引</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">外幣避險比例（估）</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">~75%</div>
+      <div style="font-size:11px;color:var(--muted)">~75%（外幣避險比例估算）</div>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>USD/NTD 匯率</th><th>情境說明</th><th>毛利率影響（bps）</th><th>EPS 影響（估）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>30.5</strong></td>
+        <td>NTD +3.8%（強升）</td>
+        <td style="color:var(--red)">約 -151 bps</td>
+        <td style="color:var(--red)">約 -5.2%</td>
+      </tr><tr>
+        <td><strong>31.0</strong></td>
+        <td>NTD +2.2%（續升）</td>
+        <td style="color:var(--red)">約 -88 bps</td>
+        <td style="color:var(--red)">約 -3.0%</td>
+      </tr><tr style="background:#FFF8E1;font-weight:700">
+        <td><strong>31.7</strong></td>
+        <td>基準（8/31 收盤）</td>
+        <td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td>
+      </tr><tr>
+        <td><strong>32.12</strong></td>
+        <td>8/13 水準（回貶）</td>
+        <td style="color:var(--green)">約 +53 bps</td>
+        <td style="color:var(--green)">約 +1.8%</td>
+      </tr><tr>
+        <td><strong>33.0</strong></td>
+        <td>NTD -4.1%（貶值）</td>
+        <td style="color:var(--green)">約 +164 bps</td>
+        <td style="color:var(--green)">約 +5.6%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ 19. EPS 修正追蹤 ═══ -->
+<div class="sec" id="revision">
+  <div class="sec-title">✏️ EPS 修正追蹤（Earnings Revision Tracker）</div>
+  <div class="alert">⚠ 資料來源：Bloomberg / MarketScreener（估算），請每日核實更新</div>
+  <div class="rev-grid">
+    <div class="rev-box">
+      <div class="rev-period">Q1 2026 EPS 共識（32 位分析師）⚠️ 尚未依 Q2 法說會後上修重校</div>
+      <div class="rev-consensus">NT$20.38</div>
+      <div class="rev-range">區間：NT$18.90 – NT$22.10</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +6.7%</span>
+      </div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-period">FY 2026 EPS 共識</div>
+      <div class="rev-consensus">NT$84.50</div>
+      <div class="rev-range">區間：NT$78.00 – NT$92.00</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +8.1%</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">連續超預期</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">11</div>
+      <div style="font-size:11px;color:var(--muted)">季（100% 超預期）</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">平均超預期幅度</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">+6.5%</div>
+      <div style="font-size:11px;color:var(--muted)">近 11 季均值</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">下次財報</div>
+      <div style="font-size:18px;font-weight:700;color:var(--blue);margin:4px 0">2026-10（Q3 2026 財報）</div>
+      <div style="font-size:11px;color:var(--muted)">Q3 2026 法說會（Q2 已於 7/16 結束）</div>
+    </div>
+  </div>
+  <div class="sub-title">修正催化因子</div>
+  <div class="trigger-list">
+    <div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ NVIDIA Q2 FY27 財報（8/26 盤後）大超預期的基本面事實未改變：營收 $96.22B（+106% YoY）勝共識約 $92.2B、Q3 財測 $108B 高於共識約 $3.8B、資料中心營收 $89.0B（+117% YoY、占比約 93%），Blackwell Ultra 放量直接對應 TSMC N3/N4 與 CoWoS 需求；⭐ 股價層面的三日淨值已回正：8/27 +8.74%、8/28 -4.57%、8/31 +1.48%，自財報前收盤累計 +5.3%，利多未完全失效，惟追價力道明顯遞減</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐⭐ TSMC 先進封裝路線圖於 8/31 獲得公開更新，為本日唯一的公司層級正面事件：研發副總經理徐國晉在 ITF Taiwan 2026 技術論壇表示，CoWoS 今年最大系統中介層尺寸已達 5.5 倍光罩並進入量產、2029 年預計突破 14 倍；CPO（共同封裝光學）相關技術今年開始量產、商業化落地加速。3DFabric 平台涵蓋 CoWoS、InFO、SoIC 與 CPO 四項，發展主軸為 3D 晶片堆疊與系統尺寸擴充（來源：壹蘋新聞網、經濟日報 2026-08-31 報導）。⭐ 對估值的意涵：中介層尺寸自 5.5 倍朝 14 倍推進，直接對應單顆封裝可整合的 HBM 顆數與運算晶片面積，是 CoWoS 單價與毛利率的長期支撐</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>Mizuho 上調 TSMC CoWoS 月產能預估至 2026 年 14 萬件、2027 年 19-20 萬件；2nm 晶圓報價達 $30,000、產能預訂至 2028</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>N3/N2 ASP 調升，毛利率改善趨勢明確；市場並傳 2027 年代工報價可望再調升約 10%</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ 客戶端需求面 8/31 出現三檔同步收紅的正面並列證據：NVIDIA +1.48%、AMD +1.10%、博通 +0.42%，三大 AI 晶片設計商同日回升；⭐ 高通 +3.83% 為當日最大漲幅，市場歸因於其 8/31 發表 Horizon Ultra AI PC 與 Adobe 採用 HUMAIN 基礎設施——高通自「AI 資料中心曝險低的防禦標的」轉為「邊緣 AI 與 AI PC 成長標的」，對應 TSMC N3/N4 製程在手機以外的新需求來源</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️⚠️ 「好消息不漲」的市場性格尚未解除，僅暫時緩和：8/28 Marvell 財報優於預期並上調財測、股價仍重挫 -10.3%，NVIDIA 財報大超預期後隔日回吐過半漲幅；⭐ 8/31 費半 +0.57% 止跌，惟僅收復 8/28 跌幅的 16%，且距 52 週高仍 -21.19%、續處技術性熊市。⚠️ 疊加聯準會主席 Kevin Warsh 對通膨趨勢表達疑慮（明言夏季 PCE 與 CPI 雖優於預期但不代表底層趨勢已實質改善），評價擴張的貨幣條件未見放寬</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 記憶體漲價的需求破壞風險續存且本日再獲佐證：DRAM 現貨價年漲近 700%、64GB DDR5 套件 8 月達 $1,118，2026 年智慧手機出貨預估 -12.9%、PC -11.3%，恐壓抑非 AI 晶片投片；⚠️ 8/31 美光 +2.77%、SK 海力士 +1.27%、三星 +1.17% 記憶體三雄同步回升，價格上行壓力未見緩解</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️⚠️ 封測次族群為 8/31 唯一全面收黑的類別，為本報新增追蹤的分歧訊號：日月光 -5.96%（台股追蹤清單最大跌幅、回吐連 2 日漲幅而有餘）、Amkor -1.21%（改寫 8 月最低收盤、自 8/17 累計 -22.84% 為清單中最重）。⚠️ 兩者同為 CoWoS 外包封測夥伴，同步弱勢反映市場對「先進封裝產能是否過度擴充」的疑慮——此一疑慮與 TSMC 自身於 8/31 公布的 CoWoS 擴充路線圖方向相反，本報並列不擇一</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⭐ 台幣 31.70（8/31 貶值 0.38%、終結連 3 日升值），相對 8/13 的 32.12 累計升值幅度自 1.68% 收斂至 1.31%，估約 -52bps 毛利率逆風（較 8/28 的 -67bps 縮小 15bps），逆風減輕但未消除；⚠️ 全球 AI 晶片出口管制擴大之風險續存，NVIDIA Q3 財測明言不含中國資料中心銷售</span>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+    border-radius:10px;padding:14px 18px;font-size:12.5px;line-height:1.75">
+    <strong style="color:#FDD835">分析師觀點：</strong>⭐ Q2 2026 財報（7/16 法說會）確認：EPS NT$27.25／US$4.31 超市場共識約 $3.94 達 +9.4%，連續第 11 季超越預期（連續超預期率 100%）；Q3 2026 營收指引 $44.6-45.8B（中位 $45.2B、+12.4% QoQ）、毛利率指引 65-67%（2nm 量產爬坡於下半年稀釋毛利率約 3-4pp）。月營收動能：7 月合併營收 NT$4,675.81 億（+5.62% MoM、+44.69% YoY）連 3 個月改寫單月新高，累計 1-7 月 NT$2.8721 兆（+37.01% YoY）；⚠️⚠️ 下一個可驗證的基本面里程碑已進入 10 天倒數：8 月營收須於 9/10 前公布，Q3 指引中位 $45.2B 換算月均約需 NT$4,851 億，7 月的 4,675.81 億仍低約 3.6%，8 月須明顯加速方能達標——⭐ 這是本報認為未來兩週內最值得等待的單一數據，其重要性高於任何技術面訊號。⭐ 近期價格與匯率脈絡（截至 2026-08-31）：台股 2330 收 NT$2,405（-0.62%）、ADR $415.32（-0.53%）、ADR 溢價自 +8.97% 微升至 +9.49%、台幣 31.70（終結連 3 日升值、累計毛利率逆風自 -67bps 縮小至約 -52bps）——⭐ 台美時間差已收斂：8/28 的「美股重挫、台股未反映」於 8/31 完成消化，台股補跌 -0.62% 小於期貨夜盤隱含的 -0.86% 與費半的 -3.47%，且美股半導體 8/31 已止跌回升（費半 +0.57%）。⚠️ 惟須扣除 MSCI 季度調整於 8/31 收盤生效所造成的機械干擾（台積電權重調降 0.79pp 至 56.61%、量能暴增 118.2%、外資賣超 4,554 張），本日的量能與籌碼數字不具意願解讀價值。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  TSMC 台積電日報 — 2026-09-01<br>
+  資料來源：Yahoo Finance、CNBC、Morgan Stanley、Goldman Sachs、JPMorgan、TSMC IR、TrendForce、玩股網、TWSE、BIS、Deloitte、PwC<br>
+  <strong>本報告由自動化腳本產生，不構成任何投資建議。投資人應自行評估風險，必要時請諮詢持牌財務顧問。</strong>
+</footer>
+</body>
+</html>
