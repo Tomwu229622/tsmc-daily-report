@@ -13,3 +13,13 @@ desktop.ini
 # Editor
 .vscode/
 *.swp
+
+# 每日取數 agent 的中間產物與驗收底稿（market_data_/taifex_data_/news_/ecosystem_/analyst_/technical_/korea_/us_adr_/newsverify_ 等）
+*_20??????.json
+*_20??????_x.json
+*.json.tmp.*
+
+# 一次性檢查輸出
+*_check.txt
+kw_counts.txt
+grep_counts.txt
