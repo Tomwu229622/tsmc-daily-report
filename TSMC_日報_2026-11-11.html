@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TSMC 台積電日報 — 2026-11-11</title>
+<style>
+:root{
+  --navy:#0D1B2A; --blue:#1565C0; --mid:#1976D2; --light:#BBDEFB;
+  --green:#4CAF50; --red:#F44336; --orange:#FF9800; --purple:#7B1FA2;
+  --bg:#F0F4F8; --card:#FFFFFF; --text:#1A1A2E; --muted:#546E7A;
+  --border:#E0E8F0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+
+/* NAV TOC */
+.toc{background:var(--navy);padding:8px 40px;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.toc a{color:#90CAF9;font-size:11px;text-decoration:none;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.toc a:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6e 100%);color:#fff;padding:24px 40px 18px}
+.hdr h1{font-size:24px;font-weight:700;letter-spacing:.5px}
+.hdr-sub{font-size:12px;color:#90CAF9;margin-top:3px}
+.hdr-meta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.hdr-meta span{background:rgba(255,255,255,.12);border-radius:6px;padding:3px 10px;font-size:11px}
+.data-note{background:#FFF3E0;border-left:3px solid #FF9800;padding:6px 40px;font-size:11px;color:#E65100}
+
+/* SECTIONS */
+.sec{padding:16px 40px}
+.sec-title{font-size:14px;font-weight:700;color:var(--blue);border-left:4px solid var(--blue);
+  padding-left:10px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.3px}
+.sub-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin:12px 0 8px}
+
+/* STOCK PANEL */
+.stock-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stock-box{background:var(--card);border-radius:10px;padding:16px 18px;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);border-left:5px solid var(--mid)}
+.stock-exch{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:600}
+.stock-row{display:flex;align-items:baseline;gap:10px;margin:5px 0}
+.price{font-size:30px;font-weight:700;color:var(--navy)}
+.chg{font-size:15px;font-weight:600}
+.stock-detail{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;margin-top:10px}
+.sd{font-size:11.5px;color:var(--muted)}.sd span{color:var(--navy);font-weight:600}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.kpi{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-top:3px solid var(--blue)}
+.kpi-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.kpi-val{font-size:20px;font-weight:700;margin:3px 0 2px;color:var(--navy)}
+.kpi-chg{font-size:11.5px;font-weight:600}
+.kpi-note{font-size:10px;color:var(--muted)}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.news-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-bottom:3px solid var(--border)}
+.news-hdr{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.tag{color:#fff;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600}
+.impact{border:1.5px solid;border-radius:10px;padding:1px 7px;font-size:10.5px;font-weight:600}
+.news-title{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.45}
+.news-body{font-size:12px;color:#444;line-height:1.65;margin-bottom:7px}
+.news-src{font-size:10.5px;color:var(--muted)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;background:var(--card);
+  border-radius:9px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+th{background:var(--mid);color:#fff;padding:8px 11px;font-size:11.5px;text-align:left;font-weight:600}
+td{padding:8px 11px;font-size:12px;border-bottom:1px solid #F0F4F8}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#F7FBFF}
+.badge{display:inline-block;border-radius:4px;padding:2px 7px;font-size:10.5px;font-weight:600;color:#fff}
+
+/* INSTITUTIONAL */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.inst-name{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.inst-val{font-size:22px;font-weight:700;margin:5px 0 3px}
+.inst-note{font-size:10.5px;color:var(--muted)}
+
+/* SPARK BARS */
+.spark-wrap{display:flex;gap:4px;align-items:flex-end;height:50px;margin-top:8px}
+.spark-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.spark-val{font-size:8.5px;color:var(--muted);margin-top:1px;white-space:nowrap}
+
+/* TECHNICAL */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.tech-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.tech-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.tech-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+.tech-sig{font-size:11px;font-weight:600;border-radius:10px;padding:2px 8px;display:inline-block}
+.ma-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ma-box{background:var(--card);border-radius:8px;padding:8px 10px;text-align:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.ma-lbl{font-size:10px;color:var(--muted)}
+.ma-val{font-size:14px;font-weight:700;margin-top:2px}
+
+/* DERIVATIVES */
+.deriv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px}
+.deriv-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.deriv-lbl{font-size:10px;color:var(--muted);text-transform:uppercase}
+.deriv-val{font-size:18px;font-weight:700;margin:4px 0;color:var(--navy)}
+
+/* ECOSYSTEM */
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.eco-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.eco-type{font-size:10px;color:#fff;border-radius:4px;padding:1px 6px;font-weight:600}
+.eco-name{font-weight:700;font-size:13px;margin:5px 0 2px}
+.eco-price{font-size:16px;font-weight:700;color:var(--navy)}
+.eco-note{font-size:10.5px;color:var(--muted)}
+
+/* ANALYST */
+.analyst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.analyst-card{background:var(--card);border-radius:9px;padding:14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--blue)}
+.analyst-firm{font-size:12px;font-weight:700;color:var(--navy)}
+.analyst-tp{font-size:18px;font-weight:700;color:var(--blue);margin:5px 0 3px}
+.analyst-note{font-size:11.5px;color:#555}
+.consensus-bar{display:flex;border-radius:8px;overflow:hidden;height:22px;margin:10px 0 4px}
+
+/* EARNINGS COUNTDOWN */
+.countdown-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+  border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.countdown-days{font-size:56px;font-weight:700;line-height:1;color:#FDD835}
+.countdown-label{font-size:12px;color:#90CAF9;text-transform:uppercase}
+.countdown-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px}
+.cg-item{background:rgba(255,255,255,.1);border-radius:8px;padding:8px 12px}
+.cg-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.cg-val{font-size:14px;font-weight:700;margin-top:3px}
+
+/* FAB UTILIZATION */
+.fab-grid{display:flex;flex-direction:column;gap:8px}
+.fab-row{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:90px 80px 140px 1fr;gap:10px;align-items:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.fab-node{font-size:13px;font-weight:700;color:var(--navy)}
+.util-bar{height:10px;border-radius:5px;background:#E0E0E0;overflow:hidden;margin-top:3px}
+.util-fill{height:100%;border-radius:5px}
+
+/* CALENDAR */
+.cal-list{display:flex;flex-direction:column;gap:8px}
+.cal-item{background:var(--card);border-radius:9px;padding:11px 14px;
+  display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start;
+  box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.cal-date{font-size:13px;font-weight:700;color:#fff;border-radius:6px;
+  padding:4px 8px;text-align:center}
+.cal-title{font-size:13px;font-weight:600;color:var(--navy)}
+.cal-desc{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* RISK */
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.risk-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.06);border-left:4px solid}
+.risk-lv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.risk-name{font-size:13px;font-weight:700;margin:4px 0}
+.risk-desc{font-size:12px;color:#555;line-height:1.55}
+
+/* FOOTER */
+footer{background:var(--navy);color:#607D8B;text-align:center;padding:14px 40px;font-size:10.5px;margin-top:12px}
+footer strong{color:#90A4AE}
+
+/* ALERT BOX */
+.alert{background:#FFF8E1;border-left:4px solid #FFC107;border-radius:6px;
+  padding:8px 12px;font-size:11.5px;color:#795548;margin-bottom:10px}
+
+@media(max-width:700px){
+  .sec,.hdr{padding:12px 14px}
+  .toc{padding:6px 14px}
+  .stock-grid,.inst-grid{grid-template-columns:1fr}
+  .fab-row{grid-template-columns:1fr 1fr}
+  .cal-item{grid-template-columns:1fr}
+}
+@media print{
+  .toc{display:none}
+  body{background:#fff}
+  .kpi,.news-card,.stock-box,.inst-card,.risk-card{box-shadow:none;border:1px solid #ddd}
+}
+
+/* ── VALUATION ── */
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:12px}
+.val-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center}
+.val-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.val-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.val-sub{font-size:11px;color:var(--muted)}
+.pct-bar-wrap{background:#E0E8F0;border-radius:6px;height:10px;overflow:hidden;margin:6px 0 3px}
+.pct-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--mid))}
+
+/* ── CASHFLOW ── */
+.cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.cf-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.cf-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cf-val{font-size:15px;font-weight:700;color:var(--navy);margin:3px 0 1px}
+.cf-chg{font-size:11px;font-weight:600}
+
+/* ── RELATIVE STRENGTH ── */
+.rel-row{display:grid;grid-template-columns:130px repeat(4,1fr);gap:0;margin-bottom:2px;align-items:center}
+.rel-hdr{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:4px 0}
+.rel-lbl{font-size:12px;font-weight:600;color:var(--navy);padding:4px 0}
+.rel-val{font-size:12px;font-weight:700;text-align:center;padding:4px 0}
+.adr-box{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;border-radius:10px;
+  padding:14px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.adr-lbl{font-size:10px;color:#90CAF9;text-transform:uppercase}
+.adr-val{font-size:18px;font-weight:700;margin-top:4px}
+
+/* ── COWOS ── */
+.cowos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:12px}
+.cowos-card{background:var(--card);border-radius:9px;padding:12px 14px;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center;border-top:3px solid var(--blue)}
+.cowos-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.cowos-val{font-size:20px;font-weight:700;color:var(--navy);margin:3px 0 2px}
+.cowos-sub{font-size:11px;color:var(--muted)}
+.cowos-cust-bar{display:flex;height:24px;border-radius:8px;overflow:hidden;margin:10px 0 6px}
+
+/* ── EPS REVISION ── */
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.rev-box{background:var(--card);border-radius:9px;padding:14px;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.rev-period{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.rev-consensus{font-size:28px;font-weight:700;color:var(--navy)}
+.rev-range{font-size:11px;color:var(--muted);margin-top:3px}
+.rev-trend-up{display:inline-block;background:#E8F5E9;color:#2E7D32;
+  border-radius:10px;padding:2px 9px;font-size:11px;font-weight:700}
+.trigger-list{display:flex;flex-direction:column;gap:5px}
+.trigger-item{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#444;line-height:1.5}
+.trigger-badge{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;
+  padding:2px 6px;color:#fff;margin-top:2px}
+
+/* ── SUMMARY CARD ── */
+.summary-card{background:#fff;border-radius:10px;padding:18px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.09);border-left:5px solid #888;
+  display:flex;gap:18px;align-items:flex-start}
+.summary-left{flex-shrink:0;display:flex;flex-direction:column;align-items:center;
+  gap:6px;min-width:76px;padding-top:2px}
+.s-badge{color:#fff;font-size:12px;font-weight:700;border-radius:7px;
+  padding:5px 10px;text-align:center;line-height:1.4;white-space:nowrap}
+.s-label{font-size:9px;color:var(--muted);font-weight:600;text-transform:uppercase;
+  letter-spacing:.3px}
+.summary-right{flex:1;min-width:0}
+.s-headline{font-size:14px;font-weight:700;color:var(--navy);line-height:1.45;
+  margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.s-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:11px}
+.s-bullets li{font-size:12.5px;color:#333;line-height:1.6;padding-left:16px;position:relative}
+.s-bullets li::before{content:"▸";position:absolute;left:0;top:2px;font-size:10px;color:var(--mid)}
+.s-bottom{background:var(--bg);border-radius:6px;padding:9px 13px;
+  font-size:12.5px;color:var(--navy);line-height:1.55;font-style:italic}
+.s-risk{background:#FFF3E0;border-left:3px solid #FF6F00;border-radius:4px;
+  padding:6px 10px;font-size:11.5px;color:#BF360C;font-weight:600;margin-top:8px}
+@media(max-width:600px){
+  .summary-card{flex-direction:column;gap:10px}
+  .summary-left{flex-direction:row;min-width:unset}}
+</style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#summary">&#128203; 今日摘要</a>
+  <a href="#price">股價</a>
+  <a href="#kpi">財務KPI</a>
+  <a href="#inst">法人買賣超</a>
+  <a href="#tech">技術分析</a>
+  <a href="#deriv">期貨選擇權</a>
+  <a href="#news">國際新聞</a>
+  <a href="#customer">客戶動態</a>
+  <a href="#ecosystem">產業生態系</a>
+  <a href="#analyst">法人評級</a>
+  <a href="#earnings">財報倒計時</a>
+  <a href="#fab">稼動率</a>
+  <a href="#risk">風險</a>
+  <a href="#calendar">行事曆</a>
+  <a href="#valuation">估值位階</a>
+  <a href="#cashflow">現金流</a>
+  <a href="#relative">相對強弱</a>
+  <a href="#cowos">CoWoS</a>
+  <a href="#fx">匯率敏感</a>
+  <a href="#revision">EPS修正</a>
+</nav>
+
+<!-- HEADER -->
+<div class="hdr">
+  <h1>TSMC 台積電 (2330 / TSM) 每日股市分析日報</h1>
+  <div class="hdr-sub">Taiwan Semiconductor Manufacturing Company — Daily Market Intelligence Report</div>
+  <div class="hdr-meta">
+    <span>報告日期：2026-11-11</span>
+    <span>股票代碼：2330.TW / TSM (NYSE)</span>
+    <span>下次財報：2027-01-14 (64 天後)</span>
+    <span>⚠ 本報告僅供參考，不構成投資建議</span>
+  </div>
+</div>
+<div class="data-note">⚠ ⭐⭐ 報告日 2026-11-11 Wed（台北時間上午產製，台股當日尚未收盤）。⭐ 週三報告：台股涵蓋 11/10（Tue）單一交易日，前一交易日為 11/09（Mon）；美股涵蓋 11/10（Tue）單一交易日，前一交易日為 11/09；美東時間為 EST（UTC-5）；11/11 美國退伍軍人節股市照常、債市休市（影響明日報告的美股資料，不影響本報）。夜盤為 11/10 15:00 至 11/11 05:00（期交所歸 2026/11/11 日期列）；台股、ADR 與匯率三者日期對齊（台股 11/10 收盤早於美股 11/10 交易）。法人 5 日陣列為連續交易日 11/04、11/05、11/06、11/09、11/10。⭐ 台股數據為 TWSE 官方收盤（STOCK_DAY／T86／BFI82U／BWIBBU_d／FMTQIK／MI_INDEX，11/11 以 curl 抓取）；本日先以同一程式回算 11/09，T86、價量、技術指標、相對強弱與 BWIBBU 全部複現前報數值後才推進至 11/10。ADR 11/10 收 396.48 以 stockanalysis.com 為準（Yahoo meta 396.48 一致）；⚠️ ADR 11/09 收盤經資料源修訂為 388.62（前報發布 388.57），本日漲跌以修訂後前收計、前報發布值不回頭改。費半、標普、那斯達克、道瓊、VIX 為 Yahoo 2 年日線；供應鏈美股單檔 Yahoo 日 K close 為 null，改用 meta.regularMarketPrice（16:00 ET）並以 5 分線對照（僅台積電 ADR 另以 stockanalysis 核對）；華邦電、日月光、聯發科為 TWSE 收盤；韓股採 Naver（KRX 官方收盤）。⭐ 期貨為 TAIFEX 11/10 日盤＋11/10 15:00 至 11/11 05:00 的夜盤——夜盤由期交所歸在 2026/11/11 日期列；漲跌欄以 11/10 日盤結算價計算（CDF 202611 結算 2,283 + 8 ＝ 2,291、TX 202611 結算 42,646 − 124 ＝ 42,522），且 11/11 上午查詢時尚無 11/11 日盤列，可證為 11/10 夜盤；夜盤無結算價與未平倉。⚠️⚠️ 11/11 台股盤中價一律不採用、不作結論；只以 TWSE MIS 09:32:00 快照呈現：2330 開 2,330／高 2,330／低 2,305、累計 6,964 張（⚠️ 該快照成交價欄為「-」、無最新成交價；最佳委買 2,315／委賣 2,320；漲停 2,510／跌停 2,060）；加權同時點 42,908.74（較前收 +0.46%）、開 43,135.76——皆屬盤中、標明時點，正式判定由 11/12（四）報告以 11/11 收盤作。⭐ 新台幣匯率採中央銀行「新台幣/美元銀行間收盤匯率」11/10 收 32.865，較 11/09 的 32.882 升值 1.7 分（約 0.05%）；⚠️ 32.865 為捨入邊界，依 half-up 取 32.87（不用 Python round）：ADR 平價 ＝ 5 × 2,285 ÷ 32.87 ＝ 347.58，對 ADR 11/10 收 $396.48 溢價 +14.07%。⭐ 三大法人全市場金額採 TWSE BFI82U 官方（11/10 合計 -NT$117.62 億、外資 -341.17 億、投信 +398.91 億、自營 -175.36 億〔自行 -55.39 億、避險 -119.97 億〕；媒體早稿所載投信 368.29 億／合計 -148.23 億與官方不同，採官方）。⭐ 國安基金 11/9 起進場、金管會限空措施同日實施；11/10 為第 2 日，實際買進金額官方與媒體皆未公布。⭐ 10 月營收與 11/10 董事會決議為公司公告（媒體一致、官方頁面內文未能開啟，見 NEWS）；美國 10 月 CPI 以 BLS 官方為準（BLS 未發布 10 月年增率）。⚠️⚠️ 高雄 F22 P4 工安事故（10/20）截至 11/11 上午查無復工或新處分報導（查無不等於沒有）；2 奈米時程是否受影響未能證實。⚠️ DERIVATIVES 的 call_oi／put_oi／pcr 為「台指選擇權全市場」口徑（TAIFEX pcRatioDown，賣權欄在前、已以 Unicode 碼位確認）；⭐ 11/10（二）為非結算日且週選 W2 仍在 → 與 11/09（W2 重建首日）同口徑比較。⭐ 11/11（三）為週選 W2 結算日 → 11/11 P/C 只讀水位（由 11/12 報告回答）；11/13 週選 F2；11 月月結算 11/18（到期欄位 20261118）。⭐ 休市：TWSE 開休市表 11/11–11/18 無休市日，下一個休市日為 12/25（颱風等臨時休市不在表內）。</div>
+
+<!-- ═══ 0. 今日重點摘要 ═══ -->
+<div class="sec" id="summary">
+  <div class="sec-title">&#128203; 今日重點摘要</div>
+  <div class="summary-card" style="border-left-color:#C62828">
+    <div class="summary-left">
+      <div class="s-badge" style="background:#C62828">看空</div>
+      <div class="s-label">今日信號</div>
+    </div>
+    <div class="summary-right">
+      <div class="s-headline">⭐ 台股 11/10 加權 +1,050.22 點（+2.52%）收 42,711.92（11/04 以來最高收盤），國安基金進場第 2 日（買進金額未公布）；台積電 2330 開 2,265（跳空 +30）、最低 2,230，收在全日最高 2,285（+50、+2.24%，2026 年 98 個上漲日第 29，非極端），⭐ 連 2 日上漲、收盤為 11/03 以來最高，守住 MA5（2,231.00）、守在布林下軌之上（實際 2,172.82、前報估算 2,164.88 皆在其下），MACD 柱 -50.45 → -35.48 續收斂且 DIF 回升、K 40.90／D 27.15 黃金交叉第 3 日、RSI 41.68 回到 40 之上；⚠️ 但量 36,576 張（-20.28%）僅為前報基準 60,358 張的 0.61 倍＝量縮上漲＝跌深反彈（量能卡片以含當日的新 5 日均量 58,446 張計為 -37%，兩種口徑皆屬量縮），收盤仍低於 MA10（2,299.00）14 元、續在 MA20、MA60 與半年線（MA120 2,389.29）之下；相對大盤續落後 0.28 個百分點（精算 -0.2837）。外資全市場賣超 NT$341.17 億（BFI82U 官方），對台積電賣超 8,181 張（連 23 賣、合計 262,935 張；較 11/09 減少 577 張、維持在 10,000 張門檻內）；投信買 5,634 張（連 28 買）、自營賣 766 張（連 2 賣），三大合計 -3,313 張；⚠️ 外資台指期淨空續擴大至 -103,473 口（10/20 起 14 筆中最大、連 6 日擴大，僅限此窗口），台指選擇權 P/C 由 51.19% 升至 66.54%（同口徑、賣權相對增加）。⭐ 公司面：10 月營收約 5,868.9 億元（年增 +59.71%、月增 +14.66%，媒體稱創單月新高）、董事會核准 Q3 股利每股 9 元（Q2 為 7 元）。⚠️ 收盤後：美 10 月 CPI 月增 0.4% 高於預期（BLS），美股收跌（費半 -0.35%），ADR 逆勢 +2.02% 收 $396.48；11/10 夜盤個股期 2,291 較現貨僅 +6、無訊號。回到中性偏空兩條件只過其一（外資 8,181 張 ≤ 10,000 張過；收盤 2,285 距 2,450 仍差 165 元未過），⚠️ 維持看空、轉弱程度「續緩和」（短線技術修復延續第 2 日，但量縮、未站上 MA10、期貨淨空再擴、相對大盤落後；11/11 MIS 盤中僅標時點）。</div>
+      <ul class="s-bullets"><li>⭐⭐ 先逐條回答前一份日報（11/10 報）對 11/10 所訂的十項檢核：（1）⚠️「收盤 ≥ 2,450 且外資賣超 ≤ 10,000 張（或轉買）→ 回到中性偏空；只過其一 → 維持看空」：❌ 收盤 2,285 低於 2,450 達 165 元（全日最高 2,285 亦未觸及）、✅ 外資賣超 8,181 張 ≤ 10,000 張 → 只過其一、維持看空；（2）「MA120 平衡點 2,390.17：收盤 ≥ 2,395 記為收回半年線、≤ 2,390 記為續在其下；≥ 2,425 記為收回 MA60（平衡點 2,420.08）」：⚠️ 收 2,285 ≤ 2,390 → 續在半年線之下（MA120 2,389.29，低 104.29 元、連 8 日）；❌ 未收回 MA60（2,417.83，低 132.83 元、連 16 日）；MA20 參考平衡點 2,374.47，實際 MA20 2,370.00、收盤低 85.00 元（連 17 日）；（3）「≥ 2,220 記為站穩 MA5（平衡點 2,217.50）、≤ 2,215 記為跌回其下；≥ 2,305 記為站上 MA10（平衡點 2,300.56）」：✅ 收 2,285 ≥ 2,220 → 站穩 MA5（實際 2,231.00，高 54.00 元、連 2 日在上）；❌ 未站上 MA10（2,299.00，低 14.00 元、連 19 日在下）；（4）「收盤 ≤ 2,160 記為跌回布林下軌之下、≥ 2,165 記為守在下軌之上（字面與實際並陳）；盤中最高 ≥ 2,360／≥ 2,390 記為回補舊缺口；盤中最低 > 2,290 或最高 < 2,190 記為新缺口」：✅ 收盤 2,285 高於前報估算值 2,164.88 達 120.12 元、高於實際下軌 2,172.82 達 112.18 元 → 字面與實際皆守在下軌之上（盤中低 2,230 亦在兩者之上）；❌ 盤中最高 2,285 < 2,360 → 2,345–2,360 缺口第 7 日、2,380–2,390 缺口第 8 日未補（2,450–2,490 缺口第 17 日未補）；本日區間 2,230–2,285 與 11/09 重疊、無新缺口；（5）「11/09 夜盤偏強：2330 現貨 11/10 開盤 > 2,235、收盤 > 2,235 各記一筆偏強兌現」：✅ 開 2,265 > 2,235、✅ 收 2,285 > 2,235 → 偏強皆兌現，偏強紀錄更新為開 7/9、收 4/9（偏弱紀錄開 18/20、收 15/20 不變）；收盤 > 2,235 記為與 ADR 11/09 走強（+3.50%）同向（僅為相關）；（6）「MACD 柱 > -50.45 記為續收斂；K ≥ D 記為黃金交叉延續（第 3 日）；RSI ≥ 40 記為回到 40 之上、< 30 記為跌回 30 之下」：⭐ MACD 柱 -35.48 > -50.45 → 續收斂（+14.97，DIF 回升 3.05）；⭐ K 40.90 ≥ D 27.15 → 黃金交叉延續第 3 日；⭐ RSI 41.68 ≥ 40 → 回到 40 之上；（7）「外資轉買即中止連 22 賣；≤ 10,000 張記為維持在門檻內、> 10,000 張記為重新擴大（以 8,758 張為參照）；外資台指期淨空 < 101,771 口記為收斂、> 101,771 口記為續擴大」：⚠️ 外資續賣（連 23 賣），8,181 張 ≤ 10,000 張 → 維持在門檻內，較參照 8,758 張減少 577 張；⚠️ 台指期淨空 -103,473 口 > 101,771 口 → 續擴大 1,702 口；（8）「量能基準 60,358 張四象限」：⚠️ 36,576 張為基準的 0.6060 倍（-39.40%）且收漲 → 量縮上漲＝跌深反彈；（9）「11/10 P/C 與 11/09 的 51.19% 同口徑比較」：⚠️ P/C 66.54% 高於 51.19%（+15.35 個百分點）→ 記為賣權相對增加；水位仍低於 100%（買權 153,672／賣權 102,261 口）；（10）「相對加權超額報酬 ≥ 0 記為恢復相對抗跌、< 0 記為續落後；10 月營收與美國 10 月 CPI 由本報反映；續追蹤國安基金、P4 復工與 2 奈米」：⚠️ 超額 -0.28 個百分點（2330 +2.24% 對加權 +2.52%）→ 續落後；10 月營收約 5,868.9 億元、年增 +59.71%（見 NEWS）；美 10 月 CPI 月增 0.4%、核心 0.3%，高於預期（BLS 官方；BLS 未發布年增率）；國安基金第 2 日買進金額未公布；P4 復工與 2 奈米時程查無新進展。⭐ 11/10 漲停 2,455／跌停 2,015：盤中 2,230–2,285 皆未觸及。</li><li>⭐ 立場推理：回到「中性偏空」需價格與籌碼兩項同時成立，11/10 只過籌碼一項（外資賣超 8,181 張維持在 10,000 張以內），價格一項仍差 165 元（收 2,285 對 2,450）→ 依約維持「看空」。依檢核原則先問是否有機械性成因：11/10 為非結算日、無除息、未見指數調整等被動調節；國安基金第 2 日為政策性買盤（金額未公布），本報不據以豁免或加分。⭐ 轉弱程度的裁決：修復項——連 2 日上漲且收在全日最高（收盤為 11/03 以來最高）、站穩 MA5（高 54 元）、守在布林下軌之上（%B 0.14 → 0.28）、MACD 柱再收斂 14.97 且 DIF 自 -63.47 回升至 -60.42、K/D 黃金交叉第 3 日、RSI 回到 40 之上、外資賣超再縮 577 張並維持門檻內、11/09 夜盤偏強開收皆兌現、10 月營收年增 +59.71% 與 Q3 股利升至 9 元（營運面正面，非價格訊號）、收盤後 ADR 逆勢 +2.02%；未修復或惡化項——量能再縮（36,576 張、為基準的 0.61 倍，反彈量能較 11/09 的 0.77 倍更弱）、收盤仍低於 MA10 14 元且續在 MA20／MA60／MA120 之下（MA20 與 MA120 差距自 -5.88 擴大至 -19.29）、外資連 23 賣、台指期淨空再擴至 -103,473 口（10/20 起最大、連 6 日擴大）、台指選擇權 P/C 升至 66.54%（賣權相對增加）、自營連 2 賣、相對大盤續落後 0.28 個百分點；收盤後美 10 月 CPI 高於預期、費半 -0.35%、輝達 -5.47%。⭐ 綜合裁決：維持「看空」，轉弱程度「續緩和」——短線技術修復延續第 2 日（較前報多了 DIF 回升、RSI 回到 40 上、收在最高），但量能、中期均線、期貨籌碼與相對強弱四面向仍未改善、期貨淨空與 P/C 反而轉向偏空，不足以標註「轉強」，也無理由改回「再加深」；回中性偏空仍以「收盤 ≥ 2,450 且外資賣超 ≤ 10,000 張（或轉買）」雙條件為準。⭐ 下一個可觀察的修復門檻為 MA10 的 11/11 平衡點 2,285.00（恰等於本日收盤）。⚠️ 11/11 上午 MIS 盤中開 2,330 僅作時點參考、不列為判定依據；反彈成因（國安基金、空單回補、逢低承接）本報不自行推斷。</li><li>⭐ 公司事件與總經（新聞範圍 11/10 下午～11/11 上午）：（1）⭐⭐ 10 月營收：合併營收約 NT$5,868.9 億，月增 +14.66%（9 月 5,118.57 億）、年增 +59.71%（2025 年 10 月 3,674.73 億），1–10 月累計約 4 兆 4,856.17 億元、年增 +43.29%；三項成長率本報依上述基準自算複現；「創單月新高」為媒體稱（本報未對全歷史月序列自算）；pr.tsmc.com 最新消息頁標題已確認、內文與 MOPS 未能開啟，數字以中時／自由財經／CNBC／中央社一致值為準（A 級）。（2）⭐⭐ 11/10 董事會：核准 Q3 現金股利每股 NT$9.0（Q2 為 7.0），除息交易日 2027/3/11、基準日 3/17、發放日 4/8；資本預算約 US$409.27 億；核准設立投資公司（上限 US$5 億）及各不超過 US$5 億認購 Anthropic 普通股與 OpenAI 特別股（核准額度上限、非已完成交易）；12/10 除息 NT$7.0 不變（pr.tsmc.com/chinese/news/3332，11/11 再確認）。（3）⚠️ 美 10 月 CPI（BLS 官方，11/10 08:30 ET）：總指數月增 0.4%、核心月增 0.3%，高於 CNBC 轉述之 Dow Jones 預期 0.3%／0.2%；BLS 因 2025 年 10 月資料缺漏未發布年增率（本報不自算、不引媒體估值）；CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入、2 碼機率約 13.6%（二手，取代前報 FXStreet 所引之升息機率）；10 年期殖利率約 4.99%（媒體所載 4.986%／4.988%）。（4）輝達調查案續發酵：11/10 股價 -5.47%、兩日 -9.51%，集體訴訟與分析師機率評估皆為媒體轉述（B 級）。</li><li>⭐ 技術面（全部依 TWSE 官方收盤序列自行計算，2026-01-02～11-10 共 205 個交易日；本日先以同一程式回算 11/09，全部欄位複現前報數值，再推進至 11/10）。（1）均線：MA5 2,231（滾出 11/03 收 2,295、滾入 2,285，-2）、MA10 2,299（滾出 10/27 收 2,400，-11.5）、MA20 2,370（滾出 10/8 收 2,550，-13.25）、MA60 2,417.83（滾出 8/11 收 2,395，-1.83）、MA120 2,389.29（滾出 5/15 收 2,265，+0.17）；收盤在 MA5 之上（高 54.00 元、連 2 日），仍在 MA10（連 19 日，差 -14.00）、MA20（連 17 日）、MA60（連 16 日）、MA120（連 8 日）之下；本日無均線交叉；MA20 續在 MA120 之下（差 -19.29，前 -5.88）、續在 MA60 之下（差 -47.83）。（2）布林：上 2,567.18／中 2,370.00／下 2,172.82，帶寬 16.64%（前 17.44%）、%B 0.28；收盤高於下軌 112.18 元。（3）MACD：DIF -60.42／DEA -42.68／柱 -35.48（前 -50.45，收斂 14.97；⭐ DIF 回升 3.05，為 10/08 起連 20 日下降後首次回升，仍在零軸之下；年內最低仍為 11/06 的 -58.83）。（4）KD：K 40.90／D 27.15／J 68.42，黃金交叉第 3 日（K−D +13.75）；年內 K 最低仍為 10/22 的 9.97。（5）RSI 41.68（前 35.47），回到 40 之上；在 2026 年 191 個可計算日中由低到高排第 18；19.57（11/06）仍為年內最低。（6）缺口：2,345–2,360 第 7 日、2,380–2,390 第 8 日、2,450–2,490 第 17 日未回補；本日無新缺口。（7）11/11 平衡價：MA5 2,223.75（滾出 11/04 收 2,260）、MA10 2,285.00（滾出 10/28 收 2,425）、MA20 2,361.05（滾出 10/12 收 2,540）、MA60 2,417.88（滾出 8/12 收 2,415）、MA120 2,390.55（滾出 5/18 收 2,240）；布林下軌估算 2,173.14（若收平盤 2,285）。</li><li>⭐ 籌碼面（TWSE T86 官方，張數向零截斷）：外資買進 16,641,830 股／賣出 24,823,600 股、淨 -8,181,770 股＝ -8,181 張（以收盤價估約 NT$186.9 億），⚠️ 連 23 日賣超（10/6 起：-1,672、-1,163、-12,302、-9,422、-25,641、-6,752、-34,111、-22,046、-9,834、-9,364、-6,153、-12,694、-1,618、-3,175、-10、-8,632、-15,005、-11,703、-21,603、-10,252、-22,844、-8,758、-8,181 張），二十三日合計 262,935 張；11/10 賣超在本波 23 日中由大到小排第 16，較 11/09 減少 577 張（-6.59%）、維持在 10,000 張以內（本波 23 日中第 13 個 ≤ 10,000 張的交易日）；本日未重抓全年 T86，不作 2026 年全年排名。投信 +5,634 張（買 5,672,600／賣 38,265 股；連 28 買，起點沿用前報）、⚠️ 自營商 -766 張（自行 -518、避險 -248；連 2 日賣超、合計 -1,530 張）；三大合計 -3,313 張（分項加總；官方 -3,313,907 股截斷為 -3,313 張，兩者一致）。近 5 日（11/04–11/10）外資合計 -71,638 張（五日皆賣）、投信 +20,585 張（五日皆買）、自營 +18,432 張（3 買 2 賣）。⭐ 全市場（BFI82U 官方）：外資 -341.17 億、投信 +398.91 億、自營 -175.36 億（自行 -55.39／避險 -119.97）、合計 -117.62 億；媒體早稿所載投信 368.29 億、合計 -148.23 億與官方不同，採官方。</li><li>⭐ 量能：成交 36,576 張（36,575,797 股四捨五入），較 11/09 的 45,883 張減 20.28%；為前報基準 60,358 張的 0.6060 倍（-39.40%）→ 四象限記為「量縮上漲＝跌深反彈」；在 2026 年 205 個交易日中由大到小排第 93。11/10 新的 5 日均量 58,445.6 張（11/04–11/10；11/03 的 46,137 張滾出；＝(255,652 + 36,576) ÷ 5，較前報基準 -3.17%），本日低於新均量 37.42%（量能卡片口徑）。成交金額 NT$828.47 億（-19.24%）、占全市場 8.01%；成交筆數 143,496 筆（-27.46%），平均每筆 0.255 張（11/09 為 0.232 張）。⭐ 11/11 量能基準 58,446 張（11/11 滾出 11/04 的 53,879 張；11/05–11/10 四日和 238,349 張，新均量 ＝ (238,349 + X) ÷ 5）。</li><li>⭐ 供應鏈與客戶 19 檔（美股、韓股、台股皆為 11/10 收盤，日期一致）：19 檔 11 漲 8 跌——⭐ 日月光 +7.84% 最強（自身 2 年 238 個上漲日並列第 18 大）、SK 海力士 +7.44% 次之、三星 +5.51% 第 3、博通 +3.91% 第 4（美股個股最強）、聯發科 +2.82% 第 5，華邦電 +1.89%、超微 +1.30%、高通 +1.20%、科磊 +1.06%、應材 +0.53%、科林研發 +0.49%；⚠️ 美股 13 檔個股 6 漲 7 跌：輝達 -5.47% 最弱（自身 2 年 243 個下跌日第 13 大；兩日 -9.51%）、Arm -2.58% 次弱、英特爾 -2.09% 第 3 弱，Amkor -1.51%、美光 -1.10%、蘋果 -0.62%（11/09 創 2 年收盤新高後回落）、艾司摩爾 -0.36%、費半 -0.35%。五日（基準 11/03）：超微 +6.47% 最強、高通 +5.53%、蘋果 +5.00%、聯發科 +4.22%（19 檔中僅此四檔五日正報酬）；輝達 -18.29% 最弱、SK 海力士 -15.28%、美光 -15.20%。19 檔中無 2 年收盤新高或新低。盤後（Yahoo 5 分線，非收盤）：輝達約 $170.48、超微約 $524.73、美光約 $736.00（19:59 ET）。韓股 Naver：三星 ₩197,300（+5.51%）、SK 海力士 ₩1,198,000（+7.44%）、KOSPI 5,239.13（+4.39%，2 年 291 個上漲日第 22 大，非極端）；Yahoo 三星／海力士收盤與 Naver 差 ₩1,600／₩14,000，依慣例採 Naver。</li><li>⭐ 衍生品（TAIFEX 官方）：（1）個股期 CDF 202611 11/10 日盤開 2,289／高 2,289／低 2,230／收 2,281，官方漲跌 +49（+2.20%，對 11/09 結算 2,232），結算 2,283、成交 11,572 口、未平倉 17,402 口（-2,093）、基差 -4（逆價差）；次月 202612 收 2,286、未平倉 13,263 口。（2）夜盤（11/10 15:00 至 11/11 05:00，期交所歸 2026/11/11 列；漲跌欄對 11/10 結算價計）：個股期 202611 開 2,277／高 2,315／低 2,256／收 2,291，官方 +8（+0.35%），較現貨 2,285 僅 +6 → 未達 ±10 門檻、無訊號，11/12 報告不計分；台指期夜盤 42,522（官方 -124、-0.29%），較加權 -189.92。11/09 夜盤偏強（+27）本日計分：開 2,265、收 2,285 皆 > 2,235 → 皆兌現，偏強紀錄開 7/9、收 4/9。（3）台指期 TX 202611 日盤收 42,623（官方 +1,145），結算 42,646、未平倉 122,272 口（-907）、期現價差 -88.92。（4）⚠️ 外資台指期淨空 -103,473 口（多 9,875／空 113,348），較 11/09 擴大 1,702 口（多單 -1,696、空單 +6），為 10/20 起 14 筆中最大、連 6 日擴大（僅限此窗口）。（5）台指選擇權全市場 P/C 66.54%（買權 153,672／賣權 102,261 口；成交量 P/C 118.36%），與 11/09 同口徑比較 +15.35 個百分點 → 賣權相對增加；11/11 為週選 W2 結算日、只讀水位。（6）CDO 202611 最大痛點 2,450（買權 170／賣權 188 口，極薄）。</li><li>⭐ 評價、匯率、相對強弱與 ADR。（1）TWSE 官方 BWIBBU_d 11/10：P/E 26.49x、P/B 9.21x、殖利率 0.96%（11/09 為 25.91x／9.01x／0.98%），隨股價 +2.24% 變動；財報年/季仍為 115/2、未換季。（2）⭐ 新台幣央行收盤 11/10 32.865，較 11/09 的 32.882 升值 1.7 分（約 0.05%）。32.865 為捨入邊界，依 half-up 取 32.87：ADR 平價 ＝ 5 × 2,285 ÷ 32.87 ＝ 347.58，對 ADR 11/10 收 $396.48 溢價 +14.07%（11/09 為 +14.33%，收斂 0.26 個百分點；以 3 位小數匯率計為 +14.05%）——收斂主因為台股 +2.24% 略高於 ADR +2.02%；⚠️ ADR 11/09 收盤經資料源修訂為 388.62（前報發布 388.57），本日 +2.02% 以修訂值計（對發布值為 +2.04%）；ADR 盤後約 402.65（+1.56%，19:59 EST）對同一平價約 +15.84%，不作為溢價口徑。（3）相對強弱：2330 單日 +2.24% 對加權 +2.52%（超額 -0.28pp）；5 日 -0.44%（基準 11/03 收 2,295）對加權 -1.38%；1 個月 -10.39%（基準 10/8 收 2,550；日曆同日 10/10 為週六、10/9 休市）對 -13.39%；YTD +44.2% 對 +45.5%（基準 1/2）；ADR 5 日 -2.06%、1 個月 -12.54%（基準 10/9 收 $453.31）、YTD +24.05%（1/02 口徑；對 2025 年末 +30.47%）；費半 5 日 -5.68%、1 個月 -20.47%、YTD +35.7%。（4）共識目標價：TipRanks US$538.44（10/18 版）對 $396.48 為 +35.81%、FactSet NT$3,220 對 2,285 為 +40.92%（目標價未變、分母變動所致）；Bernstein 台股端 NT$3,828 新增 FTNN／Yahoo 股市一處獨立媒體轉述（與工商時報同為 11/9、疑同一份研報，仍無券商原文、維持 B 級），未併入共識；11/10–11/11 上午台股端與 ADR 端查無新的目標價或評級調整（屬「未查到」）。（5）FX 情境以 32.87 重算：31.8（Q4 財測假設）對毛利率約 -135 bps。</li></ul>
+      <div class="s-bottom">&#128161; ⭐ 一句話總結：11/10 台積電收在全日最高 2,285（+2.24%），連 2 日上漲、站穩 MA5、守在布林下軌之上，MACD 柱再收斂且 DIF 回升、KD 黃金交叉第 3 日、RSI 回到 40 之上，外資賣超 8,181 張維持在門檻內；公司面 10 月營收年增 +59.71%、Q3 股利升至 9 元；⚠️ 但量縮上漲（量僅為基準的 0.61 倍）、收盤仍低於 MA10 14 元且續在 MA20／MA60／MA120 之下、外資台指期淨空再擴至 -103,473 口、P/C 升至 66.54%、相對大盤續落後 0.28 個百分點——技術修復延續第 2 日，轉弱程度「續緩和」。⚠️ 收盤後美 10 月 CPI 月增 0.4% 高於預期、CNBC 引 FedWatch 稱 12 月升息 1 碼已全面計入（二手），美股收跌、費半 -0.35%，ADR 逆勢 +2.02%；11/10 夜盤無訊號。回到「中性偏空」兩條件只過其一，依約維持「看空」；延續性由 11/12（四）報告以 11/11 收盤判定。⭐ 自看空回調的判準不變：收盤 ≥ 2,450 且外資賣超 ≤ 10,000 張（或轉買）；近端觀察：2,285.00 站上 MA10、2,390.55 收回半年線；下檔警戒：MA5 平衡點 2,223.75、11/10 低點 2,230、11/06 低點 2,020。</div>
+      <div class="s-risk">&#9888; ⚠️ 五項須優先追蹤的風險（依 11/10 台股、11/10 美股、11/10 夜盤與總經事件重新排定）：（1）⚠️⚠️ 技術與籌碼——11/10 反彈量再縮（36,576 張、為基準的 0.61 倍），收盤仍低於 MA10（2,299.00）14 元，續在 MA20（2,370.00）、MA120（2,389.29）、MA60（2,417.83）之下，MA20 與 MA120 差距擴大至 -19.29；外資連 23 日賣超台積電（合計 262,935 張）、外資台指期淨空再擴至 -103,473 口（10/20 起最大、連 6 日擴大）、台指選擇權 P/C 升至 66.54%；下檔參考為 MA5 平衡點 2,223.75、11/10 低點 2,230、布林下軌估 2,173.14、11/06 低點 2,020，壓力為 MA10 站上價 2,285.00、2,345–2,360 與 2,380–2,390 缺口、半年線收回價 2,390.55。（2）⚠️⚠️ 總經——美 10 月 CPI 月增 0.4%、核心 0.3%，皆高於預期（BLS 官方；預期值為 CNBC 轉述）；CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入、2 碼機率約 13.6%（二手）；10 年期殖利率約 4.99%；FOMC 12/8–9。（3）⚠️ 客戶與外部波動——輝達 11/10 再跌 5.47%（兩日 -9.51%），董事會調查案出現集體訴訟、分析師稱執行長去職機率約 15%（皆為轉述），本報不推估對台積電之影響；輝達財報 11/17（二手轉述）；費半 -0.35%、收復 11/05 跌幅比率由 81.33% 降至 78.50%。（4）⚠️ 政策與護盤——國安基金 11/9 起進場（第 2 日買進金額官方與媒體皆未公布）、金管會借券賣出委託上限降至 3%；護盤效果不作預判、漲幅不作歸因。（5）⚠️ 營運面——10 月營收年增 +59.71%（正面）與 Q3 股利 9 元已反映於本報；高雄 F22 P4 工安事故截至 11/11 上午查無復工報導，2 奈米時程影響未能證實；11/11 週選 W2、11/13 週選 F2、11/18 月結算。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 1. 股價快照 ═══ -->
+<div class="sec" id="price">
+  <div class="sec-title">📈 今日股價快照</div>
+  <div class="stock-grid">
+    <div class="stock-box">
+      <div class="stock-exch">台灣證交所 TWSE：2330</div>
+      <div class="stock-row">
+        <div class="price">NT$2,285</div>
+        <div class="chg" style="color:#4CAF50">+50.00 (+2.24%)</div>
+      </div>
+      <div class="stock-detail">
+        <div class="sd">開盤 <span>NT$2,265</span></div>
+        <div class="sd">最高 <span>NT$2,285</span></div>
+        <div class="sd">最低 <span>NT$2,230</span></div>
+        <div class="sd">成交量 <span>36,576 張</span></div>
+        <div class="sd">52W 高 <span>NT$2,590</span></div>
+        <div class="sd">52W 低 <span>NT$1,375</span></div>
+        <div class="sd">市值 <span>NT$59.3 兆</span></div>
+        <div class="sd">P/E <span>26.49x</span></div>
+        <div class="sd">P/B <span>9.21x</span></div>
+        <div class="sd">殖利率 <span>0.96%</span></div>
+        <div class="sd">除息日 <span>⭐⭐ 最近一次除息日：2026-09-16（已完成），每股 NT$7.00001。TWSE 官方 TWT49U 三基準值：除權息前收盤價 2,385.00、除息參考價 2,377.99、開盤競價基準 2,380；9/17 已填息。下一次除息日 2026-12-10（NT$7.0；官方新聞稿，11/11 再次開啟原文確認）；再下一次 2027-03-11（Q3 季配息 NT$9.0，11/10 董事會決議）</span></div>
+        <div class="sd">股利 <span>⭐⭐ 2026 年第 1 季季配息 NT$7.00001 已於 2026-09-16 完成除息（TWSE 官方 TWT48U／TWT49U），現金發放日 2026-10-08（券商與媒體所載，未見公司公告原文）。⭐⭐⭐ 下一次：2026 年第 2 季季配息每股 NT$7.0，普通股除息交易日 2026-12-10、配息基準日 12-16、現金股利發放日 2027-01-07（ADR 除息交易日與配息基準日皆為 12-10；停止過戶 12/12–12/16）——台積電官方新聞稿 pr.tsmc.com/chinese/news/3332（2026-08-11 董事會決議），✅ 11/11 由新聞取數再次開啟原文確認上述日期與金額。⭐⭐ 再下一次：11/10 董事會核准 2026 年第 3 季現金股利每股 NT$9.0（高於 Q2 的 7.0），除息交易日 2027-03-11、配息基準日 2027-03-17、發放日 2027-04-08（ADR 除息交易日 3/11；董事會決議公告全文經 Yahoo 股市轉載＋中央社＋聯合報一致，pr.tsmc.com 該篇內文未能開啟）。11/11 查詢 TWSE TWT48U 除權息預告表未列入 2330（預告表僅至 11 月中旬，12/10 尚未進表，屬預期內）；未來 5 個交易日內無除息</span></div>
+      </div>
+    </div>
+    <div class="stock-box">
+      <div class="stock-exch">紐約證交所 NYSE：TSM（ADR）</div>
+      <div class="stock-row">
+        <div class="price">US$396.48</div>
+        <div class="chg" style="color:#4CAF50">+7.86 (+2.02%)</div>
+      </div>
+      <div style="font-size:10px;color:#FFB74D;margin-top:4px;line-height:1.4">&#9888; 11/10（二）收盤、較 11/09（前收修訂為 388.62，前報發布 388.57）；與台股 11/10 收盤同日對齊。台股 +2.24%、ADR +2.02%，新台幣央行收盤 32.865 較 11/09 的 32.882 升值 1.7 分；同日對齊溢價 +14.07%（前一個同日對齊值為 11/09 的 +14.33%，收斂 0.26 個百分點）。ADR 11/10 盤後約 402.65（stockanalysis.com，+1.56%；Yahoo 5 分線 402.59；19:59 EST）</div>
+      <div class="stock-detail">
+        <div class="sd">P/E (USD) <span>~30.2x</span></div>
+        <div class="sd">P/B <span>~10.5x</span></div>
+        <div class="sd">52W 高 <span>US$487.47</span></div>
+        <div class="sd">52W 低 <span>US$266.82</span></div>
+        <div class="sd">Beta <span>0.99</span></div>
+        <div class="sd">下次財報 <span>⭐⭐⭐ Q3 2026 法說會已於 2026-10-15（四）14:00–15:30 舉行（台股收盤後）：營收 NT$1 兆 4,942.4 億／US$46.72B（+17.6% QoQ、+50.9% YoY，高於指引上緣 $45.8B）、毛利率 66.4%（指引 65–67% 內、-1.3pp QoQ）、營益率 58.7%（高於指引 56–58% 上緣）、淨利率 51.1%、稅後純益 NT$7,630.6 億（+68.7% YoY，高於 LSEG 共識 7,463 億 +2.25%）、EPS NT$29.43／US$4.60 per ADR、年化 ROE 45.5%【法說簡報】；Q4 財測營收 US$52.3–54.3B（匯率假設 31.8）、毛利率 65–67%、營益率 56.5–58.5%；全年美元營收成長上修至約 44%（7 月為「略高於 40%」）、資本支出維持 US$60–64B。來源：台積電官方新聞稿 pr.tsmc.com/english/news/3346 與 SEC 6-K 一致。⭐ 下一次（Q4 2026）法說會日期待台積電官方公告，依歷年慣例推估為 2027 年 1 月中旬【待確認】。⭐⭐ 10 月營收已於 11/10 公布：合併營收約 NT$5,868.9 億，月增 +14.66%（9 月 5,118.57 億）、年增 +59.71%（2025 年 10 月 3,674.73 億）；1–10 月累計約 NT$4 兆 4,856.17 億、年增 +43.29%（pr.tsmc.com 最新消息頁標題確認、內文未能開啟，數字以中時／自由財經／CNBC／中央社一致值為準；月增、年增、累計年增本報依上述基準自算複現；媒體稱創單月新高，本報未對全歷史月序列自算）。11/11 上午 TWSE OpenAPI（t187ap05_L）仍顯示 9 月資料、尚未更新 10 月</span></div>
+        <div class="sd">共識評級 <span style="color:var(--green)">強烈買入</span></div>
+        <div class="sd">均值目標 <span>US$538.44</span></div>
+        <div class="sd">上漲空間 <span style="color:var(--green)">+35.81%</span></div>
+        <div class="sd">分析師數 <span>42 位（FactSet 台股）；ADR 端 TipRanks 9 位：買 8／持 0／賣 1</span></div>
+        <div class="sd">最高目標 <span>NT$5,000</span></div>
+        <div class="sd">最低目標 <span>NT$2,960</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 2. 財務 KPI ═══ -->
+<div class="sec" id="kpi">
+  <div class="sec-title">💰 財務重點 KPI（FY 2025 年報基準；Q3 2026 實績與 Q4 指引見法說區）</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-lbl">Q4 EPS</div><div class="kpi-val">NT$19.50</div><div class="kpi-chg" style="color:var(--green)">+34.9% YoY</div><div class="kpi-note">超預估 7.23%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 毛利率</div><div class="kpi-val">62.3%</div><div class="kpi-chg" style="color:var(--green)">+9.3pp YoY</div><div class="kpi-note">Q3: 57.8%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 營業利益率</div><div class="kpi-val">54.0%</div><div class="kpi-chg" style="color:var(--green)">+7.3pp YoY</div><div class="kpi-note">Q3: 50.6%</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 ROE</div><div class="kpi-val">38.8%</div><div class="kpi-chg" style="color:var(--green)">+9.8pp YoY</div><div class="kpi-note">FY25: 35.4%</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 EPS</div><div class="kpi-val">NT$66.25</div><div class="kpi-chg" style="color:var(--green)">+46.4% YoY</div><div class="kpi-note">FY24: NT$45.25</div></div>
+    <div class="kpi"><div class="kpi-lbl">FY25 營收</div><div class="kpi-val">$122B</div><div class="kpi-chg" style="color:var(--green)">+35.9% YoY</div><div class="kpi-note">TWD 3.8 兆</div></div>
+    <div class="kpi"><div class="kpi-lbl">先進製程佔比</div><div class="kpi-val">77%</div><div class="kpi-chg" style="color:var(--green)">≤7nm</div><div class="kpi-note">N3+N5+N7</div></div>
+    <div class="kpi"><div class="kpi-lbl">AI 加速器佔比</div><div class="kpi-val">~20%</div><div class="kpi-chg" style="color:var(--green)">60% CAGR 預測</div><div class="kpi-note">至 2029 年</div></div>
+    <div class="kpi"><div class="kpi-lbl">Q4 2026 指引</div><div class="kpi-val">$52.3–54.3B</div><div class="kpi-chg" style="color:var(--green)">毛利率 65–67%</div><div class="kpi-note">10/15 法說；營益率 56.5–58.5%</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 CapEx</div><div class="kpi-val">$60–64B</div><div class="kpi-chg" style="color:var(--orange)">+58–68%</div><div class="kpi-note">9/2 SEMICON 上修（4 月指引 $52–56B）</div></div>
+    <div class="kpi"><div class="kpi-lbl">2026 股利（預估）</div><div class="kpi-val">≥NT$23</div><div class="kpi-chg" style="color:var(--green)">+27.8%+ YoY</div><div class="kpi-note">FY25: NT$18</div></div>
+    <div class="kpi"><div class="kpi-lbl">自由現金流</div><div class="kpi-val">NT$1兆</div><div class="kpi-chg" style="color:var(--green)">+15.2% YoY</div><div class="kpi-note">FY 2025</div></div>
+  </div>
+</div>
+
+<!-- ═══ 3. 法人買賣超 ═══ -->
+<div class="sec" id="inst">
+  <div class="sec-title">🏦 三大法人買賣超（2026-11-10）</div>
+  <div class="inst-grid">
+    <div class="inst-card">
+      <div class="inst-name">外資及陸資</div>
+      <div class="inst-val" style="color:#F44336">-8,181 張</div>
+      <div class="inst-note">賣超 | 持股：~74.0%</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:95%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-21,603"></div><div class="spark-val" style="color:#F44336">-21,603</div></div><div class="spark-bar"><div style="height:45%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-10,252"></div><div class="spark-val" style="color:#F44336">-10,252</div></div><div class="spark-bar"><div style="height:100%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-22,844"></div><div class="spark-val" style="color:#F44336">-22,844</div></div><div class="spark-bar"><div style="height:38%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-8,758"></div><div class="spark-val" style="color:#F44336">-8,758</div></div><div class="spark-bar"><div style="height:36%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-8,181"></div><div class="spark-val" style="color:#F44336">-8,181</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">投信</div>
+      <div class="inst-val" style="color:#4CAF50">+5,634 張</div>
+      <div class="inst-note">買超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:66%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+3,715"></div><div class="spark-val" style="color:#4CAF50">+3,715</div></div><div class="spark-bar"><div style="height:49%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+2,739"></div><div class="spark-val" style="color:#4CAF50">+2,739</div></div><div class="spark-bar"><div style="height:83%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+4,669"></div><div class="spark-val" style="color:#4CAF50">+4,669</div></div><div class="spark-bar"><div style="height:68%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+3,828"></div><div class="spark-val" style="color:#4CAF50">+3,828</div></div><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+5,634"></div><div class="spark-val" style="color:#4CAF50">+5,634</div></div></div>
+    </div>
+    <div class="inst-card">
+      <div class="inst-name">自營商</div>
+      <div class="inst-val" style="color:#F44336">-766 張</div>
+      <div class="inst-note">賣超</div>
+      <div class="spark-wrap"><div class="spark-bar"><div style="height:69%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+5,966"></div><div class="spark-val" style="color:#4CAF50">+5,966</div></div><div class="spark-bar"><div style="height:61%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+5,295"></div><div class="spark-val" style="color:#4CAF50">+5,295</div></div><div class="spark-bar"><div style="height:100%;background:#4CAF50;width:100%;border-radius:2px 2px 0 0" title="+8,701"></div><div class="spark-val" style="color:#4CAF50">+8,701</div></div><div class="spark-bar"><div style="height:9%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-764"></div><div class="spark-val" style="color:#F44336">-764</div></div><div class="spark-bar"><div style="height:9%;background:#F44336;width:100%;border-radius:2px 2px 0 0" title="-766"></div><div class="spark-val" style="color:#F44336">-766</div></div></div>
+    </div>
+  </div>
+  <div style="margin-top:10px;background:var(--card);border-radius:9px;padding:12px 14px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div><div style="font-size:11px;color:var(--muted)">三大法人合計</div>
+      <div style="font-size:18px;font-weight:700;color:#F44336">-3,313 張</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資持股比例</div>
+      <div style="font-size:18px;font-weight:700">~74.0%</div>
+      <div style="font-size:10px;color:var(--muted)">(約 192 億股（估）)</div></div>
+    <div><div style="font-size:11px;color:var(--muted)">外資近 5 日趨勢</div>
+      <div style="font-size:13px;font-weight:600;color:#F44336">淨賣超</div>
+      <div style="font-size:10px;color:var(--muted)">5 日合計 -71,638 張（買 0 日／賣 5 日）</div></div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">
+    Source: 玩股網 / Goodinfo / TWSE 三大法人日報 | 每日至
+    <a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" style="color:var(--blue)">TWSE</a> 更新</p>
+</div>
+
+<!-- ═══ 4. 技術分析 ═══ -->
+<div class="sec" id="tech">
+  <div class="sec-title">📉 技術分析指標</div>
+  <div class="alert">均線與 RSI／MACD／KDJ／布林均依 TWSE 官方收盤價序列（2026-01-02~2026-11-10 共 205 個交易日；10/23 颱風休市、10/26 補假無資料）自行計算；KDJ 之 RSV 採 9 日最高／最低、K、D 以 3 日平滑（K0＝D0＝50）；MACD 12/26/9，柱＝2×(DIF−DEA)（台式口徑）；布林 20 日、2 倍母體標準差；RSI 採 Wilder 平滑。本日先以同一程式回算 11/09，全部欄位與前報一致後才推進至 11/10。MA 欄位為四捨五入整數，.5 一律進位（依本報歷來慣例）：MA5 2,231、MA10 2,299、MA20 2,370、MA60 2,417.83 → 2,418、MA120 2,389.29 → 2,389；布林 2,567.18 → 2,567、2,172.82 → 2,173；⚠️ 判斷收盤在均線上下一律以未捨入值為準。布林寬度自 17.44% 收窄至 16.64%、%B 0.28；5 日均量 58,445.6 張（11/04–11/10，為各日四捨五入張數之平均；欄位顯示 58,446）；11/10 無除息事件、無還原對照序列需求</div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-lbl">RSI (14)</div>
+      <div class="tech-val">41.68</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff">⭐ RSI 14：11/09 35.47 → 11/10 41.68（+6.21），回到 40 之上（前報「RSI 收盤 ≥ 40 記為回到 40 之上」成立、「< 30 記為跌回 30 之下」未成立）；10/13 以來序列 51.19 → 51.19 → 43.97 → 41.45 → 41.45 → 39.48 → 42.43 → 37.81 → 40.78 → 45.47 → 43.97 → 37.92 → 33.50 → 30.19 → 27.28 → 25.76 → 19.57 → 35.47 → 41.68；11/06 的 19.57 仍為 2026 年 191 個可計算 RSI 日中的最低值，11/10 的 41.68 由低到高排第 18；仍低於 50，屬弱勢區內的反彈；最近一次 ≥ 50 為 10/14 的 51.19</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">MACD</div>
+      <div class="tech-val" style="color:#F44336">-35.48</div>
+      <span class="tech-sig" style="background:#F44336;color:#fff">⭐ MACD 柱續收斂：-50.45 → -35.48（+14.97；10/7 起序列：+25.66 → +20.23 → +13.92 → +2.27 → -5.74 → -17.43 → -26.94 → -31.96 → -35.76 → -34.68 → -36.90 → -34.60 → -28.24 → -24.07 → -25.90 → -30.70 → -36.41 → -42.29 → -45.98 → -58.83 → -50.45 → -35.48），前報「> -50.45 記為續收斂」成立；2026 年最低仍為 11/06 的 -58.83；⭐ DIF -63.47 → -60.42（回升 3.05，為 10/08 以來 DIF 首次較前一日上升〔序列 10/08 起連 20 日下降至 11/09〕）、DEA -38.25 → -42.68；DIF 仍在零軸之下、柱仍為負值</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">KDJ (9,3,3)</div>
+      <div class="tech-val">K:40.9</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff">⭐ 11/10 K 40.90／D 27.15／J 68.42——K 自 28.64 回升 12.26 點、D 自 20.27 回升 6.88 點，K−D 自 +8.37 擴大至 +13.75，前報「K ≥ D 記為黃金交叉延續（第 3 日）」成立（黃金交叉發生於 11/06）；K 回升主因為 RSV 採 9 日最高／最低，11/10 收盤 2,285 為當日最高、位於 9 日區間中上段；10/22 的 9.97 仍為 2026 年 K 值最低</span>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px">D:27.1 / J:68.4</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">布林帶（20,2）</div>
+      <div class="tech-val" style="font-size:14px">NT$2,285</div>
+      <div style="font-size:10.5px;color:var(--muted)">上：2,567　中：2,370</div>
+      <div style="font-size:10.5px;color:var(--muted)">下：2,173</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff;margin-top:4px">中軌之下</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">成交量</div>
+      <div class="tech-val">36,576</div>
+      <div style="font-size:10.5px;color:var(--muted)">5日均量：58,446 張</div>
+      <span class="tech-sig" style="background:#FF9800;color:#fff;margin-top:4px">明顯量縮 (-37% vs 均量)</span>
+    </div>
+    <div class="tech-card">
+      <div class="tech-lbl">整體趨勢</div>
+      <div class="tech-val" style="font-size:15px">⭐ 11/10 收盤 2,285 守在 MA5（2,231.00）之上 54.00 元——前報「≥ 2,220 記為站穩 MA5」成立，連 2 日在 MA5 之上；⚠️ 低於 MA10（2,299.00）14.00 元（連 19 日；前報「≥ 2,305 記為站上 MA10」未成立）；續在 MA120 半年線（2,389.29）之下 104.29 元（前報「≤ 2,390 記為續在半年線之下」成立，連 8 日）；低於 MA20＝布林中軌（2,370.00）85.00 元（連 17 日）、低於 MA60（2,417.83）132.83 元（連 16 日；前報「≥ 2,425 記為收回」未成立）；⭐ 收盤高於 11/10 實際布林下軌（2,172.82）112.18 元（%B 0.28）、亦高於前報估算值 2,164.88 達 120.12 元——字面與實際皆守在下軌之上；盤中最低 2,230 亦在兩者之上。⭐ 缺口：全日 2,230–2,285 與 11/09 區間重疊、無新缺口；2,345–2,360 缺口第 7 日、2,380–2,390 缺口第 8 日、2,450–2,490 缺口第 17 日未回補（盤中最高 2,285 皆未觸及）。均線交叉：本日無均線交叉；排列：MA60 2,417.83 ＞ MA120 2,389.29 ＞ MA20 2,370.00 ＞ MA10 2,299.00 ＞ MA5 2,231.00，收盤在 MA5 之上、其餘四條均線之下（MA20 續在 MA120 之下，差距自 -5.88 擴大至 -19.29；MA20 − MA60 自 -36.42 擴大至 -47.83）。MA5 下移 2 元（滾出 11/03 收 2,295）、MA10 下移 11.5 元（滾出 10/27 收 2,400）、MA20 下移 13.25 元（滾出 10/8 收 2,550）、MA60 下移 1.83 元（滾出 8/11 收 2,395）、MA120 上移 0.17 元（滾出 5/15 收 2,265）。11/11 滾動預告：MA5 滾出 11/04 收 2,260（平衡點 2,223.75）、MA10 滾出 10/28 收 2,425（平衡點 2,285.00）、MA20 滾出 10/12 收 2,540（平衡點 2,361.05）、MA60 滾出 8/12 收 2,415（平衡點 2,417.88）、MA120 滾出 5/18 收 2,240（平衡點 2,390.55）；若 11/11 收平盤 2,285，布林下軌估算 2,173.14。⭐ MA10 的 11/11 平衡點 2,285.00 恰等於本日收盤：11/11 收盤只要不低於 2,285 即站上 MA10。短中期定性：短線技術修復第 2 日——連 2 日上漲且收在全日最高、守住 MA5、MACD 柱續收斂且 DIF 翻升、KD 黃金交叉延續、RSI 回到 40 之上；⚠️ 但量縮上漲（量為前報基準的 0.61 倍）、收盤仍在 MA10／MA20／MA60／MA120 之下、MA20 與 MA120 差距擴大；三個舊缺口未回補</div>
+      <div style="font-size:10.5px;color:var(--muted)">支撐：2,231 / 2,230 / 2,224 / 2,190 / 2,173 / 2,020（MA5 2,231.00、11/10 盤中最低 2,230、11/11 站穩 MA5 的平衡點 2,223.75、11/09 盤中最低 2,190、11/10 實際布林下軌 2,172.82／11/11 若收平盤的估算 2,173.14、11/06 低點 2,020）；11/11 跌停價 2,060（MIS 欄位）</div>
+      <div style="font-size:10.5px;color:var(--muted)">壓力：2,285 / 2,299 / 2,345 / 2,360 / 2,361 / 2,370 / 2,380 / 2,389 / 2,390 / 2,391 / 2,418 / 2,450 / 2,490（11/10 收盤＝盤中最高＝11/11 站上 MA10 的平衡點 2,285.00、MA10 2,299.00、2,345–2,360 向下缺口、11/11 MA20 平衡點 2,361.05、20MA＝布林中軌 2,370.00、2,380–2,390 向下缺口、MA120 2,389.29／11/11 收回半年線的平衡點 2,390.55、MA60 2,417.83／11/11 平衡點 2,417.88、缺口下緣 2,450、缺口上緣 2,490）</div>
+    </div>
+  </div>
+  <div class="sub-title">均線系統</div>
+  <div class="ma-grid">
+    <div class="ma-box"><div class="ma-lbl">MA5</div><div class="ma-val" style="color:#4CAF50">2,231</div></div><div class="ma-box"><div class="ma-lbl">MA10</div><div class="ma-val" style="color:#F44336">2,299</div></div><div class="ma-box"><div class="ma-lbl">MA20</div><div class="ma-val" style="color:#F44336">2,370</div></div><div class="ma-box"><div class="ma-lbl">MA60</div><div class="ma-val" style="color:#F44336">2,418</div></div><div class="ma-box"><div class="ma-lbl">MA120</div><div class="ma-val" style="color:#F44336">2,389</div></div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">現價 NT$2,285，已跌破 MA10(2,299)、MA20(2,370)、MA60(2,418)、MA120(2,389)，仍站上 MA5(2,231)（當前長期支撐帶）。</p>
+</div>
+
+<!-- ═══ 5. 期貨選擇權 ═══ -->
+<div class="sec" id="deriv">
+  <div class="sec-title">📊 台積電期貨 & 選擇權動態</div>
+  <div class="alert">⚠️ 口徑說明：call_oi／put_oi／pcr 三欄為「台指選擇權全市場」未平倉（TAIFEX pcRatioDown，賣權欄在前、以 Unicode 碼位確認），非台積電個股選擇權；台積電 CDO 近月未平倉僅數百口（202611 買權 170／賣權 188 口），另列於 max_pain。⭐ 本日數據（11/10 正常單日、非結算日；本日先 replay 11/09 日盤、夜盤、外資台指期、P/C 與 CDO，全部與前報一致）：（1）個股期 CDF 202611 11/10 日盤開 2,289／高 2,289／低 2,230／收 2,281，官方漲跌 +49、+2.20%（對 11/09 結算 2,232，「前日結算＋官方漲跌＝收盤」自證通過），結算 2,283、成交 11,572 口、未平倉 17,402 口（較 11/09 的 19,495 口 -2,093）；次月 202612 開 2,287／高 2,291／低 2,235／收 2,286、結算 2,289（官方 +48、+2.14%）、成交 4,572 口、未平倉 13,263 口；202611 與 202612 為不同合約、價格不可跨合約比較。基差：近月 2,281 − 現貨 2,285 ＝ -4（11/09 為 -6，續逆價差）。（2）⭐⭐ 夜盤（11/10 15:00 至 11/11 05:00；期交所歸在 2026/11/11 日期列；漲跌欄以 11/10 日盤結算價計算：CDF 2,283 + 8 ＝ 2,291、TX 42,646 − 124 ＝ 42,522，且 11/11 上午查詢時尚無 11/11 日盤列，可證為 11/10 夜盤；夜盤無結算價與未平倉）：個股期 202611 開 2,277／高 2,315／低 2,256／收 2,291，官方漲跌 +8（+0.35%，對結算 2,283），較日盤收盤 2,281 為 +10，較現貨 2,285 為 +6，成交 3,445 口；次月 202612 夜盤收 2,290（官方 +1）。台指期 202611 夜盤開 42,503／高 43,147／低 42,030／收 42,522，官方漲跌 -124（-0.29%，對結算價 42,646），較日盤收盤 42,623 為 -101，較現貨 42,711.92 為 -189.92，成交 56,759 口。⭐ 個股期夜盤較現貨僅 +6、未達 ±10 門檻 → 依本報口徑「無訊號」，11/12 報告不計分（偏強紀錄開 7/9、收 4/9，偏弱紀錄開 18/20、收 15/20 皆不變）；夜盤漲跌不作排名。⭐ 11/09 夜盤偏強（+27）本日計分：2330 現貨 11/10 開 2,265 > 2,235 → 開盤兌現；收 2,285 > 2,235 → 收盤兌現；偏強紀錄更新為開 7/9、收 4/9（分母 8 → 9；偏弱紀錄開 18/20、收 15/20 不變）。（3）台指期 TX 202611 日盤開 42,701／高 43,108／低 41,873／收 42,623（官方漲跌 +1,145、+2.76%，對 11/09 結算 41,478），結算 42,646、成交 85,124 口、未平倉 122,272 口（較 11/09 的 123,179 口 -907）、期現價差 -88.92（11/09 為 -238.70）。（4）台指選擇權全市場：11/10 買權 153,672／賣權 102,261 口、P/C 66.54%（成交量 P/C 118.36%）；與 11/09 的 51.19% 同口徑比較 → 賣權相對增加；11/11 週選 W2 結算日只讀水位、11/13 週選 F2；11 月月結算為 11/18（到期欄位 20261118），11/18 前期貨近月不換月。（5）台積電個股選擇權 CDO：近月 202611 最大痛點 2,450（期交所 optDataDown 重算，買權 170／賣權 188 口，未平倉極薄；11/09 亦為 2,450）；買權未平倉前三大履約價 2,400（33 口）、2,450（32 口）、2,500（26 口），賣權 2,500（29 口）、2,250（27 口）、2,550（22 口）；202612 最大痛點 2,250（買權 57／賣權 31 口，不作解讀）。（6）三大法人台指期部位（futContractsDateDown TXF，外資及陸資）：11/09 -101,771 → 11/10 -103,473 口（多 11,571 → 9,875、空 113,342 → 113,348），擴大 1,702 口；10/20 起十四筆中 11/10 淨空最大、連 6 日擴大（抓取窗口外不作更長期比較）。投信、自營與外資個股期貨（STF）本日未取數。來源：TAIFEX futDataDown（POST、commodity_id=all，11/10 與 11/11 日期列；11/11 列僅有夜盤）／futContractsDateDown（TXF）／pcRatioDown／optDataDown（CDO、TXO），皆於 11/11 上午抓取。</div>
+  <div class="deriv-grid">
+    <div class="deriv-card"><div class="deriv-lbl">期貨近月收盤</div><div class="deriv-val">NT$2,281</div><div style="font-size:10.5px;color:var(--muted)">基差 -4 點（逆價差）</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">未平倉量（口）</div><div class="deriv-val">17402</div><div style="font-size:10.5px;color:var(--muted)">2026-11-10</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put/Call Ratio</div><div class="deriv-val" style="color:#4CAF50">0.67</div><div style="font-size:10.5px;color:#4CAF50">偏多（買權未平倉明顯偏多）</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Call 未平倉</div><div class="deriv-val" style="color:var(--green)">153672</div><div style="font-size:10.5px;color:var(--muted)">全行使價合計</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">Put 未平倉</div><div class="deriv-val" style="color:var(--red)">102261</div><div style="font-size:10.5px;color:var(--muted)">全行使價合計</div></div>
+    <div class="deriv-card"><div class="deriv-lbl">最大痛苦點</div><div class="deriv-val">2,450（CDO 近月 202611，11/10 optDataDown 重算：買權 170／賣權 188 口，未平倉極薄、參考性極低；11/09 亦為 2,450；次月 202612 為 2,250，買權 57／賣權 31 口，更薄、不作解讀）</div><div style="font-size:10.5px;color:var(--muted)">市場多空分界（本報估算）</div></div>
+  </div>
+  <div class="sub-title">主要行使價未平倉分布</div>
+  <table>
+    <thead><tr><th>關鍵價位</th><th>OI 分布傾向（本報估算，非官方逐履約價數據）</th><th>市場含意</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2,020</strong></td><td>11/06 開盤＝全日最低＝跌停價</td><td><span class="badge" style="background:#F44336">11/10 收盤高於此 265 元</span></td></tr><tr><td><strong>2,060</strong></td><td>11/11 跌停價（MIS 欄位，前收 2,285）</td><td><span class="badge" style="background:#F44336">盤中參考</span></td></tr><tr><td><strong>2,173</strong></td><td>11/10 實際布林下軌 2,172.82／11/11 若收 2,285 的估算 2,173.14</td><td><span class="badge" style="background:#F44336">收盤高於下軌 112.18 元</span></td></tr><tr><td><strong>2,190</strong></td><td>11/09 盤中最低</td><td><span class="badge" style="background:#F44336">11/10 未觸及</span></td></tr><tr><td><strong>2,224–2,231</strong></td><td>MA5（11/10 2,231.00；11/11 平衡點 2,223.75）</td><td><span class="badge" style="background:#F44336">11/11 收盤 ≥ 2,225 記為站穩 MA5</span></td></tr><tr><td><strong>2,230</strong></td><td>11/10 盤中最低</td><td><span class="badge" style="background:#F44336">高於實際下軌 57.18 元</span></td></tr><tr><td><strong>2,281</strong></td><td>11/10 個股期 202611 日盤收盤（結算 2,283）</td><td><span class="badge" style="background:#F44336">日盤基差 -4（逆價差）</span></td></tr><tr><td><strong>2,285</strong></td><td>11/10 現貨收盤＝盤中最高＝11/11 MA10 平衡點 2,285.00</td><td><span class="badge" style="background:#F44336">11/11 收盤 ≥ 2,285 記為站上 MA10</span></td></tr><tr><td><strong>2,291</strong></td><td>11/10 夜盤個股期 202611 收盤（歸 11/11 列）</td><td><span class="badge" style="background:#F44336">較現貨 +6，未達 ±10 門檻、無訊號</span></td></tr><tr><td><strong>2,299</strong></td><td>MA10（11/10 2,299.00）</td><td><span class="badge" style="background:#F44336">收盤低於 MA10 14.00 元（連 19 日）</span></td></tr><tr><td><strong>2,345–2,360</strong></td><td>11/02 向下跳空缺口（第 7 日未回補）</td><td><span class="badge" style="background:#F44336">盤中最高 ≥ 2,360 記為回補</span></td></tr><tr><td><strong>2,361–2,370</strong></td><td>MA20＝布林中軌（11/10 2,370.00；11/11 平衡點 2,361.05）</td><td><span class="badge" style="background:#F44336">收盤低於 MA20 85.00 元（連 17 日）</span></td></tr><tr><td><strong>2,380–2,390</strong></td><td>10/30 向下跳空缺口（第 8 日未回補）</td><td><span class="badge" style="background:#F44336">盤中最高 ≥ 2,390 記為回補</span></td></tr><tr><td><strong>2,389–2,391</strong></td><td>MA120 半年線（11/10 2,389.29；11/11 平衡點 2,390.55）</td><td><span class="badge" style="background:#F44336">11/11 收盤 ≥ 2,395 記為收回、≤ 2,390 續在其下</span></td></tr><tr><td><strong>2,418</strong></td><td>MA60（11/10 2,417.83；11/11 平衡點 2,417.88）</td><td><span class="badge" style="background:#F44336">收盤低於 MA60 132.83 元（連 16 日）</span></td></tr><tr><td><strong>2,450</strong></td><td>缺口下緣（10/15 高點）／CDO 202611 最大痛點</td><td><span class="badge" style="background:#F44336">回到中性偏空的價格門檻，差 165 元</span></td></tr><tr><td><strong>2,490</strong></td><td>缺口上緣</td><td><span class="badge" style="background:#F44336">失守後轉為壓力</span></td></tr><tr><td><strong>2,510</strong></td><td>11/11 漲停價（MIS 欄位）</td><td><span class="badge" style="background:#F44336">盤中參考</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">
+    Source: 台灣期交所 <a href="https://www.taifex.com.tw" style="color:var(--blue)">taifex.com.tw</a></p>
+</div>
+
+<!-- ═══ 6. 國際重要新聞 ═══ -->
+<div class="sec" id="news">
+  <div class="sec-title">📰 國際重要新聞分析</div>
+  <div class="news-grid"><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#4CAF50">營收</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">台積電 10 月營收 5,868.9 億 年增 59.71%</div>
+          <div class="news-body">台積電 11/10 公告 10 月合併營收約 5,868.9 億元，月增 14.66%、年增 59.71%（本報自算複現），媒體稱創單月新高；1–10 月累計約 4 兆 4,856.17 億元、年增 43.29%。官方頁僅確認標題、內文未能開啟，數字以多家媒體一致值為準。</div>
+          <div class="news-src">來源：pr.tsmc.com 最新消息（標題）／中時新聞網／自由財經／CNBC／中央社</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#FF9800">公司公告</span>
+            <span class="impact" style="border-color:#4CAF50;color:#4CAF50">正面</span></div>
+          <div class="news-title">董事會核准 Q3 股利 9 元 資本預算 409 億美元</div>
+          <div class="news-body">台積電董事會 11/10 核准第 3 季現金股利每股 9 元（Q2 為 7 元），除息交易日 2027/3/11、發放日 4/8；另核准資本預算約 409.27 億美元，及各不超過 5 億美元認購 Anthropic、OpenAI 股份（核准額度上限、非已完成交易）。12/10 除息 7 元不變。</div>
+          <div class="news-src">來源：台積電董事會決議公告（Yahoo 股市轉載）／中央社／聯合報</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#F44336">風險警示</span>
+            <span class="impact" style="border-color:#FF9800;color:#FF9800">偏負</span></div>
+          <div class="news-title">美 10 月 CPI 月增 0.4% 高於預期</div>
+          <div class="news-body">BLS 公布 10 月 CPI 月增 0.4%、核心 0.3%，高於 Dow Jones 預期 0.3%／0.2%（CNBC 轉述）；BLS 未發布 10 月年增率。CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入、2 碼機率約 13.6%（二手）。</div>
+          <div class="news-src">來源：BLS（官方）／CNBC（引 CME FedWatch）／路透</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#607D8B">市場</span>
+            <span class="impact" style="border-color:#FF9800;color:#FF9800">中性</span></div>
+          <div class="news-title">美股收跌 費半 -0.35% 台積電 ADR +2.02%</div>
+          <div class="news-body">美股 11/10 道瓊 -0.30%、標普 -0.38%、那斯達克 -0.74%，費半 -0.35% 收 9,998.33；台積電 ADR 收 396.48 美元（+2.02%、連 3 漲），同日對齊溢價 +14.07%（本報以 32.87 計）。媒體未載 ADR 逆勢上漲原因，本報不作歸因。</div>
+          <div class="news-src">來源：Yahoo Finance（行情）／stockanalysis.com／經濟日報／CNBC</div></div><div class="news-card">
+          <div class="news-hdr"><span class="tag" style="background:#2196F3">客戶</span>
+            <span class="impact" style="border-color:#FF9800;color:#FF9800">中性偏負</span></div>
+          <div class="news-title">輝達調查案續發酵 股價再跌 5.47%</div>
+          <div class="news-body">輝達 11/10 收 168.89 美元（-5.47%），兩日累計 -9.51%（本報自算）。據 CNBC，已有律所在聖荷西聯邦法院提起集體訴訟；分析師 Dan Ives 稱市場認定黃仁勳去職機率約 15%、調查約需 4 至 6 週。細節皆為轉述，本報不推估對台積電之影響。</div>
+          <div class="news-src">來源：CNBC／新頭殼／經濟日報／Yahoo Finance（行情）</div></div></div>
+</div>
+
+<!-- ═══ 7. 主要客戶動態 ═══ -->
+<div class="sec" id="customer">
+  <div class="sec-title">🏢 主要客戶 2026 預估營收佔比</div>
+  <div style="display:flex;height:30px;border-radius:8px;overflow:hidden;margin-bottom:12px">
+    <div style="width:21%;background:#76b900" title="NVIDIA 21%"></div>
+    <div style="width:17%;background:#999999" title="Apple 17%"></div>
+    <div style="width:13%;background:#CC0000" title="Broadcom 13%"></div>
+    <div style="width:9%;background:#00AAFF"  title="MediaTek 9%"></div>
+    <div style="width:8%;background:#ED1C24"  title="AMD 8%"></div>
+    <div style="width:7%;background:#3253DC"  title="Qualcomm 7%"></div>
+    <div style="width:7%;background:#0071C5"  title="Intel 7%"></div>
+    <div style="width:18%;background:#AAAAAA" title="其他 18%"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>預估佔比</th><th>預估營收 (USD)</th><th>主要晶片</th><th>趨勢</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76b900">NVIDIA</strong></td><td><strong>~21%</strong></td><td>~$33B</td><td>H100/H200、Vera Rubin (N3)</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#999">Apple</strong></td><td>~17%</td><td>~$27B</td><td>A18 Pro / M5 / C1 Modem</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#CC0000">Broadcom</strong></td><td>~13%</td><td>—</td><td>ASIC/AI 加速器、網路晶片</td><td><span class="badge" style="background:#4CAF50">快速成長</span></td></tr>
+      <tr><td><strong style="color:#00AAFF">MediaTek</strong></td><td>~9%</td><td>—</td><td>Dimensity 9400 等旗艦 SoC</td><td><span class="badge" style="background:#2196F3">穩定</span></td></tr>
+      <tr><td><strong style="color:#ED1C24">AMD</strong></td><td>~8%</td><td>—</td><td>MI300X AI GPU / Zen5 CPU</td><td><span class="badge" style="background:#4CAF50">成長</span></td></tr>
+      <tr><td><strong style="color:#3253DC">Qualcomm</strong></td><td>~7%</td><td>—</td><td>Snapdragon Elite 系列</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+      <tr><td><strong style="color:#0071C5">Intel</strong></td><td>~7%</td><td>—</td><td>Arrow Lake / Panther Lake</td><td><span class="badge" style="background:#FF9800">持平</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:6px">Source: Morgan Stanley / Creative Strategies / CNBC 2026-01</p>
+</div>
+
+<!-- ═══ 8. 產業生態系股價連動 ═══ -->
+<div class="sec" id="ecosystem">
+  <div class="sec-title">⛓️ 供應鏈 & 客戶股價連動（估算）</div>
+  <div class="alert">⚠ 股價數據為估算值，每日請至看盤平台更新。色塊：<span class="badge" style="background:#2196F3">設備</span> <span class="badge" style="background:#9C27B0">記憶體</span> <span class="badge" style="background:#009688">封裝</span> <span class="badge" style="background:#1565C0">客戶</span> <span class="badge" style="background:#607D8B">競爭</span></div>
+  <table>
+    <thead><tr><th>類別</th><th>代碼</th><th>名稱</th><th>股價（估）</th><th>漲跌幅（估）</th><th>與 TSMC 關係</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>ASML</strong></td>
+        <td>艾司摩爾</td>
+        <td>1,507.85</td>
+        <td style="color:#F44336;font-weight:600">-0.36%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $1,507.85（-0.36%，前收 11/9 的 $1,513.25）；五日累計（基準 11/3 收 $1,552.14）-2.85%；距 6/30 的 2 年最高收盤 $1,989.44 低 24.21%；11/10 -0.36% 為自身 2 年 230 個下跌日中跌幅第 198 大</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>AMAT</strong></td>
+        <td>應用材料</td>
+        <td>372.53</td>
+        <td style="color:#4CAF50;font-weight:600">+0.53%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $372.53（+0.53%，前收 11/9 的 $370.55）；五日累計（基準 11/3 收 $381.92）-2.46%；距 6/30 的 2 年最高收盤 $723.00 低 48.47%；11/10 +0.53% 為自身 2 年 269 個上漲日中漲幅第 224 大；連 3 個交易日上漲</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>LRCX</strong></td>
+        <td>科林研發</td>
+        <td>222.39</td>
+        <td style="color:#4CAF50;font-weight:600">+0.49%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $222.39（+0.49%，前收 11/9 的 $221.31）；五日累計（基準 11/3 收 $230.72）-3.61%；距 6/30 的 2 年最高收盤 $433.33 低 48.68%；11/10 +0.49% 為自身 2 年 272 個上漲日中漲幅第 237 大；連 3 個交易日上漲</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#2196F3">設備</span></td>
+        <td><strong>KLAC</strong></td>
+        <td>科磊</td>
+        <td>152.99</td>
+        <td style="color:#4CAF50;font-weight:600">+1.06%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $152.99（+1.06%，前收 11/9 的 $151.38）；五日累計（基準 11/3 收 $156.20）-2.06%；距 6/30 的 2 年最高收盤 $301.71 低 49.29%；11/10 +1.06% 為自身 2 年 281 個上漲日中漲幅第 172 大；連 3 個交易日上漲</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>2344.TW</strong></td>
+        <td>華邦電 Winbond</td>
+        <td>135.00</td>
+        <td style="color:#4CAF50;font-weight:600">+1.89%</td>
+        <td style="font-size:11px;color:#444">11/10 收 NT$135.00（+1.89%，前收 11/9 的 132.50；TWSE 收盤）；五日累計（基準 11/3 收 146.00）-7.53%；距 6/22 的 2 年最高收盤 222.00 低 39.19%；11/10 +1.89% 為自身 2 年 238 個上漲日中漲幅第 158 大；連 2 個交易日上漲</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>000660.KS</strong></td>
+        <td>SK 海力士</td>
+        <td>1,198,000 KRW</td>
+        <td style="color:#4CAF50;font-weight:600">+7.44%</td>
+        <td style="font-size:11px;color:#444">11/10 收 ₩1,198,000（+7.44%，前收 11/9 的 ₩1,115,000；Naver＝KRX 官方收盤）；五日累計（Naver 口徑，基準 11/3 收 ₩1,414,000）-15.28%；距 6/22 的 2 年最高收盤 ₩2,919,000（Naver 序列） 低 58.96%；11/10 +7.44% 為自身 2 年 270 個上漲日中漲幅第 30 大；⭐ 11/10 +7.44% 為 19 檔第 2 強；⚠️ 五日 -15.28% 為 19 檔第 2 弱；Yahoo 11/10 收 ₩1,212,000、與 Naver 差 ₩14,000，依慣例採 Naver</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#9C27B0">記憶</span></td>
+        <td><strong>MU</strong></td>
+        <td>美光</td>
+        <td>725.11</td>
+        <td style="color:#F44336;font-weight:600">-1.10%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $725.11（-1.10%，前收 11/9 的 $733.15）；五日累計（基準 11/3 收 $855.10）-15.20%；距 6/25 的 2 年最高收盤 $1,213.56 低 40.25%；11/10 -1.10% 為自身 2 年 229 個下跌日中跌幅第 171 大；五日 -15.20% 為 19 檔第 3 弱；盤後 19:59 ET 約 $736.00（Yahoo 5 分線，非收盤）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#009688">封裝</span></td>
+        <td><strong>3711.TW</strong></td>
+        <td>日月光</td>
+        <td>605.00</td>
+        <td style="color:#4CAF50;font-weight:600">+7.84%</td>
+        <td style="font-size:11px;color:#444">11/10 收 NT$605.00（+7.84%，前收 11/9 的 561.00；TWSE 收盤）；五日累計（基準 11/3 收 616.00）-1.79%；距 10/12 的 2 年最高收盤 762.00 低 20.60%；11/10 +7.84% 為自身 2 年 238 個上漲日中漲幅並列第 18 大（與 2025/4/23 同為 +7.84%）；連 2 個交易日上漲；⭐ 11/10 +7.84% 為 19 檔最強</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#009688">封裝</span></td>
+        <td><strong>AMKR</strong></td>
+        <td>Amkor</td>
+        <td>34.47</td>
+        <td style="color:#F44336;font-weight:600">-1.51%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $34.47（-1.51%，前收 11/9 的 $35.00）；五日累計（基準 11/3 收 $37.62）-8.37%；距 6/22 的 2 年最高收盤 $93.55 低 63.15%；11/10 -1.51% 為自身 2 年 242 個下跌日中跌幅第 148 大</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>NVDA</strong></td>
+        <td>輝達</td>
+        <td>168.89</td>
+        <td style="color:#F44336;font-weight:600">-5.47%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $168.89（-5.47%，前收 11/9 的 $178.67）；五日累計（基準 11/3 收 $206.69）-18.29%；距 10/6 的 2 年最高收盤 $239.24 低 29.41%；11/10 -5.47% 為自身 2 年 243 個下跌日中跌幅第 13 大；連 2 個交易日下跌；⚠️ 11/10 -5.47% 為 19 檔最弱、五日 -18.29% 亦為 19 檔最弱；11/06 收 $186.64 起兩日累計 -9.51%；美股 13 檔個股 6 漲 7 跌；董事會調查案後續（集體訴訟、分析師稱去職機率約 15%）皆為媒體或分析師轉述（見 NEWS），本報不推斷與台積電股價之因果；盤後 19:59 ET 約 $170.48（Yahoo 5 分線，非收盤）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AAPL</strong></td>
+        <td>蘋果</td>
+        <td>348.51</td>
+        <td style="color:#F44336;font-weight:600">-0.62%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $348.51（-0.62%，前收 11/9 的 $350.69）；五日累計（基準 11/3 收 $331.90）+5.00%；距 11/9 的 2 年最高收盤 $350.69 低 0.62%；11/10 -0.62% 為自身 2 年 231 個下跌日中跌幅第 135 大；11/09 創 2 年收盤新高後回落；五日 +5.00% 為 19 檔第 3 強；盤後 19:58 ET 約 $348.91（Yahoo 5 分線，非收盤）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AVGO</strong></td>
+        <td>博通</td>
+        <td>331.98</td>
+        <td style="color:#4CAF50;font-weight:600">+3.91%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $331.98（+3.91%，前收 11/9 的 $319.48）；五日累計（基準 11/3 收 $332.13）-0.05%；距 6/2 的 2 年最高收盤 $481.57 低 31.06%；11/10 +3.91% 為自身 2 年 264 個上漲日中漲幅第 45 大；連 3 個交易日上漲；11/10 +3.91% 為 19 檔第 4 強（美股個股中最強）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>AMD</strong></td>
+        <td>超微</td>
+        <td>515.21</td>
+        <td style="color:#4CAF50;font-weight:600">+1.30%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $515.21（+1.30%，前收 11/9 的 $508.58）；五日累計（基準 11/3 收 $483.90）+6.47%；距 10/6 的 2 年最高收盤 $649.42 低 20.67%；11/10 +1.30% 為自身 2 年 266 個上漲日中漲幅第 175 大；連 3 個交易日上漲；⭐ 五日 +6.47% 為 19 檔最強；盤後 19:59 ET 約 $524.73（Yahoo 5 分線，非收盤）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>QCOM</strong></td>
+        <td>高通</td>
+        <td>173.53</td>
+        <td style="color:#4CAF50;font-weight:600">+1.20%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $173.53（+1.20%，前收 11/9 的 $171.47）；五日累計（基準 11/3 收 $164.43）+5.53%；距 5/29 的 2 年最高收盤 $251.02 低 30.87%；11/10 +1.20% 為自身 2 年 264 個上漲日中漲幅第 142 大；連 3 個交易日上漲；五日 +5.53% 為 19 檔第 2 強；盤後 19:56 ET 約 $175.22（Yahoo 5 分線，非收盤）</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#1565C0">客戶</span></td>
+        <td><strong>2454.TW</strong></td>
+        <td>聯發科</td>
+        <td>3,830</td>
+        <td style="color:#4CAF50;font-weight:600">+2.82%</td>
+        <td style="font-size:11px;color:#444">11/10 收 NT$3,830（+2.82%，前收 11/9 的 3,725；TWSE 收盤）；五日累計（基準 11/3 收 3,675）+4.22%；距 9/24 的 2 年最高收盤 5,285 低 27.53%；11/10 +2.82% 為自身 2 年 222 個上漲日中漲幅第 78 大；連 2 個交易日上漲；11/10 +2.82% 為 19 檔第 5 強；五日 +4.22% 為 19 檔第 4 強</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">競爭</span></td>
+        <td><strong>INTC</strong></td>
+        <td>英特爾</td>
+        <td>58.13</td>
+        <td style="color:#F44336;font-weight:600">-2.09%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $58.13（-2.09%，前收 11/9 的 $59.37）；五日累計（基準 11/3 收 $60.55）-4.00%；距 6/22 的 2 年最高收盤 $140.94 低 58.76%；11/10 -2.09% 為自身 2 年 257 個下跌日中跌幅第 139 大；11/10 -2.09% 為 19 檔第 3 弱</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">競爭</span></td>
+        <td><strong>005930.KS</strong></td>
+        <td>三星電子</td>
+        <td>197,300 KRW</td>
+        <td style="color:#4CAF50;font-weight:600">+5.51%</td>
+        <td style="font-size:11px;color:#444">11/10 收 ₩197,300（+5.51%，前收 11/9 的 ₩187,000；Naver＝KRX 官方收盤）；五日累計（Naver 口徑，基準 11/3 收 ₩222,000）-11.13%；距 6/18 的 2 年最高收盤 ₩362,500（Naver 序列） 低 45.57%；11/10 +5.51% 為自身 2 年 261 個上漲日中漲幅第 34 大；⭐ 11/10 +5.51% 為 19 檔第 3 強；Yahoo 11/10 收 ₩198,900、與 Naver 差 ₩1,600，依慣例採 Naver</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">產業</span></td>
+        <td><strong>SOX</strong></td>
+        <td>費城半導體指數</td>
+        <td>9,998.33</td>
+        <td style="color:#F44336;font-weight:600">-0.35%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $9,998.33（-0.35%，前收 11/9 的 $10,033.93）；五日累計（基準 11/3 收 $10,600.40）-5.68%；距 6/22 的 2 年最高收盤 $14,634.72 低 31.68%；11/10 -0.35% 為自身 2 年 212 個下跌日中跌幅第 178 大；⚠️ 收復 11/05 跌幅的 78.50%（前一日為 81.33%），較 11/04 收盤 10,268.65 低 2.63%；同日那斯達克 -0.74%、標普 -0.38%、道瓊 -0.30%</td>
+      </tr><tr>
+        <td><span class="badge" style="background:#607D8B">處分後</span></td>
+        <td><strong>ARM</strong></td>
+        <td>Arm Holdings</td>
+        <td>181.49</td>
+        <td style="color:#F44336;font-weight:600">-2.58%</td>
+        <td style="font-size:11px;color:#444">11/10 收 $181.49（-2.58%，前收 11/9 的 $186.30）；五日累計（基準 11/3 收 $202.49）-10.37%；距 6/18 的 2 年最高收盤 $439.46 低 58.70%；11/10 -2.58% 為自身 2 年 246 個下跌日中跌幅第 118 大；11/10 -2.58% 為 19 檔第 2 弱；盤後 19:55 ET 約 $184.00（Yahoo 5 分線，非收盤）</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ 9. 法人評級彙整 ═══ -->
+<div class="sec" id="analyst">
+  <div class="sec-title">🎯 法人評級彙整</div>
+  <div style="background:var(--card);border-radius:10px;padding:16px;margin-bottom:14px;
+    box-shadow:0 1px 5px rgba(0,0,0,.08)">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">共識評級</div>
+        <div style="font-size:22px;font-weight:700;color:var(--green)">強烈買入</div>
+        <div style="font-size:11px;color:var(--muted)">FactSet 42 位（台股目標價）</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">平均目標價（TWD）</div>
+        <div style="font-size:22px;font-weight:700;color:var(--blue)">NT$3,220.00</div>
+        <div style="font-size:11px;color:var(--green)">上漲空間 +40.92%（台股口徑）</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:11px;color:var(--muted)">評級分布（TipRanks ADR 端 9 位）</div>
+        <div class="consensus-bar">
+          <div style="width:88%;background:var(--green)"></div>
+          <div style="width:0%;background:#FF9800"></div>
+          <div style="width:11%;background:var(--red)"></div>
+        </div>
+        <div style="font-size:10.5px;color:var(--muted)">買入 8 / 持有 0 / 賣出 1</div>
+      </div>
+    </div>
+  </div>
+  <div class="analyst-grid">
+    <div class="analyst-card">
+      <div class="analyst-firm">Aletheia Capital</div>
+      <div class="analyst-tp">NT$5,000</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買進</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-17</span>
+      </div>
+      <div class="analyst-note">🚀🚀 法說會後自 NT$3,500 大幅上調 42.9% 至 NT$5,000（經濟日報 10/17 報導，WebSearch 核對），現為內外資最高目標價；理由為 AI 需求強勁、2027 年產能吃緊、2026–2028 年資本支出擴大。⚠️ Aletheia 未在台登記（證交所 2021 年曾提醒），僅供參考</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Macquarie 麥格理</div>
+      <div class="analyst-tp">NT$4,410</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">優於大盤／首選</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-07</span>
+      </div>
+      <div class="analyst-note">🚀 法說會前自 NT$4,200 上調 5% 至 NT$4,410（經濟日報）；估 2025–2028 EPS 年均複合成長 47%；法說會後（至 11/11 上午）未見再調整</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Citi 花旗</div>
+      <div class="analyst-tp">NT$4,000</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買進</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-08</span>
+      </div>
+      <div class="analyst-note">🚀 法說會前自 NT$3,800 上調至 NT$4,000（鉅亨網 10/8 11:25）；看好 2027 年營收年增逾 40%、AI 相關營收明年可能接近倍增；法說會後未見再調整</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">HSBC 滙豐</div>
+      <div class="analyst-tp">NT$3,800</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">—（評等原文未查得）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10（法說前）</span>
+      </div>
+      <div class="analyst-note">法說會前上調至 NT$3,800（經濟日報 10/16 彙整）；確切發布日與前次目標價未查得</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Nomura 野村</div>
+      <div class="analyst-tp">NT$3,745</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">—（評等原文未查得）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-17</span>
+      </div>
+      <div class="analyst-note">🚀 法說會後自 NT$3,615 上調至 NT$3,745（經濟日報 10/17 報導，WebSearch 核對）；7/1 曾為 NT$3,425</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Goldman Sachs 高盛</div>
+      <div class="analyst-tp">NT$3,300</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買進</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-06</span>
+      </div>
+      <div class="analyst-note">🚀 法說會前自 NT$3,100 上調至 NT$3,300（經濟日報）；看好 3 奈米需求與 2026–2027 營收、毛利率持續提升；法說會後未見再調整</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">BofA 美銀</div>
+      <div class="analyst-tp">NT$3,260</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">買進</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10（法說前）</span>
+      </div>
+      <div class="analyst-note">法說會前上調至 NT$3,260（經濟日報 10/16 彙整）；確切發布日未查得</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">BNP Paribas 法巴</div>
+      <div class="analyst-tp">NT$3,090</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">—（評等原文未查得）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-16</span>
+      </div>
+      <div class="analyst-note">⭐ 法說會後上調（經濟日報 10/16 02:48）：Q3 財報穩健、Q4 與全年展望優於預期，AI 晶片需求強勁、CPU 成新驅動力，上調 2026–2028 EPS 預估 3–10%；前次目標價未查得</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Morgan Stanley</div>
+      <div class="analyst-tp">NT$3,088</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">優於大盤</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-06</span>
+      </div>
+      <div class="analyst-note">法說會前自 NT$2,988 上調至 NT$3,088（經濟日報）；法說前預期 2026 營收年增上修至 40–45%——法說實際上修至約 44%、落在其預期區間內；法說會後未見再調整</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">GF Securities 廣發</div>
+      <div class="analyst-tp">NT$2,960</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">—（評等原文未查得）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10（法說前）</span>
+      </div>
+      <div class="analyst-note">法說會前上調至 NT$2,960（經濟日報 10/16 彙整）；為本表外資券商中最低</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Bernstein（ADR）</div>
+      <div class="analyst-tp">US$600</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">優於大盤（維持）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-11-04</span>
+      </div>
+      <div class="analyst-note">⭐ ADR 目標價自 US$554 調升至 US$600、維持優於大盤（分析師 Mark Li）；⚠️ B 級：MarketBeat 與 Crypto Briefing 兩處彙整一致、無券商原文（日期依 Yahoo 分析師表摘要，MarketBeat 頁面未載日期）；據 Crypto Briefing，理由為 CPU 營收預期、N2 與先進封裝需求；發布於 11/5 美股崩跌前，崩跌後是否調整未查到；屬 ADR 口徑，不併入台股 FactSet 共識與 TipRanks 均值</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">Bernstein（台股）</div>
+      <div class="analyst-tp">NT$3,828</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">優於大盤（維持）</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-11-09（報導日）</span>
+      </div>
+      <div class="analyst-note">⭐ 台股端目標價 NT$3,828、維持優於大盤；⚠️ B 級：工商時報 11/9 盤前稿與 FTNN（Yahoo 股市轉載）11/9 兩家媒體轉述、疑為同一份研報，仍無券商原文，原目標價與發布日未載、不確定是否為新調整；稿稱理由為亞馬遜與 Google 自研 ASIC／CPU 使相關營收由 2026 年約 240 億美元增至 2028 年約 500 億美元（Bernstein 預估、媒體轉述），並稱居內外資第四高（媒體稱，本報未核）；與 ADR 端 US$600（11/4）依 5 股與匯率換算不直接對等，不據此推翻既有資料；不併入台股 FactSet 共識</div>
+    </div><div class="analyst-card">
+      <div class="analyst-firm">FactSet 共識（台股）</div>
+      <div class="analyst-tp">NT$3,220</div>
+      <div style="font-size:11px;margin-bottom:5px">
+        <span class="badge" style="background:var(--green)">共識</span>
+        <span style="color:var(--muted);font-size:10px;margin-left:6px">2026-10-15</span>
+      </div>
+      <div class="analyst-note">⭐ 42 位分析師平均目標價 NT$3,220（鉅亨網 10/15 22:11，法說會後發布）；2026 EPS 共識中位數自 108.35 上修至 109.21 元、平均 109.38 元；買／持有／賣出分布未查得。⚠️ 另一來源轉述鉅亨網 10/16 另版 FactSet（33 位、中位數 NT$3,300、最高 5,000／最低 2,700），本報未獨立核實、未替換本列</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 10. 財報倒計時 ═══ -->
+<div class="sec" id="earnings">
+  <div class="sec-title">⏳ 財報倒計時 — Q4 2026（Q3 法說會 10/15 已結束：營收、毛利率、EPS 皆為官方新聞稿與 SEC 6-K 確認；Q4 法說會日期待台積電官方行事曆公告，倒數以推估日 2027-01-14 計算【待確認】）</div>
+  <div class="countdown-box">
+    <div>
+      <div class="countdown-days">64</div>
+      <div class="countdown-label">天後發布</div>
+    </div>
+    <div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px">Q4 2026（Q3 法說會 10/15 已結束：營收、毛利率、EPS 皆為官方新聞稿與 SEC 6-K 確認；Q4 法說會日期待台積電官方行事曆公告，倒數以推估日 2027-01-14 計算【待確認】） 財報預計：2027-01-14</div>
+      <div class="countdown-grid">
+        <div class="cg-item"><div class="cg-lbl">營收指引（中位）</div><div class="cg-val">$53.3B</div></div>
+        <div class="cg-item"><div class="cg-lbl">指引範圍</div><div class="cg-val">$52.3B – $54.3B</div></div>
+        <div class="cg-item"><div class="cg-lbl">毛利率指引</div><div class="cg-val">65–67%（Q4 2026 指引；中位 66% 較 Q3 實際 66.4% 低 0.4 個百分點，2 奈米量產爬坡持續稀釋）</div></div>
+        <div class="cg-item"><div class="cg-lbl">營業利益率指引</div><div class="cg-val">56.5–58.5%（Q4 2026 指引；官方新聞稿與 SEC 6-K 一致；中位 57.5% 較 Q3 實際 58.7% 低 1.2 個百分點）</div></div>
+        <div class="cg-item"><div class="cg-lbl">共識 EPS 預估</div><div class="cg-val">⭐⭐⭐ Q3 實際 NT$29.43 / US$4.60（官方；年增 68.7%）。稅後純益 NT$7,630.6 億高於 LSEG SmartEstimate 共識 NT$7,463 億（16 位分析師）約 +2.25%；EPS 對共識的比較缺乏可靠多分析師基準（前報僅有元大 10/8 單一券商估 29.03、+1.4%，僅供參考）</div></div>
+        <div class="cg-item"><div class="cg-lbl">上季超預期幅度</div><div class="cg-val" style="color:#FDD835">+2.25%（Q3 2026 稅後純益 NT$7,630.6 億 vs LSEG SmartEstimate NT$7,463 億；毛利率 66.4% 落在指引 65–67% 內、營益率 58.7% 高於指引 56–58% 上緣）</div></div>
+        <div class="cg-item"><div class="cg-lbl">近 8 季超預期率</div><div class="cg-val" style="color:#FDD835">100%（連續 12 季超預期，Q3 2026 稅後純益對 LSEG 共識 +2.25%；⚠️ 本季為「小幅超越」，與 Q2 的 +9.4% 相比幅度明顯縮小）</div></div>
+        <div class="cg-item"><div class="cg-lbl">YoY 營收成長</div><div class="cg-val" style="color:#FDD835">~38%</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 11. 晶圓廠稼動率 ═══ -->
+<div class="sec" id="fab">
+  <div class="sec-title">🏭 晶圓廠製程稼動率（業界分析師估算）</div>
+  <div class="alert">⚠ 稼動率為業界分析師估算值，TSMC 不公開分製程稼動率數據</div>
+  <div class="fab-grid">
+    <div class="fab-row">
+      <div class="fab-node">N2 (2nm)</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">90–95%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">HVM 啟動，良率爬升中</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N3/N3P</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div>
+        <div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">滿載，NVIDIA/Apple 全包</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N5/N4</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#2196F3">~100%</div>
+        <div class="util-bar"><div class="util-fill" style="width:100%;background:#2196F3"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">主力製程，AI GPU + 手機 SoC</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N7/N6</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">90–95%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">成熟先進製程，AI 推論需求支撐</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N16–28</div>
+      <div><span class="badge" style="background:#607D8B">Taiwan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#FF9800">75–85%</div>
+        <div class="util-bar"><div class="util-fill" style="width:75%;background:#FF9800"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">成熟製程，IoT / MCU 需求穩定</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N3</div>
+      <div><span class="badge" style="background:#607D8B">Arizona</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#FF9800">初期爬坡</div>
+        <div class="util-bar"><div class="util-fill" style="width:50%;background:#FF9800"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">Phase 1 全面量產中（2nm Phase 2 建設中）</div>
+    </div><div class="fab-row">
+      <div class="fab-node">N12</div>
+      <div><span class="badge" style="background:#607D8B">Japan</span></div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#4CAF50">~90%</div>
+        <div class="util-bar"><div class="util-fill" style="width:90%;background:#4CAF50"></div></div>
+      </div>
+      <div style="font-size:11.5px;color:#555">熊本廠 Phase 1 量產中</div>
+    </div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">Source: TrendForce、Digitimes、業界分析師 2026 Q1 估算</p>
+</div>
+
+<!-- ═══ RISK + GEO ═══ -->
+<div class="sec" id="risk">
+  <div class="sec-title">⚠️ 風險評估矩陣 × 地緣政治</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+    <div style="background:var(--card);border-radius:10px;padding:14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--red)">
+      <div style="font-weight:700;color:#B71C1C;margin-bottom:8px">🔴 地緣政治 & 法規風險</div>
+      <ul style="font-size:12px;color:#444;line-height:1.9;padding-left:16px">
+        <li>美中 AI 晶片出口管制：BIS 2026-01-15 改逐案審查，法遵成本上升</li>
+        <li>NVIDIA H200/H20 中國版停產，影響 TSMC 訂單結構</li>
+        <li>中國反制：鎵、鍺出口限制，半導體材料供給受壓</li>
+        <li>關稅 25%：拉高客戶成本，NVIDIA GPU 已漲價 5–15%</li>
+        <li>台海局勢不確定性，「矽盾」效果存疑</li>
+      </ul>
+    </div>
+    <div style="background:var(--card);border-radius:10px;padding:14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);border-left:4px solid var(--green)">
+      <div style="font-weight:700;color:#1B5E20;margin-bottom:8px">🟢 結構性長期利多</div>
+      <ul style="font-size:12px;color:#444;line-height:1.9;padding-left:16px">
+        <li>全球半導體市場 2026 估達 $975B，成長 26%</li>
+        <li>AI 晶片佔總收入約 50%，2036 市場 $2 兆</li>
+        <li>台日印三國框架：日本資本 × 台灣技術 × 印度人才</li>
+        <li>美台協議 $2,500 億投資，Arizona/Japan 廠分散地緣風險</li>
+        <li>Samsung 良率問題未解、Intel Foundry 轉型中 → TSMC 優勢穩固</li>
+      </ul>
+    </div>
+  </div>
+  <div class="risk-grid">
+    <div class="risk-card" style="border-color:#F44336">
+      <div class="risk-lv" style="color:#F44336">●●● 高風險</div>
+      <div class="risk-name">出口管制</div>
+      <div class="risk-desc">AI 晶片對中出口政策持續演變，H200/H20 停產顯示政策不確定性仍高</div>
+    </div><div class="risk-card" style="border-color:#F44336">
+      <div class="risk-lv" style="color:#F44336">●●● 高風險</div>
+      <div class="risk-name">地緣政治</div>
+      <div class="risk-desc">台海緊張局勢影響生產連續性，「矽盾」效果受關稅政策弱化</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">關稅衝擊</div>
+      <div class="risk-desc">25% 晶片進口關稅拉高客戶成本，消費性需求可能降溫</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">毛利率稀釋</div>
+      <div class="risk-desc">海外廠（AZ/JP）製程複製成本高，預估壓縮 1–2pp 毛利率</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">AI 需求集中</div>
+      <div class="risk-desc">HPC/AI 佔比 58%，若 AI 景氣反轉衝擊明顯；消費性電子仍低迷</div>
+    </div><div class="risk-card" style="border-color:#FF9800">
+      <div class="risk-lv" style="color:#FF9800">●●○ 中風險</div>
+      <div class="risk-name">匯率風險</div>
+      <div class="risk-desc">台幣升值壓縮美元計算的海外收益，每 1% 影響毛利率 0.3–0.4pp</div>
+    </div><div class="risk-card" style="border-color:#4CAF50">
+      <div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div>
+      <div class="risk-name">技術良率</div>
+      <div class="risk-desc">N2 HVM 良率爬升符合預期，N2P/A16 按期程進行</div>
+    </div><div class="risk-card" style="border-color:#4CAF50">
+      <div class="risk-lv" style="color:#4CAF50">●○○ 低風險</div>
+      <div class="risk-name">競爭威脅</div>
+      <div class="risk-desc">Samsung 良率不穩、Intel 轉型需 2–3 年，TSMC 技術護城河穩固</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 12. IR 行事曆 ═══ -->
+<div class="sec" id="calendar">
+  <div class="sec-title">📅 法說會 / IR 行事曆</div>
+  <p style="font-size:11px;margin:-4px 0 8px"><a href="TSMC_日報_歷史.html#ir" style="color:var(--blue)">完整 144 條歷史 →</a></p>
+  <div class="cal-list">
+    <div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-19</div>
+      <div><div class="cal-title">⚠️ 開低 25 元、盤中 2,390 跌破季線後尾盤拉回平盤 2,420（收在全日最高，0.00%），量縮至 27,695 張（10/12 以來最低）；外資賣超縮至 9,834 張（連 9 賣、合計 122,943 張）首度通過 ≤ 10,000 張門檻、投信買 3,884 張，但收盤未達 2,450、維持看空；收盤連 2 日低於 MA60 1.5 元（字面中期轉弱確認）、MACD 柱 -31.96、K 17.62；加權 -0.61%、台積電領先 0.61 個百分點；外資年度賣超破 2 兆、新台幣收 32.445</div><div class="cal-desc">10/19 Mon 台股 2330 官方收 NT$2,420（TWSE STOCK_DAY 確認；開 2,395／高＝收 2,420／低 2,390，紅 K、實體 25 元、下影線 5 元、振幅 30 元；盤中低 2,390 為 9/16 以來最低盤中價、低於 MA60 31.5 元與布林下軌 2.23 元後收回），成交 27,695 張（-35.7%，2026 年 191 日由大到小第 138）、金額 NT$665.19 億、223,713 筆；加權 -289.18 點（-0.61%）收 46,822.08、全市場成交 NT$8,667.12 億。外資 -9,834 張（連 9 日賣超合計 122,943 張，2026 年第 2 長與第 2 大累計；以收盤價估約 NT$238.0 億、為外資全市場淨賣超 767.43 億的 31.0%，10/16 為 115.6%）、投信 +3,884（連 14 買、7/31 以來最大）、自營 +1,346（避險 +1,530、自行 -184），三大法人合計 -4,604 張；全市場三大法人 -NT$888.64 億（BFI82U 官方）；P/E 28.05x、P/B 9.76x、殖利率 0.91% 不變；台北匯市收 32.445（貶 10.7 分，盤中 32.572 為近 18 個月最弱、央行進場）。前報七項檢核：回到中性偏空只過籌碼項（外資 ≤ 10,000 張）、價格項（≥ 2,450）未過 → 維持看空；收盤 < MA60 連 2 日字面成立（差 1.5 元、實質臨界，上一次連續低於 MA60 為 9/14–9/16）；半年線 2,377 未失守；夜盤偏弱指示開盤兌現、收盤未兌現（偏弱紀錄開 13/15、收 11/15）；MACD 柱續擴成立、K 超賣加深成立、RSI 持平未破 40；外資續賣、台指期淨空收斂 2,530 口至 -91,145 口（2026 年第 3 深）；重建日 P/C 61.60% 只讀水位（2026 年第 2 低）；量縮平盤記為觀望。技術：MA5 2,452／MA10 2,510／MA20 2,493／MA60 2,422／MA120 2,379，RSI 41.45，K 17.62／D 32.13／J -11.39，布林 2,392–2,493–2,594。衍生品：個股期日盤收 2,425、結算 2,423、未平倉 11,274（-3,765，換月）、基差 +5；台指期 46,779（較前收 -463）、期現 -43.08 轉逆價差；外資個股期 STF 合計淨空 -463,050（收斂 18,170）。分析師：10/17–10/20 查無主要券商新調整。美股 10/19：費半 +1.61% 收 11,316.34（終止連 8 跌）、ADR +1.84% 收 $420.22（溢價 +12.70%）、那斯達克 +1.11%、標普 +0.41%、道瓊 -0.07%；科林 +3.13%、美光 +2.97%、英特爾 +2.43%，蘋果 -0.15% 為美股 14 檔中唯一收黑；亞股 10/19 盤中重挫後收斂（KOSPI -3.2% → +1.76%、三星與 SK 海力士依 Naver 各 +3.0%、+3.1%，日經 -0.58% 暫定）。10/19 夜盤（歸 10/20 列）個股期收 2,425（較日盤收盤持平、較現貨 +5）、台指期 46,691（較日盤收盤 -88），指示「中性」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-20</div>
+      <div><div class="cal-title">⚠️ 開低 20 元、收 2,405（-15、-0.62%，9/16 以來最低收盤），量縮至 22,402 張（10/7 以來最低）；外資賣超 9,364 張（連 10 賣、合計 132,307 張）連 2 日低於 1 萬張、投信連 15 買，但收盤未達 2,450、維持看空；收盤連 3 日低於 MA60 且差 16.5 元（中期轉弱有效）、RSI 39.48 跌破 40、MACD 柱 -35.76、K 14.31 為 2026 年最低；加權 -1.13%、台積電領先 0.51 個百分點；收盤後高雄 F22 P4 新建工程墜落事故（10/21 證實 4 死）</div><div class="cal-desc">10/20 Tue 台股 2330 官方收 NT$2,405（TWSE STOCK_DAY 確認；開 2,400／高 2,415／低 2,395，小紅 K、實體 5 元、振幅 20 元），成交 22,402 張（-19.1%，2026 年 192 日由大到小第 161）、金額 NT$538.57 億、246,370 筆；加權 -529.15 點（-1.13%）收 46,292.93、全市場成交 NT$8,029.47 億。外資 -9,364 張（連 10 日賣超合計 132,307 張，依前報核算追平 2026 年最長；以收盤價估約 NT$225.2 億、為外資全市場淨賣超 795.40 億的 28.3%）、投信 +1,029（連 15 買）、自營 -28（自行 -458、避險 +429），三大法人合計 -8,363 張；全市場三大法人 -NT$963.60 億（BFI82U 官方）；P/E 27.88x、P/B 9.70x、殖利率 0.91%；台北匯市收 32.617（貶 17.2 分，弱於 10/19 盤中低點 32.572）。前報七項檢核：回到中性偏空只過籌碼項（外資 ≤ 10,000 張）、價格項（≥ 2,450）未過 → 維持看空；收盤 < MA60 第 3 日且差 16.5 元 → 中期轉弱有效；法說後低點 2,390 與半年線未失守；夜盤中性不計；MACD 柱續擴成立、RSI 跌破 40 轉弱確認、K 未上穿 D；外資續賣（連 10）、台指期淨空收斂 1,397 口至 -89,748 口（連 3 日收斂）；P/C 66.17% 只讀水位；量縮下跌記為無量探底。技術：MA5 2,435／MA10 2,492.5／MA20 2,492／MA60 2,421.5／MA120 2,380.58，RSI 39.48，K 14.31／D 26.19／J -9.45，布林 2,388–2,492–2,596。衍生品：個股期 202610 日盤收 2,407、結算 2,408、未平倉 7,467（-3,807，換月）、基差 +2；202611 收 2,420、未平倉 25,039；台指期 202610 收 46,384、期現 +91.07。美股 10/20：道瓊 +1.02%、標普 +0.28%、那斯達克 -0.02%、費半 -0.29% 收 11,283.81；ADR +1.16% 收 $425.08（溢價 +15.31%）；科林 -3.21%、Arm -3.07%，高通 +1.26% 為 19 檔唯一收紅；韓股 SK 海力士 -8.74%、三星 -6.49%、KOSPI -3.73%（Naver）。10/20 夜盤（歸 10/21 列）個股期收 2,425（較現貨 +20）、台指期 46,975（+634 點、較現貨 +682），指示「偏強」。⚠️ 收盤後約 16:53 高雄楠梓 F22 廠區 P4 新建工程鋼構吊裝墜落，承攬商 4 名工人死亡（10/21 上午南科管理局證實第 4 人），台積電稱工地屬承攬範圍、已自主停工。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-21</div>
+      <div><div class="cal-title">⭐ 收 2,420（+15、+0.62%）落後大盤 0.66 個百分點、量 27,095 張；外資賣超縮至 6,153 張（連 11 賣）、投信連 16 買，維持看空；MACD 柱首度收斂、RSI 回 40 之上、MA60 差距縮至 2.67 元；夜盤個股期 2,456 偏強；高雄事故 4 死、全台新廠鋼構自主停工</div><div class="cal-desc">10/21 Wed 台股 2330 官方收 NT$2,420（TWSE STOCK_DAY 確認；開 2,425／高 2,435／低 2,400，小黑 K、實體 5 元、振幅 35 元，盤中一度低於前收 2,405），成交 27,095 張（+20.95%，2026 年 193 日由大到小第 140）、金額 NT$655.16 億、101,401 筆；加權 +594.84 點（+1.28%）收 46,887.77、全市場成交 NT$8,746.14 億。外資 -6,153 張（連 11 日賣超合計 138,460 張，連 3 日低於 1 萬張；以收盤價估約 NT$148.9 億）、投信 +1,397（連 16 買）、自營 -1,047，三大法人合計 -5,803 張；全市場三大法人 +NT$14.66 億（BFI82U 官方：外資 +22.39 億、投信 +127.99 億、自營 -135.72 億；媒體稱外資 +9.6 億，以官方為準）；P/E 28.05x、P/B 9.76x、殖利率 0.91%；台北匯市收 32.488（升 12.9 分）。前報八項檢核：回到中性偏空只過籌碼項（外資 ≤ 10,000 張）、價格項（≥ 2,450，差 30 元）未過 → 維持看空；收盤 < MA60 連 4 日、差 2.67 元（未收回 2,425 門檻）；法說後低點、布林下軌與半年線皆未失守；夜盤偏強指示開收兩筆皆兌現（偏強紀錄開 2/3、收 1/3）；MACD 柱 -34.68 首度收斂、DIF 轉負、MA10 下穿 MA20（機械性）、K 未上穿 D、RSI 回 40 之上；外資續賣（連 11）、台指期淨空收斂 3,676 口至 -86,072 口（連 4 日收斂，結算日口徑）；P/C 62.86% 只讀水位；量縮上漲記為跌深反彈；相對加權 -0.66 個百分點、未達 1 個百分點。技術：MA5 2,421／MA10 2,476／MA20 2,490／MA60 2,422.67／MA120 2,382.29，RSI 42.43，K 14.95／D 22.45／J -0.05，布林 2,382–2,490–2,598；MA5 下穿 MA60、MA10 下穿 MA20 為舊高價滾出的機械效果。衍生品：個股期 202611 日盤收 2,430、結算 2,431、未平倉 30,145（+5,106）、基差 +10；台指期 202611 收 46,992（+482）、期現 +104.23；TX 202610 最終結算 46,650。美股 10/21：費半 +1.97% 收 11,505.56、ADR +1.60% 收 $431.89（溢價 +15.97%）、那斯達克 +1.05%、標普 +0.58%；蘋果創 2 年收盤新高；韓股 SK 海力士 +8.24%、三星 +6.94%、KOSPI +3.29%（Naver）；19 檔 17 漲 2 跌。10/21 夜盤（歸 10/22 列）個股期 202611 收 2,456（較現貨 +36）、台指期 47,482（較現貨 +594.23），指示「偏強」。事件：高雄 F22 P4 事故死亡 4 人，台積電 10/21 稱全台新建廠區鋼構作業自主停工，檢方令兩名承包商負責人各 100 萬交保；2 奈米時程影響各來源未提（未能證實）。10/21–22 查無新券商目標價。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#607D8B">2026-10-21</div>
+      <div><div class="cal-title">✅ 期貨與選擇權 10 月月結算完成</div><div class="cal-desc">10/21（三）台指期 TX／個股期 CDF 202610 與 TXO／CDO 202610 月結算（到期欄位 20261021）：TX 202610 最終結算價 46,650（期交所 futIndxFSP；最後交易日收 46,648、未平倉 8,936 口），CDF 202610 最後交易日收 2,405（未平倉 2,923 口）、最終結算價 2,420（依個股期貨規則＝標的收盤，本側未於期交所頁面核實）；近月已換為 202611（CDF 日盤收 2,430、未平倉 30,145 口；TX 收 46,992、未平倉 114,962 口；價格不可跨合約比較）；TXO 結算後未平倉與 P/C 重置：10/21 買權 59,774／賣權 37,575 口、P/C 62.86%（只讀水位，不可與 10/20 比較）；CDO 202611 最大痛點 2,500（未平倉極薄）。10/22 為結算後首日。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#2196F3">2026-10-22</div>
+      <div><div class="cal-title">📅 報告日：立場看空；MACD 柱首度收斂、RSI 回 40 之上後的結算後首日，夜盤個股期 2,456 指向偏強；看 2,450 回到中性偏空線、2,425 收回 MA60、2,420 站上 MA5、2,400 短線支撐</div><div class="cal-desc">⭐ 檢核清單（皆可由 10/22 官方收盤數據直接判定）：（1）收盤 ≥ 2,450 且外資賣超 ≤ 10,000 張（或轉買）→ 回到中性偏空；只過其一 → 維持看空；（2）收盤 ≥ 2,425 記為收回 MA60（10/22 MA60 滾出 7/27 收 2,350，平衡點 2,423.9）；收盤 ≤ 2,415 記為轉弱再擴大（差距重新 ≥ 5 元）；收盤 < 2,400 記為短線支撐失守、< 2,390 記為法說後低點失守、< 約 2,382 記為跌破布林下軌與半年線；（3）收盤 ≥ 2,420 記為站上 MA5（MA5 滾出 10/15 收 2,440）；（4）夜盤偏強指示（個股期 202611 2,456 較現貨 +36、台指期 47,482 較現貨 +594.23）：開盤 > 2,420 與收盤 > 2,420 各記一筆（偏強紀錄開 2/3、收 1/3；偏弱紀錄開 13/15、收 11/15）；（5）MACD 柱 > -34.68 記為連 2 日收斂、< -34.68 記為收斂中止；K 上穿 D（22.45 附近）記為黃金交叉；RSI 收盤後仍 ≥ 40 記為守住；DIF 重回零軸之上記為零軸收復；（6）外資轉買即中止連 11 賣，續賣則連 12 日；賣超 < 6,153 張記為連 5 日收斂、> 10,000 張記為再擴大；外資台指期淨空 < 86,072 口記為連 5 日收斂、> 89,748 口記為收斂成果全數回吐；（7）量能基準 35,745 張（10/22 滾出 10/15 的 58,487 張）：放量下跌＝賣壓延續、放量上漲＝承接、量縮下跌＝無量探底、量縮上漲＝跌深反彈、平盤＝觀望；（8）工安事故：以 10/22 相對加權超額報酬觀察（10/21 為 -0.66 個百分點），落後逾 1 個百分點記為事故或個股因素壓抑（僅為相關）；另追蹤台積電是否公布鋼構作業復工時程或對 2 奈米時程的說明。後續：10/22 為月結算後首日（P/C 只讀水位）、10/23 週選結算、10/26 光復節補假休市（下週僅 4 個交易日）、11/10 前 10 月營收、11 月董事會（Q3 季配息）、12/10 Q2 季配息 NT$7.0 除息、Q4 法說會 2027 年 1 月中旬【待公告】</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-10-22</div>
+      <div><div class="cal-title">⚠️⚠️ 連休前最後交易日開高 2,435 後一路走低、收在全日最低 2,385（-35、-1.45%，無影線長黑 K、9/16 以來最低收盤），跌破法說後低點 2,390；外資賣超擴大至 12,694 張（連 12 賣、合計 151,154 張）、投信連 17 買、自營轉買；加權 -1.81%、台積電抗跌 0.36 個百分點；回到中性偏空兩條件皆未過、維持看空；收盤連 5 日低於 MA60（差 38.25 元）、K 9.97 為 2026 年最低、RSI 37.81；美股 10/22 費半 -6.72%、ADR -4.52%</div><div class="cal-desc">10/22 Thu 台股 2330 官方收 NT$2,385（TWSE STOCK_DAY 確認；開 2,435＝全日最高／低 2,385＝收盤，長黑 K、實體 50 元、振幅 50 元），成交 29,797 張（+9.97%，2026 年 194 日由大到小第 127）、金額 NT$715.37 億、291,228 筆；加權 -846.34 點（-1.81%）收 46,041.43、全市場成交 NT$9,334.37 億。外資 -12,694 張（連 12 日賣超合計 151,154 張；以收盤價估約 NT$302.8 億、占外資全市場淨賣超 815.82 億的 37.1%）、投信 +1,349（連 17 買）、自營 +1,195（自行 -288、避險 +1,484），三大法人合計 -10,150 張（分項加總；官方 -10,149）；全市場三大法人 -NT$994.67 億（BFI82U 官方：外資 -815.82 億、投信 +94.92 億、自營 -273.77 億；媒體稱外資 -816.56 億、合計 -1,001.59 億，以官方為準）；P/E 27.65x、P/B 9.61x、殖利率 0.92%；台北匯市收 32.508（貶 2 分）。前報八項檢核：回到中性偏空兩條件皆未過（收盤 2,385 < 2,450、外資賣超 12,694 張 > 10,000 張）→ 維持看空；收盤 < MA60 連 5 日、差 38.25 元（轉弱再擴大）；短線支撐 2,400 與法說後低點 2,390 失守，布林下軌 2,368.27 與半年線 2,384.00 未失守；夜盤偏強指示開盤一筆兌現、收盤未兌現（偏強紀錄開 3/4、收 1/4）；MACD 柱 -36.90 收斂中止、K 未上穿 D、RSI 未守住 40、DIF -9.51；外資續賣（連 12、再擴大）、台指期淨空擴大 1,225 口至 -87,297 口（連 4 日收斂中止）；P/C 66.18% 只讀水位；量縮下跌記為無量探底；相對加權 +0.36 個百分點、未觸發事故條件。技術：MA5 2,410／MA10 2,456／MA20 2,485.25／MA60 2,423.25／MA120 2,384.00，RSI 37.81，K 9.97／D 18.29／J -6.67，布林 2,368–2,485–2,602。衍生品：個股期 202611 日盤收 2,390（官方 -41）、結算 2,390、未平倉 29,962（-183）、基差 +5；台指期 202611 收 46,272（-741）、期現 +230.57。美股 10/22：費半 -6.72% 收 10,731.98（6/23 以來最大單日跌幅，本報核算）、ADR -4.52% 收 $412.35（同日對齊溢價 +12.42%）、那斯達克 -2.60%、標普 -1.21%、道瓊 +0.02%，主因 Meta 財報後 AI 資本支出疑慮；科林 -11.76% 為 19 檔最弱，蘋果 +1.23% 唯一收紅並創 2 年收盤新高；韓股 SK 海力士 -4.19%、三星 -4.03%、KOSPI -3.52%（Naver）。10/22 夜盤（因 10/23、10/26 休市歸 10/27 列）個股期 202611 收 2,365（較現貨 -20）、台指期 45,654（官方 -580、較現貨 -387.43），指示「偏弱」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-10-23</div>
+      <div><div class="cal-title">台股颱風休市（薔琵颱風）；美股 10/23 費半 +0.44%、ADR +1.49% 收 $418.51</div><div class="cal-desc">10/23（五）薔琵颱風使台北市停班停課，證交所、櫃買中心、期交所與台北外匯市場全日休市（TWSE STOCK_DAY／FMTQIK／T86／BFI82U／BWIBBU_d／MI_INDEX 與 TAIFEX 皆無 10/23 資料列，媒體報導一致；TWSE 開休市表未列此臨時休市），應屆交割款券順延。依慣例休市日不產日報、非漏跑。美股 10/23 照常交易：道瓊 -1.23% 收 52,215.16（油價升至半年高點）、標普 -0.52%、那斯達克 -0.21%，但費半 +0.44% 收 10,779.46、ADR +1.49% 收 $418.51（對台股 10/22 收盤的混合口徑溢價 +14.09%）；美光 +2.46% 為 16 檔（美股＋韓股）最強、科磊 -1.50% 最弱；韓股照常交易，SK 海力士 +2.35%、三星 -0.47%、KOSPI +0.30%（Naver）。⚠️ 原定 10/23 的週五週選結算依 10/9 → 10/12 前例應順延至 10/27（本報未查證契約到期欄位）。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-10-26</div>
+      <div><div class="cal-title">台股休市（光復節補假）；連休四日（10/23–10/26）；美股 10/26 Anthropic 遞 S-1 帶動費半 +2.82%、ADR +1.40% 收 $424.37（三日累計 -1.74%）</div><div class="cal-desc">10/26（一）臺灣光復節補假（10/25 逢週日），TWSE 開休市表確認；加上 10/23 颱風臨時休市與週末，台股 10/23–10/26 連休四日，10/27（二）復市。依慣例休市日不產日報，10/27 報告的台股僅涵蓋 10/22（連休前最後交易日）、美股涵蓋 10/22、10/23、10/26 三日，夜盤只反映 10/22 晚間美股。美股 10/26：Anthropic 公開遞交 S-1 重燃 AI 投資熱情，費半 +2.82% 收 11,083.47、ADR +1.40% 收 $424.37（對台股 10/22 收盤的混合口徑溢價 +15.69%；盤後 20:00 ET $426.98）、那斯達克 +0.82%、標普 +0.70%、道瓊 +0.28%；Arm +6.19% 最強、Amkor -6.34% 最弱、蘋果 -1.10%。Meta 宣布最高 950 億美元股權募資、輝達／超微／博通有意合計認購至多 50 億美元（據報導，非約束）。三日合計：ADR 431.89 → 412.35 → 418.51 → 424.37（-1.74%）、費半 -3.67%；韓股 10/26 SK 海力士 +2.14%、三星平盤、KOSPI -1.46%（Naver）。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-27</div>
+      <div><div class="cal-title">⭐ 颱風休市＋補假連休四日後復市首日：開低 5 元至 2,380 即為全日最低、收 2,400（+15、+0.63%，上影線 5 元小紅 K），放量 38,173 張（+28.11%）；外資賣超縮至 1,618 張（連 13 賣、合計 152,772 張）、投信連 18 買、自營連 2 買，三大法人合計轉買 2,709 張；相對加權超額 +0.51 個百分點；守住半年線、MACD 柱重回收斂、RSI 40.78 收復 40，但收盤仍低於 MA5 與 MA60；回到中性偏空只過籌碼項、維持看空；順延的 10/23 週五週選於本日結算；美股 10/27 費半 +3.60%、ADR +2.95%</div><div class="cal-desc">10/27 Tue 台股 2330 官方收 NT$2,400（TWSE STOCK_DAY 確認；開 2,380＝全日最低／高 2,405，小紅 K、實體 20 元、上影線 5 元、振幅 25 元），成交 38,173 張（+28.11%，2026 年 195 日由大到小第 80）、金額 NT$913.13 億、133,483 筆；加權 +54.80 點（+0.12%）收 46,096.23、全市場成交 NT$10,316.84 億。外資 -1,618 張（連 13 日賣超合計 152,772 張；為連 13 賣中第 2 小，最小為 10/7 的 1,163 張；以收盤價估約 NT$38.8 億、占外資全市場淨賣超 80.39 億的 48.3%）、投信 +2,420（連 18 買）、自營 +1,907（自行 -94、避險 +2,001，連 2 買），三大法人合計 +2,709 張（分項加總＝官方）；全市場三大法人 +NT$31.67 億（BFI82U 官方：外資 -80.39 億、投信 +236.05 億、自營 -123.99 億；媒體稱外資 -81.04 億、合計 +31.42 億，以官方為準）；P/E 27.82x、P/B 9.68x、殖利率 0.92%；央行匯率收 32.452（較 10/22 升 5.6 分）。前報十項檢核：回到中性偏空兩條件只過籌碼項（收盤 2,400 < 2,450、外資賣超 1,618 張 ≤ 10,000 張）→ 維持看空；收盤 ≥ 2,390 守住半年線（MA120 2,386.21，高 13.79 元、連 76 日在上），布林下軌 2,359.88 未跌破；未收回 MA60（2,425.25，差 25.25 元、連 6 日）、未站上 MA5（2,406，差 6 元、連 11 日）；夜盤偏弱指示開盤一筆兌現、收盤未兌現（偏弱紀錄開 14/16、收 11/16）；收盤 > 2,385 記為「美股兩日反彈勝出」，超額報酬 +0.51 個百分點（精算 +0.5099）字面勉強達標，但 ADR 10/27 再漲、同日對齊溢價擴至 +18.14%，實質上溢價未收斂；MACD 柱 -34.60 重回收斂、K 未上穿 D、RSI 40.78 收復 40；外資續賣但收斂（連 13 賣未中止）、台指期淨空收斂 1,254 口至 -86,043 口；放量上漲記為承接；P4 無新進展。技術：MA5 2,406／MA10 2,441／MA20 2,482.25／MA60 2,425.25／MA120 2,386.21，RSI 40.78，K 10.94／D 15.84／J 1.16，布林 2,360–2,482–2,605。衍生品：個股期 202611 日盤收 2,396（官方 +6）、結算 2,396、未平倉 29,743（-219）、基差 -4；台指期 202611 收 46,081（-153）、期現 -15.23；台指選擇權 P/C 61.96%——本日為原定 10/23 週五週選（202610F4）順延後的結算日（未平倉加總證實），只讀水位。美股 10/27：費半 +3.60% 收 11,482.50（2 年上漲日中第 30、非極端值）、ADR +2.95% 收 $436.87（同日對齊溢價 +18.14%）、那斯達克 +1.18%、標普 +0.60%、道瓊 +0.03%，媒體歸因 Anthropic 遞 S-1、博通相關融資消息與油價回落；19 檔供應鏈 17 漲 2 跌，Amkor +8.50% 最強、聯發科 -1.25% 最弱；韓股 SK 海力士 +6.51%、三星 +5.39%、KOSPI +3.09%（Naver）。10/27 夜盤（歸 10/28 列）個股期 202611 收 2,438（較現貨 +38）、台指期 46,880（官方 +774、較現貨 +783.77），指示「偏強」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-28</div>
+      <div><div class="cal-title">⭐ 開高 20 元至 2,420、收 2,425（+25、+1.04%，實體 5 元小紅 K），盤中低 2,410 高於前日高 2,405、留下向上跳空缺口；量縮至 21,867 張（-42.72%）；加權 +2.04%、台積電落後大盤 1.00 個百分點；外資全市場買超 159.57 億卻賣超台積電 3,175 張（連 14 賣、合計 155,947 張）、投信連 19 買，三大法人對台積電合計賣超 2,069 張；站上 MA5、K 上穿 D、MACD 柱連 2 日收斂，但仍低於 MA60（差 4 元）；回到中性偏空只過籌碼項、維持看空；週三週選結算；Fed 維持利率（兩票主張升息）、費半 +1.75%、ADR +0.60%</div><div class="cal-desc">10/28 Wed 台股 2330 官方收 NT$2,425（TWSE STOCK_DAY 確認；開 2,420／高 2,430／低 2,410，小紅 K、實體 5 元、上影線 5 元、下影線 10 元、振幅 20 元；盤中低 2,410 高於 10/27 高 2,405，留下 2,405–2,410 向上跳空缺口），成交 21,867 張（-42.72%，2026 年 196 日由大到小第 166）、金額 NT$529.41 億、56,719 筆；加權 +939.35 點（+2.04%）收 47,035.58、全市場成交 NT$7,503.41 億，台積電相對加權落後 1.00 個百分點（精算 -0.9961）。外資 -3,175 張（連 14 日賣超合計 155,947 張；為連 14 賣中第 4 小；以收盤價估約 NT$77.0 億）、投信 +844（連 19 買）、自營 +262（自行 +22、避險 +240，連 3 買），三大法人合計 -2,069 張（分項加總；官方 -2,068）；全市場三大法人 +NT$324.42 億（BFI82U 官方：外資 +159.57 億、投信 +143.20 億、自營 +21.65 億；媒體稱合計 +298.94 億、外資 +159.22 億、投信 +118.07 億，以官方為準）；P/E 28.11x、P/B 9.78x、殖利率 0.91%；央行匯率收 32.418（升 3.4 分）。前報十項檢核：回到中性偏空兩條件只過籌碼項（收盤 2,425 < 2,450、外資賣超 3,175 張 ≤ 10,000 張）→ 維持看空；未收回 MA60（2,429.00，差 4.00 元、連 7 日）、未站上 MA10（2,429.5，差 4.5 元、連 10 日）；⭐ 站上 MA5（2,407，高 18 元，結束連 11 日在下）；守住半年線（MA120 2,387.46，高 37.54 元、連 77 日在上），布林下軌 2,353.96 未跌破；夜盤偏強指示開收兩筆皆兌現（偏強紀錄開 4/5、收 2/5；偏弱紀錄開 14/16、收 11/16）；MACD 柱 -28.24 連 2 日收斂、K 16.97 上穿 D 16.22（黃金交叉）、RSI 45.47 守住 40；外資續賣（連 14 賣、維持在 1 萬張以內）、台指期淨空收斂 1,126 口至 -84,917 口；量縮上漲記為跌深反彈；W4 結算日 P/C 只讀水位；P4 無新進展。技術：MA5 2,407／MA10 2,429.5／MA20 2,478.5／MA60 2,429.00／MA120 2,387.46，RSI 45.47，K 16.97／D 16.22／J 18.49，布林 2,354–2,479–2,603。衍生品：個股期 202611 日盤收 2,433（官方 +37）、結算 2,433、未平倉 29,294（-449）、基差 +8；台指期 202611 收 47,244（+1,138）、期現 +208.42；台指選擇權 P/C 69.38%——本日為週三週選（202610W4）結算日（未平倉加總證實），只讀水位。美股 10/28：Fed 維持 3.75%–4.00%（10 比 2，Cook 與 Hammack 主張升息；CME FedWatch 12/9 升息機率 85.0%），費半 +1.75% 收 11,684.00（2 年上漲日中第 121、非極端值，連 4 日漲）、ADR +0.60% 收 $439.51（同日對齊溢價 +17.52%；盤後 431.09、-1.92%、原因未查證）、那斯達克 +0.27%、標普 +0.28%、道瓊 +0.19%；微軟 Azure +48%、Alphabet 雲端 +103%（盤後財報）；19 檔供應鏈 16 漲 3 跌，SK 海力士 +9.75% 最強、輝達 -1.17% 最弱；韓股 SK 海力士 +9.75%、三星 +8.89%、KOSPI +6.63%（Naver）。10/28 夜盤（歸 10/29 列）個股期 202611 收 2,432（較現貨 +7）、台指期 47,121（官方 -128、較現貨 +85.42），指示「中性」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFC107">2026-10-29</div>
+      <div><div class="cal-title">⚠️ 加權重挫 1.42% 中開低 5 元至 2,420、盤中下探 2,390 回補 10/28 向上缺口，收 2,415（-10、-0.41%，下影線 25 元小黑 K），相對大盤領先 1.01 個百分點；量縮至 18,404 張（-15.84%）；外資全市場賣超 688.15 億、對台積電僅賣超 10 張（連 15 賣、合計 155,957 張），投信連 20 買、自營轉賣，三大法人合計買超 152 張；續站上 MA5、MACD 柱連 3 日收斂、K 回到 20 之上，但 MA60 差距擴大至 17.5 元、MA10 下穿 MA60（機械效果）；回到中性偏空只過籌碼項、維持看空；美股 Alphabet -12.64%、費半 -1.42%、ADR -1.75%</div><div class="cal-desc">10/29 Thu 台股 2330 官方收 NT$2,415（TWSE STOCK_DAY 確認；開 2,420／高 2,425／低 2,390，小黑 K、實體 5 元、上影線 5 元、下影線 25 元、振幅 35 元；盤中低 2,390 低於 10/27 高 2,405，回補 10/28 的 2,405–2,410 向上跳空缺口），成交 18,404 張（-15.84%，2026 年 197 日由大到小第 182）、金額 NT$443.17 億、103,233 筆；加權 -667.25 點（-1.42%）收 46,368.33、全市場成交 NT$8,238.13 億，台積電相對加權領先 1.01 個百分點（精算 +1.0062）。外資 -10 張（連 15 日賣超合計 155,957 張；為連 15 賣中最小；以收盤價估約 NT$0.25 億）、投信 +443（連 20 買）、自營 -281（自行 -191、避險 -89，結束連 3 買），三大法人合計 +152 張（分項加總；官方 +151）；全市場三大法人 -NT$832.71 億（BFI82U 官方：外資 -688.15 億、投信 +70.44 億、自營 -215.00 億；經濟日報稱合計 -816.66 億，以官方為準）；P/E 27.99x、P/B 9.74x、殖利率 0.91%；央行匯率收 32.492（貶 7.4 分）。前報十項檢核：回到中性偏空兩條件只過籌碼項（收盤 2,415 < 2,450、外資賣超 10 張 ≤ 10,000 張）→ 維持看空；未收回 MA60（2,432.5，差 17.5 元、連 8 日）、未站上 MA10（2,422，差 7 元、連 11 日）；⭐ 續站上 MA5（2,409，高 6 元、連 2 日）；守住半年線（MA120 2,388.83，高 26.17 元、連 78 日在上），布林下軌 2,347.91 未跌破；盤中低 2,390 回補 10/28 向上缺口；夜盤中性未計分（偏強紀錄開 4/5、收 2/5；偏弱紀錄開 14/16、收 11/16）、收盤 < 2,425 記為與 ADR 10/28 盤後走弱同向；MACD 柱 -24.07 連 3 日收斂、K 27.98 ≥ D 20.14（黃金交叉維持）、RSI 43.97 守住 40；外資續賣（連 15 賣、維持在 1 萬張以內）、台指期淨空擴大 4,605 口至 -89,522 口；量縮下跌記為無量探底；P/C 64.46% 字面低於 69.38%（買權相對增加），但 10/29 為 W4 結算後重建首日、非同口徑；P4 無新進展；相對加權超額 +1.01 個百分點記為落後收斂。技術：MA5 2,409／MA10 2,422／MA20 2,475.5／MA60 2,432.5／MA120 2,388.83（MA10 下穿 MA60，滾出 10/13 收 2,490 與 7/30 收 2,205 的機械效果），RSI 43.97，K 27.98／D 20.14／J 43.67，布林 2,348–2,476–2,603。衍生品：個股期 202611 日盤收 2,420（官方 -13）、結算 2,420、未平倉 28,701（-593）、基差 +5；台指期 202611 收 46,577（-672）、期現 +208.67；台指選擇權 P/C 64.46%（未平倉 179,868 口，W4 結算後重建）。美股 10/29：Alphabet 收 -12.64%（媒體稱上市以來最大單日跌幅），費半 -1.42% 收 11,518.20（2 年下跌日中第 111、非極端值，結束連 4 日漲）、ADR -1.75% 收 $431.81（同日對齊溢價 +16.19%；盤後 419.42、-2.87%）、那斯達克 -1.38%、標普 -0.30%、道瓊 -0.25%；Intel、Amazon 盤後財報（盤後分別約 -20% 至 -23%、-6.5% 至 -11%，非收盤）；據經濟日報，美 9 月 PCE 年增 3.6%、Q3 GDP 3.4%；19 檔供應鏈 7 漲 12 跌，科磊 +5.45% 最強、三星 -5.92% 最弱，蘋果創 2 年收盤新高；韓股三星 -5.92%、SK 海力士 +0.53%、KOSPI -1.24%（Naver）。10/29 夜盤（歸 10/30 列）個股期 202611 收 2,390（較現貨 -25）、台指期 45,926（官方 -643、較現貨 -442.33），指示「偏弱」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-10-30</div>
+      <div><div class="cal-title">⚠️⚠️ 加權重挫 2.49% 中開低 35 元至 2,380 即為全日最高、收 2,370（-45、-1.86%，8/19 以來最低收盤），放量至 36,616 張（+98.96%），⚠️ 跌破半年線（結束連 78 日在上）、收在五條均線之下、留 2,380–2,390 向下缺口；相對大盤領先 0.63 個百分點；外資全市場賣超 1,124.67 億、對台積電賣超 8,632 張（連 16 賣、合計 164,589 張），三大法人合計賣超 5,856 張；MACD 柱收斂中止、RSI 跌回 40 之下；回到中性偏空只過籌碼項、維持看空；美股英特爾 -28.58%、費半 -7.20%、ADR -5.95%</div><div class="cal-desc">10/30 Fri 台股 2330 官方收 NT$2,370（TWSE STOCK_DAY 確認；開 2,380／高 2,380／低 2,360，黑 K、實體 10 元、無上影線、下影線 10 元、振幅 20 元；全日最高 2,380 低於 10/29 最低 2,390，留下 2,380–2,390 向下跳空缺口），成交 36,616 張（+98.96%，2026 年 198 日由大到小第 86）、金額 NT$868.33 億、331,330 筆；加權 -1,156.50 點（-2.49%）收 45,211.83、全市場成交 NT$9,396.05 億，台積電相對加權領先 0.63 個百分點（精算 +0.6308）。外資 -8,632 張（連 16 日賣超合計 164,589 張；以收盤價估約 NT$204.6 億）、投信 +1,854（連 21 買）、自營 +922（自行 -18、避險 +940，轉買），三大法人合計 -5,856 張（分項加總，與官方截斷值一致）；全市場三大法人 -NT$1,402.18 億（BFI82U 官方：外資 -1,124.67 億、投信 +236.19 億、自營 -513.69 億）；P/E 27.47x、P/B 9.55x、殖利率 0.93%；央行匯率收 32.478（升 1.4 分）。前報十項檢核：回到中性偏空兩條件只過籌碼項（收盤 2,370 < 2,450、外資賣超 8,632 張 ≤ 10,000 張）→ 維持看空；未收回 MA60（2,431.58，差 61.58 元、連 9 日）、未站上 MA10（2,410，差 40 元、連 12 日）；⚠️ 跌回 MA5（2,399）之下；⚠️ 跌破半年線（MA120 2,389.83，低 19.83 元，結束連 78 日在上），布林下軌 2,334.62 未跌破；夜盤偏弱兌現（開 2,380、收 2,370 皆 < 2,415）→ 偏弱紀錄開 15/17、收 12/17（偏強紀錄開 4/5、收 2/5），收盤 < 2,415 記為與 ADR 10/29 盤後走弱同向；MACD 柱 -25.90 收斂中止、K 22.58 ≥ D 20.95（黃金交叉字面維持）、RSI 37.92 未守住 40；外資續賣（連 16 賣、維持在 1 萬張以內）、台指期淨空續擴大 2,719 口至 -92,241 口（10/20 起窗口最大）；放量下跌記為賣壓延續；F5 結算日 P/C 62.59% 只讀水位；相對加權超額 +0.63 個百分點記為續相對抗跌；P4 無新進展。技術：MA5 2,399／MA10 2,410／MA20 2,470.25／MA60 2,431.58／MA120 2,389.83，RSI 37.92，K 22.58／D 20.95／J 25.83，布林 2,335–2,470–2,606。衍生品：個股期 202611 日盤收 2,376（官方 -44）、結算 2,376、未平倉 27,886（-815）、基差 +6；台指期 202611 收 45,301（-1,268）、期現 +89.17；台指選擇權 P/C 62.59%（未平倉 121,320 口，F5 結算重置）。美股 10/30：英特爾收 -28.58%（10/29 盤後財報，Q4 財測偏弱；據路透為 1974 年以來最大單日跌幅），費半 -7.20% 收 10,688.80（2 年 500 日中跌幅第 7 大）、ADR -5.95% 收 $406.13（同日對齊溢價 +11.32%；盤後 408.79、+0.65%）、那斯達克 -2.86%、標普 -1.82%、道瓊 -1.09%、VIX 19.42；Amazon -1.41%、Alphabet -1.40%；19 檔供應鏈 0 漲 19 跌，蘋果 -1.23% 跌幅最小、英特爾最弱；韓股三星 -4.34%、SK 海力士 -8.25%、KOSPI -3.48%（Naver）。10/30 夜盤（歸 11/02 列）個股期 202611 收 2,289（較現貨 -81）、台指期 44,433（官方 -867、較現貨 -778.83），指示「偏弱」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-11-02</div>
+      <div><div class="cal-title">⚠️⚠️ 加權 -0.65% 中跳空開低 60 元至 2,310 即為全日最低、收 2,330（-40、-1.69%，8/4 以來最低收盤），放量至 41,165 張（+12.42%），續在半年線與五條均線之下、再留 2,345–2,360 向下缺口；⚠️ 相對大盤落後 1.04 個百分點；外資全市場賣超 735.21 億、對台積電賣超 15,005 張（連 17 賣、合計 179,594 張），三大法人合計賣超 9,438 張；MACD 柱續擴大、K 跌破 D 死亡交叉、RSI 33.50 創 2026 年新低；回到中性偏空兩條件皆未過、維持看空；美股費半續跌 3.37%、英特爾 -8.80%、ADR -1.85%</div><div class="cal-desc">11/02 Mon 台股 2330 官方收 NT$2,330（TWSE STOCK_DAY 確認；開 2,310／高 2,345／低 2,310，紅 K、實體 20 元、上影線 15 元、無下影線、振幅 35 元；全日最高 2,345 低於 10/30 最低 2,360，留下 2,345–2,360 向下跳空缺口），成交 41,165 張（+12.42%，2026 年 199 日由大到小第 65）、金額 NT$959.51 億、298,087 筆；加權 -291.69 點（-0.65%）收 44,920.14、全市場成交 NT$7,996.88 億，台積電相對加權落後 1.04 個百分點（精算 -1.0426）。外資 -15,005 張（連 17 日賣超合計 179,594 張；連 17 賣中第 4 大；以收盤價估約 NT$349.6 億）、投信 +3,682（連 22 買）、自營 +1,885（自行 +18、避險 +1,866，連 2 買），三大法人合計 -9,438 張（分項加總；官方截斷 -9,436）；全市場三大法人 -NT$549.93 億（BFI82U 官方：外資 -735.21 億、投信 +338.16 億、自營 -152.88 億；媒體所載投信 361.17 億不採）；P/E 27.01x、P/B 9.39x、殖利率 0.94%；央行匯率收 32.592（貶 11.4 分）。前報十項檢核：回到中性偏空兩條件皆未過（收盤 2,330 < 2,450、外資賣超 15,005 張 > 10,000 張）→ 維持看空；續在半年線之下（MA120 2,390.00，低 60 元、連 2 日）；未收回 MA60（2,430.92，差 100.92 元、連 10 日）、未站回 MA5（2,388，連 2 日）與 MA10（2,399，連 13 日）；布林下軌 2,314.14 收盤未破、盤中低 2,310 曾跌破；2,380–2,390 缺口未補；夜盤偏弱兌現（開 2,310、收 2,330 皆 < 2,370）→ 偏弱紀錄開 16/18、收 13/18（偏強紀錄開 4/5、收 2/5），收盤 < 2,370 記為與 ADR 10/30 收盤走弱同向；MACD 柱 -30.70 續擴大、K 20.38 < D 20.76 死亡交叉、RSI 33.50 未收復 40；外資續賣（連 17 賣、賣超 > 10,000 張再擴大）、台指期淨空收斂 2,862 口至 -89,379 口；放量下跌記為賣壓延續；P/C 61.58% 字面低於 62.59%（買權相對增加）但未平倉自 121,320 重建至 183,075 口、非同口徑；相對加權超額 -1.04 個百分點記為轉為落後；P4 無新進展。技術：MA5 2,388／MA10 2,399／MA20 2,462.75／MA60 2,430.92／MA120 2,390.00（MA5 下穿 MA120），RSI 33.50，K 20.38／D 20.76／J 19.63，布林 2,314–2,463–2,611。衍生品：個股期 202611 日盤收 2,342（官方 -34）、結算 2,342、未平倉 26,462（-1,424）、基差 +12；台指期 202611 收 45,256（-44）、期現 +335.86；台指選擇權 P/C 61.58%（未平倉 183,075 口，F5 結算後重建）；CDO 最大痛點 2,450。美股 11/02：費半 -3.37% 收 10,328.33（連 3 日下跌；2 年 499 個漲跌日中跌幅第 49 大、非極端值）、ADR -1.85% 收 $398.63（連 3 日下跌；同日對齊溢價 +11.51%；盤後約 399.3–399.8、19:59 EST）、英特爾 -8.80%、AMD -7.52%、那斯達克 -1.07%、標普 -0.51%、道瓊 +0.41%、VIX 21.15；蘋果 FQ4 營收 1,144.8 億美元優於預估、盤後約 -2.8%；據路透邁威爾全股票併購 Lumentum；19 檔供應鏈 4 漲 15 跌，SK 海力士 +6.40% 最強、英特爾最弱；韓股三星 +4.31%、SK 海力士 +6.40%、KOSPI +2.24%（Naver）。11/02 夜盤（歸 11/03 列）個股期 202611 收 2,291（較現貨 -39）、台指期 44,310（官方 -917、較現貨 -610.14），指示「偏弱」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-11-03</div>
+      <div><div class="cal-title">⚠️⚠️ 加權重挫 3.59%（2026 年第 7 大跌幅）中台積電開低 30 元至 2,300、盤中 2,280–2,335，收 2,295（-35、-1.50%，7/30 以來最低收盤、連 4 日下跌），放量至 46,137 張（+12.08%），續在半年線與五條均線之下、MA10 下穿 MA120；⭐ 相對大盤領先 2.09 個百分點；外資全市場賣超 1,073.07 億、對台積電賣超 11,703 張（連 18 賣、合計 191,297 張，較前日收斂），三大法人合計賣超 6,700 張；MACD 柱續擴大、KD 死亡交叉延續、RSI 30.19 再創 2026 年新低；回到中性偏空兩條件皆未過、維持看空；美股費半反彈 2.63%、ADR +1.55%、AMD 財報優於預期</div><div class="cal-desc">11/03 Tue 台股 2330 官方收 NT$2,295（TWSE STOCK_DAY 確認；開 2,300／高 2,335／低 2,280，黑 K、實體 5 元、上影線 35 元、下影線 15 元、振幅 55 元；全日區間與 11/02 的 2,310–2,345 重疊、未留新缺口），成交 46,137 張（+12.08%，2026 年 200 日由大到小第 47）、金額 NT$1,063.29 億、518,606 筆；加權 -1,612.60 點（-3.59%，2026 年 90 個下跌日中第 7 大跌幅）收 43,307.54、全市場成交 NT$10,020.36 億，台積電相對加權領先 2.09 個百分點（精算 +2.0878）。外資 -11,703 張（連 18 日賣超合計 191,297 張；連 18 賣中第 7 大；以收盤價估約 NT$268.6 億）、投信 +2,345（連 23 買）、自營 +2,658（自行 -224、避險 +2,882，連 3 買），三大法人合計 -6,700 張（分項加總；官方截斷 -6,699）；全市場三大法人 -NT$1,479.01 億（BFI82U 官方：外資 -1,073.07 億、投信 +184.60 億、自營 -590.54 億；媒體所載合計 -1,464.56 億、投信 +199.05 億不採）；P/E 26.60x、P/B 9.25x、殖利率 0.96%；央行匯率收 32.760（貶 16.8 分）。前報十項檢核：回到中性偏空兩條件皆未過（收盤 2,295 < 2,450、外資賣超 11,703 張 > 10,000 張）→ 維持看空；續在半年線之下（MA120 2,390.04，低 95.04 元、連 3 日）；未收回 MA60（2,430.5，差 135.5 元、連 11 日）、未站回 MA5（2,367，連 3 日）與 MA10（2,386.5，連 14 日）；布林下軌：前報估算 2,296.15 字面被收盤跌破，但實際下軌 2,288.28 收盤未破（高 6.72 元）、盤中低 2,280 曾破；2,345–2,360 與 2,380–2,390 缺口皆未補；夜盤偏弱兌現（開 2,300、收 2,295 皆 < 2,330）→ 偏弱紀錄開 17/19、收 14/19（偏強紀錄開 4/5、收 2/5），收盤 < 2,330 記為與 ADR 11/02 收盤走弱同向；MACD 柱 -36.41 續擴大、K 16.82 < D 19.45 死亡交叉延續、RSI 30.19 未收復 40；外資續賣（連 18 賣、賣超 > 10,000 張維持擴大，但較前日收斂 3,302 張）、台指期淨空重新擴大 2,433 口至 -91,812 口；放量下跌記為賣壓延續；P/C 47.77% 字面低於 61.58%（同口徑，買權相對增加）；相對加權超額 +2.09 個百分點記為恢復相對抗跌；P4 無新進展。技術：MA5 2,367／MA10 2,386.5／MA20 2,452／MA60 2,430.5／MA120 2,390.04（MA10 下穿 MA120），RSI 30.19，K 16.82／D 19.45／J 11.55，布林 2,288–2,452–2,616。衍生品：個股期 202611 日盤收 2,289（官方 -53）、結算 2,288、未平倉 25,054（-1,408）、基差 -6；台指期 202611 收 43,376（-1,851）、期現 +68.46；台指選擇權 P/C 47.77%（未平倉 235,234 口，非結算日、同口徑）；CDO 最大痛點 2,450。美股 11/03：費半 +2.63% 收 10,600.40（終結連 3 日下跌；2 年 500 個漲跌日中漲幅第 69、非極端值）、ADR +1.55% 收 $404.80（終結連 3 日下跌；同日對齊溢價 +15.57%；盤後約 404.50、19:59 EST）、AMD +3.65%、那斯達克 +0.83%、標普 +0.36%、道瓊 -0.38%、VIX 20.83；AMD 盤後公布 FQ3（SEC 8-K）營收 133.77 億美元、Q4 財測約 170 億，盤後約 +5.0%；19 檔供應鏈 13 漲 6 跌，AMD 最強、華邦電 -9.88% 最弱；韓股三星 -3.48%、SK 海力士 -4.46%、KOSPI -3.59%（Naver）。11/03 夜盤（歸 11/04 列）個股期 202611 收 2,316（較現貨 +21）、台指期 43,779（官方 +426、較現貨 +471.46），指示「偏強」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-11-04</div>
+      <div><div class="cal-title">✅ 已回答（前報十項檢核）⚠️⚠️ 台積電開高 25 元至 2,320 即全日最高後下探 2,235，收 2,260（-35、-1.53%，收盤與盤中低點皆為 7/30 以來最低、連 5 日下跌），放量至 53,879 張（基準的 1.64 倍）；加權僅 -0.83%，台積電落後 0.70 個百分點；外資全市場賣超 1,499.00 億、對台積電賣超 21,603 張（連 19 賣、合計 212,900 張，較前日擴大 9,900 張），三大法人合計賣超 11,922 張；MACD 柱續擴大、KD 死亡交叉延續、RSI 27.28 跌破 30 再創 2026 年新低；回到中性偏空兩條件皆未過、維持看空（轉弱程度再加深）；美股道瓊 +3.03%、費半逆勢 -3.13%、ADR -2.24%，高通與 Arm 財報後盤後下跌</div><div class="cal-desc">11/04 Wed 台股 2330 官方收 NT$2,260（TWSE STOCK_DAY 確認；開 2,320／高 2,320／低 2,235，黑 K、實體 60 元、無上影線、下影線 25 元、振幅 85 元；全日區間與 11/03 的 2,280–2,335 重疊、未留新缺口），成交 53,879 張（+16.78%，2026 年 201 日由大到小第 27）、金額 NT$1,222.93 億、508,399 筆；加權 -358.63 點（-0.83%）收 42,948.91、全市場成交 NT$11,769.30 億，台積電相對加權落後 0.70 個百分點（精算 -0.697）。外資 -21,603 張（連 19 日賣超合計 212,900 張；連 19 賣中第 4 大；以收盤價估約 NT$488.2 億）、投信 +3,715（連 24 買）、自營 +5,966（自行 +252、避險 +5,714，連 4 買），三大法人合計 -11,922 張（分項加總；官方截斷 -11,921）；全市場三大法人 -NT$1,601.60 億（BFI82U 官方：外資 -1,499.00 億、投信 +272.58 億、自營 -375.19 億；媒體所載合計 -1,597.87 億、投信 +276.31 億不採；外資「史上第 5 大」僅媒體稱）；P/E 26.20x、P/B 9.11x、殖利率 0.97%；央行匯率收 32.821（貶 6.1 分）。✅ 前報十項檢核：（1）回到中性偏空兩條件皆未過（收盤 2,260 < 2,450、外資賣超 21,603 張 > 10,000 張）→ 維持看空；（2）續在半年線之下（MA120 2,390.25，低 130.25 元、連 4 日）、未收回 MA60（2,428.08，差 168.08 元、連 12 日）；（3）未站回 MA5（2,334，連 4 日）與 MA10（2,370.5，連 15 日）；（4）布林下軌：前報估算 2,266.10 字面被收盤跌破，但實際下軌 2,257.96 收盤未破（高 2.04 元）、盤中低 2,235 曾破；2,345–2,360 與 2,380–2,390 缺口皆未補；（5）夜盤偏強：開 2,320 > 2,295 兌現、收 2,260 < 2,295 未兌現 → 偏強紀錄開 5/6、收 2/6（偏弱紀錄開 17/19、收 14/19 不變），收盤 ≤ 2,295 記為與 ADR 11/03 收盤走強未同向；（6）MACD 柱 -42.29 續擴大、K 15.38 < D 18.09 死亡交叉延續、RSI 27.28 未收復 40 且再創 2026 年新低；（7）外資續賣（連 19 賣、賣超 > 10,000 張維持擴大，較前日擴大 9,900 張）、台指期淨空續擴大 1,835 口至 -93,647 口；（8）放量下跌記為賣壓延續（基準 32,838 張的 1.64 倍）；（9）W1 結算日 P/C 49.37% 只讀水位（低於 100%），不與 47.77% 比較；（10）相對加權超額 -0.70 個百分點記為轉為落後；高通、Arm 財報與期中選舉結果已反映；P4 無新進展。技術：MA5 2,334／MA10 2,370.5／MA20 2,440／MA60 2,428.08／MA120 2,390.25，RSI 27.28，K 15.38／D 18.09／J 9.95，布林 2,258–2,440–2,622。衍生品：個股期 202611 日盤收 2,281（官方 -7）、結算 2,282、未平倉 24,093（-961）、基差 +21；台指期 202611 收 43,204（-149）、期現 +255.09；台指選擇權 P/C 49.37%（W1 結算日，合計 149,598 口已扣除到期 W1）；CDO 最大痛點 2,450。美股 11/04：道瓊 +3.03%、標普 +1.58%、那斯達克 +1.44%，費半 -3.13% 收 10,268.65（逆勢收跌；2 年 212 個下跌日中跌幅第 54、非極端值）、ADR -2.24% 收 $395.75（反彈 1 日後再跌；同日對齊溢價 +14.94%；盤後約 391.6–391.7、19:59 EST）、VIX 16.61；高通 +5.33%（財報前）、盤後公布 FQ4（SEC 8-K）營收 103.22 億美元、FQ1 財測營收 104–112 億，盤後約 -7.52%；Arm -5.28%（財報前）、盤後公布 FQ2（SEC 6-K）營收 14.43 億美元，盤後約 -1.83%；據 AP 民主黨拿下參眾兩院（截至台北 11/5 09:15）；19 檔供應鏈 6 漲 13 跌，高通最強、美光 -7.00% 最弱，蘋果 $349.51 創 2 年收盤新高；韓股三星 -0.23%、SK 海力士 +0.42%、KOSPI +0.62%（Naver）。11/04 夜盤（歸 11/05 列）個股期 202611 收 2,283（較現貨 +23）、台指期 43,404（官方 +201、較現貨 +455.09），指示「偏強」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-11-05</div>
+      <div><div class="cal-title">✅ 已回答（前報十項檢核）⚠️⚠️ 加權重挫 3.20%（2026 年第 11 大跌幅）中台積電開低 10 元至 2,250、盤中 2,235–2,285，收 2,240（-20、-0.88%，7/30 以來最低收盤、連 6 日下跌；盤中低與 11/04 持平），量 45,175 張（基準的 1.15 倍）；⭐ 相對大盤領先 2.31 個百分點；外資賣超收斂至 10,252 張（連 20 賣、合計 223,152 張，仍超門檻 252 張）；MA20 下穿 MA60、RSI 25.76 再創 2026 年新低；回到中性偏空兩條件皆未過、維持看空；收盤後美股費半 -12.25%（2 年最大跌幅）、ADR -10.78%，夜盤個股期 2,026 指示偏弱</div><div class="cal-desc">11/05 Thu 台股 2330 官方收 NT$2,240（TWSE STOCK_DAY 確認；開 2,250／高 2,285／低 2,235，黑 K、實體 10 元、上影線 35 元、下影線 5 元、振幅 50 元；全日區間落在 11/04 的 2,235–2,320 之內、未留新缺口），成交 45,175 張（-16.15%，2026 年 202 日由大到小第 53）、金額 NT$1,018.27 億、304,041 筆；加權 -1,374.19 點（-3.20%，2026 年 92 個下跌日第 11 大；7/30 以來最低收盤）收 41,574.72、全市場成交 NT$9,870.99 億，台積電相對加權領先 2.31 個百分點（精算 +2.3146）。外資 -10,252 張（連 20 日賣超合計 223,152 張；連 20 賣中第 9 大；以收盤價估約 NT$229.6 億）、投信 +2,739（連 25 買）、自營 +5,295（自行 +299、避險 +4,996，連 5 買），三大法人合計 -2,218 張（分項加總；官方截斷 -2,216）；全市場三大法人 -NT$1,233.94 億（BFI82U 官方：外資 -1,024.61 億、投信 +225.94 億、自營 -435.27 億；中央社所載合計 -1,234.57 億不採）；P/E 25.96x、P/B 9.03x、殖利率 0.98%；央行匯率收 32.876（貶 5.5 分）。✅ 前報十項檢核：（1）回到中性偏空兩條件皆未過（收盤 2,240 < 2,450、外資賣超 10,252 張 > 10,000 張）→ 維持看空；（2）續在半年線之下（MA120 2,390.13，低 150.13 元、連 5 日）、未收回 MA60（2,426.00，差 186 元、連 13 日）；（3）未站回 MA5（2,299，連 5 日）與 MA10（2,354，連 16 日）；（4）布林下軌：收盤 2,240 高於前報估算 2,237.21（字面未破）與實際下軌 2,232.53（高 7.47 元），盤中低 2,235 字面低於估算值、但高於實際下軌；2,345–2,360 與 2,380–2,390 缺口皆未補；（5）夜盤偏強：開 2,250、收 2,240 皆 < 2,260 → 未兌現，偏強紀錄開 5/7、收 2/7（偏弱紀錄開 17/19、收 14/19 不變），收盤 < 2,260 記為與 ADR 11/04 走弱同向；（6）MACD 柱 -45.98 續擴大、K 11.08 < D 15.75 死亡交叉延續（第 4 日）、RSI 25.76 未回到 30 且再創 2026 年新低；（7）外資續賣（連 20 賣、賣超 > 10,000 張字面維持擴大，惟較 21,603 張收斂 11,351 張）、台指期淨空續擴大 2,004 口至 -95,651 口；（8）放量下跌記為賣壓延續（基準 39,240 張的 1.15 倍）；（9）W1 結算後重建首日 P/C 44.09% 只讀水位（低於 100%），不與 49.37% 比較；（10）相對加權超額 +2.31 個百分點記為恢復相對抗跌；高通 11/05 常規盤 -9.49%、Arm -13.08%，皆深於盤後指示；P4 無新進展。技術：MA5 2,299／MA10 2,354／MA20 2,423.25／MA60 2,426.00／MA120 2,390.13（MA20 下穿 MA60），RSI 25.76，K 11.08／D 15.75／J 1.74，布林 2,233–2,423–2,614。衍生品：個股期 202611 日盤收 2,249（官方 -33）、結算 2,247、未平倉 23,117（-976）、基差 +9；台指期 202611 收 41,915（-1,288）、期現 +340.28；台指選擇權 P/C 44.09%（W1 結算後重建首日，合計 234,776 口）；CDO 最大痛點 2,450。美股 11/05：道瓊 -3.44%、標普 -4.36%、那斯達克 -5.52%（三者皆為各自 2 年第 3 大跌幅），費半 -12.25% 收 9,011.14（2 年 213 個下跌日中最大跌幅；前紀錄 2026-06-05 的 -10.26%）、ADR -10.78% 收 $353.10（2 年 235 個下跌日中第 2 大，僅次於 2025-01-27 的 -13.33%；同日對齊溢價 +3.66%；盤後約 360.50、19:59 EST）、VIX 28.18；高通 -9.49%、Arm -13.08%（財報後首個常規盤）；19 檔供應鏈 0 漲 19 跌，蘋果 -1.53% 最強、美光 -17.46% 最弱（自身 2 年最大跌幅）；韓股三星 -9.03%、SK 海力士 -11.13%、KOSPI -5.28%（Naver）。據 Fox Business／CNBC，主因為 AI 資料中心監管疑慮（媒體歸因）。11/05 夜盤（歸 11/06 列）個股期 202611 收 2,026（官方 -221、-9.84%，較現貨 -214）、台指期 38,936（官方 -2,946、較現貨 -2,638.72），指示「偏弱」；夜盤跌幅不作排名。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#FFCDD2">2026-11-06</div>
+      <div><div class="cal-title">✅ 已回答（前報十項檢核）⚠️⚠️ 加權重挫 4.51%（2026 年第 3 大跌幅）中台積電開盤即跌停 2,020、盤中最高 2,195，收 2,135（-105、-4.69%，2026 年第 2 大跌幅、連 7 日下跌），量 110,715 張為 2026 年最大；收破布林下軌、留 2,195–2,235 新向下缺口，MACD 柱與 RSI 雙創 2026 年新低；外資賣超 22,844 張（連 21 賣）、相對大盤落後 0.18 個百分點；回到中性偏空兩條件皆未過、維持看空；收盤後美股反彈費半 +4.21%、ADR +6.33%，夜盤個股期 2,173 指示偏強</div><div class="cal-desc">11/06 Fri 台股 2330 官方收 NT$2,135（TWSE STOCK_DAY 確認；開 2,020＝跌停價＝全日最低／高 2,195，紅 K 實體 115 元、上影線 60 元、無下影線，但收盤低於前收 105 元；振幅 175 元為 2026 年最大；全日最高 2,195 低於 11/05 最低 2,235，留 2,195–2,235 向下跳空缺口），成交 110,715 張（+145.08%，2026 年 203 日最大、2 年第 4）、金額 NT$2,318.93 億、675,265 筆；加權 -1,873.08 點（-4.51%，2026 年 93 個下跌日第 3 大；4/30 以來最低收盤）收 39,701.64、全市場成交 NT$13,210.72 億，台積電相對加權落後 0.18 個百分點（精算 -0.1822）。外資 -22,844 張（連 21 日賣超合計 245,996 張；連 21 賣中第 3 大；以收盤價估約 NT$487.7 億）、投信 +4,669（連 26 買）、自營 +8,701（自行 +100、避險 +8,601，連 6 買），三大法人合計 -9,474 張（分項加總；官方截斷 -9,473）；全市場三大法人 -NT$1,139.73 億（BFI82U 官方：外資 -911.88 億、投信 +266.91 億、自營 -494.76 億）；P/E 24.75x、P/B 8.61x、殖利率 1.03%；央行匯率收 32.768（升 10.8 分）。✅ 前報十項檢核：（1）回到中性偏空兩條件皆未過（收盤 2,135 < 2,450、外資賣超 22,844 張 > 10,000 張）→ 維持看空；（2）續在半年線之下（MA120 2,389.42，低 254.42 元、連 6 日）、未收回 MA60（2,422.08，差 287.08 元、連 14 日）；（3）未站回 MA5（2,252，連 6 日）與 MA10（2,325.5，連 17 日）；（4）收盤 2,135 低於前報估算布林下軌 2,214.52 與實際下軌 2,186.90 → 字面與實際皆跌破；缺口 2,345–2,360（第 5 日）、2,380–2,390（第 6 日）皆未補；盤中最高 2,195 < 11/05 最低 2,235 → 新的 2,195–2,235 向下跳空缺口；（5）夜盤偏弱：開 2,020、收 2,135 皆 < 2,240 → 兌現，偏弱紀錄開 18/20、收 15/20（偏強紀錄開 5/7、收 2/7 不變），收盤 < 2,240 記為與 ADR 11/05 走弱同向；（6）MACD 柱 -58.83 續擴大（2026 年新低）、K 16.74 ≥ D 16.08 重新黃金交叉（低檔）、RSI 19.57 未回到 30 且再創 2026 年新低；（7）外資續賣（連 21 賣、22,844 張 > 10,000 張，較 10,252 張增加 12,592 張）、台指期淨空續擴大 4,279 口至 -99,930 口；（8）放量下跌記為賣壓延續（基準 44,594 張的 2.48 倍）；（9）F1 結算日 P/C 39.73% 只讀水位（低於 100%），不與 44.09% 比較；11/09 重建首日由 11/10 報告只讀水位；（10）相對加權超額 -0.18 個百分點記為轉為落後；非農 +16.5 萬、失業率 4.1%；P4 無新進展；跌停另訂門檻條款未觸發（收 2,135 > 2,020）。技術：MA5 2,252／MA10 2,325.5／MA20 2,400.75／MA60 2,422.08／MA120 2,389.42，RSI 19.57，K 16.74／D 16.08／J 18.05，布林 2,187–2,401–2,615。衍生品：個股期 202611 日盤收 2,136（官方 -111）、結算 2,133、未平倉 21,285（-1,832）、基差 +1；台指期 202611 收 39,786（-2,096）、期現 +84.36；台指選擇權 P/C 39.73%（F1 結算日，合計 149,165 口）；CDO 最大痛點 2,450。美股 11/06：費半 +4.21% 收 9,390.25（2 年 287 個上漲日第 24 大，非極端）、ADR +6.33% 收 $375.44（2 年 264 個上漲日第 7 大；同日對齊溢價 +15.25%；盤後約 378.58、19:59 EST）、那斯達克 +1.09%、標普 +0.31%、道瓊 -0.46%、VIX 25.64；19 檔供應鏈 13 漲 6 跌，超微 +11.04% 最強、日月光 -7.87% 最弱；韓股三星 -3.97%、SK 海力士 -6.81%、KOSPI -6.02%（Naver）。美國 10 月非農 +16.5 萬（Dow Jones 預期約 5.9 萬）、失業率 4.1%（BLS）。11/06 夜盤（歸 11/09 列）個股期 202611 收 2,173（官方 +40、+1.88%，較現貨 +38）、台指期 40,298（官方 +646、較現貨 +596.36），指示「偏強」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#C8E6C9">2026-11-09</div>
+      <div><div class="cal-title">✅ 已回答（前報十項檢核）⭐ 國安基金與限空措施實施首日，加權大漲 4.94%（2026 年第 2 大漲幅）；台積電開 2,210、最高 2,290，收 2,235（+100、+4.68%，2026 年第 8 大漲幅），終止連 7 跌、收回布林下軌之上、站回 MA5、盤中回補 11/06 缺口；量 45,883 張為量縮上漲；外資賣超縮至 8,758 張（連 22 賣、回到門檻內）、相對大盤續落後 0.25 個百分點；回到中性偏空兩條件只過其一、維持看空；收盤後美股續強費半 +6.85%、ADR +3.50%，夜盤個股期 2,262 再指示偏強</div><div class="cal-desc">11/09 Mon 台股 2330 官方收 NT$2,235（TWSE STOCK_DAY 確認；開 2,210（跳空 +75）／高 2,290／低 2,190，紅 K 實體 25 元、上影線 55 元、下影線 20 元；振幅 100 元；開盤即落在 11/06 的 2,195–2,235 缺口內、盤中最高 2,290 回補該缺口，全日區間與 11/06 重疊、無新缺口），成交 45,883 張（-58.56%，2026 年 204 日由大到小第 50）、金額 NT$1,025.81 億、197,811 筆；加權 +1,960.06 點（+4.94%，2026 年 110 個上漲日第 2 大；11/04 以來最高收盤）收 41,661.70、全市場成交 NT$8,770.26 億，台積電相對加權落後 0.25 個百分點（精算 -0.2531）。外資 -8,758 張（連 22 日賣超合計 254,754 張；連 22 賣中由大到小第 14；以收盤價估約 NT$195.7 億）、投信 +3,828（連 27 買）、自營 -764（自行 -1,080、避險 +316，連 6 買中斷），三大法人合計 -5,694 張（分項加總＝官方截斷）；全市場三大法人 -NT$899.63 億（BFI82U 官方：外資 -900.56 億、投信 +313.12 億、自營 -312.19 億）；P/E 25.91x、P/B 9.01x、殖利率 0.98%；央行匯率收 32.882（貶 11.4 分）。✅ 前報十項檢核：（1）回到中性偏空只過其一（外資賣超 8,758 張 ≤ 10,000 張過；收盤 2,235 < 2,450 未過）→ 維持看空；（2）續在半年線之下（MA120 2,389.13，低 154.13 元、連 7 日）、未收回 MA60（2,419.67，差 184.67 元、連 15 日）；（3）站回 MA5（2,233.00，高 2.00 元；結束連 6 日在下）、未站上 MA10（2,310.5，連 18 日）；（4）收盤 2,235 高於前報估算布林下軌 2,152.32 與實際下軌 2,175.37 → 字面與實際皆回到下軌之上；盤中最高 2,290 ≥ 2,235 → 回補 11/06 缺口；缺口 2,345–2,360（第 6 日）、2,380–2,390（第 7 日）皆未補；（5）夜盤偏強：開 2,210、收 2,235 皆 > 2,135 → 兌現，偏強紀錄開 6/8、收 3/8（偏弱紀錄開 18/20、收 15/20 不變），收盤 > 2,135 記為與 ADR 11/06 走強同向；（6）MACD 柱 -50.45 重新收斂、K 28.64 ≥ D 20.27 黃金交叉延續（第 2 日）、RSI 35.47 回到 30 之上；（7）外資續賣（連 22 賣）但 8,758 張 ≤ 10,000 張 → 回到門檻內（較 22,844 張減少 14,086 張）、台指期淨空續擴大 1,841 口至 -101,771 口；（8）量縮上漲記為跌深反彈（基準 59,414 張的 0.77 倍）；（9）W2 重建首日 P/C 51.19% 只讀水位（低於 100%），不與 39.73% 比較；（10）相對加權超額 -0.25 個百分點記為續落後；國安基金首日加權 +4.94%、台積電 +4.68%（買進金額官方未公布）；10 月營收待公布；P4 無新進展。技術：MA5 2,233／MA10 2,310.5／MA20 2,383.25／MA60 2,419.67／MA120 2,389.13（MA20 下穿 MA120），RSI 35.47，K 28.64／D 20.27／J 45.38，布林 2,175–2,383–2,591。衍生品：個股期 202611 日盤收 2,229（官方 +96）、結算 2,232、未平倉 19,495（-1,790）、基差 -6；台指期 202611 收 41,423（+1,771）、期現 -238.70；台指選擇權 P/C 51.19%（W2 重建首日，合計 213,803 口）；CDO 最大痛點 2,450。美股 11/09：費半 +6.85% 收 10,033.93（2 年 288 個上漲日第 5 大）、ADR +3.50% 收 $388.57（2 年 264 個上漲日第 44 大，非極端；同日對齊溢價 +14.33%；盤後約 390.01、19:57 EST）、那斯達克 +2.74%、標普 +2.35%、道瓊 +2.15%、VIX 19.92；19 檔供應鏈 16 漲 3 跌，超微 +13.26% 最強、SK 海力士 -5.19% 最弱，蘋果創 2 年收盤新高；韓股三星 -3.36%、SK 海力士 -5.19%、KOSPI -0.81%（Naver）。輝達董事會 11/8 宣布對執行長展開獨立調查，11/9 輝達 -4.27%（細節為二手轉述）。11/09 夜盤（歸 11/10 列）個股期 202611 收 2,262（官方 +30、+1.34%，較現貨 +27）、台指期 42,542（官方 +1,064、較現貨 +880.30），指示「偏強」。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#9E9E9E">2026-11-10</div>
+      <div><div class="cal-title">✅ 已回答（前報十項檢核）⭐ 國安基金進場第 2 日，加權 +2.52% 收 42,711.92；台積電開 2,265、最低 2,230，收在全日最高 2,285（+50、+2.24%），連 2 日上漲、站穩 MA5、守在布林下軌之上，MACD 柱續收斂且 DIF 回升、RSI 回到 40 之上；但量 36,576 張再縮（量縮上漲）、收盤仍低於 MA10 14 元；外資賣超 8,181 張（連 23 賣、維持門檻內）、相對大盤續落後 0.28 個百分點；回到中性偏空兩條件只過其一、維持看空；10 月營收年增 +59.71%、董事會核准 Q3 股利 9 元；收盤後美 10 月 CPI 高於預期、費半 -0.35%、ADR 逆勢 +2.02%，夜盤無訊號</div><div class="cal-desc">11/10 Tue 台股 2330 官方收 NT$2,285（TWSE STOCK_DAY 確認；開 2,265（跳空 +30）／高 2,285／低 2,230，紅 K 實體 20 元、下影線 35 元、無上影線；振幅 55 元；全日區間與 11/09 重疊、無新缺口），成交 36,576 張（-20.28%，2026 年 205 日由大到小第 93）、金額 NT$828.47 億、143,496 筆；加權 +1,050.22 點（+2.52%，2026 年 111 個上漲日第 20 大；11/04 以來最高收盤）收 42,711.92、全市場成交 NT$10,340.12 億，台積電相對加權落後 0.28 個百分點（精算 -0.2837）。外資 -8,181 張（連 23 日賣超合計 262,935 張；連 23 賣中由大到小第 16；以收盤價估約 NT$186.9 億）、投信 +5,634（連 28 買）、自營 -766（自行 -518、避險 -248，連 2 賣），三大法人合計 -3,313 張（分項加總＝官方截斷）；全市場三大法人 -NT$117.62 億（BFI82U 官方：外資 -341.17 億、投信 +398.91 億、自營 -175.36 億）；P/E 26.49x、P/B 9.21x、殖利率 0.96%；央行匯率收 32.865（升 1.7 分）。✅ 前報十項檢核：（1）回到中性偏空只過其一（外資賣超 8,181 張 ≤ 10,000 張過；收盤 2,285 < 2,450 未過、差 165 元）→ 維持看空；（2）續在半年線之下（MA120 2,389.29，低 104.29 元、連 8 日）、未收回 MA60（2,417.83，差 132.83 元、連 16 日）；MA20 2,370.00（參考平衡點 2,374.47）、低 85.00 元（連 17 日）；（3）站穩 MA5（2,231.00，高 54.00 元、連 2 日）、未站上 MA10（2,299.00，低 14.00 元、連 19 日）；（4）收盤 2,285 高於前報估算布林下軌 2,164.88 與實際下軌 2,172.82 → 字面與實際皆守在下軌之上；盤中最高 2,285 < 2,360 → 缺口 2,345–2,360（第 7 日）、2,380–2,390（第 8 日）、2,450–2,490（第 17 日）皆未補；無新缺口；（5）夜盤偏強：開 2,265、收 2,285 皆 > 2,235 → 兌現，偏強紀錄開 7/9、收 4/9（偏弱紀錄開 18/20、收 15/20 不變），收盤 > 2,235 記為與 ADR 11/09 走強同向；（6）MACD 柱 -35.48 續收斂（+14.97，DIF 回升 3.05）、K 40.90 ≥ D 27.15 黃金交叉延續（第 3 日）、RSI 41.68 回到 40 之上；（7）外資續賣（連 23 賣）但 8,181 張 ≤ 10,000 張 → 維持在門檻內（較 8,758 張減少 577 張）、台指期淨空續擴大 1,702 口至 -103,473 口；（8）量縮上漲記為跌深反彈（基準 60,358 張的 0.61 倍）；（9）P/C 66.54% 高於 11/09 的 51.19%（同口徑）→ 賣權相對增加，水位仍低於 100%；（10）相對加權超額 -0.28 個百分點記為續落後；10 月營收約 5,868.9 億元（年增 +59.71%，媒體稱單月新高）；美 10 月 CPI 月增 0.4%、核心 0.3%（高於預期，BLS 未發布年增率）；國安基金第 2 日金額未公布；P4 無新進展；漲跌停 2,455／2,015 未觸及。技術：MA5 2,231／MA10 2,299／MA20 2,370／MA60 2,417.83／MA120 2,389.29，RSI 41.68，K 40.90／D 27.15／J 68.42，布林 2,173–2,370–2,567。衍生品：個股期 202611 日盤收 2,281（官方 +49）、結算 2,283、未平倉 17,402（-2,093）、基差 -4；台指期 202611 收 42,623（+1,145）、期現 -88.92；台指選擇權 P/C 66.54%（合計 255,933 口）；CDO 最大痛點 2,450。公司：10 月營收約 NT$5,868.9 億（月增 +14.66%、年增 +59.71%；1–10 月累計約 4 兆 4,856.17 億、年增 +43.29%）；董事會核准 Q3 現金股利 NT$9.0（除息 2027/3/11、基準日 3/17、發放 4/8）、資本預算約 US$409.27 億、各不超過 US$5 億認購 Anthropic／OpenAI 股份（核准額度上限）。美股 11/10：費半 -0.35% 收 9,998.33、ADR +2.02% 收 $396.48（前收修訂為 388.62；2 年 265 個上漲日第 103，非極端；同日對齊溢價 +14.07%；盤後約 402.65、19:59 EST）、那斯達克 -0.74%（收 25,065.88）、標普 -0.38%（收 7,520.93）、道瓊 -0.30%（收 52,231.89）、VIX 19.46；美 10 月 CPI 月增 0.4%、核心 0.3%（BLS），CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入（二手）；19 檔供應鏈 11 漲 8 跌，日月光 +7.84% 最強、輝達 -5.47% 最弱；韓股三星 +5.51%、SK 海力士 +7.44%、KOSPI +4.39%（Naver）。11/10 夜盤（歸 11/11 列）個股期 202611 收 2,291（官方 +8、+0.35%，較現貨 +6）、台指期 42,522（官方 -124、較現貨 -189.92），未達 ±10 門檻、無訊號。</div></div>
+    </div><div class="cal-item">
+      <div class="cal-date" style="background:#2196F3">2026-11-11</div>
+      <div><div class="cal-title">📅 報告日：立場看空（轉弱程度續緩和）；回到中性偏空兩條件只過其一（外資 8,181 張維持在門檻內、收盤 2,285 距 2,450 仍差 165 元），11/10 連 2 日上漲、收在全日最高、站穩 MA5、DIF 回升、RSI 回到 40 上，但量縮上漲、收盤仍低於 MA10 14 元、期貨淨空再擴、P/C 升至 66.54%；前報十項：只過其一／續在 MA120、MA60 下／站穩 MA5 未站上 MA10／守在布林下軌上、三缺口未補／夜盤偏強開收兌現（7/9、4/9）／MACD 收斂、KD 金叉第 3 日、RSI 回 40 上／外資門檻內但期貨淨空續擴／量縮上漲／P/C 賣權相對增加／相對大盤續落後；看 2,285 站上 MA10、2,395 收回半年線、2,450 回到中性偏空線；由 11/12（四）報告回答</div><div class="cal-desc">⭐ 檢核清單（皆可由 11/11 官方收盤數據直接判定，由 11/12（四）報告回答）：（1）收盤 ≥ 2,450 且外資賣超 ≤ 10,000 張（或轉買）→ 回到中性偏空；只過其一 → 維持看空；（2）⭐ MA10：滾出 10/28 收 2,425（平衡點 2,285.00，恰等於 11/10 收盤），收盤 ≥ 2,285 記為站上 MA10（結束連 19 日在下；收平盤時恰等於 MA10）、≤ 2,280 記為續在其下（連 20 日）——為下一個修復門檻；半年線：MA120 滾出 5/18 收 2,240（平衡點 2,390.55），收盤 ≥ 2,395 記為收回半年線、≤ 2,390 記為續在其下（連 9 日）；收盤 ≥ 2,420 記為收回 MA60（滾出 8/12 收 2,415，平衡點 2,417.88；結束連 16 日在下）；MA20 平衡點 2,361.05（滾出 10/12 收 2,540）僅供參考，收盤 ≥ 2,365 記為站上 MA20；（3）收盤 ≥ 2,225 記為站穩 MA5（滾出 11/04 收 2,260，平衡點 2,223.75；連 3 日在上）、≤ 2,220 記為跌回 MA5 之下；（4）收盤 ≤ 2,170 記為跌回布林下軌之下、≥ 2,175 記為守在下軌之上（若收 2,285 的估算下軌 2,173.14；實際下軌隨 11/11 收盤變動，屆時字面與實際值並陳）；盤中最高 ≥ 2,360 記為回補 2,345–2,360 缺口、≥ 2,390 記為回補 2,380–2,390 缺口、≥ 2,490 記為回補 2,450–2,490 缺口；盤中最低 > 11/10 最高 2,285 記為新的向上跳空缺口、盤中最高 < 11/10 最低 2,230 記為新的向下跳空缺口；（5）夜盤：11/10 夜盤個股期 202611 收 2,291 較現貨 2,285 僅 +6（台指期 42,522 較加權 -189.92），未達 ±10 門檻 → 無訊號，11/12 報告不計分（偏強紀錄維持開 7/9、收 4/9，偏弱紀錄開 18/20、收 15/20）；另 ADR 11/10 收 +2.02%：收盤 > 2,285 記為與 ADR 11/10 走強同向（僅為相關）；（6）MACD 柱 > -35.48 記為續收斂、< -35.48 記為重新擴大；K ≥ D 記為黃金交叉延續（第 4 日）、K < D 記為重新死亡交叉（11/10 K 40.90／D 27.15）；RSI 收盤 ≥ 50 記為回到 50 之上、< 40 記為跌回 40 之下（11/10 為 41.68）；（7）外資轉買即中止連 23 賣；賣超 ≤ 10,000 張記為維持在門檻內、> 10,000 張記為重新擴大（另以 8,181 張為參照記錄增減）；外資台指期淨空 < 103,473 口記為收斂、> 103,473 口記為續擴大；（8）量能基準 58,446 張（11/10 的 5 日均量 58,445.6；11/11 滾出 11/04 的 53,879 張；11/05–11/10 四日和 238,349 張，新均量 ＝ (238,349 + X) ÷ 5）：放量上漲＝承接、放量下跌＝賣壓延續、量縮上漲＝跌深反彈、量縮下跌＝無量探底、平盤＝觀望；（9）11/11（三）為週選 W2 結算日（到期欄位 20261111）：P/C 只讀水位（100% 為分界），不與 11/10 的 66.54% 比較方向；11/13（五）週選 F2 結算；（10）以相對加權超額報酬觀察（11/10 為 -0.28 個百分點，精算 -0.2837），≥ 0 記為恢復相對抗跌、< 0 記為續落後；10 月營收已於本報反映，下一批事件為 11/13 週選 F2、11/17 輝達財報（二手轉述）、11/18 月結算；續追蹤國安基金、P4 復工與 2 奈米時程說明。11/11 漲停價 2,510、跌停價 2,060（MIS 欄位）。盤中參考（不作結論）：MIS 09:32:00 2330 開 2,330（較前收 2,285 +1.97%）／高 2,330／低 2,305、累計 6,964 張（該快照成交價欄為「-」，最佳委買 2,315／委賣 2,320）、加權同時點 42,908.74（+0.46%）、開 43,135.76。後續：11/11 週選 W2、11/13 週選 F2、11/17 輝達財報（二手轉述）、11/18 11 月月結算（到期欄位 20261118）、FOMC 12/8–9（聯準會官網確認）、12/10 Q2 季配息 NT$7.0 除息（官方新聞稿，11/11 再次確認；配息基準日 12/16、發放日 2027/1/7）、2027/3/11 Q3 季配息 NT$9.0 除息（11/10 董事會決議；基準日 3/17、發放日 4/8）、Q4 法說會 2027 年 1 月中旬【待公告】</div></div>
+    </div>
+  </div>
+  <p style="font-size:10.5px;color:var(--muted);margin-top:8px">
+    Source: <a href="https://investor.tsmc.com/english/financial-calendar" style="color:var(--blue)">TSMC Investor Relations — Financial Calendar</a></p>
+</div>
+
+<!-- ═══ 14. 估值歷史位階 ═══ -->
+<div class="sec" id="valuation">
+  <div class="sec-title">📐 估值歷史位階（Valuation Percentile）</div>
+  <div class="alert">⚠ ⭐ TWSE 官方 BWIBBU_d 11/10：P/E 26.49x、P/B 9.21x、殖利率 0.96%（11/09 為 25.91x／9.01x／0.98%），隨股價 +2.24% 同步變動；財報年/季仍為 115/2（Q3 財報 10/15 公布，官方欄位尚未換季，待 TWSE 更新後 P/E 將因 Q3 EPS 29.43 取代 Q3 2025 的 17.44 而明顯下降，屬分母更新非評價重估）。5 年／10 年均值與百分位、EV/EBITDA、PEG 為既有估算值、沿用、非本日重算。ADR 端 P/E 以 11/10 同日對齊溢價 +14.07% 推算約 30.2x（P/B 約 10.5x），非官方數；ADR 溢價自 +14.33% 小幅收斂至 +14.07%，主因台股 11/10 漲幅（+2.24%）略高於 ADR（+2.02%），不代表評價面改變。⭐ 10 月營收年增 +59.71%（11/10 公布）屬營收面資料，不改變本欄官方 P/E 的計算基準。</div>
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="val-lbl">P/E 目前</div>
+      <div class="val-val">26.49x</div>
+      <div class="val-sub">5Y 均 18.5x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:88%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>88%</strong>（高 37.8x / 低 9.8x）</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/E 10年位階</div>
+      <div class="val-val">89%</div>
+      <div class="val-sub">10Y 均 16.2x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:89%"></div></div>
+      <div class="val-sub">10Y 歷史百分位</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">P/B 目前</div>
+      <div class="val-val">9.21x</div>
+      <div class="val-sub">5Y 均 5.8x</div>
+      <div class="pct-bar-wrap"><div class="pct-bar-fill" style="width:92%"></div></div>
+      <div class="val-sub">5Y 百分位 <strong>92%</strong></div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">EV/EBITDA（估）</div>
+      <div class="val-val">21.0x</div>
+      <div class="val-sub">半導體業均約 12–16x</div>
+    </div>
+    <div class="val-card">
+      <div class="val-lbl">PEG Ratio</div>
+      <div class="val-val" style="color:var(--green)">0.8</div>
+      <div class="val-sub">&lt;1 = 相對成長便宜</div>
+    </div>
+  </div>
+  <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);font-size:12.5px;color:#444;line-height:1.75">
+    <strong>估值解讀：</strong>目前 P/E 26.49x（TWSE 官方 BWIBBU 11/10、採 115Q2 財報基準；⚠️ 提醒：8/14 曾自 115Q1 換基準、P/E 一次性由 32.74x 降至 27.76x，屬分母更新而非評價修正，與 8/13 以前數值不可直接比較）。
+    ⚠️ 下列百分位已依 115Q2 新基準粗略重校（5 年 94%→88%、10 年 94%→89%；⚠️ 注意：台積電 9 月營收已於 10/8 公布、Q3 營收以 32 元換算高於美元指引上緣，但官方 P/E 採 115Q2 財報基準，Q3 獲利已於 10/15 法說會公布，須待 11 月官方換季後才會反映在分母，故本日 P/E 仍為舊獲利基準），惟仍屬估算、僅供方向性參考：5 年 <strong>88%</strong> 分位 / 10 年 <strong>89%</strong> 分位，
+    方向上仍反映市場對 AI 超級週期的溢價預期。PEG 0.8 顯示相對成長速度仍屬合理；EV/EBITDA 21.0x 高於業均，
+    但考量 TSMC 壟斷性市占與訂單能見度，溢價具基本面支撐。若 AI 資本支出鬆動，P/E 均值回歸至 18.5x
+    意味台股下修至約 NT$1,595（以本報台股收盤 × 5 年均值 P/E ÷ 現值 P/E 計算、取整至 5 元），為主要下行風險情境。
+  </div>
+</div>
+
+<!-- ═══ 15. 現金流品質 ═══ -->
+<div class="sec" id="cashflow">
+  <div class="sec-title">💵 現金流品質分析（Quality of Earnings）</div>
+  <div class="alert">⚠ ⭐ 10/15 法說：現金及約當現金 NT$4.02 兆（占總資產 39.9%）、流動負債季增 NT$1,100 億（含 460 億債券／借款）；庫存天數 82 天。FY25 毛利率／營益率／CapEx 欄位為既有估算值；FCF 來自 KPI 區塊；AR 天數為業界估算，建議至 TSMC 季報核實。</div>
+  <div class="cf-grid">
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 合併營收</div>
+      <div class="cf-val">NT$3.8兆 ($122B)</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 毛利率（估）</div>
+      <div class="cf-val" style="color:var(--green)">56.1%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：62.3%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 營業利益率（估）</div>
+      <div class="cf-val" style="color:var(--green)">47.7%（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">Q4 2025：54.0%</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 CapEx（估）</div>
+      <div class="cf-val">$34.5B USD（估）</div>
+      <div class="cf-chg" style="color:var(--muted)">佔收入 28.3%（估）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">FY25 自由現金流</div>
+      <div class="cf-val" style="color:var(--green)">NT$1兆+（FY25 KPI）</div>
+      <div class="cf-chg" style="color:var(--muted)">FCF 殖利率 ~1.7%（NT$1 兆 ÷ 市值 NT$59.3 兆）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">存貨天數 DOI（估）</div>
+      <div class="cf-val">82 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -5 天（去化）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">應收帳款天數 AR（估）</div>
+      <div class="cf-val">43 天</div>
+      <div class="cf-chg" style="color:var(--green)">YoY -4 天（改善）</div>
+    </div>
+    <div class="cf-card">
+      <div class="cf-lbl">庫存趨勢</div>
+      <div class="cf-val" style="font-size:13px;color:var(--green)">去化中（Q3 2026 庫存天數 87 → 82 天，法說確認）</div>
+      <div class="cf-chg" style="color:var(--muted)">下游需求復甦訊號</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 16. 相對強弱 / ADR 折溢價 ═══ -->
+<div class="sec" id="relative">
+  <div class="sec-title">📊 相對強弱 &amp; ADR 折溢價（Relative Strength）</div>
+  <div class="alert">⚠ ⭐ 本節「今日」欄為同日數據：台股 11/10（Tue）2330 +2.24%、加權 +2.52%；美股 11/10（Tue）費半 -0.35%、ADR +2.02%——台股、ADR、匯率三者日期完全對齊，無混合；台股 11/10 收盤（台北 13:30）早於美股 11/10 交易（美東 9:30–16:00）。⚠️ ADR 11/09 收盤經資料源修訂為 388.62（前報發布 388.57），本日 +2.02% 以修訂值為基準（對發布值為 +2.04%）。⭐ 理論平價 = 5 × 台股 11/10 收盤 2,285 ÷ 匯率 32.87 = 347.58（匯率採央行 11/10 收盤 32.865，為捨入邊界、half-up 取 32.87；以 3 位小數 32.865 計為 347.63、溢價 +14.05%），ADR $396.48 溢價 +14.07%，較前一個同日對齊值 11/09 的 +14.33% 收斂 0.26 個百分點——成因為台股 +2.24% 略高於 ADR +2.02%，新台幣升值 0.05% 則略推高平價（亦使溢價略收斂）。ADR 11/10 盤後約 402.65（stockanalysis.com，Yahoo 5 分線 402.59；19:59 EST）對同一平價約 +15.84%，盤後價僅供參考、不作為溢價口徑。⭐ 5 日基準（往前第 5 個交易日）：2330 為 11/03 收盤 2,295（-0.44%，精確 -0.4357%）、TAIEX 為 11/03 收盤 43,307.54（-1.38%）；美股基準 11/03：費半 10,600.40（-5.68%）、ADR $404.80（-2.06%）。1 個月基準（日曆同日 10/10 為週六）：台股 10/9 為國慶連假休市，再退回 10/8——2330=2,550（-10.39%）、TAIEX=49,313.44（-13.39%）；美股退回 10/9（交易日）：ADR $453.31（-12.54%）、費半 12,572.42（-20.47%）。YTD 基準：1/2 收盤 2330=1,585、TAIEX=29,349.81、SOX=7,367.47、ADR=$319.61（費半 YTD +35.71%；ADR YTD +24.05%，若以 2025 年末 $303.89 為基準則為 +30.47%，本報沿用 1/2 口徑）。⚠️ 單日台積電相對加權落後 0.28 個百分點（精算 -0.2837；11/09 為 -0.2531，續落後）；五日領先 0.94 個百分點、一個月領先 2.99 個百分點（皆以未捨入值計）；YTD 落後 1.36 個百分點（以未捨入值計：+44.16% 對 +45.53%）。Beta 0.99 沿用 10/20 的 60 日（7/24–10/20）OLS 0.9865，本日未重算</div>
+  <div style="background:var(--card);border-radius:9px;padding:14px 16px;
+    box-shadow:0 1px 5px rgba(0,0,0,.07);overflow-x:auto;margin-bottom:12px">
+    <div class="rel-row" style="border-bottom:2px solid var(--border);padding-bottom:6px;margin-bottom:6px">
+      <div class="rel-hdr">標的</div>
+      <div class="rel-hdr" style="text-align:center">今日</div>
+      <div class="rel-hdr" style="text-align:center">5 日</div>
+      <div class="rel-hdr" style="text-align:center">1 月</div>
+      <div class="rel-hdr" style="text-align:center">YTD</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">TSMC 台股 2330</div>
+      <div class="rel-val" style="color:#4CAF50">+2.24%</div>
+      <div class="rel-val" style="color:#F44336">-0.44%</div>
+      <div class="rel-val" style="color:#F44336">-10.39%</div>
+      <div class="rel-val" style="color:#4CAF50">+44.2%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TAIEX 加權指數</div>
+      <div class="rel-val" style="color:#4CAF50">+2.52%</div>
+      <div class="rel-val" style="color:#F44336">-1.38%</div>
+      <div class="rel-val" style="color:#F44336">-13.39%</div>
+      <div class="rel-val" style="color:#4CAF50">+45.5%</div>
+    </div>
+    <div class="rel-row" style="background:#F7FBFF;border-radius:6px">
+      <div class="rel-lbl">SOX 半導體指數</div>
+      <div class="rel-val" style="color:#F44336">-0.35%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val" style="color:#4CAF50">+35.7%</div>
+    </div>
+    <div class="rel-row">
+      <div class="rel-lbl">TSM NYSE ADR</div>
+      <div class="rel-val" style="color:#4CAF50">+2.02%</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+      <div class="rel-val">—</div>
+    </div>
+  </div>
+  <div class="adr-box">
+    <div>
+      <div class="adr-lbl">ADR 市價（NYSE）</div>
+      <div class="adr-val">US$396.48</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">比例 5:1（1 ADR = 5 股）</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 理論平價（估）</div>
+      <div class="adr-val">US$347.58</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">5 × NT$2,285 ÷ 32.87</div>
+    </div>
+    <div>
+      <div class="adr-lbl">ADR 溢價</div>
+      <div class="adr-val" style="color:#FDD835">14.07%</div>
+      <div style="font-size:10px;color:#90CAF9;margin-top:2px">Beta(60d): 0.99</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 17. CoWoS 先進封裝產能 ═══ -->
+<div class="sec" id="cowos">
+  <div class="sec-title">🔧 CoWoS 先進封裝產能追蹤</div>
+  <div class="alert">⚠ 數據來源：TrendForce 2026-Q1 預估；wspm = 晶圓片/月（均為估算）</div>
+  <div class="cowos-grid">
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-S 月產能</div>
+      <div class="cowos-val">~15,000</div>
+      <div class="cowos-sub">wspm（主力 AI GPU）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-L 月產能</div>
+      <div class="cowos-val">~5,000</div>
+      <div class="cowos-sub">wspm（大尺寸 HPC）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">CoWoS-R 月產能</div>
+      <div class="cowos-val">~2,000</div>
+      <div class="cowos-sub">wspm（RDL 次世代）</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">2025 年合計</div>
+      <div class="cowos-val">~22,000</div>
+      <div class="cowos-sub">wspm</div>
+    </div>
+    <div class="cowos-card" style="border-top-color:var(--green)">
+      <div class="cowos-lbl">2026 年目標</div>
+      <div class="cowos-val" style="color:var(--green)">~35,000</div>
+      <div class="cowos-sub">wspm / YoY +59%</div>
+    </div>
+    <div class="cowos-card">
+      <div class="cowos-lbl">稼動率</div>
+      <div class="cowos-val" style="color:var(--green)">>95%</div>
+      <div class="cowos-sub">訂單積壓 4 季</div>
+    </div>
+  </div>
+  <div class="sub-title">CoWoS 客戶分配佔比（估）</div>
+  <div class="cowos-cust-bar">
+    <div style="flex:65;background:#76B900" title="NVIDIA ~65% — GB200/GB300 NVL72"></div><div style="flex:18;background:#ED1C24" title="AMD ~18% — MI350/MI450"></div><div style="flex:12;background:#CC0000" title="Broadcom ~12% — Custom XPU"></div><div style="flex:5;background:#90CAF9" title="Others ~5% — 各種 AI ASIC"></div>
+  </div>
+  <table>
+    <thead><tr><th>客戶</th><th>CoWoS 佔比（估）</th><th>主要產品</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:#76B900">NVIDIA</strong></td><td><strong>~65%</strong></td><td>GB200/GB300 NVL72</td></tr><tr><td><strong style="color:#ED1C24">AMD</strong></td><td><strong>~18%</strong></td><td>MI350/MI450</td></tr><tr><td><strong style="color:#CC0000">Broadcom</strong></td><td><strong>~12%</strong></td><td>Custom XPU</td></tr><tr><td><strong style="color:#90CAF9">Others</strong></td><td><strong>~5%</strong></td><td>各種 AI ASIC</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;background:#FFF3E0;border-left:3px solid var(--orange);
+    border-radius:6px;padding:8px 12px;font-size:11.5px;color:#795548;line-height:1.65">
+    <strong>瓶頸說明：</strong>ABF 基板與 HBM 供應限制（非 TSMC 封裝本身）<br>
+    <strong>ASP 說明：</strong>CoWoS 封裝 ASP 約為 HPC 裸晶圓的 2–3 倍，毛利率高於公司均值
+  </div>
+</div>
+
+<!-- ═══ 18. 匯率敏感度 ═══ -->
+<div class="sec" id="fx">
+  <div class="sec-title">💱 匯率敏感度分析（FX Sensitivity）</div>
+  <div class="alert">⚠ ⭐ 新台幣 11/10 收盤 32.865（較 11/09 的 32.882 升值 1.7 分、約 0.05%）；來源為中央銀行官方「銀行間收盤匯率」頁。⭐⭐ 10/15 法說會 Q4 財測匯率假設為 NT$31.8/US$：目前即期 32.87 較假設弱約 3.4%，若維持，對 Q4 毛利率約 +135bps 的順風（每 1% 約 40bps 之公司口徑）；反之新台幣若回升至 31.8 以下，Q4 毛利率中位 66% 將承壓。⚠️ 情境表自 11/11 起以 32.87 為基準重算（百分比＝32.87 ÷ 情境匯率 − 1，bps＝百分比 × 40，EPS 影響沿用既有約 0.035%／bp 的比例；同一公式回算 11/10 版（32.88）五列全數複現）；為本報推估、非公司公布。</div>
+  <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">今日 USD/NTD 匯率</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">32.87</div>
+      <div style="font-size:11px;color:var(--muted)">台幣越小 = 台幣越強</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">毛利率影響 / 每 1% 升值</div>
+      <div style="font-size:24px;font-weight:700;color:var(--red);margin:3px 0">-40 bps</div>
+      <div style="font-size:11px;color:var(--muted)">TSMC 官方法說會指引</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 16px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);flex:1;min-width:150px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">外幣避險比例（估）</div>
+      <div style="font-size:24px;font-weight:700;color:var(--navy);margin:3px 0">~75%</div>
+      <div style="font-size:11px;color:var(--muted)">~75%（外幣避險比例估算）</div>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>USD/NTD 匯率</th><th>情境說明</th><th>毛利率影響（bps）</th><th>EPS 影響（估）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>30.5</strong></td>
+        <td>NTD +7.8%（強升）</td>
+        <td style="color:var(--red)">約 -311 bps</td>
+        <td style="color:var(--red)">約 -10.9%</td>
+      </tr><tr>
+        <td><strong>31.0</strong></td>
+        <td>NTD +6.0%（續升）</td>
+        <td style="color:var(--red)">約 -241 bps</td>
+        <td style="color:var(--red)">約 -8.4%</td>
+      </tr><tr>
+        <td><strong>31.8</strong></td>
+        <td>Q4 財測匯率假設（NTD +3.4%）</td>
+        <td style="color:var(--red)">約 -135 bps</td>
+        <td style="color:var(--red)">約 -4.7%</td>
+      </tr><tr style="background:#FFF8E1;font-weight:700">
+        <td><strong>32.87</strong></td>
+        <td>基準（11/10 央行收盤 32.865）</td>
+        <td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td>
+      </tr><tr>
+        <td><strong>33.0</strong></td>
+        <td>NTD -0.4%（貶值）</td>
+        <td style="color:var(--green)">約 +16 bps</td>
+        <td style="color:var(--green)">約 +0.6%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ 19. EPS 修正追蹤 ═══ -->
+<div class="sec" id="revision">
+  <div class="sec-title">✏️ EPS 修正追蹤（Earnings Revision Tracker）</div>
+  <div class="alert">⚠ ⚠️ fy_consensus 已於 10/16 改用 FactSet（鉅亨網 10/15 報導）；fy_high／fy_low 與 q1_* 欄位為 MarketScreener 舊估、尚未取得對應新值【待更新】，請勿與 fy_consensus 混讀。</div>
+  <div class="rev-grid">
+    <div class="rev-box">
+      <div class="rev-period">Q1 2026 EPS 共識（32 位分析師）⚠️ 尚未依 Q2 法說會後上修重校</div>
+      <div class="rev-consensus">NT$20.38</div>
+      <div class="rev-range">區間：NT$18.90 – NT$22.10</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 +6.7%</span>
+      </div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-period">FY 2026 EPS 共識</div>
+      <div class="rev-consensus">NT$109.38</div>
+      <div class="rev-range">區間：NT$78.00 – NT$92.00</div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+        <span class="rev-trend-up">上修</span>
+        <span style="font-size:11px;color:var(--green);font-weight:600">vs 3 個月前 上修（中位數 108.35 → 109.21）</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">連續超預期</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">12</div>
+      <div style="font-size:11px;color:var(--muted)">季（100% 超預期）</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">平均超預期幅度</div>
+      <div style="font-size:28px;font-weight:700;color:var(--green);margin:4px 0">+6.5%</div>
+      <div style="font-size:11px;color:var(--muted)">近 12 季均值</div>
+    </div>
+    <div style="background:var(--card);border-radius:9px;padding:12px 14px;
+      box-shadow:0 1px 5px rgba(0,0,0,.07);text-align:center">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase">下次財報</div>
+      <div style="font-size:18px;font-weight:700;color:var(--blue);margin:4px 0">2027 年 1 月中旬（Q4 2026 法說會，日期待台積電官方公告；倒數以推估日 2027-01-14 計算【待確認】）；10 月營收已於 11/10 公布（約 NT$5,868.9 億，年增 +59.71%）</div>
+      <div style="font-size:11px;color:var(--muted)">Q4 2026 法說會（Q3 已於 10/15 結束）</div>
+    </div>
+  </div>
+  <div class="sub-title">修正催化因子</div>
+  <p style="font-size:11px;margin:-4px 0 8px"><a href="TSMC_日報_歷史.html#eps" style="color:var(--blue)">完整 93 條歷史 →</a></p>
+  <div class="trigger-list">
+    <div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐⭐ 10 月營收與 11/10 董事會（營運面、非價格訊號）：10 月合併營收約 NT$5,868.9 億，年增 +59.71%、月增 +14.66%（本報依 9 月 5,118.57 億、2025 年 10 月 3,674.73 億自算複現；媒體稱創單月新高，本報未對全歷史月序列自算），1–10 月累計約 4 兆 4,856.17 億元、年增 +43.29%（pr.tsmc.com 標題確認、數字以多家媒體一致值為準）；董事會核准 Q3 現金股利每股 NT$9.0（Q2 為 7.0，除息 2027/3/11）、資本預算約 US$409.27 億，並核准各不超過 US$5 億認購 Anthropic、OpenAI 股份（核准額度上限、非已完成交易）。⚠️ 營收屬月度資料、非獲利預估調整；11/10–11/11 上午查無券商據此調整目標價或 EPS 預估（屬「未查到」）。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 本區間（11/10 台股收盤）負面因素未消失、程度與前一區間相近，性質為中期價格結構與期貨籌碼，而非台積電獲利面：（1）11/10 反彈量再縮（36,576 張、為前報基準的 0.61 倍），收盤仍低於 MA10 14 元，續在 MA20／MA60／MA120 之下且 MA20 與 MA120 差距擴大；2,345–2,360、2,380–2,390、2,450–2,490 三個舊缺口皆未回補；（2）外資連 23 日賣超台積電（合計 262,935 張），外資台指期淨空再擴至 -103,473 口（10/20 起 14 筆最大、連 6 日擴大）；台指選擇權 P/C 由 51.19% 升至 66.54%（賣權相對增加）；自營連 2 賣；相對大盤續落後 0.28 個百分點；（3）總經：美 10 月 CPI 月增 0.4%、核心 0.3%，高於預期（BLS 官方），CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入（二手）；（4）客戶面：輝達 11/10 再跌 5.47%（兩日 -9.51%），調查案出現集體訴訟（媒體轉述），本報不推估對台積電之影響；（5）高雄 F22 P4 事故截至 11/11 上午未見復工報導，2 奈米時程影響未能證實。⚠️ 以上皆非獲利面下修；11/10–11/11 上午查無券商下調目標價；本報維持看空。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ 本區間（11/10 台股收盤至 11/11 上午）短線技術修復延續第 2 日，延續性待 11/12 報告以 11/11 收盤檢驗：（1）11/10 台積電 +2.24% 收在全日最高 2,285（11/03 以來最高收盤），連 2 日上漲、站穩 MA5（高 54 元）、守在布林下軌之上（%B 0.28）；MACD 柱 -50.45 → -35.48 收斂且 DIF 回升 3.05、K/D 黃金交叉第 3 日、RSI 35.47 → 41.68 回到 40 之上；（2）外資賣超縮至 8,181 張、維持 10,000 張門檻內；投信連 28 買；11/09 夜盤偏強開收皆兌現（偏強紀錄開 7/9、收 4/9）；（3）收盤後 ADR 逆勢 +2.02% 收 $396.48（連 3 漲，收復 11/05 跌幅的 101.71%）；韓股三星 +5.51%、SK 海力士 +7.44%（Naver）；（4）MA10 的 11/11 平衡點 2,285.00 恰等於 11/10 收盤，為下一個可觀察的修復門檻。⚠️ 以上皆非台積電獲利預估上修。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 本區間（11/09 台股收盤）負面因素未消失、但程度較前一區間緩和，性質為中期價格結構與期貨籌碼，而非台積電獲利面：（1）11/09 反彈量縮（45,883 張、為前報基準的 0.77 倍），收盤僅高於 MA5 2.00 元，續在 MA10／MA20／MA60／MA120 之下且 MA20 下穿 MA120；2,345–2,360、2,380–2,390、2,450–2,490 三個舊缺口皆未回補；（2）外資連 22 日賣超台積電（合計 254,754 張），外資台指期淨空續擴至 -101,771 口（10/20 起 13 筆最大）；自營由連 6 買轉為賣超 764 張；相對大盤續落後 0.25 個百分點；（3）客戶面：輝達董事會 11/8 宣布對執行長展開獨立調查、11/9 股價 -4.27%（情報與司法調查細節為紐時二手轉述、未證實），本報不推估對台積電之影響；（4）FXStreet 引 CME FedWatch 稱 12 月升息機率約 84%（二手），美 10 月 CPI 11/10（美東）公布；（5）高雄 F22 P4 事故截至 11/10 上午未見復工報導，2 奈米時程影響未能證實。⚠️ 以上皆非獲利面下修；11/09–11/10 上午查無券商下調目標價；本報維持看空。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ 本區間（11/09 台股收盤至 11/10 上午）出現短線技術修復，延續性待 11/11 報告以 11/10 收盤檢驗：（1）11/09 台積電 +4.68%（2026 年 97 個上漲日第 8 大）終止連 7 跌，收回布林下軌之上、站回 MA5、盤中回補 11/06 的 2,195–2,235 缺口；MACD 柱 -58.83 → -50.45 收斂、K/D 黃金交叉第 2 日、RSI 19.57 → 35.47；（2）外資賣超縮至 8,758 張、回到 10,000 張門檻內；投信連 27 買；11/06 夜盤偏強開收皆兌現；（3）國安基金 11/9 起進場、金管會借券賣出上限降至 3%（實際買進金額官方未公布）；（4）美股 11/09 續強：費半 +6.85%（2 年 288 個上漲日第 5 大）、台積電 ADR +3.50%、超微 +13.26%（Oppenheimer 升評）；11/09 夜盤個股期 2,262 較現貨 +27 再指示偏強；（5）台積電對 3D DRAM 傳聞回應專注晶圓代工（據自由財經轉述 Tom's Hardware，未直接證實或否認）。⚠️ 以上皆非台積電獲利預估上修。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 本區間（11/06 台股收盤）再擴大、仍為當前主要的負面因素，性質為外部衝擊傳導後的價格結構與現貨、期貨籌碼，而非台積電獲利面：（1）11/06 台積電開盤即跌停 2,020、收 2,135（-4.69%，2026 年 95 個下跌日中第 2 大），量 110,715 張為 2026 年最大，收破布林下軌、留 2,195–2,235 新向下缺口、連 7 日下跌，續在半年線與五條均線之下；MACD 柱 -58.83、RSI 19.57 雙創 2026 年新低；（2）外資賣超 22,844 張（連 21 賣、合計 245,996 張），外資台指期淨空擴大至 -99,930 口；相對大盤由領先轉為落後 0.18 個百分點；（3）加權 -4.51%（2026 年第 3 大跌幅）、KOSPI -6.02%，亞股承接美股 11/05 崩跌；（4）美國 10 月非農 +16.5 萬強於預期，InvestmentNews 引 CME FedWatch 稱 12 月升息機率約 76.8%（二手）；（5）高雄 F22 P4 事故截至 11/09 上午未見復工報導，2 奈米時程影響未能證實。⚠️ 以上皆非獲利面下修；11/06–11/09 上午查無券商下調目標價；本報維持看空。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ 本區間（11/06 收盤後至 11/09 上午）出現短線緩衝，強度待 11/10 報告以 11/09 收盤檢驗：（1）美股 11/06 反彈：費半 +4.21%、台積電 ADR +6.33%（2 年 264 個上漲日第 7 大，收復 11/05 跌幅的 52.38%）、超微 +11.04%、輝達 +2.78%（媒體歸因為逢低承接與空單回補）；（2）11/06 夜盤個股期 2,173 較現貨 +38 指示偏強、台指期夜盤較加權 +596.36；（3）國安基金與金管會五項穩定市場措施 11/9 起實施（公視、工商時報）；（4）KD 低檔黃金交叉（K 16.74／D 16.08）、RSI 19.57 屬極度超賣；投信連 26 買、自營連 6 買；（5）Bernstein 台股端目標價 NT$3,828、優於大盤（工商時報 11/9 單源、B 級，原目標價與發布日未載）。⚠️ 以上皆非台積電獲利預估上修。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 本區間（11/05 台股收盤＋收盤後美股與夜盤）明顯擴大、仍為當前主要的負面因素，性質為外部市場衝擊、價格結構與期貨籌碼，而非台積電獲利面：（1）美股 11/05 費半 -12.25%（2 年 213 個下跌日中最大跌幅）、台積電 ADR -10.78%（2 年 235 個下跌日中第 2 大）、那斯達克 -5.52%；客戶與同業普遍重挫（輝達 -9.26%、超微 -17.26%、美光 -17.46%、博通 -10.43%），高通（-9.49%）與 Arm（-13.08%）財報後首個常規盤跌幅皆深於盤後指示；據 Fox Business／CNBC，主因為 AI 資料中心監管疑慮（媒體歸因）；（2）11/05 夜盤個股期 2,026（-9.84%）較現貨 -214 指示偏弱，11/06 上午 MIS 盤中台積電開盤跌停 2,020（盤中、不作結論）；（3）11/05 收盤 2,240 為 7/30 以來最低、連 6 日下跌，續在半年線與五條均線之下、MA20 下穿 MA60，MACD 柱續擴大至 -45.98、KD 死亡交叉第 4 日、RSI 25.76 再創 2026 年新低；（4）外資連 20 日賣超台積電（合計 223,152 張），外資台指期淨空續擴大至 -95,651 口；（5）高雄 F22 P4 事故截至 11/06 上午未見復工報導，2 奈米時程影響未能證實。⚠️ 以上皆非獲利面下修；11/05–11/06 上午查無台股端與 ADR 端券商下調目標價；本報維持看空。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--green)">正面</span>
+      <span>⭐ 本區間（11/05）台股端出現局部緩衝，但已被收盤後的外部衝擊覆蓋，強度偏弱：（1）台積電 -0.88% 對加權 -3.20%，相對抗跌 2.31 個百分點（11/04 為落後 0.70）；（2）外資賣超自 21,603 張收斂至 10,252 張（近乎減半），投信連 25 買（+2,739 張）、自營連 5 買（+5,295 張）；量較前日縮 16.15%、盤中低點與 11/04 持平未再破底、收盤守在實際布林下軌之上 7.47 元；（3）美股盤後 19:59 EST：ADR 約 360.50（+2.10%）、美光約 +4.12%、超微約 +3.38%（皆非收盤）；（4）Bernstein 11/4 將 ADR 目標價自 US$554 調升至 US$600（B 級，MarketBeat 與 Crypto Briefing 兩處彙整一致、無券商原文；發布於崩跌前）。⚠️ 以上皆非台積電獲利預估上修。</span>
+    </div><div class="trigger-item">
+      <span class="trigger-badge" style="background:var(--red)">負面</span>
+      <span>⚠️ 本區間（11/04）再擴大、仍為當前主要的負面因素，性質為價格結構、個股賣壓、現貨與期貨籌碼及 AI 資本支出疑慮，而非台積電獲利面：（1）11/04 收盤 2,260（-1.53%）與盤中低 2,235 皆為 7/30 以來最低、連 5 日下跌，續在半年線與五條均線之下；MACD 柱續擴大至 -42.29、KD 死亡交叉延續、RSI 27.28 跌破 30 再創 2026 年 187 個可計算日最低；低於回到中性偏空的 2,450 門檻 190 元；（2）外資對台積電賣超 21,603 張（連 19 賣、合計 212,900 張），較前日擴大 9,900 張；外資台指期淨空續擴大 1,835 口至 -93,647 口；全市場外資賣超 1,499.00 億（媒體稱史上第 5 大，本報未自算）；（3）加權僅 -0.83%，台積電落後 0.70 個百分點、由相對抗跌轉為落後；（4）美股 11/04 費半逆勢 -3.13%、ADR -2.24%、美光 -7.00%；據 StockTitan 引 CNBC，選後資料中心監管疑慮壓抑 AI 概念股；高通 FQ1 財測公布後盤後約 -7.52%（19:59 EST）；（5）高雄 F22 P4 事故截至 11/05 上午未見復工報導，2 奈米時程影響未能證實。⚠️ 以上皆非獲利面下修；11/04–11/05 上午查無台股端主要券商下調目標價；本報維持看空。</span>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;
+    border-radius:10px;padding:14px 18px;font-size:12.5px;line-height:1.75">
+    <strong style="color:#FDD835">分析師觀點：</strong>⭐⭐⭐ Q3 2026 財報（10/15 法說會，官方新聞稿與 SEC 6-K）確認：營收 NT$1 兆 4,942.4 億／US$46.72B（+17.6% QoQ、+50.9% YoY）高於指引上緣 $45.8B；毛利率 66.4%、營業利益率 58.7%、淨利率 51.1%；稅後純益 NT$7,630.6 億（+68.7% YoY）高於 LSEG SmartEstimate 共識 NT$7,463 億約 +2.25%、連續 12 季超預期；EPS NT$29.43／US$4.60 per ADR。Q4 財測營收 US$52.3–54.3B、毛利率 65–67%、營益率 56.5–58.5%（匯率假設 31.8）；全年美元營收成長上修至約 44%、CapEx US$60–64B 維持。⚠️⚠️ 本報數週以來一直在區分兩件背道而馳的事——獲利面未被下修、評價面則隨利率與情緒起伏——⭐ 截至 11/11 上午（台股開盤後）的最新狀態如下：（1）⭐⭐ 獲利面維持上修後的高檔、營收面再添一筆——10 月營收約 NT$5,868.9 億、年增 +59.71%（媒體稱創單月新高）、1–10 月累計年增 +43.29%；11/10 董事會核准 Q3 股利每股 NT$9.0（Q2 為 7.0）；法說後 Aletheia（3,500 → 5,000）、野村（3,615 → 3,745）、法巴（3,090）上調目標價；ADR 端 Bernstein 11/4 將目標價由 US$554 調升至 US$600（B 級）；台股端 Bernstein NT$3,828、優於大盤（工商時報與 FTNN 11/9 轉述、疑同一研報，B 級）；11/10–11/11 上午其餘券商查無新調整或下調（屬「未查到」、非逐家確認）；FactSet 2026 EPS 共識中位數 109.21（鉅亨網 10/15）本日未重查；（2）⭐ 價格面——11/10 台股 2330 收 2,285（+2.24%），連 2 日上漲、收在全日最高、站穩 MA5、守在布林下軌之上，MACD 柱續收斂且 DIF 回升、KD 黃金交叉延續、RSI 回到 41.68；⚠️ 但量 36,576 張僅為基準的 0.61 倍（量縮上漲＝跌深反彈）、收盤仍低於 MA10 14 元且續在 MA20／MA60／MA120 之下，同日加權 +2.52%、台積電相對落後 0.28 個百分點；外資連 23 日賣超合計 262,935 張、11/10 單日 8,181 張（維持在門檻內）；回到中性偏空的價格（≥ 2,450）一項未過、籌碼（≤ 10,000 張）一項已過，本報維持看空、轉弱程度續緩和；11/11 MIS 09:32 盤中開 2,330，收盤前不作結論；（3）⚠️ 事件面——國安基金進場第 2 日（金額未公布）；美 10 月 CPI 月增 0.4%、核心 0.3%，高於預期（BLS 官方），CNBC 引 CME FedWatch 稱 12 月升息 1 碼已全面計入、2 碼約 13.6%（二手）；美股 11/10 費半 -0.35%、那斯達克 -0.74%、標普 -0.38%、道瓊 -0.30%、VIX 19.46，ADR 逆勢 +2.02%；輝達 11/10 -5.47%（兩日 -9.51%），調查案細節為轉述；外資台指期淨空再擴至 -103,473 口；高雄 F22 P4 事故仍未見復工報導，對 2 奈米擴產的影響無官方或法人評估，本報不推估；（4）⚠️ 評價面——BWIBBU P/E 11/10 為 26.49x（財報基準未換季）；ADR 11/10 收 $396.48、對台股 11/10 收盤與匯率 32.87 的同日對齊溢價 +14.07%（11/09 為 +14.33%），盤後約 402.65；共識目標價 FactSet NT$3,220 對 2,285 為 +40.92%、TipRanks US$538.44（10/18 版）對 $396.48 為 +35.81%（目標價未變、分母變動）。⭐ 本報的判讀：法說後十六個台股交易日（-0.82%、平盤、-0.62%、+0.62%、-1.45%、+0.63%、+1.04%、-0.41%、-1.86%、-1.69%、-1.50%、-1.53%、-0.88%、-4.69%、+4.68%、+2.24%）累計自 2,440 跌至 2,285（-6.35%），獲利面上修與股價走弱的背離仍在、但近兩日出現短線修復；量能、中期均線與期貨籌碼尚未確認。本報不預判反轉時點，以 2,450（回到缺口下緣之上）且外資賣超維持 1 萬張以內（或轉買）、半年線是否收回作為自看空回調的判準，並以 MA10 平衡點 2,285.00 為下一修復門檻、MA5 平衡點 2,223.75 與 11/06 低點 2,020 作為下檔警戒。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  TSMC 台積電日報 — 2026-11-11<br>
+  資料來源：Yahoo Finance、CNBC、Morgan Stanley、Goldman Sachs、JPMorgan、TSMC IR、TrendForce、玩股網、TWSE、BIS、Deloitte、PwC<br>
+  <strong>本報告由自動化腳本產生，不構成任何投資建議。投資人應自行評估風險，必要時請諮詢持牌財務顧問。</strong>
+</footer>
+</body>
+</html>
