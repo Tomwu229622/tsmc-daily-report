@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TSMC 台積電 每日股市分析報告</title>
+<!-- PWA -->
+<link rel="manifest" href="app.webmanifest">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TSMC 日報">
 <style>
 :root {
   --navy: #0D1B2A;
@@ -493,6 +502,14 @@ document.addEventListener('keydown', e => {
 
 /* ── Boot ── */
 init();
+
+/* ── PWA: service worker (offline cache, installability) ── */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err =>
+      console.warn('SW registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
