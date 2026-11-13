@@ -647,12 +647,31 @@ def _trigger_item_html(t):
     </div>'''
 
 _MEAN_REV_PRICE = int(round(float(STOCK["tw_price"].replace(",", "")) * VALUATION["pe_5y_avg"] / VALUATION["pe_current"] / 5) * 5)  # 均值回歸價：收盤 × 5 年均值 P/E ÷ 現值 P/E，取整至 5 元（原為寫死的 NT$1,200，2026-10-06 改為動態）
+# PWA tags shared with index.html (plain strings, inserted into the f-string templates)
+PWA_HEAD = """<!-- PWA -->
+<link rel="manifest" href="app.webmanifest">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TSMC 日報">"""
+PWA_SW = """<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  });
+}
+</script>"""
+
 HTML = f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TSMC 台積電日報 — {TODAY}</title>
+{PWA_HEAD}
 <style>
 :root{{
   --navy:#0D1B2A; --blue:#1565C0; --mid:#1976D2; --light:#BBDEFB;
@@ -1638,6 +1657,7 @@ footer strong{{color:#90A4AE}}
   資料來源：Yahoo Finance、CNBC、Morgan Stanley、Goldman Sachs、JPMorgan、TSMC IR、TrendForce、玩股網、TWSE、BIS、Deloitte、PwC<br>
   <strong>本報告由自動化腳本產生，不構成任何投資建議。投資人應自行評估風險，必要時請諮詢持牌財務顧問。</strong>
 </footer>
+{PWA_SW}
 </body>
 </html>"""
 
@@ -1654,6 +1674,7 @@ HISTORY_HTML = f"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TSMC 台積電日報 — 歷史條目（IR 行事曆／EPS 修正催化因子）</title>
+{PWA_HEAD}
 {_style}
 </head>
 <body>
@@ -1681,6 +1702,7 @@ HISTORY_HTML = f"""<!DOCTYPE html>
   TSMC 台積電日報歷史頁 — {TODAY}<br>
   <a href="TSMC_日報_{TODAY}.html" style="color:#90A4AE">回當日日報</a> · <a href="index.html" style="color:#90A4AE">日報索引</a>
 </footer>
+{PWA_SW}
 </body>
 </html>"""
 hist_out = os.path.join(BASE_DIR, HISTORY_PAGE)

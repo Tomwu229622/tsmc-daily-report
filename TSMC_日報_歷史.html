@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TSMC 台積電日報 — 歷史條目（IR 行事曆／EPS 修正催化因子）</title>
+<!-- PWA -->
+<link rel="manifest" href="app.webmanifest">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="TSMC 日報">
 <style>
 :root{
   --navy:#0D1B2A; --blue:#1565C0; --mid:#1976D2; --light:#BBDEFB;
@@ -1011,5 +1020,12 @@ footer strong{color:#90A4AE}
   TSMC 台積電日報歷史頁 — 2026-11-13<br>
   <a href="TSMC_日報_2026-11-13.html" style="color:#90A4AE">回當日日報</a> · <a href="index.html" style="color:#90A4AE">日報索引</a>
 </footer>
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  });
+}
+</script>
 </body>
 </html>
